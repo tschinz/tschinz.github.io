@@ -34,6 +34,57 @@ Check out also [Rust Utils](https://rustutils.com/)
 | [fzf](https://github.com/junegunn/fzf)             | -          | Fuzzy Finder    | `fzf`                          | Fuzzy Finder, integrated with commands for interactive file selection  |
 | [tv](https://github.com/alexpasmantier/television) | `fzf` `sk` s| Fuzzy Finder    | `tv`                           | Fuzzy Finder, with tui allow finding env vars, files, file content, git repos, alias |
 
+**Multimedia tools**
+| Tool                                               | Replaces   | Type            | Example                                                                       | Description                                            |
+|----------------------------------------------------|------------|-----------------|-------------------------------------------------------------------------------|--------------------------------------------------------|
+| [codesnap](https://github.com/mistricky/codesnap)  | -          | Code Images     | ```codesnap -c "echo 'Hello, World!'" -o clipboard --title "Hello, World!"``` | Created images of code via a terminal cli  |
+
+**Multimedia tools**
+| Tool                                               | Replaces   | Type                | Example                                                                       | Description                                                                  |
+|----------------------------------------------------|------------|---------------------|-------------------------------------------------------------------------------|------------------------------------------------------------------------------|
+| [codesnap](https://github.com/mistricky/codesnap)  | -          | Code Images         | ```codesnap -c "echo 'Hello, World!'" -o clipboard --title "Hello, World!"``` | Created images of code via a terminal CLI                                    |
+| [t-rec](https://github.com/sassman/t-rec-rs)       | -          | Terminal Recording  | `t-rec -o session.gif`                                                        | A tool to record your terminal sessions as animated GIFs                     |
+| [asciinema](https://asciinema.org/)                | -          | Terminal Recording  | `asciinema rec`                                                              | Record and share terminal sessions, with playback options (web or terminal)   |
+
+**CodeSnap Configuration**
+```json title="~/.config/CodeSnap/config.json"
+{
+  "window": {
+    "mac_window_bar": true,
+    "shadow": 10,
+    "margin": {
+      "x": 20,
+      "y": 40
+    }
+  },
+  "code": {
+    "font_family": "CaskaydiaCove Nerd Font",
+    "theme": "candy"
+  },
+  "watermark": {
+    "content": "",
+    "font_family": "Pacifico",
+    "color": "#ffffff"
+  },
+  "background": {
+    "start": {
+      "x": 0,
+      "y": 0
+    },
+    "end": {
+      "x": 0,
+      "y": 0
+    },
+    "stops": [
+      {
+        "position": 0,
+        "color": "#ffffff"
+      }
+    ]
+  }
+}
+```
+
 ## Commonly used commands
 
 skim in interactive mode with preview script and bind `Ctrl-Y` to copy filename and `F4` open in Sublime Text

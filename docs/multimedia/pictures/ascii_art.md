@@ -242,6 +242,20 @@ loaded by default are the following graphics: `apt` `bud-frogs` `bunny`
 `suse` `three-eyes` `turkey` `turtle` `tux` `unipony` `unipony-smaller`
 `vader` `vader-koala` `www`
 
+## Crabsay
+
+```
+_________________________________________
+< Today is a great day to share CodeSnap! >
+-----------------------------------------
+       \
+        \
+           _~^~^~_
+       \) /  o o  \ (/
+         '_   -   _'
+         / '-----' \
+```
+
 ## Images
 
 ```
