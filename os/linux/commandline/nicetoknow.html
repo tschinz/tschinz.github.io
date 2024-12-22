@@ -11750,6 +11750,53 @@
 </tr>
 </tbody>
 </table>
+<p><strong>Multimedia tools</strong>
+| Tool                                               | Replaces   | Type            | Example                                                                       | Description                                            |
+|----------------------------------------------------|------------|-----------------|-------------------------------------------------------------------------------|--------------------------------------------------------|
+| <a href="https://github.com/mistricky/codesnap">codesnap</a>  | -          | Code Images     | <code>codesnap -c "echo 'Hello, World!'" -o clipboard --title "Hello, World!"</code> | Created images of code via a terminal cli  |</p>
+<p><strong>Multimedia tools</strong>
+| Tool                                               | Replaces   | Type                | Example                                                                       | Description                                                                  |
+|----------------------------------------------------|------------|---------------------|-------------------------------------------------------------------------------|------------------------------------------------------------------------------|
+| <a href="https://github.com/mistricky/codesnap">codesnap</a>  | -          | Code Images         | <code>codesnap -c "echo 'Hello, World!'" -o clipboard --title "Hello, World!"</code> | Created images of code via a terminal CLI                                    |
+| <a href="https://github.com/sassman/t-rec-rs">t-rec</a>       | -          | Terminal Recording  | <code>t-rec -o session.gif</code>                                                        | A tool to record your terminal sessions as animated GIFs                     |
+| <a href="https://asciinema.org/">asciinema</a>                | -          | Terminal Recording  | <code>asciinema rec</code>                                                              | Record and share terminal sessions, with playback options (web or terminal)   |</p>
+<p><strong>CodeSnap Configuration</strong>
+</p><div class="highlight"><span class="filename">~/.config/CodeSnap/config.json</span><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"window"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"mac_window_bar"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"shadow"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"margin"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"x"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"y"</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"font_family"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CaskaydiaCove Nerd Font"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"theme"</span><span class="p">:</span><span class="w"> </span><span class="s2">"candy"</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"watermark"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"font_family"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pacifico"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#ffffff"</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"background"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"start"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"x"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"y"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"end"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"x"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"y"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"stops"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#ffffff"</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <h2 id="commonly-used-commands">Commonly used commands</h2>
 <p>skim in interactive mode with preview script and bind <code>Ctrl-Y</code> to copy filename and <code>F4</code> open in Sublime Text
 </p><div class="highlight"><pre><span></span><code>sk<span class="w"> </span>--ansi<span class="w"> </span>-i<span class="w"> </span>-c<span class="w"> </span><span class="s1">'ag --color "{}"'</span><span class="w"> </span>--preview<span class="w"> </span><span class="s2">"./preview.sh {}"</span><span class="w"> </span>--bind<span class="w"> </span><span class="s1">'f3:execute(subl -f {}),ctrl-y:execute-silent(echo {} | pbcopy)+abort'</span>
