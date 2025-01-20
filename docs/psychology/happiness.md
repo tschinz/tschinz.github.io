@@ -10,7 +10,7 @@ tags:
 
 ## How to not give a fuck
 
-![](/multimedia/books/img/the-subtle-art-of-not-give-a-fuck.jpg){.center width="20%"}
+![](img/books/the-subtle-art-of-not-give-a-fuck.jpg){.center width="20%"}
 
 Insights from the book [The subtle way to not giving a fuck](https://www.google.de/books/edition/Die_subtile_Kunst_des_Daraufschei%C3%9Fens/A0-HDQAAQBAJ) by MArk Manson.
 

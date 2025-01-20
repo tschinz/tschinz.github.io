@@ -19,6 +19,7 @@ copyright: Copyright &copy; 2004 - 2024 tschinz
 # Configuration
 theme:
   name: material
+  custom_dir: docs/_extra/overrides
   logo: img/logo.svg
   icon:
     logo: logo
@@ -67,6 +68,9 @@ theme:
     - content.code.copy # copy button for code blocks
     - content.action.edit # edit button for pages
 extra:
+  analytics:
+    provider: tianji
+    website_id: cm64ljmbyhzym12yane2yi8k4
   #alternate:
   #  - name: English
   #    link: /en/
