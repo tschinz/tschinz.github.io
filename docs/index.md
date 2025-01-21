@@ -3,10 +3,12 @@ hide:
   - navigation
   - toc
 ---
+![](https://app-tianji.msgbyte.com/telemetry/cm64lizd7hzwj12yac9ppg3tv/cm66b3c1ho5ve12yakx1ko70b.gif)
 
 ![](img/logo.svg){.center width=50%}
 
 # Welcome to my (0,0,0)
+
 
 This webpage is a compilation of knowledge I’ve pursued and documented over the years. It is a living project — a work in progress that does not need perfection, but reflects my passion for learning and sharing insights.
 
@@ -33,3 +35,5 @@ Feel free to explore the content. If it proves helpful to others, that’s an ad
 - [Numbat](tools/numbat/cheatsheet.md)
 
 ![](img/vulcan-sallute-constellation.svg){.center width=30%}
+
+![](https://app-tianji.msgbyte.com/telemetry/cm64lizd7hzwj12yac9ppg3tv/cm66b3c1ho5ve12yakx1ko70b/badge.svg)
