@@ -402,6 +402,7 @@ nav:
           - Creating Torrents: tools/bittorrent/creating_torrent.md
       - Nmap: tools/nmap/index.md
       - SDR++: tools/sdr++/index.md
+      - Tianji: tools/tianji/index.md
       - Useful: tools/useful_tools/useful_tools.md
   - OS:
       - os/index.md

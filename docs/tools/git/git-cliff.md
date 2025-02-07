@@ -110,6 +110,10 @@ Here’s an example `.git-cliff.toml` configuration file to customize the change
 - [git-cliff-default.toml](docs/git-cliff-default.toml)
 - [git-cliff-detailed.toml](docs/git-cliff-detailed.toml)
 
+### My custom configuration
+
+[git-cliff-custom.toml](docs/git-cliff-custom.toml)
+
 ## Getting started
 
 - Install `git-cliff`
