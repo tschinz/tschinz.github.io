@@ -70,7 +70,11 @@ theme:
 extra:
   analytics:
     provider: tianji
-    website_id: cm64ljmbyhzym12yane2yi8k4
+    #website_id: cm64ljmbyhzym12yane2yi8k4
+    #website_url: https://app-tianji.msgbyte.com/tracker.js
+    website_id: cm7g8oa580001ru04r0z0th92
+    website_url: https://tianji.tschinz.duckdns.org/tracker.js
+
   #alternate:
   #  - name: English
   #    link: /en/
@@ -330,6 +334,8 @@ nav:
           - Tips & Ticks: coding/ahk/tips_tricks.md
   - Tools:
       - tools/index.md
+      - Starship:
+          - tools/starship/index.md
       - Just:
           - tools/just/index.md
           - Intro: tools/just/intro.md

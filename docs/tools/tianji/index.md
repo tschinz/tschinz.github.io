@@ -109,7 +109,7 @@ For the server monitor you need to install the `tianji-reporter` onto your serve
 curl -o- https://app-tianji.msgbyte.com/serverStatus/xxxxxxxxxxxxxxxxxxxxxxxxx/install.sh?url=https://app-tianji.msgbyte.com | sudo bash
 ```
 
-If your server distribution is not supported (for example for Unraid Slackware) you can install and run it yourself. Download the `tianji-reporter` copy in onto your server and let is start once the server starts.
+If your server distribution is not supported (for example for Unraid Slackware) you can install and run it yourself. [Download](https://github.com/msgbyte/tianji/releases) the `tianji-reporter` copy in onto your server and let is start once the server starts.
 
 ```bash
 ./tianji-reporter --url https://app-tianji.msgbyte.com --workspace xxxxxxxxxxxxxxxxxxxxxxxxx

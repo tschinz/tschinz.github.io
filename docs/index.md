@@ -3,8 +3,7 @@ hide:
   - navigation
   - toc
 ---
-![](https://app-tianji.msgbyte.com/telemetry/cm64lizd7hzwj12yac9ppg3tv/cm66b3c1ho5ve12yakx1ko70b.gif)
-
+![](https://tianji.tschinz.duckdns.org/telemetry/clnzoxcy10001vy2ohi4obbi0/cm7hhbopo003iru04cgt92vmk.gif)
 ![](img/logo.svg){.center width=50%}
 
 # Welcome to my (0,0,0)
@@ -36,4 +35,4 @@ Feel free to explore the content. If it proves helpful to others, that’s an ad
 
 ![](img/vulcan-sallute-constellation.svg){.center width=30%}
 
-![](https://app-tianji.msgbyte.com/telemetry/cm64lizd7hzwj12yac9ppg3tv/cm66b3c1ho5ve12yakx1ko70b/badge.svg)
+![](https://tianji.tschinz.duckdns.org/telemetry/clnzoxcy10001vy2ohi4obbi0/cm7hhbopo003iru04cgt92vmk/badge.svg)
