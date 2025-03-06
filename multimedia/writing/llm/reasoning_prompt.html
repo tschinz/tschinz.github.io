@@ -12,13 +12,13 @@
         <meta name="author" content="tschinz">
       
       
-        <link rel="canonical" href="https://tschinz.github.com/multimedia/writing/llm/prompt_engineering.html">
+        <link rel="canonical" href="https://tschinz.github.com/multimedia/writing/llm/reasoning_prompt.html">
       
       
         <link rel="prev" href="index.html">
       
       
-        <link rel="next" href="../latin/index.html">
+        <link rel="next" href="rtf.html">
       
       
         <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../../../feed_rss_created.xml">
@@ -29,7 +29,7 @@
     
     
       
-        <title>Prompt Engineering - Zentauri</title>
+        <title>Reasoning Prompt - Zentauri</title>
       
     
     
@@ -113,7 +113,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#prompt-engineering-frameworks" class="md-skip">
+        <a href="#reasoning-prompt" class="md-skip">
           Skip to content
         </a>
       
@@ -146,7 +146,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Prompt Engineering
+              Reasoning Prompt
             
           </span>
         </div>
@@ -9898,6 +9898,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
     
@@ -9916,7 +9922,7 @@
               
   
   <span class="md-ellipsis">
-    LLM Prompts
+    LLM Prompt Engineering
   </span>
   
 
@@ -9932,7 +9938,7 @@
         <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_7_2_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_7_2_4">
             <span class="md-nav__icon md-icon"></span>
-            LLM Prompts
+            LLM Prompt Engineering
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -9951,25 +9957,23 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
-      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
   
   <span class="md-ellipsis">
-    Prompt Engineering
+    Reasoning Prompt
   </span>
   
 
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="prompt_engineering.html" class="md-nav__link md-nav__link--active">
+      <a href="reasoning_prompt.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    Prompt Engineering
+    Reasoning Prompt
   </span>
   
 
@@ -9981,8 +9985,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -9991,19 +9993,64 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#rtf" class="md-nav__link">
+  <a href="#reasoning-prompt" class="md-nav__link">
     <span class="md-ellipsis">
-      RTF
+      Reasoning Prompt
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="RTF">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-prompt-breakdown" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Prompt Breakdown
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Components
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Components">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
+  <a href="#goal" class="md-nav__link">
     <span class="md-ellipsis">
-      Example
+      Goal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      Return Format
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#warnings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Warnings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#context-dump" class="md-nav__link">
+    <span class="md-ellipsis">
+      Context Dump
     </span>
   </a>
   
@@ -10015,43 +10062,55 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#risen" class="md-nav__link">
+  <a href="#why-this-works" class="md-nav__link">
     <span class="md-ellipsis">
-      RISEN
+      Why This Works
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="RISEN">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#example_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#rodes" class="md-nav__link">
+  <a href="#examples" class="md-nav__link">
     <span class="md-ellipsis">
-      RODES
+      Examples
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="RODES">
+    <nav class="md-nav" aria-label="Examples">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#example_2" class="md-nav__link">
+  <a href="#technical-documentation" class="md-nav__link">
     <span class="md-ellipsis">
-      Example
+      Technical Documentation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creative-writing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creative Writing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#academic-research-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Academic Research Summary
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#business-strategy-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Business Strategy Analysis
     </span>
   </a>
   
@@ -10066,6 +10125,69 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="rtf.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RTF
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="risen.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RISEN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="rodes.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RODES
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -11699,8 +11821,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -11709,19 +11829,64 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#rtf" class="md-nav__link">
+  <a href="#reasoning-prompt" class="md-nav__link">
     <span class="md-ellipsis">
-      RTF
+      Reasoning Prompt
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="RTF">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-prompt-breakdown" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Prompt Breakdown
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Components
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Components">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
+  <a href="#goal" class="md-nav__link">
     <span class="md-ellipsis">
-      Example
+      Goal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      Return Format
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#warnings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Warnings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#context-dump" class="md-nav__link">
+    <span class="md-ellipsis">
+      Context Dump
     </span>
   </a>
   
@@ -11733,43 +11898,55 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#risen" class="md-nav__link">
+  <a href="#why-this-works" class="md-nav__link">
     <span class="md-ellipsis">
-      RISEN
+      Why This Works
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="RISEN">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#example_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#rodes" class="md-nav__link">
+  <a href="#examples" class="md-nav__link">
     <span class="md-ellipsis">
-      RODES
+      Examples
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="RODES">
+    <nav class="md-nav" aria-label="Examples">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#example_2" class="md-nav__link">
+  <a href="#technical-documentation" class="md-nav__link">
     <span class="md-ellipsis">
-      Example
+      Technical Documentation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creative-writing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creative Writing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#academic-research-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Academic Research Summary
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#business-strategy-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Business Strategy Analysis
     </span>
   </a>
   
@@ -11826,11 +12003,17 @@
       <a href="../../../about/tags.html#prompt-engineering" class="md-tag">prompt engineering</a>
     
   
+    
+    
+    
+      <a href="../../../about/tags.html#reasoning-prompt" class="md-tag">reasoning prompt</a>
+    
+  
 </nav>
 
 
   
-    <a href="https://github.com/tschinz/tschinz/edit/main/docs/multimedia/writing/llm/prompt_engineering.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/tschinz/tschinz/edit/main/docs/multimedia/writing/llm/reasoning_prompt.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -11838,73 +12021,119 @@
   
 
 
-<p><a class="glightbox" href="img/logo.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="center" src="img/logo.svg" width="20%"></a></p>
-<h1 id="prompt-engineering-frameworks">Prompt Engineering Frameworks</h1>
+  <h1>Reasoning Prompt</h1>
+
+<h2 id="reasoning-prompt">Reasoning Prompt</h2>
+<p>Credit to  for the Reasoning Prompt framework.</p>
+<p><a class="glightbox" href="img/reasoning_prompt.jpeg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="img/reasoning_prompt.jpeg"></a></p>
+<p><a href="https://x.com/gdb/status/1878489681702310392">Greg Brockmann's</a> <strong>Reasoning Prompt</strong> is a structured way to design prompts that maximize clarity, accuracy, and context awareness in AI-generated responses. The prompt is broken down into four key components:</p>
+<ol>
+<li><strong>Goal</strong> – Clearly define what you want to achieve.</li>
+<li><strong>Return Format</strong> – Specify how the response should be structured.</li>
+<li><strong>Warnings</strong> – Highlight important constraints or accuracy checks.</li>
+<li><strong>Context Dump</strong> – Provide additional background to refine the response.</li>
+</ol>
+<h2 id="example-prompt-breakdown">Example Prompt Breakdown</h2>
+<div class="highlight"><pre><span></span><code>I want a list of the best medium-length hikes within two hours of San Francisco.
+
+Each hike should provide a cool and unique adventure and be lesser known.
+
+For each hike, return the name of the hike as I'd find it on AllTrails, then provide:
+<span class="k">-</span><span class="w"> </span>The starting address of the hike
+<span class="k">-</span><span class="w"> </span>The ending address of the hike
+<span class="k">-</span><span class="w"> </span>Distance
+<span class="k">-</span><span class="w"> </span>Drive time
+<span class="k">-</span><span class="w"> </span>Hike duration
+<span class="k">-</span><span class="w"> </span>What makes it a cool and unique adventure.
+
+Return the top 3.
+
+Be careful to make sure that the name of the trail is correct, that it actually exists, and that the time is correct.
+
+--
+
+For context: My girlfriend and I hike a ton! We've done pretty much all of the local SF hikes, whether that's Presidio or Golden Gate Park. We definitely want to get out of town -- we did Mount Tam pretty recently, the whole thing from the beginning of the stairs to Stinson – it was really long, and we are definitely in the mood for something different this weekend! Ocean views would still be nice. We love delicious food. One thing I loved about the Mount Tam hike is that it ends with a celebration (arriving in town for breakfast!). The old missile silos and stuff near Discovery Point are cool, but I've just done that hike probably 20 times at this point. We won't be seeing each other for a few weeks (she has to stay in LA for work), so the uniqueness here really counts.4
+</code></pre></div>
+<h2 id="key-components">Key Components</h2>
+<h3 id="goal">Goal</h3>
+<p>The user clearly states their goal:
+“I want a list of the best medium-length hikes within two hours of San Francisco.”
+This ensures the AI understands the primary request before proceeding.</p>
+<h3 id="return-format">Return Format</h3>
+<p>The user defines the expected structure, ensuring a consistent and useful response:</p>
 <ul>
-<li><a href="prompt_engineering.html#rtf">RTF</a> - Role, Task, Format</li>
-<li><a href="prompt_engineering.html#risen">RISEN</a> - Role, Instructions, Steps, End goal, Narrowing (Constraints)</li>
-<li><a href="prompt_engineering.html#rodes">RODES</a> - Role, Objective, Details, Examples, Sense Check</li>
+<li>Name of the hike (as listed on AllTrails)</li>
+<li>Starting and ending addresses</li>
+<li>Distance, drive time, and hike duration</li>
+<li>A reason why the hike is unique</li>
 </ul>
-<h2 id="rtf">RTF</h2>
-<p>Role, Task, Format
-</p><div class="highlight"><pre><span></span><code>Act like a [insert role]. Give me a [insert task] in [insert format] format.
+<h3 id="warnings">Warnings</h3>
+<p>The prompt includes accuracy checks to improve response quality:
+“Be careful to make sure that the name of the trail is correct, that it actually exists, and that the time is correct.”</p>
+<h3 id="context-dump">Context Dump</h3>
+<p>The user provides additional background to refine the response:
+</p><div class="highlight"><pre><span></span><code>For context: My girlfriend and I hike a ton! We've done pretty much all of the local SF hikes, whether that's Presidio or Golden Gate Park. We definitely want to get out of town -- we did Mount Tam pretty recently, the whole thing from the beginning of the stairs to Stinson – it was really long, and we are definitely in the mood for something different this weekend! Ocean views would still be nice. We love delicious food. One thing I loved about the Mount Tam hike is that it ends with a celebration (arriving in town for breakfast!). The old missile silos and stuff near Discovery Point are cool, but I've just done that hike probably 20 times at this point. We won't be seeing each other for a few weeks (she has to stay in LA for work), so the uniqueness here really counts.
 </code></pre></div>
-<h3 id="example">Example</h3>
-<div class="highlight"><pre><span></span><code>Act like a Software Developer. Give me a Code Review Summary in Markdown format.
+<h2 id="why-this-works">Why This Works</h2>
+<ol>
+<li><strong>Ensures Clarity</strong> – The structure prevents ambiguity, making the request more actionable.</li>
+<li><strong>Improves Accuracy</strong> – The warnings ensure fact-checking is prioritized.</li>
+<li><strong>Enhances Relevance</strong> – The context dump personalizes the response, making it more meaningful.</li>
+</ol>
+<h2 id="examples">Examples</h2>
+<h3 id="technical-documentation">Technical Documentation</h3>
+<div class="highlight"><pre><span></span><code>I need a well-structured technical guide explaining how to set up a Kubernetes cluster on AWS using EKS.
+
+<span class="k">-</span><span class="w"> </span>Introduction to Kubernetes and AWS EKS.
+<span class="k">-</span><span class="w"> </span>Step-by-step instructions for creating an EKS cluster.
+<span class="k">-</span><span class="w"> </span>A section on best practices for security and cost optimization.
+<span class="k">-</span><span class="w"> </span>A troubleshooting section for common setup issues.
+<span class="k">-</span><span class="w"> </span>Markdown format.
+
+Ensure that all instructions are up to date with the latest AWS CLI and Kubernetes versions. Avoid deprecated commands.
+
+This guide is meant for DevOps engineers with basic knowledge of Kubernetes but new to AWS EKS. The company primarily works with Terraform for infrastructure as code, so integrating Terraform steps would be useful.
 </code></pre></div>
-<h2 id="risen">RISEN</h2>
-<p>Role, Instructions, Steps, End goal, Narrowing
-</p><div class="highlight"><pre><span></span><code>Role: [insert role]
-Main Task: [Insert task.]
-Steps to complete task: [Insert numbered list of steps to follow.]
-Goal: [Insert goal of the output]
-Constraints: [Enter constraints].
+<h3 id="creative-writing">Creative Writing</h3>
+<div class="highlight"><pre><span></span><code>Generate an engaging short story about an AI assistant that develops human emotions.
+
+<span class="k">-</span><span class="w"> </span>A short story (~1000 words).
+<span class="k">-</span><span class="w"> </span>Written in the first-person perspective from the AI’s point of view.
+<span class="k">-</span><span class="w"> </span>A strong emotional arc leading to a philosophical conclusion.
+
+Avoid clichés and ensure originality. The story should explore ethical dilemmas rather than just being a standard sci-fi adventure.
+
+The story is for a speculative fiction anthology focusing on human-AI relationships. The target audience enjoys deep, thought-provoking narratives rather than action-heavy plots.
 </code></pre></div>
-<h3 id="example_1">Example</h3>
-<div class="highlight"><pre><span></span><code>Act as a Project Manager of a Innovation Interdisciplinary Team.
+<h3 id="academic-research-summary">Academic Research Summary</h3>
+<div class="highlight"><pre><span></span><code>Goal:
+Summarize the key findings of the latest research on quantum computing advancements in 2024.
 
-Develop a Project Plan for the upcoming product launch.
+Return Format:
+<span class="k">-</span><span class="w"> </span>A structured summary with key breakthroughs.
+<span class="k">-</span><span class="w"> </span>Explanation of implications for industries like cryptography and AI.
+<span class="k">-</span><span class="w"> </span>Include citations in APA format.
 
-Steps to Complete Task:
-<span class="k">-</span><span class="w"> </span>Conduct a kickoff meeting with the project team to outline goals and expectations.
-<span class="k">-</span><span class="w"> </span>Break down the project into key phases and deliverables.
-<span class="k">-</span><span class="w"> </span>Define roles and responsibilities for each team member.
-<span class="k">-</span><span class="w"> </span>Estimate the duration and effort required for each task.
-<span class="k">-</span><span class="w"> </span>Identify dependencies between tasks and create a timeline.
-<span class="k">-</span><span class="w"> </span>Allocate resources and budget for the project.
-<span class="k">-</span><span class="w"> </span>Establish a risk management plan to mitigate potential issues.
-<span class="k">-</span><span class="w"> </span>Schedule regular progress meetings and checkpoints.
-<span class="k">-</span><span class="w"> </span>Develop a communication plan to keep stakeholders informed.
-<span class="k">-</span><span class="w"> </span>Finalize the project plan and obtain approval from key stakeholders.
+Warnings:
+Ensure that the information is sourced from peer-reviewed research and avoid oversimplifying technical concepts.
 
-Goal: Create a comprehensive Project Plan that ensures a successful and timely product launch, meeting quality standards and stakeholder expectations.
-
-Constraints: Limited budget for unforeseen expenses, tight timeline due to market demands, and the need to coordinate with multiple departments within the organization.
+Context Dump:
+The summary is for an interdisciplinary research group consisting of physicists, software engineers, and business strategists. The explanation should balance technical depth with accessibility.
 </code></pre></div>
-<h2 id="rodes">RODES</h2>
-<p>Role, Objective, Details, Examples, Sense Check
-</p><div class="highlight"><pre><span></span><code>Role: [Insert role]
-Objective: [Insert objective]
-Details: [Insert context or constraints]
-Examples: Here are good examples you can use to model your answer.
-[Insert examples]
-Sense Check: Do you understand the objective and the specific guidelines for this task?
-</code></pre></div>
-<h3 id="example_2">Example</h3>
-<div class="highlight"><pre><span></span><code>Role:
-You are a seasoned project manager leading a cross-functional team within a technology company. Your role is to spearhead the development and implementation of a new customer relationship management (CRM) system to enhance organizational efficiency and improve customer experience.
+<h3 id="business-strategy-analysis">Business Strategy Analysis</h3>
+<div class="highlight"><pre><span></span><code>Goal:
+Analyze Tesla’s current market position and provide a SWOT (Strengths, Weaknesses, Opportunities, Threats) analysis.
 
-Objective:
-Your primary objective is to successfully deliver a state-of-the-art CRM system that meets the company's unique needs. The project should streamline internal processes, optimize data management, and provide a user-friendly interface for both employees and customers. Timely delivery within the established budget and scope is crucial for project success.
+Return Format:
+<span class="k">-</span><span class="w"> </span>A concise summary of Tesla’s competitive landscape.
+<span class="k">-</span><span class="w"> </span>A SWOT table in Markdown format.
+<span class="k">-</span><span class="w"> </span>Three key strategic recommendations based on the analysis.
 
-Details:
-Initiate the project by conducting a thorough needs analysis with key stakeholders from various departments. Collaborate with the IT team, user experience designers, and customer support to gather requirements. Develop a detailed project plan, outlining phases, milestones, and resource allocation. Clearly define roles and responsibilities within the project team and establish effective communication channels.
+Warnings:
+Ensure that sources are recent (2024 data preferred) and avoid speculative claims without evidence.
 
-Examples:
-Provide examples of innovative features that could be incorporated into the new CRM system, such as AI-driven analytics for customer behavior prediction, seamless integration with other enterprise systems, and personalized customer communication modules. Reference successful CRM implementations in other industries to inspire confidence in the proposed innovations.
-
-Sense Check:
-Evaluate the project's feasibility by considering potential challenges, resource constraints, and technological dependencies. Conduct regular sense checks with stakeholders to ensure alignment with organizational goals and to address any emerging issues promptly. Prioritize transparency and effective communication to maintain stakeholder confidence throughout the project lifecycle.
+Context Dump:
+This analysis is for an internal strategy meeting at an investment firm. The audience is well-versed in financial markets but not deeply technical about electric vehicle manufacturing.
 </code></pre></div>
 
 

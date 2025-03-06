@@ -1688,6 +1688,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#use-iterators-rather-then-loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Iterators rather then loops
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -10014,6 +10023,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
     
@@ -10032,7 +10047,7 @@
               
   
   <span class="md-ellipsis">
-    LLM Prompts
+    LLM Prompt Engineering
   </span>
   
 
@@ -10048,7 +10063,7 @@
         <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_7_2_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7_2_4">
             <span class="md-nav__icon md-icon"></span>
-            LLM Prompts
+            LLM Prompt Engineering
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -10061,11 +10076,74 @@
   
   
     <li class="md-nav__item">
-      <a href="../../multimedia/writing/llm/prompt_engineering.html" class="md-nav__link">
+      <a href="../../multimedia/writing/llm/reasoning_prompt.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Prompt Engineering
+    Reasoning Prompt
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../multimedia/writing/llm/rtf.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RTF
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../multimedia/writing/llm/risen.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RISEN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../multimedia/writing/llm/rodes.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RODES
   </span>
   
 
@@ -11785,6 +11863,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#use-iterators-rather-then-loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Iterators rather then loops
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -11964,6 +12051,17 @@
 <span class="w">      </span><span class="kd">let</span><span class="w"> </span><span class="n">var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Foo</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="c1">// var dropped here</span>
 <span class="p">}</span>
+</code></pre></div>
+<h3 id="use-iterators-rather-then-loops">Use Iterators rather then loops</h3>
+<p>Iterators in Rust are lazy and can prevent unnecessary memory allocations.</p>
+<p>Indead of:
+</p><div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">squares</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Vec</span>::<span class="n">new</span><span class="p">();</span>
+<span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="o">..</span><span class="mi">1_000_000</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">squares</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Do this:
+</p><div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="n">squares</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="n">_</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1_000_000</span><span class="p">).</span><span class="n">map</span><span class="p">(</span><span class="o">|</span><span class="n">i</span><span class="o">|</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="p">).</span><span class="n">collect</span><span class="p">();</span>
 </code></pre></div>
 
 
