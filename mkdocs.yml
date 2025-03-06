@@ -70,8 +70,6 @@ theme:
 extra:
   analytics:
     provider: tianji
-    #website_id: cm64ljmbyhzym12yane2yi8k4
-    #website_url: https://app-tianji.msgbyte.com/tracker.js
     website_id: cm7g8oa580001ru04r0z0th92
     website_url: https://tianji.tschinz.duckdns.org/tracker.js
 
@@ -543,9 +541,12 @@ nav:
               - MKDocs:
                   - multimedia/writing/md/mkdocs/index.md
                   - CheatSheet: multimedia/writing/md/mkdocs/cheatsheet.md
-          - LLM Prompts:
+          - LLM Prompt Engineering:
               - multimedia/writing/llm/index.md
-              - Prompt Engineering: multimedia/writing/llm/prompt_engineering.md
+              - Reasoning Prompt: multimedia/writing/llm/reasoning_prompt.md
+              - RTF: multimedia/writing/llm/rtf.md
+              - RISEN: multimedia/writing/llm/risen.md
+              - RODES: multimedia/writing/llm/rodes.md
           - Latin:
               - multimedia/writing/latin/index.md
           - GitBook:

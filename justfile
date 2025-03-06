@@ -85,6 +85,15 @@ _default:
   {{ENV_TOOL}} env export > {{ENV_FILE}}
   pip freeze > requirements.txt
 
+# create a release version of the project
+changelog-release version=GIT-TAG:
+  git cliff --tag {{version}}
+  git tag -a {{version}} -m "Release {{version}}"$
+
+# create the changelog of the project
+changelog:
+  git cliff
+
 # Build HTML static site
 @build: venv-create
   #!/usr/bin/env bash

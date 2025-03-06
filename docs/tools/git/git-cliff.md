@@ -114,6 +114,75 @@ Here’s an example `.git-cliff.toml` configuration file to customize the change
 
 [git-cliff-custom.toml](docs/git-cliff-custom.toml)
 
+
+Here some important parts of my custom configuration
+
+```toml
+# parse the commits based on https://www.conventionalcommits.org
+conventional_commits = true
+# filter out the commits that are not conventional
+filter_unconventional = false
+# process each line of a commit as an individual commit
+split_commits = true
+```
+
+The regex parser is flexible and supporting different types
+
+- `feat`, `feature`, `features`
+- `fix`, `fixes`
+- `doc`, `docs`
+- `perf`, `performance`, `performances`
+- `refactor`, `refactors`
+- `style`, `styles`
+- `chore`, `chores`
+- `security`
+- `revert`, `reverts`
+
+As well as the legacy commits I did in the past
+
+- `ADD`, `add`
+- `CHG`, `chg`
+- `REM`, `rem`
+- `MOV`, `mov`
+- `FIX`, `fix`
+- `NOTE`, `note`
+- `WARN`, `warn`
+
+```
+# regex for parsing and grouping commits
+commit_parsers = [
+  { message = "^feat(ure)?s?", group = "<!-- 0 -->🚀 Features" },
+  { message = "^fix(es)?", group = "<!-- 1 -->🐛 Bug Fixes" },
+  { message = "^docs?", group = "<!-- 3 -->📚 Documentation" },
+  { message = "^perf(ormance)?s?", group = "<!-- 4 -->⚡ Performance" },
+  { message = "^refactors?", group = "<!-- 2 -->🚜 Refactoring" },
+  { message = "^styles?", group = "<!-- 5 -->🎨 Styling" },
+  { message = "^tests?", group = "<!-- 6 -->🧪 Testing" },
+  { message = "^chores?", group = "<!-- 7 -->⚙️ Miscellaneous Tasks" },
+  { message = "^security", group = "<!-- 8 -->🛡️ Security" },
+  { body = ".*security", group = "<!-- 8 -->🛡️ Security" },
+  { message = "^reverts?", group = "<!-- 9 -->◀️ Revert" },
+
+  # Conventional commit exclusions
+  { message = "^chores?\\(releases?\\):", skip = true },
+  { message = "^chores?\\(deps?.*\\)", skip = true },
+  { message = "^chores?\\(pr\\)", skip = true },
+  { message = "^chores?\\(pull\\)", skip = true },
+  { message = "^chores?\\(version\\):", skip = true },
+
+  # Legacy commit styles
+  { message = "(?i)^ADD", group = "<!-- 0 -->🚀 Features" },
+  { message = "(?i)^CHG", group = "<!-- 0 -->🚀 Features" },
+  { message = "(?i)^REM", group = "<!-- 2 -->🚜 Refactoring" },
+  { message = "(?i)^MOV", group = "<!-- 2 -->🚜 Refactoring" },
+  { message = "(?i)^FIX", group = "<!-- 1 -->🐛 Bug Fixes" },
+  { message = "(?i)^NOTE", group = "<!-- 10 -->💼 Other" },
+  { message = "(?i)^WARN", group = "<!-- 8 -->🛡️ Security" },
+
+  { message = ".*", group = "<!-- 10 -->💼 Other" },
+]
+```
+
 ## Getting started
 
 - Install `git-cliff`
@@ -127,5 +196,8 @@ Here’s an example `.git-cliff.toml` configuration file to customize the change
   or create a `.git-cliff.toml` file in your project directory.
 - Generate: Run the following command to create a changelog:
   ```bash
+  git cliff
   git cliff -o CHANGELOG.md
+  git cliff --tag v0.1.1
+
   ```

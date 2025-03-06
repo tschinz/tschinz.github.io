@@ -164,3 +164,20 @@ fn main() {
     } // var dropped here
 }
 ```
+
+### Use Iterators rather then loops
+
+Iterators in Rust are lazy and can prevent unnecessary memory allocations.
+
+Indead of:
+```rust
+let mut squares = Vec::new();
+for i in 0..1_000_000 {
+    squares.push(i * i);
+}
+```
+
+Do this:
+```rust
+let squares: Vec<_> = (0..1_000_000).map(|i| i * i).collect();
+```

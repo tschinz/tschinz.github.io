@@ -5,62 +5,16 @@ tags:
 - llm
 - chatgpt
 - prompt engineering
+- rodes
 ---
 
-![](img/logo.svg){.center width="20%"}
+# RODES - Role, Objective, Details, Examples, Sense Check
 
-# Prompt Engineering Frameworks
+## Overview
 
-- [RTF](./prompt_engineering.md#rtf) - Role, Task, Format
-- [RISEN](./prompt_engineering.md#risen) - Role, Instructions, Steps, End goal, Narrowing (Constraints)
-- [RODES](./prompt_engineering.md#rodes) - Role, Objective, Details, Examples, Sense Check
+The **RODES Framework** is a structured prompt design method that ensures clear, relevant, and effective AI-generated responses. By specifying **Role, Objective, Details, Examples, and Sense Check**, this framework enhances clarity, ensures alignment with specific requirements, and verifies the AI’s understanding of the task.
 
-## RTF
-Role, Task, Format
-```md
-Act like a [insert role]. Give me a [insert task] in [insert format] format.
-```
-
-### Example
-```md
-Act like a Software Developer. Give me a Code Review Summary in Markdown format.
-```
-
-## RISEN
-Role, Instructions, Steps, End goal, Narrowing
-```md
-Role: [insert role]
-Main Task: [Insert task.]
-Steps to complete task: [Insert numbered list of steps to follow.]
-Goal: [Insert goal of the output]
-Constraints: [Enter constraints].
-```
-
-### Example
-```md
-Act as a Project Manager of a Innovation Interdisciplinary Team.
-
-Develop a Project Plan for the upcoming product launch.
-
-Steps to Complete Task:
-- Conduct a kickoff meeting with the project team to outline goals and expectations.
-- Break down the project into key phases and deliverables.
-- Define roles and responsibilities for each team member.
-- Estimate the duration and effort required for each task.
-- Identify dependencies between tasks and create a timeline.
-- Allocate resources and budget for the project.
-- Establish a risk management plan to mitigate potential issues.
-- Schedule regular progress meetings and checkpoints.
-- Develop a communication plan to keep stakeholders informed.
-- Finalize the project plan and obtain approval from key stakeholders.
-
-Goal: Create a comprehensive Project Plan that ensures a successful and timely product launch, meeting quality standards and stakeholder expectations.
-
-Constraints: Limited budget for unforeseen expenses, tight timeline due to market demands, and the need to coordinate with multiple departments within the organization.
-```
-
-## RODES
-Role, Objective, Details, Examples, Sense Check
+### Framework Structure
 ```md
 Role: [Insert role]
 Objective: [Insert objective]
@@ -70,8 +24,30 @@ Examples: Here are good examples you can use to model your answer.
 Sense Check: Do you understand the objective and the specific guidelines for this task?
 ```
 
+## Steps for Using the RODES Framework
+1. Define the **Role**
+    - Assign a specific role to the AI to influence the response style and expertise level.
+    - Helps tailor the language, depth, and approach.
+    - Examples: “Cybersecurity Analyst”, “Product Designer”, “Financial Advisor”.
+2. Specify the **Objective**
+    - Clearly outline the main goal of the request.
+    - Ensures that the response is focused and aligned with expectations.
+    - Examples: “Write a risk assessment report”, “Draft a UX design proposal”, “Analyze financial projections for next quarter”.
+3. Provide **Detailed Context**
+    - Include constraints, background information, and any necessary conditions.
+    - This helps refine the response for accuracy and relevance.
+    - Examples: “The target audience is non-technical stakeholders”, “The document should follow GDPR compliance”, “Use real-world case studies as references”.
+4. Give Clear **Examples**
+    - Provide sample responses or reference points to help shape the output.
+    - This enhances accuracy and ensures that the AI follows the intended format and style.
+    - Examples: “Include a comparison table like in the provided example”, “Use bullet points for readability”, “Refer to Tesla’s sustainability report as a model”.
+5. Perform a **Sense Check**
+    - Ask the AI to validate its understanding before generating the final response.
+    - Helps ensure alignment with expectations and refine the response if needed.
+    - Examples: “Does this summary match the expected output?”, “Are all constraints taken into account?”, “Does this address the key business challenge?”.
 
-### Example
+### Examples
+
 ```md
 Role:
 You are a seasoned project manager leading a cross-functional team within a technology company. Your role is to spearhead the development and implementation of a new customer relationship management (CRM) system to enhance organizational efficiency and improve customer experience.
