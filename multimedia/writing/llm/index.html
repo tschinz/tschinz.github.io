@@ -18,7 +18,7 @@
         <link rel="prev" href="../md/mkdocs/cheatsheet.html">
       
       
-        <link rel="next" href="prompt_engineering.html">
+        <link rel="next" href="reasoning_prompt.html">
       
       
         <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../../../feed_rss_created.xml">
@@ -9898,6 +9898,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
     
@@ -9916,7 +9922,7 @@
               
   
   <span class="md-ellipsis">
-    LLM Prompts
+    LLM Prompt Engineering
   </span>
   
 
@@ -9932,7 +9938,7 @@
         <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_7_2_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_7_2_4">
             <span class="md-nav__icon md-icon"></span>
-            LLM Prompts
+            LLM Prompt Engineering
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -9945,11 +9951,74 @@
   
   
     <li class="md-nav__item">
-      <a href="prompt_engineering.html" class="md-nav__link">
+      <a href="reasoning_prompt.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Prompt Engineering
+    Reasoning Prompt
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="rtf.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RTF
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="risen.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RISEN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="rodes.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RODES
   </span>
   
 
@@ -11604,15 +11673,35 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#llm-prompt-engineering" class="md-nav__link">
+  <a href="#prompt-engineering" class="md-nav__link">
     <span class="md-ellipsis">
-      LLM Prompt Engineering
+      Prompt Engineering
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
+  <a href="#prompt-engineering-frameworks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prompt Engineering Frameworks
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Prompt Engineering Frameworks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      General Tips
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="General Tips">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#context-collection" class="md-nav__link">
     <span class="md-ellipsis">
       Context collection
@@ -11620,8 +11709,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#learning" class="md-nav__link">
     <span class="md-ellipsis">
       Learning
@@ -11629,8 +11718,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#writing" class="md-nav__link">
     <span class="md-ellipsis">
       Writing
@@ -11638,8 +11727,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#summarize" class="md-nav__link">
     <span class="md-ellipsis">
       Summarize
@@ -11647,8 +11736,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#output-definition" class="md-nav__link">
     <span class="md-ellipsis">
       Output definition
@@ -11656,8 +11745,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#change-tone" class="md-nav__link">
     <span class="md-ellipsis">
       Change tone
@@ -11665,13 +11754,23 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#act-as" class="md-nav__link">
     <span class="md-ellipsis">
       Act as &lt;&gt;
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -11733,12 +11832,11 @@
   
 
 
-  <h1>Index</h1>
-
 <p><a class="glightbox" href="img/logo.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="center" src="img/logo.svg" width="20%"></a></p>
 <h2 id="contents">Contents</h2>
-<p><ul><li><a href="prompt_engineering.html">Prompt Engineering</a></li></ul></p>
-<h2 id="llm-prompt-engineering">LLM Prompt Engineering</h2>
+<p><ul><li><a href="reasoning_prompt.html">Reasoning Prompt</a></li><li><a href="rtf.html">RTF</a></li><li><a href="risen.html">RISEN</a></li><li><a href="rodes.html">RODES</a></li></ul></p>
+<h2 id="prompt-engineering">Prompt Engineering</h2>
+<p><em>Prompt Engineering</em> is a structured approach to crafting prompts that ensures clear and contextually relevant responses from AI models.</p>
 <ul>
 <li><strong>Avoid loaded language</strong>: LLM's works best with objective facts, figures, and plain inputs, so try to be neutral and avoid subjective framing.</li>
 <li><strong>Be specific</strong>: Ensuring you specify a response word count, a desired tone of voice, and other specifics will decrease the likelihood you’ll have to request another answer.</li>
@@ -11747,21 +11845,38 @@
 <li>Ask to <strong>“act like”</strong> someone: Sometimes, it can help to start your prompt by askin to “act like” a certain type of person that would be particularly well-placed to respond to the query you're posing.</li>
 </ul>
 <p>These are some prompts which resulted in good answers from the most common LLM's.</p>
-<h2 id="context-collection">Context collection</h2>
+<p>It is constantly evolving as researchers and practitioners experiment with different frameworks and techniques to improve the quality and specificity of AI-generated content.</p>
+<p>In general reasoning models such as <em>o1</em> <em>o3</em> <em>R1</em> required a better structured prompt to generate the desired output.</p>
+<h1 id="prompt-engineering-frameworks">Prompt Engineering Frameworks</h1>
+<ul>
+<li><a href="reasoning_prompt.html">Reasoning Prompt</a> - Goal, Return Format, Warnings, Context Dump</li>
+<li><a href="rtf.html">RTF</a> - Role, Task, Format</li>
+<li><a href="risen.html">RISEN</a> - Role, Instructions, Steps, End goal, Narrowing (Constraints)</li>
+<li><a href="rodes.html">RODES</a> - Role, Objective, Details, Examples, Sense Check</li>
+</ul>
+<h2 id="general-tips">General Tips</h2>
+<ul>
+<li>Be Specific: Use numbers, time frames, word counts—anything that clarifies what you want.</li>
+<li>Use Action Verbs: Words like “explain,” “list,” “summarize,” and “analyze” sharpen your instructions.</li>
+<li>Include Format Requirements: Want bullet points, paragraphs, or headings? Spell it out!</li>
+<li>Offer a Style or Tone: Friendly, professional, casual—choose a voice that fits your goal.</li>
+<li>Revise and Refine: AI prompts often improve with iteration. Tweak and re-ask if the result isn’t perfect.</li>
+</ul>
+<h3 id="context-collection">Context collection</h3>
 <div class="highlight"><pre><span></span><code>Take the next inputs as context. Do not respond until I use the keyword "asdf"
 </code></pre></div>
-<h2 id="learning">Learning</h2>
+<h3 id="learning">Learning</h3>
 <div class="highlight"><pre><span></span><code>I want to learn about &lt;topic&gt; find and share the most important 20% of learnings on this topic so that I can understand 80% of it.
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>I would like to learn about &lt;topic&gt;. Please provide me with a brief summary that could be understood by a 10-year-old.
 </code></pre></div>
-<h2 id="writing">Writing</h2>
+<h3 id="writing">Writing</h3>
 <div class="highlight"><pre><span></span><code>I want you to proof read my writing, fix any spelling and grammar mistakes, and make suggestions to improve the quality and clarity of my writing
 </code></pre></div>
-<h2 id="summarize">Summarize</h2>
+<h3 id="summarize">Summarize</h3>
 <div class="highlight"><pre><span></span><code>I want you to summarise the text and give me a bullet point breakdown of the key points and facts
 </code></pre></div>
-<h2 id="output-definition">Output definition</h2>
+<h3 id="output-definition">Output definition</h3>
 <div class="highlight"><pre><span></span><code>Write your answer in form of ASCII-ART
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>Write your answer in form of a Mermaid Diagram
@@ -11770,12 +11885,12 @@
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>Write your answer in form of a Table
 </code></pre></div>
-<h2 id="change-tone">Change tone</h2>
+<h3 id="change-tone">Change tone</h3>
 <div class="highlight"><pre><span></span><code>Adopt a formal tone in your responses.
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>Adopt an informal tone in your responses.
 </code></pre></div>
-<h2 id="act-as">Act as &lt;&gt;</h2>
+<h3 id="act-as">Act as &lt;&gt;</h3>
 <div class="highlight"><pre><span></span><code>Act as a Professor in of a University in the Domain Real-Time Programming, Digital Design, Industry 4.0, Systems Engineering
 </code></pre></div>
 

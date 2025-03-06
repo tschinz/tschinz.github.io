@@ -46,7 +46,7 @@ trim = true
 # postprocessors
 postprocessors = [
   # replace repository URL
-  { pattern = '\$REPO', replace = "https://github.com/tschinz/hei-projects" },
+  { pattern = '\$REPO', replace = "https://github.com/tschinz/tschinz.github.io" },
 ]
 
 # render body even when there are no releases to process
@@ -63,27 +63,39 @@ filter_unconventional = false
 split_commits = true
 # regex for preprocessing the commit messages
 commit_preprocessors = [
-  # { pattern = '\((\w+\s)?#([0-9]+)\)', replace = "([#${2}](https://gitlab.hevs.ch/SPL/sagex/sagex-rs/issues/${2}))"}, # replace issue numbers
+  # { pattern = '\((\w+\s)?#([0-9]+)\)', replace = "([#${2}](https://github.com/tschinz/tschinz.github.io/issues/${2}))"}, # replace issue numbers
 ]
 # regex for parsing and grouping commits
 commit_parsers = [
-  { message = "^feat", group = "<!-- 0 -->🚀 Features" },
+  { message = "^feat(ure)?s?", group = "<!-- 0 -->🚀 Features" },
   { message = "^fix(es)?", group = "<!-- 1 -->🐛 Bug Fixes" },
-  { message = "^docs??", group = "<!-- 3 -->📚 Documentation" },
-  { message = "^perf", group = "<!-- 4 -->⚡ Performance" },
-  { message = "^refactor", group = "<!-- 2 -->🚜 Refactoring" },
+  { message = "^docs?", group = "<!-- 3 -->📚 Documentation" },
+  { message = "^perf(ormance)?s?", group = "<!-- 4 -->⚡ Performance" },
+  { message = "^refactors?", group = "<!-- 2 -->🚜 Refactoring" },
   { message = "^styles?", group = "<!-- 5 -->🎨 Styling" },
   { message = "^tests?", group = "<!-- 6 -->🧪 Testing" },
-  { message = "^chores?\\(release\\):", skip = true },
-  { message = "^chores?\\(deps.*\\)", skip = true },
+  { message = "^chores?", group = "<!-- 7 -->⚙️ Miscellaneous Tasks" },
+  { message = "^security", group = "<!-- 8 -->🛡️ Security" },
+  { body = ".*security", group = "<!-- 8 -->🛡️ Security" },
+  { message = "^reverts?", group = "<!-- 9 -->◀️ Revert" },
+
+  # Conventional commit exclusions
+  { message = "^chores?\\(releases?\\):", skip = true },
+  { message = "^chores?\\(deps?.*\\)", skip = true },
   { message = "^chores?\\(pr\\)", skip = true },
   { message = "^chores?\\(pull\\)", skip = true },
   { message = "^chores?\\(version\\):", skip = true },
-  { message = "^chores?", group = "<!-- 7 -->⚙️ Miscellaneous Tasks" },
-  { body = ".*security", group = "<!-- 8 -->🛡️ Security" },
-  { message = "^reverts?", group = "<!-- 9 -->◀️ Revert" },
-  { message = ".*", group = "<!-- 10 -->💼 Other" },
 
+  # Legacy commit styles
+  { message = "(?i)^ADD", group = "<!-- 0 -->🚀 Features" },
+  { message = "(?i)^CHG", group = "<!-- 0 -->🚀 Features" },
+  { message = "(?i)^REM", group = "<!-- 2 -->🚜 Refactoring" },
+  { message = "(?i)^MOV", group = "<!-- 2 -->🚜 Refactoring" },
+  { message = "(?i)^FIX", group = "<!-- 1 -->🐛 Bug Fixes" },
+  { message = "(?i)^NOTE", group = "<!-- 10 -->💼 Other" },
+  { message = "(?i)^WARN", group = "<!-- 8 -->🛡️ Security" },
+
+  { message = ".*", group = "<!-- 10 -->💼 Other" },
 ]
 # filter out the commits that are not matched by commit parsers
 filter_commits = false

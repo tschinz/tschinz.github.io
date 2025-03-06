@@ -9993,6 +9993,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
     
@@ -10011,7 +10017,7 @@
               
   
   <span class="md-ellipsis">
-    LLM Prompts
+    LLM Prompt Engineering
   </span>
   
 
@@ -10027,7 +10033,7 @@
         <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_7_2_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7_2_4">
             <span class="md-nav__icon md-icon"></span>
-            LLM Prompts
+            LLM Prompt Engineering
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -10040,11 +10046,74 @@
   
   
     <li class="md-nav__item">
-      <a href="../../multimedia/writing/llm/prompt_engineering.html" class="md-nav__link">
+      <a href="../../multimedia/writing/llm/reasoning_prompt.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Prompt Engineering
+    Reasoning Prompt
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../multimedia/writing/llm/rtf.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RTF
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../multimedia/writing/llm/risen.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RISEN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../multimedia/writing/llm/rodes.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RODES
   </span>
   
 
@@ -11897,6 +11966,69 @@ Existing users must update their access tokens.
 </ul>
 <h3 id="my-custom-configuration">My custom configuration</h3>
 <p><a href="docs/git-cliff-custom.toml">git-cliff-custom.toml</a></p>
+<p>Here some important parts of my custom configuration</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># parse the commits based on https://www.conventionalcommits.org</span>
+<span class="n">conventional_commits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="c1"># filter out the commits that are not conventional</span>
+<span class="n">filter_unconventional</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
+<span class="c1"># process each line of a commit as an individual commit</span>
+<span class="n">split_commits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+</code></pre></div>
+<p>The regex parser is flexible and supporting different types</p>
+<ul>
+<li><code>feat</code>, <code>feature</code>, <code>features</code></li>
+<li><code>fix</code>, <code>fixes</code></li>
+<li><code>doc</code>, <code>docs</code></li>
+<li><code>perf</code>, <code>performance</code>, <code>performances</code></li>
+<li><code>refactor</code>, <code>refactors</code></li>
+<li><code>style</code>, <code>styles</code></li>
+<li><code>chore</code>, <code>chores</code></li>
+<li><code>security</code></li>
+<li><code>revert</code>, <code>reverts</code></li>
+</ul>
+<p>As well as the legacy commits I did in the past</p>
+<ul>
+<li><code>ADD</code>, <code>add</code></li>
+<li><code>CHG</code>, <code>chg</code></li>
+<li><code>REM</code>, <code>rem</code></li>
+<li><code>MOV</code>, <code>mov</code></li>
+<li><code>FIX</code>, <code>fix</code></li>
+<li><code>NOTE</code>, <code>note</code></li>
+<li><code>WARN</code>, <code>warn</code></li>
+</ul>
+<div class="highlight"><pre><span></span><code># regex for parsing and grouping commits
+commit_parsers = [
+  { message = "^feat(ure)?s?", group = "&lt;!-- 0 --&gt;🚀 Features" },
+  { message = "^fix(es)?", group = "&lt;!-- 1 --&gt;🐛 Bug Fixes" },
+  { message = "^docs?", group = "&lt;!-- 3 --&gt;📚 Documentation" },
+  { message = "^perf(ormance)?s?", group = "&lt;!-- 4 --&gt;⚡ Performance" },
+  { message = "^refactors?", group = "&lt;!-- 2 --&gt;🚜 Refactoring" },
+  { message = "^styles?", group = "&lt;!-- 5 --&gt;🎨 Styling" },
+  { message = "^tests?", group = "&lt;!-- 6 --&gt;🧪 Testing" },
+  { message = "^chores?", group = "&lt;!-- 7 --&gt;⚙️ Miscellaneous Tasks" },
+  { message = "^security", group = "&lt;!-- 8 --&gt;🛡️ Security" },
+  { body = ".*security", group = "&lt;!-- 8 --&gt;🛡️ Security" },
+  { message = "^reverts?", group = "&lt;!-- 9 --&gt;◀️ Revert" },
+
+  # Conventional commit exclusions
+  { message = "^chores?\\(releases?\\):", skip = true },
+  { message = "^chores?\\(deps?.*\\)", skip = true },
+  { message = "^chores?\\(pr\\)", skip = true },
+  { message = "^chores?\\(pull\\)", skip = true },
+  { message = "^chores?\\(version\\):", skip = true },
+
+  # Legacy commit styles
+  { message = "(?i)^ADD", group = "&lt;!-- 0 --&gt;🚀 Features" },
+  { message = "(?i)^CHG", group = "&lt;!-- 0 --&gt;🚀 Features" },
+  { message = "(?i)^REM", group = "&lt;!-- 2 --&gt;🚜 Refactoring" },
+  { message = "(?i)^MOV", group = "&lt;!-- 2 --&gt;🚜 Refactoring" },
+  { message = "(?i)^FIX", group = "&lt;!-- 1 --&gt;🐛 Bug Fixes" },
+  { message = "(?i)^NOTE", group = "&lt;!-- 10 --&gt;💼 Other" },
+  { message = "(?i)^WARN", group = "&lt;!-- 8 --&gt;🛡️ Security" },
+
+  { message = ".*", group = "&lt;!-- 10 --&gt;💼 Other" },
+]
+</code></pre></div>
 <h2 id="getting-started">Getting started</h2>
 <ul>
 <li>Install <code>git-cliff</code>
@@ -11907,7 +12039,9 @@ Existing users must update their access tokens.
 </code></pre></div>
   or create a <code>.git-cliff.toml</code> file in your project directory.</li>
 <li>Generate: Run the following command to create a changelog:
-  <div class="highlight"><pre><span></span><code>git<span class="w"> </span>cliff<span class="w"> </span>-o<span class="w"> </span>CHANGELOG.md
+  <div class="highlight"><pre><span></span><code>git<span class="w"> </span>cliff
+git<span class="w"> </span>cliff<span class="w"> </span>-o<span class="w"> </span>CHANGELOG.md
+git<span class="w"> </span>cliff<span class="w"> </span>--tag<span class="w"> </span>v0.1.1
 </code></pre></div></li>
 </ul>
 
