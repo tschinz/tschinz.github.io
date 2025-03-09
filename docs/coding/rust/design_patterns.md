@@ -181,3 +181,46 @@ Do this:
 ```rust
 let squares: Vec<_> = (0..1_000_000).map(|i| i * i).collect();
 ```
+
+### Use `enum`s rather than `bool`
+It’s often considered good practice to use custom types (such as enum) instead of raw bool values. This makes the code more expressive, self-documenting, and type-safe.
+
+```rust
+fn set_user_status(active: bool) {
+    if active {
+        println!("User is active");
+    } else {
+        println!("User is inactive");
+    }
+}
+fn main() {
+    let status = true;
+    set_user_status(status);
+}
+
+```
+
+```rust
+enum UserStatus {
+    Active,
+    Inactive,
+}
+
+fn set_user_status(status: UserStatus) {
+    match status {
+        UserStatus::Active => println!("User is active"),
+        UserStatus::Inactive => println!("User is inactive"),
+    }
+}
+
+fn main() {
+    let status = UserStatus::Active;
+    set_user_status(status);
+}
+```
+Benefits of Using an `enum` Instead of `bool`
+
+1. *Better Readability* – UserStatus::Active is more meaningful than true.
+2. *Prevents Misuse* – You cannot accidentally pass a bool that has an unclear meaning.
+3. *Extensibility* – You can easily add more states, like Banned, PendingApproval, etc.
+4. *Stronger Type Safety* – The compiler prevents incorrect values from being passed.

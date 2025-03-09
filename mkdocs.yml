@@ -184,14 +184,109 @@ extra_css:
 nav:
   - Home:
       - index.md
-      - Coding: coding/index.md
-      - Tools: tools/index.md
       - OS: os/index.md
       - Computer Science: computerscience/index.md
+      - Coding: coding/index.md
+      - Tools: tools/index.md
       - Hardware: hw/index.md
       - Multimedia: multimedia/index.md
       - Security: security/index.md
       - About: about/index.md
+  - OS:
+      - os/index.md
+      - Linux:
+          - os/linux/index.md
+          - Commandline:
+              - os/linux/commandline/index.md
+              - Cheatsheet: os/linux/commandline/cheatsheet.md
+              - Nice to Know: os/linux/commandline/nicetoknow.md
+              - General: os/linux/commandline/general.md
+              - Crontab: os/linux/commandline/crontab.md
+              - DD: os/linux/commandline/dd.md
+              - SSH: os/linux/commandline/ssh.md
+              - Network: os/linux/commandline/network.md
+              - RSync: os/linux/commandline/rsync.md
+              - RClone: os/linux/commandline/rclone.md
+          - Tools:
+              - os/linux/tools/index.md
+              - Apache: os/linux/tools/apache.md
+              - Hardware Sensors: os/linux/tools/hw_sensors.md
+              - Let's Encrypt: os/linux/tools/lets_encrypt.md
+              - Mosquitto: os/linux/tools/mosquitto.md
+              - Raid: os/linux/tools/raid.md
+              - Samba: os/linux/tools/samba.md
+              - Shairport: os/linux/tools/shairport.md
+              - SystemD: os/linux/tools/systemd.md
+              - VIm: os/linux/tools/vim.md
+              - VNC: os/linux/tools/vnc.md
+              - VPN: os/linux/tools/vpn.md
+          - Scripts:
+              - os/linux/scripts/index.md
+              - General: os/linux/scripts/general.md
+              - Config Files: os/linux/scripts/config_files.md
+          - Filesystem:
+              - os/linux/filesystem/index.md
+              - Setup: os/linux/filesystem/folders.md
+              - Files: os/linux/filesystem/files.md
+          - Raspberry Pi:
+              - os/linux/rpi/index.md
+              - Setup: os/linux/rpi/setup.md
+          - Ubuntu:
+              - os/linux/ubuntu/index.md
+              - Install: os/linux/ubuntu/install.md
+              - Problems: os/linux/ubuntu/problems.md
+      - Unraid: os/unraid/index.md
+      - Mac:
+          - os/mac/index.md
+          - Commandline:
+              - os/mac/commandline/index.md
+              - Cheatsheet: os/mac/commandline/cheatsheet.md
+          - Homebrew: os/mac/homebrew.md
+          - Keyboard: os/mac/keyboard.md
+          - GeekTools: os/mac/geektool.md
+      - Windows:
+          - os/win/index.md
+          - Commandline: os/win/cmdline.md
+          - Firewall: os/win/firewall.md
+          - Group Policies: os/win/group_policies.md
+          - Power: os/win/power.md
+          - Registry: os/win/registry_location.md
+          - WSL: os/win/wsl.md
+  - Computer Science:
+      - computerscience/index.md
+      - Codes:
+          - computerscience/codes/index.md
+          - Number Systems: computerscience/codes/number-system.md
+          - ASCII: computerscience/codes/ascii.md
+          - Braille: computerscience/codes/braille.md
+          - Morse: computerscience/codes/morse.md
+      - Datascience:
+          - computerscience/datascience/index.md
+          - Statistics: computerscience/datascience/statistic.md
+      - Algorithms:
+          - computerscience/algorithms/index.md
+          - Types of Algorithms: computerscience/algorithms/types.md
+          - Big O Notation: computerscience/algorithms/bigO.md
+          - Memory Types: computerscience/algorithms/memory-types.md
+          - Sorting: computerscience/algorithms/sorting.md
+          - Days of Algo:
+              - computerscience/algorithms/daysofalgo/index.md
+              - computerscience/algorithms/daysofalgo/000-hanoi-tower.ipynb
+              - computerscience/algorithms/daysofalgo/001-matrix-chain-multiplication.ipynb
+              - computerscience/algorithms/daysofalgo/002-permutations.ipynb
+              - computerscience/algorithms/daysofalgo/003-counting-1bits.ipynb
+              - computerscience/algorithms/daysofalgo/004-eratosthenes-sieve.ipynb
+              - computerscience/algorithms/daysofalgo/005-binary-addition-fsm.ipynb
+              - computerscience/algorithms/daysofalgo/006-binary-search.ipynb
+              - computerscience/algorithms/daysofalgo/007-union-find.ipynb
+              - computerscience/algorithms/daysofalgo/008-maze-generation-kruskal.ipynb
+              - computerscience/algorithms/daysofalgo/009-maze-solver-lee.ipynb
+              - computerscience/algorithms/daysofalgo/010-maze-solver-dijkstra.ipynb
+              - computerscience/algorithms/daysofalgo/011-maze-solver-astar.ipynb
+              - computerscience/algorithms/daysofalgo/012-diffie-hellman-key-exchange.ipynb
+              - computerscience/algorithms/daysofalgo/013-enigma-machine.ipynb
+              - computerscience/algorithms/daysofalgo/014-sorting-algorithms.ipynb
+      - SDR: computerscience/sdr/index.md
   - Coding:
       - coding/index.md
       - General:
@@ -382,6 +477,11 @@ nav:
           - Convert: tools/jupyter/convert.md
           - Installation: tools/jupyter/installation.md
           - Install Plotly Dash: tools/jupyter/install_plotly_dash.md
+      - Cloudflare:
+          - tools/cloudflare/index.md
+          - Github Pages Custom Domain: tools/cloudflare/gh-pages.md
+          - Redirect Subdomains: tools/cloudflare/redirect-subdomains.md
+          - Server Subdomains: tools/cloudflare/server-subdomains.md
       - Heroku: tools/heroku/index.md
       - Pihole: tools/pihole/index.md
       - Sphinx:
@@ -408,101 +508,6 @@ nav:
       - SDR++: tools/sdr++/index.md
       - Tianji: tools/tianji/index.md
       - Useful: tools/useful_tools/useful_tools.md
-  - OS:
-      - os/index.md
-      - Linux:
-          - os/linux/index.md
-          - Commandline:
-              - os/linux/commandline/index.md
-              - Cheatsheet: os/linux/commandline/cheatsheet.md
-              - Nice to Know: os/linux/commandline/nicetoknow.md
-              - General: os/linux/commandline/general.md
-              - Crontab: os/linux/commandline/crontab.md
-              - DD: os/linux/commandline/dd.md
-              - SSH: os/linux/commandline/ssh.md
-              - Network: os/linux/commandline/network.md
-              - RSync: os/linux/commandline/rsync.md
-              - RClone: os/linux/commandline/rclone.md
-          - Tools:
-              - os/linux/tools/index.md
-              - Apache: os/linux/tools/apache.md
-              - Hardware Sensors: os/linux/tools/hw_sensors.md
-              - Let's Encrypt: os/linux/tools/lets_encrypt.md
-              - Mosquitto: os/linux/tools/mosquitto.md
-              - Raid: os/linux/tools/raid.md
-              - Samba: os/linux/tools/samba.md
-              - Shairport: os/linux/tools/shairport.md
-              - SystemD: os/linux/tools/systemd.md
-              - VIm: os/linux/tools/vim.md
-              - VNC: os/linux/tools/vnc.md
-              - VPN: os/linux/tools/vpn.md
-          - Scripts:
-              - os/linux/scripts/index.md
-              - General: os/linux/scripts/general.md
-              - Config Files: os/linux/scripts/config_files.md
-          - Filesystem:
-              - os/linux/filesystem/index.md
-              - Setup: os/linux/filesystem/folders.md
-              - Files: os/linux/filesystem/files.md
-          - Raspberry Pi:
-              - os/linux/rpi/index.md
-              - Setup: os/linux/rpi/setup.md
-          - Ubuntu:
-              - os/linux/ubuntu/index.md
-              - Install: os/linux/ubuntu/install.md
-              - Problems: os/linux/ubuntu/problems.md
-      - Unraid: os/unraid/index.md
-      - Mac:
-          - os/mac/index.md
-          - Commandline:
-              - os/mac/commandline/index.md
-              - Cheatsheet: os/mac/commandline/cheatsheet.md
-          - Homebrew: os/mac/homebrew.md
-          - Keyboard: os/mac/keyboard.md
-          - GeekTools: os/mac/geektool.md
-      - Windows:
-          - os/win/index.md
-          - Commandline: os/win/cmdline.md
-          - Firewall: os/win/firewall.md
-          - Group Policies: os/win/group_policies.md
-          - Power: os/win/power.md
-          - Registry: os/win/registry_location.md
-          - WSL: os/win/wsl.md
-  - Computer Science:
-      - computerscience/index.md
-      - Codes:
-          - computerscience/codes/index.md
-          - Number Systems: computerscience/codes/number-system.md
-          - ASCII: computerscience/codes/ascii.md
-          - Braille: computerscience/codes/braille.md
-          - Morse: computerscience/codes/morse.md
-      - Datascience:
-          - computerscience/datascience/index.md
-          - Statistics: computerscience/datascience/statistic.md
-      - Algorithms:
-          - computerscience/algorithms/index.md
-          - Types of Algorithms: computerscience/algorithms/types.md
-          - Big O Notation: computerscience/algorithms/bigO.md
-          - Memory Types: computerscience/algorithms/memory-types.md
-          - Sorting: computerscience/algorithms/sorting.md
-          - Days of Algo:
-              - computerscience/algorithms/daysofalgo/index.md
-              - computerscience/algorithms/daysofalgo/000-hanoi-tower.ipynb
-              - computerscience/algorithms/daysofalgo/001-matrix-chain-multiplication.ipynb
-              - computerscience/algorithms/daysofalgo/002-permutations.ipynb
-              - computerscience/algorithms/daysofalgo/003-counting-1bits.ipynb
-              - computerscience/algorithms/daysofalgo/004-eratosthenes-sieve.ipynb
-              - computerscience/algorithms/daysofalgo/005-binary-addition-fsm.ipynb
-              - computerscience/algorithms/daysofalgo/006-binary-search.ipynb
-              - computerscience/algorithms/daysofalgo/007-union-find.ipynb
-              - computerscience/algorithms/daysofalgo/008-maze-generation-kruskal.ipynb
-              - computerscience/algorithms/daysofalgo/009-maze-solver-lee.ipynb
-              - computerscience/algorithms/daysofalgo/010-maze-solver-dijkstra.ipynb
-              - computerscience/algorithms/daysofalgo/011-maze-solver-astar.ipynb
-              - computerscience/algorithms/daysofalgo/012-diffie-hellman-key-exchange.ipynb
-              - computerscience/algorithms/daysofalgo/013-enigma-machine.ipynb
-              - computerscience/algorithms/daysofalgo/014-sorting-algorithms.ipynb
-      - SDR: computerscience/sdr/index.md
   - Hardware:
       - hw/index.md
       - Communication:
