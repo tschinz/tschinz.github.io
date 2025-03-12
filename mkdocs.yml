@@ -71,7 +71,7 @@ extra:
   analytics:
     provider: tianji
     website_id: cm7g8oa580001ru04r0z0th92
-    website_url: https://tianji.tschinz.duckdns.org/tracker.js
+    website_url: https://tianji.zahno.dev/tracker.js
 
   #alternate:
   #  - name: English
