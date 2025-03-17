@@ -9,7 +9,7 @@ tags:
 
 If you want multiple subdomains pointing to the same subdomain or root domain, you can use Cloudflare to redirect the subdomains.
 
-domain or subdomain needs to be the default and already be configured. For a github page see [Github Custom Domain](gh-custom-domain.md) to realize this.
+The domain or subdomain needs to be the default and already be configured. For a github page see [Github Custom Domain](gh-pages.md) to realize this.
 
 In thie example the main subdomain is `page.example.com` and new redirected subdomains are `pages.example.com` and `docs.example.com`.
 

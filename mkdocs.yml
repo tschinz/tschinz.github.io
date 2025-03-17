@@ -573,6 +573,7 @@ nav:
           - Fonts: multimedia/text/fonts.md
       - Pictures:
           - multimedia/pictures/index.md
+          - Color Palette: multimedia/pictures/color-palette.md
           - ASCII-Art: multimedia/pictures/ascii_art.md
           - Wavedrom: multimedia/pictures/wavedrom.md
           - Mermaid: multimedia/pictures/mermaid.md
