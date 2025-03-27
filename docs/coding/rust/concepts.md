@@ -16,7 +16,7 @@ In Rust, ownership is a key concept that helps to ensure memory safety and elimi
 
 - Each value in Rust has an *owner*
 - There can only be *one owner* at a time
-- When the owner goes out of scope, the value will be dropped
+- When the owner goes *out of scope*, the value will be *dropped*
 
 #### Examples
 
@@ -118,8 +118,8 @@ Borrowing is a concept that allows a function or code block to temporarily acces
 
 Borrowing has some rules in Rust:
 
-- You can have either one mutable reference or any number of immutable references to a particular piece of data in a particular scope, but not both at the same time.
-- References must always be valid.
+- You can have either *one mutable reference* or *any number of immutable references* to a particular piece of data in a particular scope, but not both at the same time.
+- References must *salways be valid*.
 - You can't modify the data that is being borrowed through an immutable reference.
 - You can modify the data that is being borrowed through a mutable reference, but you can't have any other references to the data in the same scope.
 

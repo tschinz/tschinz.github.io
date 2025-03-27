@@ -406,25 +406,6 @@ let condition = true;
 let number = if condition {5} else {6};
 ```
 
-### `if let`
-
-`if let` is similar to match but is not exhaustive. All others values
-are ignored.
-
-``` rust
-fn main() {
-  let some_value = Some(3);
-  match some_value {
-    Some(3) => println!("three"),
-    _ => (),
-  }
-
-  if let Some(3) = some_value { // comparison inversed
-    println!("three");
-  }
-}
-```
-
 ### `for`
 
 ``` rust
@@ -585,15 +566,61 @@ for n in 0..10 {
 
 ### `match`
 
-`match` is perform an action depeding on the value / variant. A `match` needs to have an arm for all possibilities.
+`match` is perform an action depeding on the value / variant or `enums`. A `match` needs to have an arm for all possibilities.
+With `_` or `other` the match can be made exhaustive.
 
 ``` rust
 fn main() {
-  let some_value = Some(3);
-  match some_value {
-    Some(3) => println!("three");
-    _ => (),
+  let x = Some(5);
+  match x {
+      Some(n) => println!("Value is {}", n),
+      None => println!("No value"),
   }
+  match x {
+      Some(n) => println!("Value is {}", n),
+      _ => println!("No value"),
+  }
+}
+```
+
+### `if let`
+
+`if let` is similar to match but is not exhaustive. All others values
+are ignored.
+
+``` rust
+fn main() {
+  let x = Some(5);
+  if let Some(n) = x {
+      println!("Value is {}", n);
+  }
+}
+```
+
+### `let else`
+
+`let else` is similar to `if let` but if allows to early exit if the pattern does'nt match.
+
+```rust
+let x = Some(5);
+let Some(n) = x else {
+    println!("No value");
+    return;
+};
+
+println!("Value is {}", n);
+```
+
+### `while let`
+
+`while let` - Loop that runs as long as a pattern keeps matching.
+
+``` rust
+let mut iter = Some(3);
+
+while let Some(n) = iter {
+    println!("Got {}", n);
+    iter = None; // stop the loop
 }
 ```
 

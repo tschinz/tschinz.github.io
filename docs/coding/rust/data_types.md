@@ -22,7 +22,7 @@ By default `i32` is used
 | `i16`     | Integer `16 bit` signed value                 | `-32'768` to `32'767` |
 | `i32`     | Integer `32 bit` signed value                 | `-2'147'483'648` to `2'147'483'647` |
 | `i64`     | Integer `64 bit` signed value                 | `-9'223'372'036'854'775'808` to `9'223'372'036'854'775'807` |
-| `i128`    | Integer `128 bit` signed value                | `-128` to `127` |
+| `i128`    | Integer `128 bit` signed value                | `-170'141'183'460'469'231'731'687'303'715'884'105'728` to `170'141'183'460'469'231'731'687'303'715'884'105'727` |
 | `isize`   | Integer architecture dependend signed value   | depends on architecture |
 | `u8`      | Integer `8 bit` unsigned value                | `0` to `255` |
 | `u16`     | Integer `16 bit` unsigned value               | `0` to `65'535` |
@@ -44,6 +44,11 @@ Can be separated by an `_` for easier read.
 | Byte (`u8` only)     | `b'A'` |
 
 ### Floating-Point Types
+
+| Type  | Description                    | Range Approximation | Precision |
+| ----- | ------------------------------ | ------------------- | --------- |
+| `f32` | 32-bit IEEE 754 floating point | $\pm 1.4 × 10^{-45}$ to $\pm3.4 × 10^{38}$ | $\approx 6-7$ decimal digits |
+| `f64` | 64-bit IEEE 754 floating point | $\pm5.0 × 10^{-324}$ to $\pm1.7 × 10^{308}$ | $\approx 15-16$ decimal digits |
 
 ``` rust
 let x = 2.0;      // f64 double precision
