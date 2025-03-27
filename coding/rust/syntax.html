@@ -4114,15 +4114,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#if-let" class="md-nav__link">
-    <span class="md-ellipsis">
-      if let
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#for" class="md-nav__link">
     <span class="md-ellipsis">
       for
@@ -4171,6 +4162,33 @@
   <a href="#match" class="md-nav__link">
     <span class="md-ellipsis">
       match
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#if-let" class="md-nav__link">
+    <span class="md-ellipsis">
+      if let
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#let-else" class="md-nav__link">
+    <span class="md-ellipsis">
+      let else
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#while-let" class="md-nav__link">
+    <span class="md-ellipsis">
+      while let
     </span>
   </a>
   
@@ -12340,15 +12358,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#if-let" class="md-nav__link">
-    <span class="md-ellipsis">
-      if let
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#for" class="md-nav__link">
     <span class="md-ellipsis">
       for
@@ -12397,6 +12406,33 @@
   <a href="#match" class="md-nav__link">
     <span class="md-ellipsis">
       match
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#if-let" class="md-nav__link">
+    <span class="md-ellipsis">
+      if let
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#let-else" class="md-nav__link">
+    <span class="md-ellipsis">
+      let else
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#while-let" class="md-nav__link">
+    <span class="md-ellipsis">
+      while let
     </span>
   </a>
   
@@ -12853,21 +12889,6 @@ then be used within the closure's body, even if they are not passed in as parame
 <div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="n">condition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
 <span class="kd">let</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">condition</span><span class="w"> </span><span class="p">{</span><span class="mi">5</span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="mi">6</span><span class="p">};</span>
 </code></pre></div>
-<h3 id="if-let"><code>if let</code></h3>
-<p><code>if let</code> is similar to match but is not exhaustive. All others values
-are ignored.</p>
-<div class="highlight"><pre><span></span><code><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="n">some_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
-<span class="w">  </span><span class="k">match</span><span class="w"> </span><span class="n">some_value</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nb">Some</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="fm">println!</span><span class="p">(</span><span class="s">"three"</span><span class="p">),</span>
-<span class="w">    </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">(),</span>
-<span class="w">  </span><span class="p">}</span>
-
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="kd">let</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">some_value</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// comparison inversed</span>
-<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">"three"</span><span class="p">);</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
 <h3 id="for"><code>for</code></h3>
 <div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="o">..</span><span class="mi">10</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="c1">//...</span>
@@ -12997,13 +13018,47 @@ are ignored.</p>
 <span class="p">}</span>
 </code></pre></div>
 <h3 id="match"><code>match</code></h3>
-<p><code>match</code> is perform an action depeding on the value / variant. A <code>match</code> needs to have an arm for all possibilities.</p>
+<p><code>match</code> is perform an action depeding on the value / variant or <code>enums</code>. A <code>match</code> needs to have an arm for all possibilities.
+With <code>_</code> or <code>other</code> the match can be made exhaustive.</p>
 <div class="highlight"><pre><span></span><code><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="n">some_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
-<span class="w">  </span><span class="k">match</span><span class="w"> </span><span class="n">some_value</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nb">Some</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="fm">println!</span><span class="p">(</span><span class="s">"three"</span><span class="p">);</span>
-<span class="w">    </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">(),</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+<span class="w">  </span><span class="k">match</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nb">Some</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="fm">println!</span><span class="p">(</span><span class="s">"Value is {}"</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">),</span>
+<span class="w">      </span><span class="nb">None</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="fm">println!</span><span class="p">(</span><span class="s">"No value"</span><span class="p">),</span>
 <span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">match</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nb">Some</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="fm">println!</span><span class="p">(</span><span class="s">"Value is {}"</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">),</span>
+<span class="w">      </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="fm">println!</span><span class="p">(</span><span class="s">"No value"</span><span class="p">),</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="if-let"><code>if let</code></h3>
+<p><code>if let</code> is similar to match but is not exhaustive. All others values
+are ignored.</p>
+<div class="highlight"><pre><span></span><code><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="kd">let</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="fm">println!</span><span class="p">(</span><span class="s">"Value is {}"</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="let-else"><code>let else</code></h3>
+<p><code>let else</code> is similar to <code>if let</code> but if allows to early exit if the pattern does'nt match.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+<span class="kd">let</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">"No value"</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="fm">println!</span><span class="p">(</span><span class="s">"Value is {}"</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="while-let"><code>while let</code></h3>
+<p><code>while let</code> - Loop that runs as long as a pattern keeps matching.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">iter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+
+<span class="k">while</span><span class="w"> </span><span class="kd">let</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iter</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">"Got {}"</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
+<span class="w">    </span><span class="n">iter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">None</span><span class="p">;</span><span class="w"> </span><span class="c1">// stop the loop</span>
 <span class="p">}</span>
 </code></pre></div>
 <h2 id="format-printlnand-print-macros"><code>format!()</code>, <code>println!()</code>and <code>print!()</code> Macros</h2>

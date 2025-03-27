@@ -12497,7 +12497,7 @@
 <tr>
 <td><code>i128</code></td>
 <td>Integer <code>128 bit</code> signed value</td>
-<td><code>-128</code> to <code>127</code></td>
+<td><code>-170'141'183'460'469'231'731'687'303'715'884'105'728</code> to <code>170'141'183'460'469'231'731'687'303'715'884'105'727</code></td>
 </tr>
 <tr>
 <td><code>isize</code></td>
@@ -12569,6 +12569,30 @@
 </tbody>
 </table>
 <h3 id="floating-point-types">Floating-Point Types</h3>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+<th>Range Approximation</th>
+<th>Precision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>f32</code></td>
+<td>32-bit IEEE 754 floating point</td>
+<td><span class="arithmatex">\(\pm 1.4 × 10^{-45}\)</span> to <span class="arithmatex">\(\pm3.4 × 10^{38}\)</span></td>
+<td><span class="arithmatex">\(\approx 6-7\)</span> decimal digits</td>
+</tr>
+<tr>
+<td><code>f64</code></td>
+<td>64-bit IEEE 754 floating point</td>
+<td><span class="arithmatex">\(\pm5.0 × 10^{-324}\)</span> to <span class="arithmatex">\(\pm1.7 × 10^{308}\)</span></td>
+<td><span class="arithmatex">\(\approx 15-16\)</span> decimal digits</td>
+</tr>
+</tbody>
+</table>
 <div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.0</span><span class="p">;</span><span class="w">      </span><span class="c1">// f64 double precision</span>
 <span class="kd">let</span><span class="w"> </span><span class="n">y</span>: <span class="kt">f32</span> <span class="o">=</span><span class="w"> </span><span class="mf">3.0</span><span class="p">;</span><span class="w"> </span><span class="c1">// f32 single precision</span>
 </code></pre></div>

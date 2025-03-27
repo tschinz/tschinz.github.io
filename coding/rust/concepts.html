@@ -12163,7 +12163,7 @@
 <ul>
 <li>Each value in Rust has an <em>owner</em></li>
 <li>There can only be <em>one owner</em> at a time</li>
-<li>When the owner goes out of scope, the value will be dropped</li>
+<li>When the owner goes <em>out of scope</em>, the value will be <em>dropped</em></li>
 </ul>
 <h4 id="examples">Examples</h4>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
@@ -12243,8 +12243,8 @@
 <p>Borrowing is a concept that allows a function or code block to temporarily access a value owned by another variable, without taking ownership of it. Borrowing enables code to be more flexible and avoids unnecessary copying of large data structures.</p>
 <p>Borrowing has some rules in Rust:</p>
 <ul>
-<li>You can have either one mutable reference or any number of immutable references to a particular piece of data in a particular scope, but not both at the same time.</li>
-<li>References must always be valid.</li>
+<li>You can have either <em>one mutable reference</em> or <em>any number of immutable references</em> to a particular piece of data in a particular scope, but not both at the same time.</li>
+<li>References must <em>salways be valid</em>.</li>
 <li>You can't modify the data that is being borrowed through an immutable reference.</li>
 <li>You can modify the data that is being borrowed through a mutable reference, but you can't have any other references to the data in the same scope.</li>
 </ul>
