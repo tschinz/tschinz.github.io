@@ -15,11 +15,13 @@ tags:
 Insights from the book [How To Win Friends & Influence People](https://www.google.ch/books/edition/How_To_Win_Friends_and_Influence_People/yxfJDVXClucC) by Dale Carnegie a book from 1937.
 
 ### Fundamental Techniques in Handling People
+
 + **Don't criticize**.
 + **Give** honest and sincere **appreciation**.
 + Arouse in the other person an eager want.
 
 ### Six ways to make people like you
+
 + **Become** genuinely **interested** in other people.
 + **Smile**.
 + Remember a person's **name**.
@@ -28,6 +30,7 @@ Insights from the book [How To Win Friends & Influence People](https://www.googl
 + **Make** the other person feel **important** - and do it sincerely.
 
 ### Win people to your way of thinking
+
 + The only way to get the best of an **argument** is to **avoid** it.
 + Show respect for the other person's opinions. **Never say, "You're wrong."**
 + **If you are wrong, admit it** quickly and emphatically.
@@ -42,6 +45,7 @@ Insights from the book [How To Win Friends & Influence People](https://www.googl
 + Throw down a challenge.
 
 ### Be a Leader
+
 + **Begin with** praise and honest **appreciation**.
 + Call attention to people's **mistakes indirectly**.
 + **Talk about your own mistakes before criticizing** the other person.

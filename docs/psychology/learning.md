@@ -4,7 +4,7 @@ tags:
   - learning
 ---
 
-# Leadership
+# Learning
 
 ![](img/learning.svg){.center width="20%"}
 
@@ -61,3 +61,15 @@ See also [Books](../multimedia/books/index.md#psychology) for more information.
 | Cover                                                      | Book |
 | ---------------------------------------------------------- | --- |
 ![](img/books/learn-like-a-pro.png){align=right width=100px} | [Learning like a Pro](https://www.google.ch/books/edition/Learn_Like_a_Pro/-9f3DwAAQBAJ)
+
+## How We Learn
+
+We learn:
+
+- 10% of What We Read
+- 20% of What We Hear
+- 30% of What We See
+- 50% of What We See and Hear
+- 70% of What We Discuss with Others
+- 80% of What We Experience Personally
+- 95% of What We Teach to Someone Else
