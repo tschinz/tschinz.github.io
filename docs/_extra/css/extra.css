@@ -19,7 +19,7 @@ td {
 }
 
 .md-typeset__table table:not([class]) {
-  font-size: .74rem;
+  font-size: 0.74rem;
   border-right: none;
 }
 
@@ -35,5 +35,22 @@ td {
 
 /* dark mode alternating table bg colors */
 [data-md-color-scheme="slate"] .md-typeset__table tr:nth-child(2n) {
-  background-color: hsla(var(--md-hue), 18%, 18%, 1)
+  background-color: hsla(var(--md-hue), 18%, 18%, 1);
+}
+
+/* change to local fonts*/
+@font-face {
+  font-family: "Fira Sans";
+  src: url("../fonts/FiraSans-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Iosavka";
+  src: url("../_extra/fonts/iosevka-latin-400-normal.ttf") format("truetype");
+}
+
+:root {
+  --md-code-font-family: "Iosevka";
+}
+:root {
+  --md-text-font-family: "Fira Sans";
 }

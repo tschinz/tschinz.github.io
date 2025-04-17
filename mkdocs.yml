@@ -26,7 +26,8 @@ theme:
   favicon: img/favicon.svg
   font:
     text: Fira Sans
-    code: Fira Code
+    code: Iosevka
+    #code: Fira Code
   palette:
     # colors red pink purple deep purple indigo blue light blue cyan teal green light green lime yellow amber orange deep orange brown grey blue grey black white
     # Palette toggle for automatic mode
