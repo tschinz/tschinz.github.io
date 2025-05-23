@@ -525,8 +525,10 @@ nav:
           - hw/raspberry/index.md
           - Boards: hw/raspberry/boards.md
           - General: hw/raspberry/general.md
-          - RetroPie: hw/raspberry/retropie.md
-          - Retroflag Case: hw/raspberry/picase.md
+          - RPi Pico: hw/raspberry/pico.md
+          - RetroPie:
+              - hw/raspberry/retropie.md
+              - Retroflag Case: hw/raspberry/picase.md
       - PYNQ-Z1:
           - hw/pynq-z1/index.md
           - General: hw/pynq-z1/general.md

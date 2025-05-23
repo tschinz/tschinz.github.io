@@ -169,3 +169,106 @@ Like the Pi Zero, it also has:
 - HAT-compatible 40-pin header
 - Composite video and reset headers
 - CSI camera connector
+
+## Raspberry Pi Pico Series
+
+The **Raspberry Pi Pico** series is a family of microcontroller boards developed by the Raspberry Pi Foundation. Unlike the full-size Raspberry Pi computers, which are capable of running Linux-based operating systems, the Pico boards are designed for embedded systems and bare-metal programming. They are ideal for low-power, real-time applications such as robotics, IoT devices, and sensor networks.
+
+![](img/rpi_pico.jpg){width=49%}![](img/rpi_pico2.webp){width=49%}
+
+
+More information about using the [Raspberry Pi Pico series](./pico.md).
+
+### Overview
+
+The Pico boards are based on the **RP2040** or **RP2350** microcontrollers—both custom chips designed by the Raspberry Pi Foundation. These boards are highly affordable, compact, and versatile, making them a popular choice among hobbyists, educators, and professionals.
+
+Compared to other Raspberry Pi models (such as the Pi 4 or Pi Zero), the Pico boards do not support Linux or other conventional operating systems. Instead, they are typically programmed using C/C++ or MicroPython, and they interface directly with hardware through GPIO, SPI, I²C, UART, ADCs, and PWM outputs.
+
+### Variants
+
+Several variants of the Raspberry Pi Pico exist, including:
+
+- **Pico** – Base model with no Wi-Fi and no pre-soldered headers.
+- **Pico H** – Includes pre-soldered headers.
+- **Pico W** – Includes onboard Wi-Fi (IEEE 802.11n) for wireless communication.
+- **Pico WH** – Includes both onboard Wi-Fi and pre-soldered headers.
+
+These variants allow users to choose the configuration that best fits their project needs—whether for compact integration, breadboard prototyping, or wireless networking.
+
+### Microcontroller Versions
+
+#### RP2040
+
+The **RP2040** is the original microcontroller used in the first generation of Raspberry Pi Pico boards. Its key specifications include:
+
+- **Dual-core Arm Cortex-M0+ processor** running at up to 133 MHz
+- **264 KB SRAM**
+- **2 MB Flash memory (external)**
+- **30 GPIO pins**, including:
+    - 2 × SPI
+    - 2 × I²C
+    - 2 × UART
+    - 3 × 12-bit ADC channels
+    - 16 × PWM channels
+- **USB 1.1 host/device support**
+- **Low-power sleep and dormant modes**
+- **Programmable I/O (PIO) blocks** for custom peripheral support
+
+#### RP2350
+
+The **RP2350** is a more advanced microcontroller introduced with the Raspberry Pi Pico 2 board. It features a **heterogeneous dual-core architecture**, allowing for flexible configurations:
+
+- **Dual-core Arm Cortex-M33 processors**
+- **Dual-core Hazard3 RISC-V processors**
+- **Mixed-core configuration**: one Arm Cortex-M33 and one Hazard3 RISC-V
+
+Only two cores can be active at a time, and the selection depends on the specific application requirements.
+
+##### Arm Cortex-M33 Cores
+
+- **Architecture**: ARMv8-M Mainline
+- **Clock Speed**: Up to 150 MHz
+- **Features**:
+    - TrustZone security technology
+    - Optional single-precision Floating-Point Unit (FPU)
+    - DSP instructions for efficient signal processing
+    - Hardware divide and multiply instructions
+    - Memory Protection Unit (MPU) support
+    - Secure boot and cryptographic acceleration
+
+##### Hazard3 RISC-V Cores
+
+- **Architecture**: RV32IMAC+ (32-bit RISC-V)
+- **Clock Speed**: Up to 150 MHz
+- **Features**:
+    - 3-stage in-order pipeline
+    - Support for standard RISC-V extensions:
+        - Integer multiplication and division (M)
+        - Atomic instructions (A)
+        - Compressed instructions (C)
+    - Additional extensions: Zba, Zbb, Zbs, Zbkb, Zcb, Zcmp, Zicsr
+    - Designed for low-power and efficient embedded applications
+
+##### RP2350 Specifications
+
+- **Memory**:
+    - 520 KB SRAM (10 banks)
+    - 8 KB One-Time Programmable (OTP) memory
+    - Support for up to 16 MB external QSPI flash or PSRAM
+- **Peripherals**:
+    - 3 × Programmable I/O (PIO) blocks (12 state machines)
+    - 24 × PWM channels
+    - 4 or 8 × 12-bit ADC channels (depending on package)
+    - 2 × UART
+    - 2 × SPI
+    - 2 × I²C
+    - 1 × USB 1.1 host/device controller
+    - 1 × High-Speed Transmit (HSTX) for digital video output
+- **Power Management**:
+    - On-chip switched-mode power supply (SMPS)
+    - Programmable low-dropout regulator (LDO)
+- **Security**:
+    - Secure boot with protected OTP storage
+    - Hardware SHA-256 accelerator
+    - True Random Number Generator (TRNG)
