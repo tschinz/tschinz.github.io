@@ -534,6 +534,12 @@ nav:
           - General: hw/pynq-z1/general.md
           - Overlays: hw/pynq-z1/overlays.md
           - PYNQ-Package: hw/pynq-z1/pynq-package.md
+      - 3D-Printing:
+          - hw/3d-printing/index.md
+          - Filaments: hw/3d-printing/filaments.md
+          - Joins/Tolerances: hw/3d-printing/joins-tolerances.md
+          - Filling: hw/3d-printing/filling.md
+          - Slicing: hw/3d-printing/slicing.md
   - Multimedia:
       - multimedia/index.md
       - Writing:
