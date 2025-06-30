@@ -10,7 +10,6 @@ Brotli==1.1.0
 cairocffi==1.7.1
 CairoSVG==2.7.1
 certifi==2023.11.17
-cffi==1.16.0
 charset-normalizer==3.3.2
 click==8.1.7
 colorama==0.4.6
@@ -76,7 +75,6 @@ pandocfilters==1.5.1
 parso==0.8.4
 pathspec==0.12.1
 pexpect==4.9.0
-pillow==10.2.0
 plantuml-markdown==3.9.2
 platformdirs==4.1.0
 prompt_toolkit==3.0.47
