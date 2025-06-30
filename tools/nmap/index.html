@@ -8914,15 +8914,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
-    <span class="md-ellipsis">
-      Commands
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#options" class="md-nav__link">
     <span class="md-ellipsis">
       Options
@@ -8935,6 +8926,60 @@
   <a href="#ports" class="md-nav__link">
     <span class="md-ellipsis">
       Ports
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Commands
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-scanning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic scanning
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discovery-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Discovery Options$
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#firewall-evasion-techniques" class="md-nav__link">
+    <span class="md-ellipsis">
+      Firewall Evasion Techniques
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-os-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Version &amp; OS Detection
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Output options
     </span>
   </a>
   
@@ -12152,15 +12197,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
-    <span class="md-ellipsis">
-      Commands
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#options" class="md-nav__link">
     <span class="md-ellipsis">
       Options
@@ -12173,6 +12209,60 @@
   <a href="#ports" class="md-nav__link">
     <span class="md-ellipsis">
       Ports
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Commands
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-scanning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic scanning
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discovery-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Discovery Options$
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#firewall-evasion-techniques" class="md-nav__link">
+    <span class="md-ellipsis">
+      Firewall Evasion Techniques
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-os-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Version &amp; OS Detection
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Output options
     </span>
   </a>
   
@@ -12231,29 +12321,6 @@
 <li><a href="docs/NmapCheatSheetv1.0.pdf">SANS Nmap Cheatsheet v1.0</a></li>
 <li><a href="docs/nmapcheatsheet.pdf">See Security Technologies Nmap Cheatsheet v1.0</a></li>
 </ul>
-<h2 id="commands">Commands</h2>
-<table>
-<thead>
-<tr>
-<th>Nmap Command</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>nmap -O target.host.com</code> <br> <code>nmap -O 10.11.12.22</code></td>
-<td>Scan one host</td>
-</tr>
-<tr>
-<td><code>nmap -O target1.host.com target2.host.com</code> <br> <code>nmap -O 10.11.12.22 10.11.12.1</code></td>
-<td>Scan multiple hosts</td>
-</tr>
-<tr>
-<td><code>nmap -sP 10.11.0.0/16</code> <br> <code>nmap -sP 10.11.12.0/24</code></td>
-<td>Ping Scan of a Network range</td>
-</tr>
-</tbody>
-</table>
 <h2 id="options">Options</h2>
 <table>
 <thead>
@@ -12336,6 +12403,84 @@
 </tr>
 </tbody>
 </table>
+<h2 id="commands">Commands</h2>
+<h2 id="basic-scanning">Basic scanning</h2>
+<div class="highlight"><pre><span></span><code>nmap<span class="w"> </span>target.host.com<span class="w">                     </span><span class="c1"># scan one host</span>
+nmap<span class="w"> </span><span class="m">10</span>.11.12.22
+
+nmap<span class="w"> </span>target1.host.com<span class="w"> </span>target2.host.com<span class="w">   </span><span class="c1"># scan multiple hosts</span>
+nmap<span class="w"> </span><span class="m">10</span>.11.12.22<span class="w"> </span><span class="m">10</span>.11.12.1
+
+nmap<span class="w"> </span>-iL<span class="w"> </span>list.txt<span class="w">                        </span><span class="c1"># scan targets from a list</span>
+
+nmap<span class="w"> </span><span class="m">10</span>.11.12.0-50<span class="w">                       </span><span class="c1"># scan a range of hosts</span>
+
+nmap<span class="w"> </span><span class="m">10</span>.11.12.0/24<span class="w">                       </span><span class="c1"># scan an entire subnet</span>
+
+nmap<span class="w"> </span>-iR<span class="w"> </span><span class="m">100</span><span class="w">                             </span><span class="c1"># scan 100 random hosts</span>
+
+nmap<span class="w"> </span><span class="m">10</span>.11.12.*<span class="w"> </span>--exclude<span class="w"> </span><span class="m">10</span>.11.12.5<span class="w">     </span><span class="c1"># exclude specific hosts</span>
+nmap<span class="w"> </span><span class="m">10</span>.11.12.*<span class="w"> </span>--excludefile<span class="w"> </span>exclude.txt
+
+nmap<span class="w"> </span>-A<span class="w"> </span>target.host.com<span class="w">                  </span><span class="c1"># aggressive scan (OS, version, scripts, traceroute)</span>
+
+nmap<span class="w"> </span>-6<span class="w"> </span>ipv6.target.host<span class="w">                 </span><span class="c1"># scan IPv6 target</span>
+</code></pre></div>
+<h2 id="discovery-options">Discovery Options$</h2>
+<div class="highlight"><pre><span></span><code>nmap<span class="w"> </span>-sP<span class="w"> </span><span class="m">10</span>.11.12.0/24<span class="w">                   </span><span class="c1"># ping scan only</span>
+
+nmap<span class="w"> </span>-PN<span class="w"> </span>target.host.com<span class="w">                 </span><span class="c1"># skip host discovery (treat as up)</span>
+
+nmap<span class="w"> </span>-PS<span class="w"> </span>target.host.com<span class="w">                 </span><span class="c1"># TCP SYN ping</span>
+nmap<span class="w"> </span>-PA<span class="w"> </span>target.host.com<span class="w">                 </span><span class="c1"># TCP ACK ping</span>
+nmap<span class="w"> </span>-PU<span class="w"> </span>target.host.com<span class="w">                 </span><span class="c1"># UDP ping</span>
+nmap<span class="w"> </span>-PY<span class="w"> </span>target.host.com<span class="w">                 </span><span class="c1"># SCTP INIT ping</span>
+
+nmap<span class="w"> </span>-PE<span class="w"> </span>target.host.com<span class="w">                 </span><span class="c1"># ICMP echo ping</span>
+nmap<span class="w"> </span>-PP<span class="w"> </span>target.host.com<span class="w">                 </span><span class="c1"># ICMP timestamp ping</span>
+nmap<span class="w"> </span>-PM<span class="w"> </span>target.host.com<span class="w">                 </span><span class="c1"># ICMP address-mask ping</span>
+nmap<span class="w"> </span>-PO<span class="w"> </span>target.host.com<span class="w">                 </span><span class="c1"># IP protocol ping</span>
+nmap<span class="w"> </span>-PR<span class="w"> </span><span class="m">10</span>.11.12.0/24<span class="w">                   </span><span class="c1"># ARP ping (local network)</span>
+
+nmap<span class="w"> </span>--traceroute<span class="w"> </span>target.host.com<span class="w">        </span><span class="c1"># traceroute</span>
+nmap<span class="w"> </span>-R<span class="w"> </span>target.host.com<span class="w">                  </span><span class="c1"># force reverse DNS resolution</span>
+nmap<span class="w"> </span>-n<span class="w"> </span>target.host.com<span class="w">                  </span><span class="c1"># disable DNS resolution</span>
+nmap<span class="w"> </span>--system-dns<span class="w"> </span>target.host.com<span class="w">        </span><span class="c1"># use system DNS</span>
+nmap<span class="w"> </span>--dns-servers<span class="w"> </span><span class="m">8</span>.8.8.8,1.1.1.1<span class="w"> </span>target.host.com
+
+nmap<span class="w"> </span>-sL<span class="w"> </span><span class="m">10</span>.11.12.*<span class="w">                      </span><span class="c1"># list hosts without scanning</span>
+</code></pre></div>
+<h2 id="firewall-evasion-techniques">Firewall Evasion Techniques</h2>
+<div class="highlight"><pre><span></span><code>nmap<span class="w"> </span>-f<span class="w"> </span>target.host.com<span class="w">                  </span><span class="c1"># fragment packets</span>
+nmap<span class="w"> </span>--mtu<span class="w"> </span><span class="m">24</span><span class="w"> </span>target.host.com<span class="w">            </span><span class="c1"># specify MTU</span>
+
+nmap<span class="w"> </span>-D<span class="w"> </span>RND:10<span class="w"> </span>target.host.com<span class="w">           </span><span class="c1"># decoy scan with 10 random decoys</span>
+
+nmap<span class="w"> </span>-sI<span class="w"> </span>zombie.host.com<span class="w"> </span>target.host.com<span class="w"> </span><span class="c1"># idle zombie scan</span>
+
+nmap<span class="w"> </span>--source-port<span class="w"> </span><span class="m">53</span><span class="w"> </span>target.host.com<span class="w">    </span><span class="c1"># spoof source port (DNS)</span>
+nmap<span class="w"> </span>--data-length<span class="w"> </span><span class="m">200</span><span class="w"> </span>target.host.com<span class="w">   </span><span class="c1"># append random data</span>
+nmap<span class="w"> </span>--randomize-hosts<span class="w"> </span><span class="m">10</span>.11.12.*<span class="w">        </span><span class="c1"># randomize host scan order</span>
+nmap<span class="w"> </span>--spoof-mac<span class="w"> </span><span class="m">0</span><span class="w"> </span>target.host.com<span class="w">       </span><span class="c1"># spoof MAC (random vendor)</span>
+nmap<span class="w"> </span>--badsum<span class="w"> </span>target.host.com<span class="w">            </span><span class="c1"># send bad checksums</span>
+</code></pre></div>
+<h2 id="version-os-detection">Version &amp; OS Detection</h2>
+<div class="highlight"><pre><span></span><code>nmap<span class="w"> </span>-O<span class="w"> </span>target.host.com<span class="w">                  </span><span class="c1"># OS detection</span>
+nmap<span class="w"> </span>-O<span class="w"> </span>--osscan-guess<span class="w"> </span>target.host.com<span class="w">   </span><span class="c1"># aggressive OS detection</span>
+
+nmap<span class="w"> </span>-sV<span class="w"> </span>target.host.com<span class="w">                 </span><span class="c1"># service version detection</span>
+nmap<span class="w"> </span>-sV<span class="w"> </span>--version-trace<span class="w"> </span>target.host.com<span class="w"> </span><span class="c1"># debug version detection</span>
+
+nmap<span class="w"> </span>-sR<span class="w"> </span>target.host.com<span class="w">                 </span><span class="c1"># RPC service scan</span>
+</code></pre></div>
+<h2 id="output-options">Output options</h2>
+<div class="highlight"><pre><span></span><code>nmap<span class="w"> </span>-oN<span class="w"> </span>scan.txt<span class="w"> </span>target.host.com<span class="w">         </span><span class="c1"># normal text output</span>
+nmap<span class="w"> </span>-oX<span class="w"> </span>scan.xml<span class="w"> </span>target.host.com<span class="w">         </span><span class="c1"># XML output</span>
+nmap<span class="w"> </span>-oG<span class="w"> </span>scan.gnmap<span class="w"> </span>target.host.com<span class="w">       </span><span class="c1"># grepable output</span>
+nmap<span class="w"> </span>-oA<span class="w"> </span>scan_prefix<span class="w"> </span>target.host.com<span class="w">      </span><span class="c1"># output in all major formats</span>
+nmap<span class="w"> </span>--stats-every<span class="w"> </span>10s<span class="w"> </span>target.host.com<span class="w">    </span><span class="c1"># display stats every 10 seconds</span>
+nmap<span class="w"> </span>-oS<span class="w"> </span>leet_scan.txt<span class="w"> </span>target.host.com<span class="w">    </span><span class="c1"># 1337-style ASCII output</span>
+</code></pre></div>
 
 
 
