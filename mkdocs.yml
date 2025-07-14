@@ -470,6 +470,9 @@ nav:
           - tools/anaconda/index.md
           - Install: tools/anaconda/install.md
           - Conda: tools/anaconda/conda.md
+      - uv:
+          - tools/uv/index.md
+          - Intro: tools/uv/intro.md
       - Chromium: tools/chromium/index.md
       - Jupyter:
           - tools/jupyter/index.md
