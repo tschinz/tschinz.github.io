@@ -25,7 +25,7 @@
         <link rel="alternate" type="application/rss+xml" title="RSS feed of updated content" href="../../../feed_rss_updated.xml">
       
       <link rel="icon" href="../../../img/favicon.svg">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.4">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.50c56a3b.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
@@ -63,7 +63,7 @@
     
       <link rel="stylesheet" href="../../../assets/mkdocs_puml/interaction.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -84,17 +84,217 @@
     
     
    <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script><script>(function() {
+    const customDynamicStyle = document.createElement("style");
+    // We must put it outside of the head and body, since they are replaced by the instant navigation feature in the Material theme
+    document.documentElement.appendChild(customDynamicStyle);
+
+    const TOGGLE_BUTTON_REFERENCE_ELEMENT_NOT_FOUND_WARNING = "[mkdocs-toggle-sidebar-plugin] Reference element for inserting 'toggle_button' not found. This version of the plugin may not be compatible with this version of the theme. Try updating both to the latest version. If that fails, you can open an GitHub issue.";
+
+    const loadBool = (name, default_value) => {
+        const value = localStorage.getItem(`TOGGLE_SIDEBAR_${name}`);
+        if (value == null) {
+            return default_value;
+        } else {
+            return value == "1";
+        }
+    }
+
+    const loadNavigationState = () => loadBool("NAVIGATION", true);
+    const loadTocState = () => loadBool("TOC", true);
+
+    const saveBool = (name, value) => {
+        localStorage.setItem(`TOGGLE_SIDEBAR_${name}`, value ? "1" : "0");
+    }
+
+    const toggleVisibility = (toggleNavigation, toggleTOC) => {
+        let newNavigation = loadNavigationState();
+        let newTOC = loadTocState();
         
-            .gscrollbar-fixer { padding-right: 15px; }
-            .gdesc-inner { font-size: 0.75rem; }
-            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+        if (toggleNavigation) {
+            newNavigation = !newNavigation;
+            saveBool("NAVIGATION", newNavigation);
+        }
+        if (toggleTOC) {
+            newTOC = !newTOC;
+            saveBool("TOC", newTOC);
+        }
+        
+        _setVisibility(newNavigation, newTOC);
+    }
+
+    const _setVisibility = (newNavigation, newTOC) => {
+        console.debug(`Setting new visibility: navigation=${newNavigation}, TOC=${newTOC}`);
+        // combine this into one operation, so that it is more efficient (for toggling both) and easier to code with dynamic CSS generation
+        customDynamicStyle.innerHTML = setCombinedVisibility(newNavigation, newTOC);
+    }
+
+    // START OF INCLUDE
+    // This gets replaced with the definitions of: 
+    // - setCombinedVisibility(showNavigation: bool, showTOC: bool) -> string (dynamic CSS)
+    // - registerKeyboardEventHandler() -> void
+    const setCombinedVisibility = (showNavigation, showTOC) => {
+    // Hide the button when on mobile (and menu us shown as hamburger menu anyways).
+    // The exact max-width is taken from the styling of the 'body > header > nav > a' element
+    
+    let style = `
+.mkdocs-toggle-sidebar-button {
+    cursor: pointer;
+    margin-right: 5px;
+    margin-left: 1rem;
+}
+
+@media screen and (max-width: 76.1875em) {
+    .mkdocs-toggle-sidebar-button {
+        display: none;
+    }
+}
+`;
+// The TOC has a different break point than the navigation.
+// It can be seen on the nav.md-nav--secondary:nth-child(1) element (60em)
+// If the screen is smaller, it is shown in the navigation section if you click the nested hamburger menu
+if (!showTOC) {
+    style += `
+@media screen and (min-width: 60em) {
+    div.md-sidebar.md-sidebar--secondary {
+        display: none;
+    }
+}
+`;
+        }
+        
+    // We always have to show the navigation in mobile view, otherwise the hamburger menu is broken
+    if (!showNavigation) {
+        style += `
+@media screen and (min-width: 76.1875em) {
+    div.md-sidebar.md-sidebar--primary {
+        display: none;
+    }
+}
+`;
+    }
+
+    return style;
+}
+
+const addToggleButton = (toggleNavigation, toggleTOC) => {
+    const toggleBtn = createDefaultToggleButton(toggleNavigation, toggleTOC);
+    toggleBtn.classList.add("md-icon");
+  
+    const titleElement = document.querySelector(".md-header__title");
+    if (titleElement) {
+        titleElement.parentNode.insertBefore(toggleBtn, titleElement.nextSibling);  
+    } else {
+        console.warn(TOGGLE_BUTTON_REFERENCE_ELEMENT_NOT_FOUND_WARNING);
+    }
+}
+
+const registerKeyboardEventHandler = () => {
+    // Custom key handlers: SEE https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/?h=key+bind#docsjavascriptsshortcutsjs
+    keyboard$.subscribe(key => {
+        if (key.mode === "global") {
+            if (coreEventListenerLogic(key.type)) {
+                // event handled, stop propagation
+                key.claim();
+            }
+        }
+    });
+}
+
+    // END OF INCLUDE
+
+    // argument: string, returns true if the key was handled and the event should be marked as already handled
+    const coreEventListenerLogic = (keyChar) => {
+        if (keyChar === "t") {
+            toggleVisibility(false, true);
+            return true;
+        } else if (keyChar === "m") {
+            toggleVisibility(true, false);
+            return true;
+        } else if (keyChar === "b") {
+            toggleVisibility(true, true);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    const onPageLoadedAction = () => {
+        console.log("The mkdocs-toggle-sidebar-plugin is installed. It adds the following key bindings:\n T -> toggle table of contents sidebar\n M -> toggle navigation menu sidebar\n B -> toggle both sidebars (TOC and navigation)");
+
+        const toggle_button = "none";
+        if (toggle_button == "none") {
+            // do nothing
+        } else if (toggle_button == "navigation") {
+            addToggleButton(true, false);
+        } else if (toggle_button == "toc") {
+            addToggleButton(false, true);
+        } else if (toggle_button == "all") {
+            addToggleButton(true, true);
+        } else {
+            console.error(`[mkdocs-toggle-sidebar-plugin] Unknown value for toggle_button: '${toggleButtonType}'`);
+        }
+
+        registerKeyboardEventHandler();
+    }
+
+    const createDefaultToggleButton = (toggleNavigation, toggleTOC) => {
+        const toggleBtn = document.createElement("div");
+        toggleBtn.className = "mkdocs-toggle-sidebar-button";
+        toggleBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>`;
+        if (toggleNavigation && toggleTOC) {
+            toggleBtn.title = "Toggle Navigation and Table of Contents";
+        } else if (toggleNavigation) {
+            toggleBtn.title = "Toggle Navigation";
+        } else if (toggleTOC) {
+            toggleBtn.title = "Toggle Table of Contents";
+        }
+        toggleBtn.addEventListener("click", () => toggleVisibility(toggleNavigation, toggleTOC));
+        return toggleBtn;
+    };
+
+    // Export functions that the user can call to modify the state
+    window.MkdocsToggleSidebarPlugin = {
+        setNavigationVisibility: (show) => {
+            saveBool("NAVIGATION", show);
+            _setVisibility(show, loadTocState());
+        },
+        setTocVisibility: (show) => {
+            saveBool("TOC", show);
+            _setVisibility(loadNavigationState(), show);
+        },
+        setAllVisibility: (showNavigation, showTOC) => {
+            saveBool("NAVIGATION", showNavigation);
+            saveBool("TOC", showTOC);
+            _setVisibility(showNavigation, showTOC);
+        },
+        toggleNavigationVisibility: () => toggleVisibility(true, false),
+        toggleTocVisibility: () => toggleVisibility(false, true),
+        toggleAllVisibility: () => toggleVisibility(true, true)
+    };
+
+    // Run this immediately instead of waiting for page.onload to prevent page flicker
+    customDynamicStyle.innerHTML = setCombinedVisibility(loadNavigationState(), loadTocState());
+    // console.log("Debug: hide sidebar completed");
+
+    // SEE https://developer.mozilla.org/en-US/docs/Web/API/Document/DOMContentLoaded_event#checking_whether_loading_is_already_complete
+    if (document.readyState === "loading") {
+        // console.debug("Registering DOMContentLoaded event listener");
+        document.addEventListener("DOMContentLoaded", onPageLoadedAction);
+    } else {
+        // console.debug("DOMContentLoaded has already fired");
+        onPageLoadedAction();
+    }
+}());
+</script></head>
   
   
     
@@ -134,7 +334,7 @@
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -162,7 +362,7 @@
     <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9h-1.9M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69m-9.15 3.96h2.3L12 9l-1.15 3.65Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
       </label>
     
   
@@ -172,7 +372,7 @@
     <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="grey" data-md-color-accent="deep-purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
       </label>
     
   
@@ -182,7 +382,7 @@
     <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-purple"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
       </label>
     
   
@@ -190,35 +390,37 @@
       
     
     
-      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
     
-      <label class="md-header__button md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
           <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
             
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
           </a>
         
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
       </nav>
       
@@ -226,7 +428,7 @@
       
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             Initializing search
@@ -237,13 +439,14 @@
     </div>
   </div>
 </div>
+      
     
     
       <div class="md-header__source">
         <a href="https://github.com/tschinz/tschinz" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
   </div>
   <div class="md-source__repository">
     tschinz
@@ -269,11 +472,13 @@
   
   
   
+  
     
     
       <li class="md-tabs__item">
         <a href="../../../index.html" class="md-tabs__link">
           
+  
   
     
   
@@ -288,6 +493,7 @@
         
   
   
+  
     
   
   
@@ -296,6 +502,7 @@
       <li class="md-tabs__item md-tabs__item--active">
         <a href="../../index.html" class="md-tabs__link">
           
+  
   
     
   
@@ -311,11 +518,13 @@
   
   
   
+  
     
     
       <li class="md-tabs__item">
         <a href="../../../computerscience/index.html" class="md-tabs__link">
           
+  
   
     
   
@@ -331,11 +540,13 @@
   
   
   
+  
     
     
       <li class="md-tabs__item">
         <a href="../../../coding/index.html" class="md-tabs__link">
           
+  
   
     
   
@@ -351,11 +562,13 @@
   
   
   
+  
     
     
       <li class="md-tabs__item">
         <a href="../../../tools/index.html" class="md-tabs__link">
           
+  
   
     
   
@@ -371,11 +584,13 @@
   
   
   
+  
     
     
       <li class="md-tabs__item">
         <a href="../../../hw/index.html" class="md-tabs__link">
           
+  
   
     
   
@@ -391,11 +606,13 @@
   
   
   
+  
     
     
       <li class="md-tabs__item">
         <a href="../../../multimedia/index.html" class="md-tabs__link">
           
+  
   
     
   
@@ -411,11 +628,13 @@
   
   
   
+  
     
     
       <li class="md-tabs__item">
         <a href="../../../psychology/index.html" class="md-tabs__link">
           
+  
   
     
   
@@ -431,11 +650,13 @@
   
   
   
+  
     
     
       <li class="md-tabs__item">
         <a href="../../../security/index.html" class="md-tabs__link">
           
+  
   
     
   
@@ -451,11 +672,13 @@
   
   
   
+  
     
     
       <li class="md-tabs__item">
         <a href="../../../about/index.html" class="md-tabs__link">
           
+  
   
     
   
@@ -471,9 +694,11 @@
   
   
   
+  
     <li class="md-tabs__item">
       <a href="../../../blog/index.html" class="md-tabs__link">
         
+  
   
     
   
@@ -518,7 +743,7 @@
       <a href="https://github.com/tschinz/tschinz" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
   </div>
   <div class="md-source__repository">
     tschinz
@@ -542,66 +767,50 @@
         
       
         
-          
+      
         
       
         
-          
+      
         
       
         
-          
+      
         
       
         
-          
-        
       
         
-          
-        
       
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-    
     
     
     
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
         
           
-          
           <div class="md-nav__link md-nav__container">
             <a href="../../../index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Home
+    
   </span>
   
 
             </a>
             
               
-              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="">
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
@@ -626,8 +835,10 @@
       <a href="../../index.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     OS
+    
   </span>
   
 
@@ -647,8 +858,10 @@
       <a href="../../../computerscience/index.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Computer Science
+    
   </span>
   
 
@@ -668,8 +881,10 @@
       <a href="../../../coding/index.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Coding
+    
   </span>
   
 
@@ -689,8 +904,10 @@
       <a href="../../../tools/index.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Tools
+    
   </span>
   
 
@@ -710,8 +927,10 @@
       <a href="../../../hw/index.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Hardware
+    
   </span>
   
 
@@ -731,8 +950,10 @@
       <a href="../../../multimedia/index.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Multimedia
+    
   </span>
   
 
@@ -752,8 +973,10 @@
       <a href="../../../security/index.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Security
+    
   </span>
   
 
@@ -773,8 +996,10 @@
       <a href="../../../about/index.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     About
+    
   </span>
   
 
@@ -809,8 +1034,6 @@
         
       
         
-          
-        
       
         
       
@@ -819,25 +1042,28 @@
     
     
     
+      
+        
+        
+      
+      
     
-      
-      
     
     <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     OS
+    
   </span>
   
 
@@ -889,22 +1115,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Linux
+    
   </span>
   
 
@@ -962,22 +1191,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" checked>
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Commandline
+    
   </span>
   
 
@@ -1009,8 +1241,10 @@
       <a href="cheatsheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Cheatsheet
+    
   </span>
   
 
@@ -1039,8 +1273,10 @@
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
   
+  
   <span class="md-ellipsis">
     Nice to Know
+    
   </span>
   
 
@@ -1050,8 +1286,10 @@
       <a href="nicetoknow.html" class="md-nav__link md-nav__link--active">
         
   
+  
   <span class="md-ellipsis">
     Nice to Know
+    
   </span>
   
 
@@ -1100,8 +1338,10 @@
       <a href="general.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     General
+    
   </span>
   
 
@@ -1121,8 +1361,10 @@
       <a href="crontab.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Crontab
+    
   </span>
   
 
@@ -1142,8 +1384,10 @@
       <a href="dd.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     DD
+    
   </span>
   
 
@@ -1163,8 +1407,10 @@
       <a href="ssh.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     SSH
+    
   </span>
   
 
@@ -1184,8 +1430,10 @@
       <a href="network.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Network
+    
   </span>
   
 
@@ -1205,8 +1453,10 @@
       <a href="rsync.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     RSync
+    
   </span>
   
 
@@ -1226,8 +1476,10 @@
       <a href="rclone.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     RClone
+    
   </span>
   
 
@@ -1283,22 +1535,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../tools/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Tools
+    
   </span>
   
 
@@ -1330,8 +1585,10 @@
       <a href="../tools/apache.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Apache
+    
   </span>
   
 
@@ -1351,8 +1608,10 @@
       <a href="../tools/hw_sensors.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Hardware Sensors
+    
   </span>
   
 
@@ -1372,8 +1631,10 @@
       <a href="../tools/lets_encrypt.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Let's Encrypt
+    
   </span>
   
 
@@ -1393,8 +1654,10 @@
       <a href="../tools/mosquitto.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Mosquitto
+    
   </span>
   
 
@@ -1414,8 +1677,10 @@
       <a href="../tools/raid.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Raid
+    
   </span>
   
 
@@ -1435,8 +1700,10 @@
       <a href="../tools/samba.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Samba
+    
   </span>
   
 
@@ -1456,8 +1723,10 @@
       <a href="../tools/shairport.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Shairport
+    
   </span>
   
 
@@ -1477,8 +1746,10 @@
       <a href="../tools/systemd.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     SystemD
+    
   </span>
   
 
@@ -1498,8 +1769,10 @@
       <a href="../tools/vim.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     VIm
+    
   </span>
   
 
@@ -1519,8 +1792,10 @@
       <a href="../tools/vnc.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     VNC
+    
   </span>
   
 
@@ -1540,8 +1815,10 @@
       <a href="../tools/vpn.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     VPN
+    
   </span>
   
 
@@ -1579,22 +1856,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../scripts/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Scripts
+    
   </span>
   
 
@@ -1626,8 +1906,10 @@
       <a href="../scripts/general.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     General
+    
   </span>
   
 
@@ -1647,8 +1929,10 @@
       <a href="../scripts/config_files.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Config Files
+    
   </span>
   
 
@@ -1686,22 +1970,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../filesystem/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Filesystem
+    
   </span>
   
 
@@ -1733,8 +2020,10 @@
       <a href="../filesystem/folders.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Setup
+    
   </span>
   
 
@@ -1754,8 +2043,10 @@
       <a href="../filesystem/files.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Files
+    
   </span>
   
 
@@ -1791,22 +2082,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_6" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../rpi/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Raspberry Pi
+    
   </span>
   
 
@@ -1838,8 +2132,10 @@
       <a href="../rpi/setup.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Setup
+    
   </span>
   
 
@@ -1877,22 +2173,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_7" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../ubuntu/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Ubuntu
+    
   </span>
   
 
@@ -1924,8 +2223,10 @@
       <a href="../ubuntu/install.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Install
+    
   </span>
   
 
@@ -1945,8 +2246,10 @@
       <a href="../ubuntu/problems.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Problems
+    
   </span>
   
 
@@ -1982,8 +2285,10 @@
       <a href="../../unraid/index.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Unraid
+    
   </span>
   
 
@@ -2017,22 +2322,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../mac/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Mac
+    
   </span>
   
 
@@ -2072,22 +2380,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_2" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../mac/commandline/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Commandline
+    
   </span>
   
 
@@ -2119,8 +2430,10 @@
       <a href="../../mac/commandline/cheatsheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Cheatsheet
+    
   </span>
   
 
@@ -2148,8 +2461,10 @@
       <a href="../../mac/homebrew.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Homebrew
+    
   </span>
   
 
@@ -2169,8 +2484,10 @@
       <a href="../../mac/keyboard.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Keyboard
+    
   </span>
   
 
@@ -2190,8 +2507,10 @@
       <a href="../../mac/geektool.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     GeekTools
+    
   </span>
   
 
@@ -2237,22 +2556,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../win/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Windows
+    
   </span>
   
 
@@ -2284,8 +2606,10 @@
       <a href="../../win/cmdline.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Commandline
+    
   </span>
   
 
@@ -2305,8 +2629,10 @@
       <a href="../../win/firewall.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Firewall
+    
   </span>
   
 
@@ -2326,8 +2652,10 @@
       <a href="../../win/group_policies.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Group Policies
+    
   </span>
   
 
@@ -2347,8 +2675,10 @@
       <a href="../../win/power.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Power
+    
   </span>
   
 
@@ -2368,8 +2698,10 @@
       <a href="../../win/registry_location.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Registry
+    
   </span>
   
 
@@ -2389,8 +2721,10 @@
       <a href="../../win/wsl.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     WSL
+    
   </span>
   
 
@@ -2435,38 +2769,36 @@
         
       
         
-          
-        
       
-    
     
     
     
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
-          
           <div class="md-nav__link md-nav__container">
             <a href="../../../computerscience/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Computer Science
+    
   </span>
   
 
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
@@ -2505,22 +2837,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../computerscience/codes/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Codes
+    
   </span>
   
 
@@ -2552,8 +2887,10 @@
       <a href="../../../computerscience/codes/number-system.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Number Systems
+    
   </span>
   
 
@@ -2573,8 +2910,10 @@
       <a href="../../../computerscience/codes/ascii.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     ASCII
+    
   </span>
   
 
@@ -2594,8 +2933,10 @@
       <a href="../../../computerscience/codes/braille.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Braille
+    
   </span>
   
 
@@ -2615,8 +2956,10 @@
       <a href="../../../computerscience/codes/morse.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Morse
+    
   </span>
   
 
@@ -2652,22 +2995,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../computerscience/datascience/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Datascience
+    
   </span>
   
 
@@ -2699,8 +3045,10 @@
       <a href="../../../computerscience/datascience/statistic.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Statistics
+    
   </span>
   
 
@@ -2744,22 +3092,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../computerscience/algorithms/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Algorithms
+    
   </span>
   
 
@@ -2791,8 +3142,10 @@
       <a href="../../../computerscience/algorithms/types.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Types of Algorithms
+    
   </span>
   
 
@@ -2812,8 +3165,10 @@
       <a href="../../../computerscience/algorithms/bigO.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Big O Notation
+    
   </span>
   
 
@@ -2833,8 +3188,10 @@
       <a href="../../../computerscience/algorithms/memory-types.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Memory Types
+    
   </span>
   
 
@@ -2854,8 +3211,10 @@
       <a href="../../../computerscience/algorithms/sorting.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Sorting
+    
   </span>
   
 
@@ -2911,22 +3270,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_6" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../computerscience/algorithms/daysofalgo/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Days of Algo
+    
   </span>
   
 
@@ -2958,8 +3320,10 @@
       <a href="../../../computerscience/algorithms/daysofalgo/000-hanoi-tower.ipynb" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     None
+    
   </span>
   
 
@@ -2979,8 +3343,10 @@
       <a href="../../../computerscience/algorithms/daysofalgo/001-matrix-chain-multiplication.ipynb" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     None
+    
   </span>
   
 
@@ -3000,8 +3366,10 @@
       <a href="../../../computerscience/algorithms/daysofalgo/002-permutations.ipynb" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     None
+    
   </span>
   
 
@@ -3021,8 +3389,10 @@
       <a href="../../../computerscience/algorithms/daysofalgo/003-counting-1bits.ipynb" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     None
+    
   </span>
   
 
@@ -3042,8 +3412,10 @@
       <a href="../../../computerscience/algorithms/daysofalgo/004-eratosthenes-sieve.ipynb" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     None
+    
   </span>
   
 
@@ -3063,8 +3435,10 @@
       <a href="../../../computerscience/algorithms/daysofalgo/005-binary-addition-fsm.ipynb" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     None
+    
   </span>
   
 
@@ -3084,8 +3458,10 @@
       <a href="../../../computerscience/algorithms/daysofalgo/006-binary-search.ipynb" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     None
+    
   </span>
   
 
@@ -3105,8 +3481,10 @@
       <a href="../../../computerscience/algorithms/daysofalgo/007-union-find.ipynb" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     None
+    
   </span>
   
 
@@ -3126,8 +3504,10 @@
       <a href="../../../computerscience/algorithms/daysofalgo/008-maze-generation-kruskal.ipynb" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     None
+    
   </span>
   
 
@@ -3147,8 +3527,10 @@
       <a href="../../../computerscience/algorithms/daysofalgo/009-maze-solver-lee.ipynb" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     None
+    
   </span>
   
 
@@ -3168,8 +3550,10 @@
       <a href="../../../computerscience/algorithms/daysofalgo/010-maze-solver-dijkstra.ipynb" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     None
+    
   </span>
   
 
@@ -3189,8 +3573,10 @@
       <a href="../../../computerscience/algorithms/daysofalgo/011-maze-solver-astar.ipynb" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     None
+    
   </span>
   
 
@@ -3210,8 +3596,10 @@
       <a href="../../../computerscience/algorithms/daysofalgo/012-diffie-hellman-key-exchange.ipynb" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     None
+    
   </span>
   
 
@@ -3231,8 +3619,10 @@
       <a href="../../../computerscience/algorithms/daysofalgo/013-enigma-machine.ipynb" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     None
+    
   </span>
   
 
@@ -3252,8 +3642,10 @@
       <a href="../../../computerscience/algorithms/daysofalgo/014-sorting-algorithms.ipynb" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     None
+    
   </span>
   
 
@@ -3289,8 +3681,10 @@
       <a href="../../../computerscience/sdr/index.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     SDR
+    
   </span>
   
 
@@ -3339,8 +3733,6 @@
         
       
         
-          
-        
       
         
       
@@ -3353,32 +3745,32 @@
     
     
     
-    
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
-          
           <div class="md-nav__link md-nav__container">
             <a href="../../../coding/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Coding
+    
   </span>
   
 
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
@@ -3409,22 +3801,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../coding/general/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     General
+    
   </span>
   
 
@@ -3471,22 +3866,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../coding/licenses/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Licenses
+    
   </span>
   
 
@@ -3518,8 +3916,10 @@
       <a href="../../../coding/licenses/all_rights_reserved.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     All Rights Reserved
+    
   </span>
   
 
@@ -3539,8 +3939,10 @@
       <a href="../../../coding/licenses/mit.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     MIT
+    
   </span>
   
 
@@ -3560,8 +3962,10 @@
       <a href="../../../coding/licenses/wtfpl.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     WTFPL
+    
   </span>
   
 
@@ -3639,22 +4043,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../coding/rust/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Rust
+    
   </span>
   
 
@@ -3686,8 +4093,10 @@
       <a href="../../../coding/rust/install.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Install
+    
   </span>
   
 
@@ -3707,8 +4116,10 @@
       <a href="../../../coding/rust/toolchain.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Toolchain
+    
   </span>
   
 
@@ -3728,8 +4139,10 @@
       <a href="../../../coding/rust/basic.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Basic
+    
   </span>
   
 
@@ -3749,8 +4162,10 @@
       <a href="../../../coding/rust/rustfmt.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     rustfmt
+    
   </span>
   
 
@@ -3770,8 +4185,10 @@
       <a href="../../../coding/rust/workspaces.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Workspaces
+    
   </span>
   
 
@@ -3791,8 +4208,10 @@
       <a href="../../../coding/rust/package.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Package
+    
   </span>
   
 
@@ -3812,8 +4231,10 @@
       <a href="../../../coding/rust/modules.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Modules
+    
   </span>
   
 
@@ -3833,8 +4254,10 @@
       <a href="../../../coding/rust/testing.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Testing
+    
   </span>
   
 
@@ -3854,8 +4277,10 @@
       <a href="../../../coding/rust/concepts.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Concepts
+    
   </span>
   
 
@@ -3875,8 +4300,10 @@
       <a href="../../../coding/rust/memory_regions.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Memory Regions
+    
   </span>
   
 
@@ -3896,8 +4323,10 @@
       <a href="../../../coding/rust/naming-convention.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Naming Conventions
+    
   </span>
   
 
@@ -3917,8 +4346,10 @@
       <a href="../../../coding/rust/rustdoc.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     RustDoc
+    
   </span>
   
 
@@ -3938,8 +4369,10 @@
       <a href="../../../coding/rust/data_types.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Data-Types
+    
   </span>
   
 
@@ -3959,8 +4392,10 @@
       <a href="../../../coding/rust/syntax.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Syntax
+    
   </span>
   
 
@@ -3980,8 +4415,10 @@
       <a href="../../../coding/rust/iterators.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Iterators
+    
   </span>
   
 
@@ -4001,8 +4438,10 @@
       <a href="../../../coding/rust/traits.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Traits
+    
   </span>
   
 
@@ -4022,8 +4461,10 @@
       <a href="../../../coding/rust/lifetimes.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Lifetimes
+    
   </span>
   
 
@@ -4043,8 +4484,10 @@
       <a href="../../../coding/rust/generics.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Generics
+    
   </span>
   
 
@@ -4064,8 +4507,10 @@
       <a href="../../../coding/rust/error_handling.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Error Handling
+    
   </span>
   
 
@@ -4085,8 +4530,10 @@
       <a href="../../../coding/rust/design_patterns.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Design Patterns
+    
   </span>
   
 
@@ -4106,8 +4553,10 @@
       <a href="../../../coding/rust/rust2python.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Rust2Python
+    
   </span>
   
 
@@ -4127,8 +4576,10 @@
       <a href="../../../coding/rust/libraries.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Libraries
+    
   </span>
   
 
@@ -4166,22 +4617,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../coding/rust-embedded/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Rust-embedded
+    
   </span>
   
 
@@ -4213,8 +4667,10 @@
       <a href="../../../coding/rust-embedded/install.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Install
+    
   </span>
   
 
@@ -4234,8 +4690,10 @@
       <a href="../../../coding/rust-embedded/riscv.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     RISC-V
+    
   </span>
   
 
@@ -4277,22 +4735,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../coding/scala/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Scala
+    
   </span>
   
 
@@ -4324,8 +4785,10 @@
       <a href="../../../coding/scala/basic.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Basic
+    
   </span>
   
 
@@ -4345,8 +4808,10 @@
       <a href="../../../coding/scala/syntax.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Syntax
+    
   </span>
   
 
@@ -4366,8 +4831,10 @@
       <a href="../../../coding/scala/libraries.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Libraries
+    
   </span>
   
 
@@ -4387,8 +4854,10 @@
       <a href="../../../coding/scala/coding_convention_spinalhdl.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Coding Convention
+    
   </span>
   
 
@@ -4430,22 +4899,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../coding/spinal/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Spinal HDL
+    
   </span>
   
 
@@ -4477,8 +4949,10 @@
       <a href="../../../coding/spinal/install.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Install
+    
   </span>
   
 
@@ -4498,8 +4972,10 @@
       <a href="../../../coding/spinal/project.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Project
+    
   </span>
   
 
@@ -4519,8 +4995,10 @@
       <a href="../../../coding/spinal/types.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Types
+    
   </span>
   
 
@@ -4550,22 +5028,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7_5" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../coding/spinal/tools/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Tools
+    
   </span>
   
 
@@ -4597,8 +5078,10 @@
       <a href="../../../coding/spinal/tools/gtkwave.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     GTKWave
+    
   </span>
   
 
@@ -4618,8 +5101,10 @@
       <a href="../../../coding/spinal/tools/intellij_idea.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Intellij Idea
+    
   </span>
   
 
@@ -4689,22 +5174,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../coding/vhdl/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Vhdl
+    
   </span>
   
 
@@ -4736,8 +5224,10 @@
       <a href="../../../coding/vhdl/guidelines.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Guidelines
+    
   </span>
   
 
@@ -4757,8 +5247,10 @@
       <a href="../../../coding/vhdl/syntax.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Syntax
+    
   </span>
   
 
@@ -4778,8 +5270,10 @@
       <a href="../../../coding/vhdl/attributes.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Attributes
+    
   </span>
   
 
@@ -4799,8 +5293,10 @@
       <a href="../../../coding/vhdl/conversion.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Conversion
+    
   </span>
   
 
@@ -4820,8 +5316,10 @@
       <a href="../../../coding/vhdl/file.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     File
+    
   </span>
   
 
@@ -4841,8 +5339,10 @@
       <a href="../../../coding/vhdl/libraries.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Libraries
+    
   </span>
   
 
@@ -4862,8 +5362,10 @@
       <a href="../../../coding/vhdl/examples.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Examples
+    
   </span>
   
 
@@ -4883,8 +5385,10 @@
       <a href="../../../coding/vhdl/testbench.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Testbench
+    
   </span>
   
 
@@ -4904,8 +5408,10 @@
       <a href="../../../coding/vhdl/time.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Time
+    
   </span>
   
 
@@ -4925,8 +5431,10 @@
       <a href="../../../coding/vhdl/osvvm.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     OSVVM
+    
   </span>
   
 
@@ -4946,8 +5454,10 @@
       <a href="../../../coding/vhdl/simulation.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Simulation
+    
   </span>
   
 
@@ -4967,8 +5477,10 @@
       <a href="../../../coding/vhdl/synthesis.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Synthesis
+    
   </span>
   
 
@@ -4996,10 +5508,12 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8_14" >
@@ -5008,8 +5522,10 @@
           <label class="md-nav__link" for="__nav_4_8_14" id="__nav_4_8_14_label" tabindex="0">
             
   
+  
   <span class="md-ellipsis">
     Intel SDC
+    
   </span>
   
 
@@ -5033,8 +5549,10 @@
       <a href="../../../coding/vhdl/intel_sdc.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     SDC Constraints
+    
   </span>
   
 
@@ -5054,8 +5572,10 @@
       <a href="../../../coding/vhdl/intel_sdc_theory.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Theory
+    
   </span>
   
 
@@ -5075,8 +5595,10 @@
       <a href="../../../coding/vhdl/intel_sdc_usage.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Usage
+    
   </span>
   
 
@@ -5104,8 +5626,10 @@
       <a href="../../../coding/vhdl/xilinx_ucf.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Xilinx UCF
+    
   </span>
   
 
@@ -5145,22 +5669,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../coding/tcl_tk_do/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Tcl_tk_do
+    
   </span>
   
 
@@ -5192,8 +5719,10 @@
       <a href="../../../coding/tcl_tk_do/syntax.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Syntax
+    
   </span>
   
 
@@ -5213,8 +5742,10 @@
       <a href="../../../coding/tcl_tk_do/fpga_scripting.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     FPGA Scripting
+    
   </span>
   
 
@@ -5234,8 +5765,10 @@
       <a href="../../../coding/tcl_tk_do/examples.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Examples
+    
   </span>
   
 
@@ -5299,22 +5832,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_10" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../coding/python/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Python
+    
   </span>
   
 
@@ -5346,8 +5882,10 @@
       <a href="../../../coding/python/syntax.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Syntax
+    
   </span>
   
 
@@ -5367,8 +5905,10 @@
       <a href="../../../coding/python/methods.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Methods
+    
   </span>
   
 
@@ -5388,8 +5928,10 @@
       <a href="../../../coding/python/stdlib.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     STDLib
+    
   </span>
   
 
@@ -5409,8 +5951,10 @@
       <a href="../../../coding/python/print.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Print
+    
   </span>
   
 
@@ -5430,8 +5974,10 @@
       <a href="../../../coding/python/datetime.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Datetime
+    
   </span>
   
 
@@ -5451,8 +5997,10 @@
       <a href="../../../coding/python/docstring.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     DocString
+    
   </span>
   
 
@@ -5472,8 +6020,10 @@
       <a href="../../../coding/python/flake8.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Flake8
+    
   </span>
   
 
@@ -5493,8 +6043,10 @@
       <a href="../../../coding/python/pip_general.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     PiP
+    
   </span>
   
 
@@ -5514,8 +6066,10 @@
       <a href="../../../coding/python/pipenv.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     PiPEnv
+    
   </span>
   
 
@@ -5535,8 +6089,10 @@
       <a href="../../../coding/python/virutalenv.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     VirtualEnv
+    
   </span>
   
 
@@ -5556,8 +6112,10 @@
       <a href="../../../coding/python/pandas.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Pandas
+    
   </span>
   
 
@@ -5577,8 +6135,10 @@
       <a href="../../../coding/python/plotly_dash.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Plotly Dash
+    
   </span>
   
 
@@ -5598,8 +6158,10 @@
       <a href="../../../coding/python/pyqt.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     PyQt
+    
   </span>
   
 
@@ -5641,10 +6203,12 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_10_15" >
@@ -5653,8 +6217,10 @@
           <label class="md-nav__link" for="__nav_4_10_15" id="__nav_4_10_15_label" tabindex="0">
             
   
+  
   <span class="md-ellipsis">
     Awesome Packages
+    
   </span>
   
 
@@ -5678,8 +6244,10 @@
       <a href="../../../coding/python/awesome_packages.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Awesome Packages
+    
   </span>
   
 
@@ -5699,8 +6267,10 @@
       <a href="../../../coding/python/packages/fuzzywuzzy.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Fuzzy Wuzzy
+    
   </span>
   
 
@@ -5720,8 +6290,10 @@
       <a href="../../../coding/python/packages/tqdm.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     TQDM
+    
   </span>
   
 
@@ -5741,8 +6313,10 @@
       <a href="../../../coding/python/packages/pillow.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Pillow
+    
   </span>
   
 
@@ -5762,8 +6336,10 @@
       <a href="../../../coding/python/packages/colorama.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Colorama
+    
   </span>
   
 
@@ -5783,8 +6359,10 @@
       <a href="../../../coding/python/packages/requests.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Request
+    
   </span>
   
 
@@ -5804,8 +6382,10 @@
       <a href="../../../coding/python/packages/flask.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Flask
+    
   </span>
   
 
@@ -5825,8 +6405,10 @@
       <a href="../../../coding/python/packages/plotly.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Plotly
+    
   </span>
   
 
@@ -5846,8 +6428,10 @@
       <a href="../../../coding/python/packages/plotly_dash.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Plotly Dash
+    
   </span>
   
 
@@ -5867,8 +6451,10 @@
       <a href="../../../coding/python/packages/streamlit.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Streamlit
+    
   </span>
   
 
@@ -5896,8 +6482,10 @@
       <a href="../../../coding/python/examples.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Examples
+    
   </span>
   
 
@@ -5925,8 +6513,10 @@
       <a href="../../../coding/regex/index.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Regex
+    
   </span>
   
 
@@ -5972,22 +6562,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_12" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../coding/swift/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Swift
+    
   </span>
   
 
@@ -6019,8 +6612,10 @@
       <a href="../../../coding/swift/01_basics.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Basics
+    
   </span>
   
 
@@ -6040,8 +6635,10 @@
       <a href="../../../coding/swift/02_mvc.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Model View Controller
+    
   </span>
   
 
@@ -6061,8 +6658,10 @@
       <a href="../../../coding/swift/03_properties.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Properties
+    
   </span>
   
 
@@ -6082,8 +6681,10 @@
       <a href="../../../coding/swift/04_datastructures_methods.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Data Structures & Methods
+    
   </span>
   
 
@@ -6103,8 +6704,10 @@
       <a href="../../../coding/swift/05_controlflow.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Control Flow
+    
   </span>
   
 
@@ -6124,8 +6727,10 @@
       <a href="../../../coding/swift/06_multithreading.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Multithreading
+    
   </span>
   
 
@@ -6145,8 +6750,10 @@
       <a href="../../../coding/swift/07_nsclasses.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     NSClasses
+    
   </span>
   
 
@@ -6166,8 +6773,10 @@
       <a href="../../../coding/swift/08_views.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Views
+    
   </span>
   
 
@@ -6187,8 +6796,10 @@
       <a href="../../../coding/swift/081_uielements.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     UI Element
+    
   </span>
   
 
@@ -6208,8 +6819,10 @@
       <a href="../../../coding/swift/09_other.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Others
+    
   </span>
   
 
@@ -6249,22 +6862,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_13" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../coding/c_cpp/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     C/C++
+    
   </span>
   
 
@@ -6296,8 +6912,10 @@
       <a href="../../../coding/c_cpp/syntax.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Syntax
+    
   </span>
   
 
@@ -6317,8 +6935,10 @@
       <a href="../../../coding/c_cpp/linkerscript.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Linkerscript
+    
   </span>
   
 
@@ -6338,8 +6958,10 @@
       <a href="../../../coding/c_cpp/executionframework.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     XF
+    
   </span>
   
 
@@ -6395,22 +7017,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_14" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../coding/ros/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     ROS
+    
   </span>
   
 
@@ -6442,8 +7067,10 @@
       <a href="../../../coding/ros/books-summary.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Book Summary
+    
   </span>
   
 
@@ -6463,8 +7090,10 @@
       <a href="../../../coding/ros/install.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Install
+    
   </span>
   
 
@@ -6484,8 +7113,10 @@
       <a href="../../../coding/ros/lidar-driver.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Lidar Driver
+    
   </span>
   
 
@@ -6505,8 +7136,10 @@
       <a href="../../../coding/ros/commands.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Commands
+    
   </span>
   
 
@@ -6526,8 +7159,10 @@
       <a href="../../../coding/ros/packages.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Packages
+    
   </span>
   
 
@@ -6547,8 +7182,10 @@
       <a href="../../../coding/ros/packages-ext.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     External Packages
+    
   </span>
   
 
@@ -6568,8 +7205,10 @@
       <a href="../../../coding/ros/basics.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Basics
+    
   </span>
   
 
@@ -6589,8 +7228,10 @@
       <a href="../../../coding/ros/launch.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Launch
+    
   </span>
   
 
@@ -6610,8 +7251,10 @@
       <a href="../../../coding/ros/catkin_tools.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Catkin Tools
+    
   </span>
   
 
@@ -6631,8 +7274,10 @@
       <a href="../../../coding/ros/rviz.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     RViz
+    
   </span>
   
 
@@ -6652,8 +7297,10 @@
       <a href="../../../coding/ros/tf2.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     TF2
+    
   </span>
   
 
@@ -6691,22 +7338,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_15" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../coding/ahk/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     AHK
+    
   </span>
   
 
@@ -6738,8 +7388,10 @@
       <a href="../../../coding/ahk/key_definitions.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Key Definitions
+    
   </span>
   
 
@@ -6759,8 +7411,10 @@
       <a href="../../../coding/ahk/tips_tricks.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Tips & Ticks
+    
   </span>
   
 
@@ -6813,21 +7467,11 @@
         
       
         
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
       
         
       
         
-          
+      
         
       
         
@@ -6835,11 +7479,7 @@
         
       
         
-          
-        
       
-        
-          
         
       
         
@@ -6855,15 +7495,13 @@
         
       
         
-          
+      
         
       
         
-          
-        
       
         
-          
+      
         
       
         
@@ -6871,32 +7509,32 @@
     
     
     
-    
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
-          
           <div class="md-nav__link md-nav__container">
             <a href="../../../tools/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Tools
+    
   </span>
   
 
             </a>
             
               
-              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
@@ -6927,22 +7565,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../tools/starship/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Starship
+    
   </span>
   
 
@@ -6989,22 +7630,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../tools/just/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Just
+    
   </span>
   
 
@@ -7036,8 +7680,10 @@
       <a href="../../../tools/just/intro.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Intro
+    
   </span>
   
 
@@ -7057,8 +7703,10 @@
       <a href="../../../tools/just/install.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Install
+    
   </span>
   
 
@@ -7078,8 +7726,10 @@
       <a href="../../../tools/just/examples.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Examples
+    
   </span>
   
 
@@ -7117,22 +7767,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../tools/make/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Make
+    
   </span>
   
 
@@ -7164,8 +7817,10 @@
       <a href="../../../tools/make/syntax.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Syntax
+    
   </span>
   
 
@@ -7185,8 +7840,10 @@
       <a href="../../../tools/make/examples.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Example
+    
   </span>
   
 
@@ -7224,22 +7881,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../tools/numbat/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Numbat
+    
   </span>
   
 
@@ -7271,8 +7931,10 @@
       <a href="../../../tools/numbat/basics.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Basics
+    
   </span>
   
 
@@ -7292,8 +7954,10 @@
       <a href="../../../tools/numbat/cheatsheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Cheatsheet
+    
   </span>
   
 
@@ -7333,22 +7997,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_6" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../tools/ollama/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Ollama
+    
   </span>
   
 
@@ -7380,8 +8047,10 @@
       <a href="../../../tools/ollama/getting-started.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Getting Started
+    
   </span>
   
 
@@ -7401,8 +8070,10 @@
       <a href="../../../tools/ollama/modelfile.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Modelfiles
+    
   </span>
   
 
@@ -7422,8 +8093,10 @@
       <a href="../../../tools/ollama/openwebui.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Open WebUI
+    
   </span>
   
 
@@ -7471,22 +8144,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_7" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../tools/git/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Git
+    
   </span>
   
 
@@ -7518,8 +8194,10 @@
       <a href="../../../tools/git/general.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     General
+    
   </span>
   
 
@@ -7539,8 +8217,10 @@
       <a href="../../../tools/git/commands.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Comands
+    
   </span>
   
 
@@ -7560,8 +8240,10 @@
       <a href="../../../tools/git/submodules.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Submodules
+    
   </span>
   
 
@@ -7581,8 +8263,10 @@
       <a href="../../../tools/git/gitignore.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     .gitignore
+    
   </span>
   
 
@@ -7602,8 +8286,10 @@
       <a href="../../../tools/git/git-cliff.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     git-cliff
+    
   </span>
   
 
@@ -7623,8 +8309,10 @@
       <a href="../../../tools/git/flow.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Gitflow
+    
   </span>
   
 
@@ -7644,8 +8332,10 @@
       <a href="../../../tools/git/github.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Github
+    
   </span>
   
 
@@ -7687,22 +8377,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_8" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../tools/docker/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Docker
+    
   </span>
   
 
@@ -7734,8 +8427,10 @@
       <a href="../../../tools/docker/basics.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Basics
+    
   </span>
   
 
@@ -7755,8 +8450,10 @@
       <a href="../../../tools/docker/docker_cmd.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Docker CMD
+    
   </span>
   
 
@@ -7776,8 +8473,10 @@
       <a href="../../../tools/docker/dockerfile.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Dockerfile
+    
   </span>
   
 
@@ -7797,8 +8496,10 @@
       <a href="../../../tools/docker/common_fixes.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Common Fixes
+    
   </span>
   
 
@@ -7826,8 +8527,10 @@
       <a href="../../../tools/pandoc/index.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Pandoc
+    
   </span>
   
 
@@ -7847,8 +8550,10 @@
       <a href="../../../tools/cmder/index.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Cmder
+    
   </span>
   
 
@@ -7868,8 +8573,10 @@
       <a href="../../../tools/google/index.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Google
+    
   </span>
   
 
@@ -7899,22 +8606,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_12" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../tools/anaconda/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Anaconda
+    
   </span>
   
 
@@ -7946,8 +8656,10 @@
       <a href="../../../tools/anaconda/install.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Install
+    
   </span>
   
 
@@ -7967,8 +8679,99 @@
       <a href="../../../tools/anaconda/conda.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Conda
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_13" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../tools/uv/index.html" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    uv
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_13" id="__nav_5_13_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_13">
+            <span class="md-nav__icon md-icon"></span>
+            uv
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/uv/intro.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Intro
+    
   </span>
   
 
@@ -7996,8 +8799,10 @@
       <a href="../../../tools/chromium/index.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Chromium
+    
   </span>
   
 
@@ -8033,36 +8838,39 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_15" >
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_14" >
-        
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../tools/jupyter/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Jupyter
+    
   </span>
   
 
             </a>
             
               
-              <label class="md-nav__link " for="__nav_5_14" id="__nav_5_14_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_5_15" id="__nav_5_15_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_14_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_14">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_15">
             <span class="md-nav__icon md-icon"></span>
             Jupyter
           </label>
@@ -8080,8 +8888,10 @@
       <a href="../../../tools/jupyter/general.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     General
+    
   </span>
   
 
@@ -8101,8 +8911,10 @@
       <a href="../../../tools/jupyter/common_functions.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Common Functions
+    
   </span>
   
 
@@ -8122,8 +8934,10 @@
       <a href="../../../tools/jupyter/convert.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Convert
+    
   </span>
   
 
@@ -8143,8 +8957,10 @@
       <a href="../../../tools/jupyter/installation.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Installation
+    
   </span>
   
 
@@ -8164,8 +8980,10 @@
       <a href="../../../tools/jupyter/install_plotly_dash.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Install Plotly Dash
+    
   </span>
   
 
@@ -8205,36 +9023,39 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_16" >
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_15" >
-        
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../tools/cloudflare/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Cloudflare
+    
   </span>
   
 
             </a>
             
               
-              <label class="md-nav__link " for="__nav_5_15" id="__nav_5_15_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_5_16" id="__nav_5_16_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_15_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_15">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_16_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_16">
             <span class="md-nav__icon md-icon"></span>
             Cloudflare
           </label>
@@ -8252,8 +9073,10 @@
       <a href="../../../tools/cloudflare/gh-pages.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Github Pages Custom Domain
+    
   </span>
   
 
@@ -8273,8 +9096,10 @@
       <a href="../../../tools/cloudflare/redirect-subdomains.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Redirect Subdomains
+    
   </span>
   
 
@@ -8294,8 +9119,10 @@
       <a href="../../../tools/cloudflare/server-subdomains.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Server Subdomains
+    
   </span>
   
 
@@ -8323,8 +9150,10 @@
       <a href="../../../tools/heroku/index.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Heroku
+    
   </span>
   
 
@@ -8344,8 +9173,10 @@
       <a href="../../../tools/pihole/index.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Pihole
+    
   </span>
   
 
@@ -8373,36 +9204,39 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_19" >
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_18" >
-        
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../tools/sphinx/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Sphinx
+    
   </span>
   
 
             </a>
             
               
-              <label class="md-nav__link " for="__nav_5_18" id="__nav_5_18_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_5_19" id="__nav_5_19_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_18_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_18">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_19_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_19">
             <span class="md-nav__icon md-icon"></span>
             Sphinx
           </label>
@@ -8420,8 +9254,10 @@
       <a href="../../../tools/sphinx/syntax.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Syntax
+    
   </span>
   
 
@@ -8459,36 +9295,39 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_20" >
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_19" >
-        
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../tools/jetbrains/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Jetbrains
+    
   </span>
   
 
             </a>
             
               
-              <label class="md-nav__link " for="__nav_5_19" id="__nav_5_19_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_5_20" id="__nav_5_20_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_19_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_19">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_20_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_20">
             <span class="md-nav__icon md-icon"></span>
             Jetbrains
           </label>
@@ -8506,8 +9345,10 @@
       <a href="../../../tools/jetbrains/intellij_idea.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Intellij IDEA
+    
   </span>
   
 
@@ -8527,8 +9368,10 @@
       <a href="../../../tools/jetbrains/pycharm.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     PyCharm
+    
   </span>
   
 
@@ -8566,36 +9409,39 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_21" >
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_20" >
-        
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../tools/sublimetext/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Sublimetext
+    
   </span>
   
 
             </a>
             
               
-              <label class="md-nav__link " for="__nav_5_20" id="__nav_5_20_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_5_21" id="__nav_5_21_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_20_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_20">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_21_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_21">
             <span class="md-nav__icon md-icon"></span>
             Sublimetext
           </label>
@@ -8613,8 +9459,10 @@
       <a href="../../../tools/sublimetext/settings.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Settings
+    
   </span>
   
 
@@ -8634,8 +9482,10 @@
       <a href="../../../tools/sublimetext/plugins.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Plugins
+    
   </span>
   
 
@@ -8671,36 +9521,39 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_22" >
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_21" >
-        
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../tools/virtualbox/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Virtualbox
+    
   </span>
   
 
             </a>
             
               
-              <label class="md-nav__link " for="__nav_5_21" id="__nav_5_21_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_5_22" id="__nav_5_22_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_21_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_21">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_22_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_22">
             <span class="md-nav__icon md-icon"></span>
             Virtualbox
           </label>
@@ -8718,8 +9571,10 @@
       <a href="../../../tools/virtualbox/intro.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Intro
+    
   </span>
   
 
@@ -8755,36 +9610,39 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_23" >
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_22" >
-        
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../tools/mentor/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Mentor
+    
   </span>
   
 
             </a>
             
               
-              <label class="md-nav__link " for="__nav_5_22" id="__nav_5_22_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_5_23" id="__nav_5_23_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_22_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_22">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_23_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_23">
             <span class="md-nav__icon md-icon"></span>
             Mentor
           </label>
@@ -8802,8 +9660,10 @@
       <a href="../../../tools/mentor/install.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Install
+    
   </span>
   
 
@@ -8839,36 +9699,39 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_24" >
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_23" >
-        
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../tools/bittorrent/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Bittorrent
+    
   </span>
   
 
             </a>
             
               
-              <label class="md-nav__link " for="__nav_5_23" id="__nav_5_23_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_5_24" id="__nav_5_24_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_23_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_23">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_24_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_24">
             <span class="md-nav__icon md-icon"></span>
             Bittorrent
           </label>
@@ -8886,8 +9749,10 @@
       <a href="../../../tools/bittorrent/creating_torrent.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Creating Torrents
+    
   </span>
   
 
@@ -8915,8 +9780,10 @@
       <a href="../../../tools/nmap/index.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Nmap
+    
   </span>
   
 
@@ -8936,8 +9803,10 @@
       <a href="../../../tools/sdr%2B%2B/index.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     SDR++
+    
   </span>
   
 
@@ -8957,8 +9826,10 @@
       <a href="../../../tools/tianji/index.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Tianji
+    
   </span>
   
 
@@ -8978,8 +9849,10 @@
       <a href="../../../tools/useful_tools/useful_tools.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Useful
+    
   </span>
   
 
@@ -9024,32 +9897,32 @@
     
     
     
-    
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
         
           
-          
           <div class="md-nav__link md-nav__container">
             <a href="../../../hw/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Hardware
+    
   </span>
   
 
             </a>
             
               
-              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="">
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
@@ -9078,40 +9951,35 @@
         
       
         
-          
+      
         
       
         
-          
-        
       
-        
-          
-        
-      
-        
-          
         
       
     
     
+    
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../hw/communication/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Communication
+    
   </span>
   
 
@@ -9143,8 +10011,10 @@
       <a href="../../../hw/communication/i2c/index.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     I2C
+    
   </span>
   
 
@@ -9164,8 +10034,10 @@
       <a href="../../../hw/communication/spi/index.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     SPI
+    
   </span>
   
 
@@ -9185,8 +10057,10 @@
       <a href="../../../hw/communication/uart/index.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     UART
+    
   </span>
   
 
@@ -9206,8 +10080,10 @@
       <a href="../../../hw/communication/modbus/index.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Modbus
+    
   </span>
   
 
@@ -9241,22 +10117,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../hw/rtl-sdr/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     RTL-SDR
+    
   </span>
   
 
@@ -9297,22 +10176,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_4" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../hw/esp32-c3/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     ESP32-C3
+    
   </span>
   
 
@@ -9361,22 +10243,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_5" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../hw/raspberry/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Raspberry Pi
+    
   </span>
   
 
@@ -9408,8 +10293,10 @@
       <a href="../../../hw/raspberry/boards.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Boards
+    
   </span>
   
 
@@ -9429,8 +10316,10 @@
       <a href="../../../hw/raspberry/general.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     General
+    
   </span>
   
 
@@ -9450,8 +10339,10 @@
       <a href="../../../hw/raspberry/pico.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     RPi Pico
+    
   </span>
   
 
@@ -9477,10 +10368,12 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_5_5" >
@@ -9489,8 +10382,10 @@
           <label class="md-nav__link" for="__nav_6_5_5" id="__nav_6_5_5_label" tabindex="0">
             
   
+  
   <span class="md-ellipsis">
     RetroPie
+    
   </span>
   
 
@@ -9514,8 +10409,10 @@
       <a href="../../../hw/raspberry/retropie.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Retropie
+    
   </span>
   
 
@@ -9535,8 +10432,10 @@
       <a href="../../../hw/raspberry/picase.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Retroflag Case
+    
   </span>
   
 
@@ -9584,22 +10483,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_6" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../hw/pynq-z1/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     PYNQ-Z1
+    
   </span>
   
 
@@ -9631,8 +10533,10 @@
       <a href="../../../hw/pynq-z1/general.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     General
+    
   </span>
   
 
@@ -9652,8 +10556,10 @@
       <a href="../../../hw/pynq-z1/overlays.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Overlays
+    
   </span>
   
 
@@ -9673,8 +10579,10 @@
       <a href="../../../hw/pynq-z1/pynq-package.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     PYNQ-Package
+    
   </span>
   
 
@@ -9716,22 +10624,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_7" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../hw/3d-printing/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     3D-Printing
+    
   </span>
   
 
@@ -9763,8 +10674,10 @@
       <a href="../../../hw/3d-printing/filaments.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Filaments
+    
   </span>
   
 
@@ -9784,8 +10697,10 @@
       <a href="../../../hw/3d-printing/joins-tolerances.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Joins/Tolerances
+    
   </span>
   
 
@@ -9805,8 +10720,10 @@
       <a href="../../../hw/3d-printing/filling.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Filling
+    
   </span>
   
 
@@ -9826,8 +10743,10 @@
       <a href="../../../hw/3d-printing/slicing.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Slicing
+    
   </span>
   
 
@@ -9868,8 +10787,6 @@
         
       
         
-          
-        
       
         
       
@@ -9884,32 +10801,32 @@
     
     
     
-    
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
         
           
-          
           <div class="md-nav__link md-nav__container">
             <a href="../../../multimedia/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Multimedia
+    
   </span>
   
 
             </a>
             
               
-              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="">
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
@@ -9954,22 +10871,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../multimedia/writing/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Writing
+    
   </span>
   
 
@@ -10013,22 +10933,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2_2" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../multimedia/writing/typst/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Typst
+    
   </span>
   
 
@@ -10060,8 +10983,10 @@
       <a href="../../../multimedia/writing/typst/install.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Install
+    
   </span>
   
 
@@ -10081,8 +11006,10 @@
       <a href="../../../multimedia/writing/typst/intro.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Intro
+    
   </span>
   
 
@@ -10102,8 +11029,10 @@
       <a href="../../../multimedia/writing/typst/templates.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Templates
+    
   </span>
   
 
@@ -10141,22 +11070,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2_3" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../multimedia/writing/md/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Markdown
+    
   </span>
   
 
@@ -10188,8 +11120,10 @@
       <a href="../../../multimedia/writing/md/md_github.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Github
+    
   </span>
   
 
@@ -10217,22 +11151,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2_3_3" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../multimedia/writing/md/mkdocs/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     MKDocs
+    
   </span>
   
 
@@ -10264,8 +11201,10 @@
       <a href="../../../multimedia/writing/md/mkdocs/cheatsheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     CheatSheet
+    
   </span>
   
 
@@ -10315,22 +11254,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2_4" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../multimedia/writing/llm/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     LLM Prompt Engineering
+    
   </span>
   
 
@@ -10362,8 +11304,10 @@
       <a href="../../../multimedia/writing/llm/reasoning_prompt.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Reasoning Prompt
+    
   </span>
   
 
@@ -10383,8 +11327,10 @@
       <a href="../../../multimedia/writing/llm/rtf.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     RTF
+    
   </span>
   
 
@@ -10404,8 +11350,10 @@
       <a href="../../../multimedia/writing/llm/risen.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     RISEN
+    
   </span>
   
 
@@ -10425,8 +11373,10 @@
       <a href="../../../multimedia/writing/llm/rodes.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     RODES
+    
   </span>
   
 
@@ -10460,22 +11410,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2_5" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../multimedia/writing/latin/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Latin
+    
   </span>
   
 
@@ -10516,22 +11469,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2_6" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../multimedia/writing/gitbook/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     GitBook
+    
   </span>
   
 
@@ -10574,22 +11530,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2_7" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../multimedia/writing/latex/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Latex
+    
   </span>
   
 
@@ -10621,8 +11580,10 @@
       <a href="../../../multimedia/writing/latex/install.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Install
+    
   </span>
   
 
@@ -10660,22 +11621,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2_8" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../multimedia/writing/rst/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     REsTful
+    
   </span>
   
 
@@ -10707,8 +11671,10 @@
       <a href="../../../multimedia/writing/rst/cheatsheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Cheatsheet
+    
   </span>
   
 
@@ -10728,8 +11694,10 @@
       <a href="../../../multimedia/writing/rst/pygment_lexer.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Lexer
+    
   </span>
   
 
@@ -10765,8 +11733,10 @@
       <a href="../../../multimedia/books/index.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Books
+    
   </span>
   
 
@@ -10802,22 +11772,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_4" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../multimedia/text/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Text
+    
   </span>
   
 
@@ -10849,8 +11822,10 @@
       <a href="../../../multimedia/text/email_replies.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Email Replies
+    
   </span>
   
 
@@ -10870,8 +11845,10 @@
       <a href="../../../multimedia/text/fileheaders.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Fileheaders
+    
   </span>
   
 
@@ -10891,8 +11868,10 @@
       <a href="../../../multimedia/text/programmer_jokes.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Programmer Jokes
+    
   </span>
   
 
@@ -10912,8 +11891,10 @@
       <a href="../../../multimedia/text/quotes.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Quotes
+    
   </span>
   
 
@@ -10933,8 +11914,10 @@
       <a href="../../../multimedia/text/fonts.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Fonts
+    
   </span>
   
 
@@ -10984,22 +11967,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_5" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../multimedia/pictures/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Pictures
+    
   </span>
   
 
@@ -11031,8 +12017,10 @@
       <a href="../../../multimedia/pictures/color-palette.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Color Palette
+    
   </span>
   
 
@@ -11052,8 +12040,10 @@
       <a href="../../../multimedia/pictures/ascii_art.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     ASCII-Art
+    
   </span>
   
 
@@ -11073,8 +12063,10 @@
       <a href="../../../multimedia/pictures/wavedrom.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Wavedrom
+    
   </span>
   
 
@@ -11094,8 +12086,10 @@
       <a href="../../../multimedia/pictures/mermaid.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Mermaid
+    
   </span>
   
 
@@ -11115,8 +12109,10 @@
       <a href="../../../multimedia/pictures/plantuml.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     PlantUml
+    
   </span>
   
 
@@ -11136,8 +12132,10 @@
       <a href="../../../multimedia/pictures/graphviz.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     GraphViz
+    
   </span>
   
 
@@ -11157,8 +12155,10 @@
       <a href="../../../multimedia/pictures/icons.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Icons
+    
   </span>
   
 
@@ -11188,22 +12188,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_5_9" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../multimedia/pictures/emoji/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Emoji
+    
   </span>
   
 
@@ -11235,8 +12238,10 @@
       <a href="../../../multimedia/pictures/emoji/all.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     All
+    
   </span>
   
 
@@ -11256,8 +12261,10 @@
       <a href="../../../multimedia/pictures/emoji/curated.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Curated
+    
   </span>
   
 
@@ -11301,22 +12308,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_6" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../multimedia/videos/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Video
+    
   </span>
   
 
@@ -11348,8 +12358,10 @@
       <a href="../../../multimedia/videos/resolutions.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Resolutions
+    
   </span>
   
 
@@ -11383,22 +12395,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_7" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../multimedia/audio/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Audio
+    
   </span>
   
 
@@ -11443,22 +12458,25 @@
     
     
     
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_8" >
         
-          
           
           <div class="md-nav__link md-nav__container">
             <a href="../../../multimedia/games/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Games
+    
   </span>
   
 
@@ -11490,8 +12508,10 @@
       <a href="../../../multimedia/games/terminal.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Terminal
+    
   </span>
   
 
@@ -11511,8 +12531,10 @@
       <a href="../../../multimedia/games/a-dark-room.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     A Dark Room
+    
   </span>
   
 
@@ -11567,32 +12589,32 @@
     
     
     
-    
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
         
           
-          
           <div class="md-nav__link md-nav__container">
             <a href="../../../psychology/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Psychology
+    
   </span>
   
 
             </a>
             
               
-              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="">
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
@@ -11617,8 +12639,10 @@
       <a href="../../../psychology/communication.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Communication
+    
   </span>
   
 
@@ -11638,8 +12662,10 @@
       <a href="../../../psychology/public-speaking.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Public Speaking
+    
   </span>
   
 
@@ -11659,8 +12685,10 @@
       <a href="../../../psychology/leadership.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Leadership
+    
   </span>
   
 
@@ -11680,8 +12708,10 @@
       <a href="../../../psychology/habits.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Habits
+    
   </span>
   
 
@@ -11701,8 +12731,10 @@
       <a href="../../../psychology/fastfriendprocedure.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Fast Friend Procedure
+    
   </span>
   
 
@@ -11722,8 +12754,10 @@
       <a href="../../../psychology/happiness.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Happiness
+    
   </span>
   
 
@@ -11743,8 +12777,10 @@
       <a href="../../../psychology/learning.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Learning
+    
   </span>
   
 
@@ -11783,32 +12819,32 @@
     
     
     
-    
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
         
           
-          
           <div class="md-nav__link md-nav__container">
             <a href="../../../security/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     Security
+    
   </span>
   
 
             </a>
             
               
-              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="">
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
@@ -11833,8 +12869,10 @@
       <a href="../../../security/gnupg.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     GnuPG
+    
   </span>
   
 
@@ -11854,8 +12892,10 @@
       <a href="../../../security/password.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Password
+    
   </span>
   
 
@@ -11875,8 +12915,10 @@
       <a href="../../../security/tor.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Tor
+    
   </span>
   
 
@@ -11919,32 +12961,32 @@
     
     
     
-    
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
         
           
-          
           <div class="md-nav__link md-nav__container">
             <a href="../../../about/index.html" class="md-nav__link ">
               
   
+  
   <span class="md-ellipsis">
     About
+    
   </span>
   
 
             </a>
             
               
-              <label class="md-nav__link " for="__nav_10" id="__nav_10_label" tabindex="">
+              <label class="md-nav__link " for="__nav_10" id="__nav_10_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
@@ -11969,8 +13011,10 @@
       <a href="../../../about/credits.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Credits
+    
   </span>
   
 
@@ -11990,8 +13034,10 @@
       <a href="../../../about/getting_started.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Getting started
+    
   </span>
   
 
@@ -12011,8 +13057,10 @@
       <a href="../../../about/howtodocument.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Hack this site
+    
   </span>
   
 
@@ -12032,8 +13080,10 @@
       <a href="../../../about/license.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     License
+    
   </span>
   
 
@@ -12053,8 +13103,10 @@
       <a href="../../../about/tags.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Tags
+    
   </span>
   
 
@@ -12083,8 +13135,10 @@
       <a href="../../../blog/index.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Blog
+    
   </span>
   
 
@@ -12141,52 +13195,52 @@
               <article class="md-content__inner md-typeset">
                 
                   
-  
-<nav class="md-tags" >
-  
-    
-    
-    
-      <a href="../../../about/tags.html#os" class="md-tag">os</a>
-    
-  
-    
-    
-    
-      <a href="../../../about/tags.html#operating-system" class="md-tag">operating system</a>
-    
-  
-    
-    
-    
-      <a href="../../../about/tags.html#linux" class="md-tag">linux</a>
-    
-  
-    
-    
-    
-      <a href="../../../about/tags.html#unix" class="md-tag">unix</a>
-    
-  
-    
-    
-    
-      <a href="../../../about/tags.html#commandline" class="md-tag">commandline</a>
-    
-  
-    
-    
-    
-      <a href="../../../about/tags.html#rust" class="md-tag">rust</a>
-    
-  
-</nav>
 
-
-  
-    <a href="https://github.com/tschinz/tschinz/edit/main/docs/os/linux/commandline/nicetoknow.md" title="Edit this page" class="md-content__button md-icon">
+  <nav class="md-tags" >
+    
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+      
+      
+        <a href="../../../about/tags.html#tag:commandline" class="md-tag">commandline</a>
+      
+    
+      
+      
+      
+        <a href="../../../about/tags.html#tag:linux" class="md-tag">linux</a>
+      
+    
+      
+      
+      
+        <a href="../../../about/tags.html#tag:operating-system" class="md-tag">operating system</a>
+      
+    
+      
+      
+      
+        <a href="../../../about/tags.html#tag:os" class="md-tag">os</a>
+      
+    
+      
+      
+      
+        <a href="../../../about/tags.html#tag:rust" class="md-tag">rust</a>
+      
+    
+      
+      
+      
+        <a href="../../../about/tags.html#tag:unix" class="md-tag">unix</a>
+      
+    
+  </nav>
+
+
+  
+    <a href="https://github.com/tschinz/tschinz/edit/main/docs/os/linux/commandline/nicetoknow.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
   
   
@@ -12207,32 +13261,11 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="https://github.com/sharkdp/bat">bat</a></td>
-<td><code>cat</code></td>
-<td>Pager</td>
-<td><code>bat src/main.rs</code></td>
-<td>View files with syntax highlighting and Git integration</td>
-</tr>
-<tr>
-<td><a href="https://github.com/ogham/exa">exa</a></td>
-<td><code>ls</code></td>
-<td>Listing</td>
-<td><code>exa -l -G</code></td>
-<td>List files with extended details and colored output</td>
-</tr>
-<tr>
-<td><a href="https://github.com/bootandy/dust">dust</a></td>
-<td><code>du</code></td>
-<td>Disk Usage</td>
-<td><code>dust -n 10</code></td>
-<td>Visualize disk usage of the current directory</td>
-</tr>
-<tr>
-<td><a href="https://github.com/muesli/duf">duf</a></td>
-<td><code>du</code></td>
-<td>Disk Usage</td>
-<td><code>duf -s</code></td>
-<td>Display disk usage with a simple and interactive interface</td>
+<td><a href="https://starship.rs/">starhip</a></td>
+<td>-</td>
+<td>Cross-Shell Prompt</td>
+<td>-</td>
+<td>Customizable shell prompt for any shell</td>
 </tr>
 <tr>
 <td><a href="https://github.com/dalance/procs">procs</a></td>
@@ -12242,11 +13275,11 @@
 <td>List all processes with a concise and readable format</td>
 </tr>
 <tr>
-<td><a href="https://github.com/BurntSushi/ripgrep">ripgrep</a></td>
-<td><code>grep</code></td>
-<td>Search</td>
-<td><code>rg -i TODO src/ --glob "*.md"</code></td>
-<td>Recursively searches directories within markdown files for a regex pattern</td>
+<td><a href="https://atuin.sh/">atuin</a></td>
+<td>-</td>
+<td>Shell history</td>
+<td>-</td>
+<td>Sync, search and backup shell history</td>
 </tr>
 <tr>
 <td><a href="https://github.com/sharkdp/hyperfine">hyperfine</a></td>
@@ -12256,18 +13289,67 @@
 <td>Measure the execution time of 'cargo build' command</td>
 </tr>
 <tr>
-<td><a href="https://github.com/XAMPPRocky/tokei">tokei</a></td>
-<td>-</td>
-<td>Code Statistics</td>
-<td><code>tokei src/</code></td>
-<td>Generate code statistics for the Rust source directory</td>
+<td><a href="https://github.com/muesli/duf">duf</a></td>
+<td><code>du</code></td>
+<td>Disk Usage</td>
+<td><code>duf -s</code></td>
+<td>Display disk usage with a simple and interactive interface</td>
 </tr>
 <tr>
-<td><a href="https://github.com/dandavison/delta">delta</a></td>
-<td><code>diff</code></td>
-<td>Visual Diff</td>
-<td><code>git diff | delta</code></td>
-<td>Enhance the git diff output with improved layout and styling</td>
+<td><a href="https://github.com/bootandy/dust">dust</a></td>
+<td><code>du</code></td>
+<td>Disk Usage</td>
+<td><code>dust -n 10</code></td>
+<td>Visualize disk usage of the current directory</td>
+</tr>
+<tr>
+<td><a href="https://github.com/imsnif/diskonaut">diskonaut</a></td>
+<td><code>dust</code></td>
+<td>Disk Space Navigator</td>
+<td><code>diskonaut</code></td>
+<td>Visualize disk usage of the current directory</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Canop/broot">broot</a></td>
+<td><code>cd</code> <code>ls</code></td>
+<td>Navigate Directories</td>
+<td><code>br</code></td>
+<td>A new way to see and navigate directory trees</td>
+</tr>
+<tr>
+<td><a href="https://github.com/ogham/exa">exa</a></td>
+<td><code>ls</code></td>
+<td>Listing</td>
+<td><code>exa -l -G</code></td>
+<td>List files with extended details and colored output</td>
+</tr>
+<tr>
+<td><a href="https://github.com/BurntSushi/ripgrep">ripgrep</a></td>
+<td><code>grep</code></td>
+<td>Search</td>
+<td><code>rg -i TODO src/ --glob "*.md"</code></td>
+<td>Recursively searches directories within markdown files for a regex pattern</td>
+</tr>
+<tr>
+<td><a href="https://github.com/chmln/sd">sd</a></td>
+<td><code>sed</code></td>
+<td>Search and Replace</td>
+<td><code>sd before after file.txt</code></td>
+<td>Painless seardh and replace with regex</td>
+</tr>
+<tr>
+<td><a href="https://github.com/sharkdp/bat">bat</a></td>
+<td><code>cat</code></td>
+<td>Pager</td>
+<td><code>bat src/main.rs</code></td>
+<td>View files with syntax highlighting and Git integration</td>
+</tr>
+<tr>
+<td><a href="https://github.com/aristocratos/btop">btop</a></td>
+<td><code>top</code></td>
+<td>Resource viewer</td>
+<td><code>zenith</code></td>
+<td>Zenith - sort of like top or htop but with zoom-able charts, network, and disk usage.</td>
 </tr>
 <tr>
 <td><a href="https://github.com/bvaisvil/zenith">zenith</a></td>
@@ -12277,11 +13359,46 @@
 <td>Zenith - sort of like top or htop but with zoom-able charts, network, and disk usage.</td>
 </tr>
 <tr>
+<td><a href="https://github.com/dandavison/delta">delta</a></td>
+<td><code>diff</code></td>
+<td>Visual Diff</td>
+<td><code>git diff | delta</code></td>
+<td>Enhance the git diff output with improved layout and styling</td>
+</tr>
+<tr>
+<td><a href="https://github.com/XAMPPRocky/tokei">tokei</a></td>
+<td>-</td>
+<td>Code Statistics</td>
+<td><code>tokei src/</code></td>
+<td>Generate code statistics for the Rust source directory</td>
+</tr>
+<tr>
 <td><a href="https://www.shellcheck.net/">shellcheck</a></td>
 <td>-</td>
 <td>Shell Script Linter</td>
 <td><code>shellcheck myscript.bash</code></td>
 <td>Finds bugs in your shell scripts</td>
+</tr>
+<tr>
+<td><a href="https://github.com/sharkdp/numbat">numbat</a></td>
+<td>-</td>
+<td>Scientific Calculator</td>
+<td><code>numbat</code></td>
+<td>A statically typed programming language for scientific computations with first class support for physical dimensions and units</td>
+</tr>
+<tr>
+<td><a href="https://github.com/tealdeer-rs/tealdeer">tealdear</a></td>
+<td><code>man</code></td>
+<td>tldr</td>
+<td><code>tldr hyperfine</code></td>
+<td>Communicty driven man pages</td>
+</tr>
+<tr>
+<td><a href="https://github.com/nvbn/thefuck">thefuck</a></td>
+<td>-</td>
+<td>CLI Corrector</td>
+<td><code>f</code></td>
+<td>corrects automagially your previous console command</td>
 </tr>
 </tbody>
 </table>
@@ -12305,13 +13422,6 @@
 <td>Find files, user-friendlier than <code>find</code></td>
 </tr>
 <tr>
-<td><a href="https://github.com/lotabout/skim">skim</a></td>
-<td><code>fzf</code></td>
-<td>Fuzzy Finder</td>
-<td><code>skim</code></td>
-<td>Fuzzy Finder, integrated with commands for interactive file selection</td>
-</tr>
-<tr>
 <td><a href="https://github.com/junegunn/fzf">fzf</a></td>
 <td>-</td>
 <td>Fuzzy Finder</td>
@@ -12319,20 +13429,56 @@
 <td>Fuzzy Finder, integrated with commands for interactive file selection</td>
 </tr>
 <tr>
+<td><a href="https://github.com/lotabout/skim">skim</a></td>
+<td><code>fzf</code></td>
+<td>Fuzzy Finder</td>
+<td><code>sk</code></td>
+<td>Fuzzy Finder, integrated with commands for interactive file selection</td>
+</tr>
+<tr>
 <td><a href="https://github.com/alexpasmantier/television">tv</a></td>
-<td><code>fzf</code> <code>sk</code> s</td>
+<td><code>fzf</code> <code>sk</code></td>
 <td>Fuzzy Finder</td>
 <td><code>tv</code></td>
 <td>Fuzzy Finder, with tui allow finding env vars, files, file content, git repos, alias</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Multimedia tools</strong>
-| Tool                                               | Replaces   | Type                | Example                                                                       | Description                                                                  |
-|----------------------------------------------------|------------|---------------------|-------------------------------------------------------------------------------|------------------------------------------------------------------------------|
-| <a href="https://github.com/mistricky/codesnap">codesnap</a>  | -          | Code Images         | <code>codesnap -c "echo 'Hello, World!'" -o clipboard --title "Hello, World!"</code> | Created images of code via a terminal CLI                                    |
-| <a href="https://github.com/sassman/t-rec-rs">t-rec</a>       | -          | Terminal Recording  | <code>t-rec -o session.gif</code>                                                        | A tool to record your terminal sessions as animated GIFs                     |
-| <a href="https://asciinema.org/">asciinema</a>                | -          | Terminal Recording  | <code>asciinema rec</code>                                                              | Record and share terminal sessions, with playback options (web or terminal)   |</p>
+<p><strong>Multimedia tools</strong></p>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Replaces</th>
+<th>Type</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/mistricky/codesnap">codesnap</a></td>
+<td>-</td>
+<td>Code Images</td>
+<td><code>codesnap -c "echo 'Hello, World!'" -o clipboard --title "Hello, World!"s</code></td>
+<td>Created images of code via a terminal CLI</td>
+</tr>
+<tr>
+<td><a href="https://github.com/sassman/t-rec-rs">t-rec</a></td>
+<td>-</td>
+<td>Terminal Recording</td>
+<td><code>t-rec -o session.gif</code></td>
+<td>A tool to record your terminal sessions as animated GIFs</td>
+</tr>
+<tr>
+<td><a href="https://asciinema.org/">asciinema</a></td>
+<td>-</td>
+<td>Terminal Recording</td>
+<td><code>asciinema rec</code></td>
+<td>Record and share terminal sessions, with playback options (web or terminal)</td>
+</tr>
+</tbody>
+</table>
 <p><strong>CodeSnap Configuration</strong>
 </p><div class="highlight"><span class="filename">~/.config/CodeSnap/config.json</span><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">"window"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
@@ -12403,7 +13549,7 @@
         
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
   Back to top
 </button>
         
@@ -12432,7 +13578,7 @@
       
     
     <a href="https://twitter.com/tschinz" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8l164.9-188.5L26.8 48h145.6l100.5 132.9L389.2 48zm-24.8 373.8h39.1L151.1 88h-42l255.3 333.8z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8l164.9-188.5L26.8 48h145.6l100.5 132.9zm-24.8 373.8h39.1L151.1 88h-42z"/></svg>
     </a>
   
     
@@ -12443,7 +13589,7 @@
       
     
     <a href="https://www.linkedin.com/in/silvan-zahno-77160227/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5m282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
     </a>
   
     
@@ -12454,7 +13600,7 @@
       
     
     <a href="https://gitlab.hevs.ch/silvan.zahno" target="_blank" rel="noopener" title="gitlab.hevs.ch" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="m503.5 204.6-.7-1.8-69.7-181.78c-1.4-3.57-3.9-6.59-7.2-8.64-2.4-1.55-5.1-2.515-8-2.81-2.9-.295-5.7.083-8.4 1.11-2.7 1.02-5.1 2.66-7.1 4.78-1.9 2.12-3.3 4.67-4.1 7.44l-47 144H160.8l-47.1-144c-.8-2.77-2.2-5.31-4.1-7.43-2-2.12-4.4-3.75-7.1-4.77a18.1 18.1 0 0 0-8.38-1.113 18.4 18.4 0 0 0-8.04 2.793 18.09 18.09 0 0 0-7.16 8.64L9.267 202.8l-.724 1.8a129.57 129.57 0 0 0-3.52 82c7.747 26.9 24.047 50.7 46.447 67.6l.27.2.59.4 105.97 79.5 52.6 39.7 32 24.2c3.7 1.9 8.3 4.3 13 4.3 4.7 0 9.3-2.4 13-4.3l32-24.2 52.6-39.7 106.7-79.9.3-.3c22.4-16.9 38.7-40.6 45.6-67.5 8.6-27 7.4-55.8-2.6-82z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="m503.5 204.6-.7-1.8-69.7-181.78c-1.4-3.57-3.9-6.59-7.2-8.64-2.4-1.55-5.1-2.515-8-2.81s-5.7.083-8.4 1.11c-2.7 1.02-5.1 2.66-7.1 4.78-1.9 2.12-3.3 4.67-4.1 7.44l-47 144H160.8l-47.1-144c-.8-2.77-2.2-5.31-4.1-7.43-2-2.12-4.4-3.75-7.1-4.77a18.1 18.1 0 0 0-8.38-1.113 18.4 18.4 0 0 0-8.04 2.793 18.1 18.1 0 0 0-7.16 8.64L9.267 202.8l-.724 1.8a129.57 129.57 0 0 0-3.52 82c7.747 26.9 24.047 50.7 46.447 67.6l.27.2.59.4 105.97 79.5 52.6 39.7 32 24.2c3.7 1.9 8.3 4.3 13 4.3s9.3-2.4 13-4.3l32-24.2 52.6-39.7 106.7-79.9.3-.3c22.4-16.9 38.7-40.6 45.6-67.5 8.6-27 7.4-55.8-2.6-82"/></svg>
     </a>
   
     
@@ -12465,7 +13611,7 @@
       
     
     <a href="https://github.com/tschinz" target="_blank" rel="noopener" title="github.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
     </a>
   
 </div>
@@ -12480,10 +13626,12 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.path", "navigation.indexes", "navigation.top", "navigation.tracking", "toc.follow", "search.suggest", "search.highlight", "search.share", "announce.dismiss", "header.autohide", "content.code.copy", "content.action.edit"], "search": "../../../assets/javascripts/workers/search.c011b7c0.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.path", "navigation.indexes", "navigation.top", "navigation.tracking", "toc.follow", "search.suggest", "search.highlight", "search.share", "announce.dismiss", "header.autohide", "content.code.copy", "content.action.edit"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.7389ff0e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.56ea9cef.min.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
@@ -12493,8 +13641,6 @@
       
         <script src="https://wavedrom.com/skins/default.js"></script>
       
-        <script src="../../../assets/javascripts/toggle-sidebar.js" async></script>
-      
         <script src="../../../assets/mkdocs_puml/puml.js"></script>
       
         <script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
@@ -12502,5 +13648,7 @@
         <script src="../../../assets/mkdocs_puml/interaction.js"></script>
       
     
-  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>
