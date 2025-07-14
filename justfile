@@ -1,36 +1,25 @@
 ##################################################
 # Variables
 #
-PROJECT_DIR  := justfile_directory()
-PROJECT_NAME := file_stem(justfile_directory())
-VENV_NAME    := ".venv"
-ENV_TOOL     := "conda"
-ENV_NAME     := "mkdocs"
-ENV_FILE     := "condaenv.yml"
-SOURCE_DIR   := "docs"
-OUTPUT_DIR   := "site"
-GIT-TAG      := `git describe --tags --always`
-YEAR         := `date +%Y`
-DATE         := `date +%Y-%m-%d`
-BUILDER      := "mkdocs"
-BUILDER_VERSION := BUILDER + " -V"
+project_dir   := justfile_directory()
+project_name  := file_stem(justfile_directory())
 
-python := if os() == "windows" {
-  "python"
-} else {
-  "python3"
-}
-
-pip := if os() == "windows" {
-  "pip"
-} else {
-  "pip3"
-}
+venv_dir        := ".venv"
+env_file        := "pyproject.toml"
+env_lock_file   := "uv.lock"
+env_export_file := "requirements.txt"
+source_dir      := "docs"
+output_dir      := "site"
+git-tag         := `git describe --tags --always`
+year            := `date +%Y`
+date            := `date +%Y-%m-%d`
+builder         := "mkdocs"
+builder_version := builder + " -V"
 
 sourceVenv := if os() == "windows" {
-  PROJECT_DIR + "\\" + VENV_NAME + "\\Scripts\\activate.bat"
+  project_dir + "\\" + venv_dir + "\\Scripts\\activate.bat"
 } else{
-  "source " + PROJECT_DIR + "/" + VENV_NAME + "/bin/activate"
+  "source " + project_dir + "/" + venv_dir + "/bin/activate"
 }
 
 ##################################################
@@ -40,53 +29,62 @@ sourceVenv := if os() == "windows" {
 _default:
   just --list
 
-# For windows shell to be supported (suppose code is multi-platforms ready)
-#set shell := ["bash", "-uc"]
-#set windows-shell := ["cmd.exe", "/c"]
-
 # Information about the environment
 @info:
   echo "Environment Informations"
   echo "========================"
   echo "    OS          : {{os()}}({{arch()}})"
-  echo "    Projectdir  : {{PROJECT_DIR}}"
+  echo "    Projectdir  : {{project_dir}}"
   echo "    ----------------------------"
-  echo "    ENV Tool    : {{ENV_TOOL}}"
-  echo "    ENV name    : {{ENV_NAME}}"
+  echo "    ENV tool    : uv"
+  echo "    VENV DIR    : {{venv_dir}}"
+  echo "    ENV file    : {{env_file}}"
+  echo "    LOCK file   : {{env_lock_file}}"
+  echo "    EXPORT file : {{env_export_file}}"
   echo "    ----------------------------"
-  echo "    Python cmd  : {{python}}"
-  echo "    Pip cmd     : {{pip}}"
+  echo "    Source dir  : {{source_dir}}"
+  echo "    Output dir  : {{output_dir}}"
   echo "    ----------------------------"
-  echo "    Source dir  : {{SOURCE_DIR}}"
-  echo "    Output dir  : {{OUTPUT_DIR}}"
+  echo "    Builder     : `{{builder_version}}`"
   echo "    ----------------------------"
-  echo "    Builder     : `{{BUILDER_VERSION}}`"
+  echo "    Project Dependencies"
+  uv tree
 
-# Create and source the python environment
+#-------------------------------------------------
+# ENV RELATED
+#
+# Create new uv environment from old requirements.txt
+uv-create requirements=env_export_file:
+  # could get requirements from current pip freeze
+  #pip freeze > {{requirements}}
+  # create a new uv environment
+  uv init .
+  rm ./main.py
+  uv venv {{venv_dir}}
+  # install the requirements does not update pyproject.toml
+  uv pip install -r {{requirements}}
+  # sync the environment
+  uv sync
+
+# Create virtual environment
 @venv-create:
-  #!/usr/bin/env bash
-  set -euo pipefail
+  if [ -d ".venv/bin" ]; then \
+    echo "venv already exists"; \
+  else \
+    uv venv {{venv_dir}}; \
+    uv sync; \
+  fi
+  uv sync
 
-  # create venv and upgrade pip
-  echo "Checking venv" && \
-  test -d {{VENV_NAME}} || { {{python}} -m venv {{VENV_NAME}} &&
-  {{sourceVenv}} &&
-  {{pip}} install --upgrade pip &&
-  {{pip}} install -r requirements.txt; }
+# Export the build environment to {{env_export_file}}
+@venv-export:
+  uv export --format {{env_export_file}}
 
-# Create the build environment
-@conda-create:
-  {{ENV_TOOL}} env create -f {{ENV_FILE}}
-
-# Export the build environment
-@env-export:
-  #!/usr/bin/env bash
-  {{sourceVenv}} && \
-  {{ENV_TOOL}} env export > {{ENV_FILE}}
-  pip freeze > requirements.txt
+@venv-lock:
+  uv pip compile pyproject.toml --output-file={{env_lock_file}} > {{env_lock_file}}
 
 # create a release version of the project
-changelog-release version=GIT-TAG:
+changelog-release version=git-tag:
   git cliff --tag {{version}}
   git tag -a {{version}} -m "Release {{version}}"$
 
@@ -98,26 +96,38 @@ changelog:
 @build: venv-create
   #!/usr/bin/env bash
   {{sourceVenv}} && \
-  {{BUILDER}} build
+  {{builder}} build
 
 # Build HTML static site and serve it locally
 @serve: venv-create
   #!/usr/bin/env bash
   {{sourceVenv}} && \
-  {{BUILDER}} serve
+  {{builder}} serve
 
 # Deploy on gh-pages
-@deploy:  venv-create
+@deploy: venv-create
   #!/usr/bin/env bash
   {{sourceVenv}} && \
-  {{BUILDER}} gh-deploy
+  {{builder}} gh-deploy
 
-# Delete build folder(s)
+# Delete build folder
 [linux]
 [macos]
-@clean:
-  rm -rf {{OUTPUT_DIR}}
+@clean-build:
+  rm -rf {{output_dir}}
 
 [windows]
-@clean:
-  del {{OUTPUT_DIR}}
+@clean-build:
+  del {{output_dir}}
+
+# Delete venv
+[linux]
+[macos]
+@clean-venv:
+  rm -rf {{venv_dir}}
+
+[windows]
+@clean-venv:
+  del {{venv_dir}}
+
+@clean: clean-build clean-venv
