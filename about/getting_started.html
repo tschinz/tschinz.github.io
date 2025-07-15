@@ -313,7 +313,7 @@ const registerKeyboardEventHandler = () => {
     <div data-md-component="skip">
       
         
-        <a href="#how-to-use" class="md-skip">
+        <a href="#how-to-use-the-mkdocs-materials-documentation-platform" class="md-skip">
           Skip to content
         </a>
       
@@ -13035,9 +13035,36 @@ const registerKeyboardEventHandler = () => {
 </li>
       
         <li class="md-nav__item">
-  <a href="#quick-start" class="md-nav__link">
+  <a href="#just-file-recipes" class="md-nav__link">
     <span class="md-ellipsis">
-      Quick start
+      Just file recipes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-build-mkdocs-locally" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Build MKDocs locally
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-build-mkdocs" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Build MKDocs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#continuous-integration-ci" class="md-nav__link">
+    <span class="md-ellipsis">
+      Continuous Integration (CI)
     </span>
   </a>
   
@@ -13188,9 +13215,36 @@ const registerKeyboardEventHandler = () => {
 </li>
       
         <li class="md-nav__item">
-  <a href="#quick-start" class="md-nav__link">
+  <a href="#just-file-recipes" class="md-nav__link">
     <span class="md-ellipsis">
-      Quick start
+      Just file recipes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-build-mkdocs-locally" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Build MKDocs locally
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-build-mkdocs" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Build MKDocs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#continuous-integration-ci" class="md-nav__link">
+    <span class="md-ellipsis">
+      Continuous Integration (CI)
     </span>
   </a>
   
@@ -13248,49 +13302,48 @@ const registerKeyboardEventHandler = () => {
   
 
 
-<h1 id="how-to-use">How to use</h1>
-<p>The method below allows you to write and preview the doc easily thanks to <strong>VSCode</strong> and the <a href="https://containers.dev">Dev Container</a> technology.</p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>We do not provide support for other installation methods. A <a href="https://github.com/tschinz/tschinz/blob/main/condaenv.yml">condaenv.yml</a> file is available at the root of the documentation one can consult the content of the <code>.devcontainer</code> folder to install the required programs and tools to build the documentation on its own.</p>
-</div>
+<h1 id="how-to-use-the-mkdocs-materials-documentation-platform">How to use the MKDocs Materials Documentation Platform</h1>
 <h2 id="requirements">Requirements</h2>
 <ul>
-<li><a href="https://code.visualstudio.com/download">Visual Studio Code</a></li>
-<li><a href="https://www.docker.com/products/docker-desktop/">Docker engine</a></li>
-<li><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers">Dev Containers extension</a></li>
-</ul>
-<h2 id="quick-start">Quick start</h2>
-<p>Clone the repository and open the folder in VSCode.</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/tschinz/znotes.git<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>znotes<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>code<span class="w"> </span>.
-</code></pre></div>
-<p>The <code>.devcontainer</code> folder within the root of the documentation will be detected by VSCode and this latter will ask you to open the folder in a container. Confirm the action. If the dialog doesn't show up, open the command palette (<code>Ctrl+Shift+P</code> or <code>F1</code>) and search for <code>Dev Containers: Open Folder in Container...</code>.</p>
-<p>Once the container is built, you are ready to read and write some doc. A live preview is available at <a href="http://127.0.0.1:8000">http://127.0.0.1:8000</a>. This live preview update whenever a change in the source folder is detected.</p>
-<h1 id="install-new-package">Install new package</h1>
-<p>If you write a documentation and find an useful extension or package to be added, use the standard <code>pip install</code> command. Note that this will install the package only on your local devcontainer. As long as you don't rebuild the container, you don't have to reinstall the package again. To make the installation of the package permanent, don't forget to add this latter in the <code>requirements.txt</code> file.</p>
-<h1 id="available-commands">Available commands</h1>
-<p>This documentation comes with a <code>justfile</code> (Makefile replacement). Use <code>just -l</code> to see the availabe recipes:</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>just<span class="w"> </span>--list
-Available<span class="w"> </span>recipes:
-<span class="w">    </span>build<span class="w">        </span><span class="c1"># Build HTML static site</span>
-<span class="w">    </span>clean<span class="w">        </span><span class="c1"># Delete build folder(s)</span>
-<span class="w">    </span>conda-create<span class="w"> </span><span class="c1"># Create the build environment</span>
-<span class="w">    </span>env-export<span class="w">   </span><span class="c1"># Export the build environment</span>
-<span class="w">    </span>info<span class="w">         </span><span class="c1"># Information about the environment</span>
-<span class="w">    </span>serve<span class="w">        </span><span class="c1"># Build HTML static site and serve it locally</span>
-<span class="w">    </span>venv-create<span class="w">  </span><span class="c1"># Create and source the python environment</span>
-</code></pre></div>
-<h1 id="commit-your-changes">Commit your changes</h1>
-<p>Before performing a commit the following steps are required:</p>
-<ul>
-<li>Verify the build of the documentation locally:
-    <div class="highlight"><pre><span></span><code>just<span class="w"> </span>clean<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>just<span class="w"> </span>build
+<li><a href="https://just.systems/man/en/packages.html">just</a>
+    <div class="highlight"><pre><span></span><code>cargo<span class="w"> </span>install<span class="w"> </span>just
+brew<span class="w"> </span>install<span class="w"> </span>just
 </code></pre></div></li>
-<li>Solve important build <code>Warnings</code> and <code>Errors</code> (if any) in the output.</li>
-<li>Commit and push your changes</li>
+<li>Python toolchain <a href="https://docs.astral.sh/uv/">uv</a>
+    <div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-LsSf<span class="w"> </span>https://astral.sh/uv/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
+</code></pre></div></li>
+<li>Create venv with <code>uv</code> and <code>just</code>
+  <div class="highlight"><pre><span></span><code>just<span class="w"> </span>venv-create
+</code></pre></div></li>
 </ul>
+<h2 id="just-file-recipes">Just file recipes</h2>
+<div class="highlight"><pre><span></span><code>just<span class="w"> </span>--list
+Available<span class="w"> </span>recipes:
+<span class="w">    </span>build<span class="w">                                  </span><span class="c1"># Build HTML static site</span>
+<span class="w">    </span>changelog<span class="w">                              </span><span class="c1"># create the changelog of the project</span>
+<span class="w">    </span>changelog-release<span class="w"> </span><span class="nv">version</span><span class="o">=</span>git-tag<span class="w">      </span><span class="c1"># create a release version of the project</span>
+<span class="w">    </span>clean
+<span class="w">    </span>clean-build<span class="w">                            </span><span class="c1"># Delete build folder</span>
+<span class="w">    </span>clean-venv<span class="w">                             </span><span class="c1"># Delete venv</span>
+<span class="w">    </span>deploy<span class="w">                                 </span><span class="c1"># Deploy on gh-pages</span>
+<span class="w">    </span>info<span class="w">                                   </span><span class="c1"># Information about the environment</span>
+<span class="w">    </span>serve<span class="w">                                  </span><span class="c1"># Build HTML static site and serve it locally</span>
+<span class="w">    </span>uv-create<span class="w"> </span><span class="nv">requirements</span><span class="o">=</span>env_export_file<span class="w"> </span><span class="c1"># Create new uv environment from old requirements.txt</span>
+<span class="w">    </span>venv-create<span class="w">                            </span><span class="c1"># Create virtual environment</span>
+<span class="w">    </span>venv-export<span class="w">                            </span><span class="c1"># Export the build environment to {{ env_export_file }}</span>
+<span class="w">    </span>venv-lock
+</code></pre></div>
+<h2 id="how-to-build-mkdocs-locally">How to Build MKDocs locally</h2>
+<p>incremental build of the documentation and watching for file changes.  Served locally</p>
+<div class="highlight"><pre><span></span><code>just<span class="w"> </span>serve
+</code></pre></div>
+<p>all the outputs will be in <code>site</code> folder. Open the webpage<a href="http://localhost:8000">http://localhost:8000</a></p>
+<h2 id="how-to-build-mkdocs">How to Build MKDocs</h2>
+<div class="highlight"><pre><span></span><code>just<span class="w"> </span>build
+</code></pre></div>
+<p>all the outputs will be in <code>site</code> folder.</p>
 <h2 id="continuous-integration-ci">Continuous Integration (CI)</h2>
-<p>The CI is done with Github Actions with the file <a href="https://github.com/tschinz/tschinz/blob/main/.github/workflows/action-mkdocs.yml">action-mkdocs.yml</a> will run on each <code>main</code> commit and create a <code>_build/</code> folder which will be pushed onto the branch gh-pages and consequently be used by github to displayed static html pages.</p>
+<p>The CI is done with Github Actions with the file <code>.github/workflows/action-mkdocs.yml</code> will run on each master commit and create a <code>site/</code> folder which will be pushed onto the branch <code>gh-pages</code> and consequently be used by github to displayed static html pages.</p>
 
 
 
