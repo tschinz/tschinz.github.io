@@ -31,24 +31,28 @@ _default:
 
 # Information about the environment
 @info:
+  #!/usr/bin/env bash
+  echo "========================"
   echo "Environment Informations"
   echo "========================"
-  echo "    OS          : {{os()}}({{arch()}})"
-  echo "    Projectdir  : {{project_dir}}"
-  echo "    ----------------------------"
-  echo "    ENV tool    : uv"
-  echo "    VENV DIR    : {{venv_dir}}"
-  echo "    ENV file    : {{env_file}}"
-  echo "    LOCK file   : {{env_lock_file}}"
-  echo "    EXPORT file : {{env_export_file}}"
-  echo "    ----------------------------"
-  echo "    Source dir  : {{source_dir}}"
-  echo "    Output dir  : {{output_dir}}"
-  echo "    ----------------------------"
-  echo "    Builder     : `{{builder_version}}`"
-  echo "    ----------------------------"
-  echo "    Project Dependencies"
-  uv tree
+  echo "OS          : {{os()}}({{arch()}})"
+  echo "Projectdir  : {{project_dir}}"
+  echo "----------------------------"
+  echo "ENV tool    : uv"
+  echo "VENV DIR    : {{venv_dir}}"
+  echo "ENV file    : {{env_file}}"
+  echo "LOCK file   : {{env_lock_file}}"
+  echo "EXPORT file : {{env_export_file}}"
+  echo "----------------------------"
+  echo "Source dir  : {{source_dir}}"
+  echo "Output dir  : {{output_dir}}"
+  echo "----------------------------"
+  echo "Builder     : `{{sourceVenv}} && {{builder_version}}`"
+  echo "----------------------------"
+  echo "Project Dependencies"
+  {{sourceVenv}} && uv tree
+  echo "========================"
+
 
 #-------------------------------------------------
 # ENV RELATED
@@ -62,15 +66,16 @@ uv-create requirements=env_export_file:
   rm ./main.py
   uv venv {{venv_dir}}
   # install the requirements does not update pyproject.toml
-  uv pip add -r {{requirements}}
+  uv add -r {{requirements}}
 
 # Create virtual environment
 @venv-create:
   if [ -d ".venv/bin" ]; then \
     echo "venv already exists"; \
   else \
-    uv venv {{venv_dir}};
+    uv venv {{venv_dir}}; \
   fi
+  uv sync
 
 # Export the build environment to {{env_export_file}}
 @venv-export:
