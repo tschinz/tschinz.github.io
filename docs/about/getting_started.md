@@ -5,58 +5,59 @@ tags:
     - mkdocs
     - getting started
 ---
-# How to use
-The method below allows you to write and preview the doc easily thanks to **VSCode** and the [Dev Container](https://containers.dev) technology.
-
-!!! info
-    We do not provide support for other installation methods. A [condaenv.yml]({{base_repo_file}}/condaenv.yml) file is available at the root of the documentation one can consult the content of the `.devcontainer` folder to install the required programs and tools to build the documentation on its own.
-
+# How to use the MKDocs Materials Documentation Platform
 ## Requirements
--   [Visual Studio Code](https://code.visualstudio.com/download)
--   [Docker engine](https://www.docker.com/products/docker-desktop/)
--   [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
-## Quick start
-Clone the repository and open the folder in VSCode.
+- [just](https://just.systems/man/en/packages.html)
+    ``` bash
+    cargo install just
+    brew install just
+    ```
+- Python toolchain [uv](https://docs.astral.sh/uv/)
+    ```bash
+    curl -LsSf https://astral.sh/uv/install.sh | sh
+    ```
+- Create venv with `uv` and `just`
+  ``` bash
+  just venv-create
+  ```
+
+## Just file recipes
 
 ```bash
-git clone https://github.com/tschinz/znotes.git && cd znotes && code .
-```
-
-The `.devcontainer` folder within the root of the documentation will be detected by VSCode and this latter will ask you to open the folder in a container. Confirm the action. If the dialog doesn't show up, open the command palette (`Ctrl+Shift+P` or `F1`) and search for `Dev Containers: Open Folder in Container...`.
-
-Once the container is built, you are ready to read and write some doc. A live preview is available at [http://127.0.0.1:8000](http://127.0.0.1:8000). This live preview update whenever a change in the source folder is detected.
-
-# Install new package
-If you write a documentation and find an useful extension or package to be added, use the standard `pip install` command. Note that this will install the package only on your local devcontainer. As long as you don't rebuild the container, you don't have to reinstall the package again. To make the installation of the package permanent, don't forget to add this latter in the `requirements.txt` file.
-
-# Available commands
-
-This documentation comes with a `justfile` (Makefile replacement). Use `just -l` to see the availabe recipes:
-
-``` bash
-$ just --list
+just --list
 Available recipes:
-    build        # Build HTML static site
-    clean        # Delete build folder(s)
-    conda-create # Create the build environment
-    env-export   # Export the build environment
-    info         # Information about the environment
-    serve        # Build HTML static site and serve it locally
-    venv-create  # Create and source the python environment
+    build                                  # Build HTML static site
+    changelog                              # create the changelog of the project
+    changelog-release version=git-tag      # create a release version of the project
+    clean
+    clean-build                            # Delete build folder
+    clean-venv                             # Delete venv
+    deploy                                 # Deploy on gh-pages
+    info                                   # Information about the environment
+    serve                                  # Build HTML static site and serve it locally
+    uv-create requirements=env_export_file # Create new uv environment from old requirements.txt
+    venv-create                            # Create virtual environment
+    venv-export                            # Export the build environment to {{env_export_file}}
+    venv-lock
 ```
 
-# Commit your changes
+## How to Build MKDocs locally
+incremental build of the documentation and watching for file changes.  Served locally
 
-Before performing a commit the following steps are required:
+```bash
+just serve
+```
 
--   Verify the build of the documentation locally:
-    ```bash
-    just clean && just build
-    ```
--   Solve important build `Warnings` and `Errors` (if any) in the output.
--   Commit and push your changes
+all the outputs will be in `site` folder. Open the webpage[http://localhost:8000](http://localhost:8000)
+
+## How to Build MKDocs
+
+```bash
+just build
+```
+
+all the outputs will be in `site` folder.
 
 ## Continuous Integration (CI)
-
-The CI is done with Github Actions with the file [action-mkdocs.yml]({{base_repo_file}}/.github/workflows/action-mkdocs.yml) will run on each `main` commit and create a `_build/` folder which will be pushed onto the branch gh-pages and consequently be used by github to displayed static html pages.
+The CI is done with Github Actions with the file `.github/workflows/action-mkdocs.yml` will run on each master commit and create a `site/` folder which will be pushed onto the branch `gh-pages` and consequently be used by github to displayed static html pages.

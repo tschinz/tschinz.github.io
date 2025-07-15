@@ -11,20 +11,18 @@ This is the static mkdocs documentation for myself
 ![Github Pages Deploy](https://github.com/tschinz/znotes/actions/workflows/action-mkdocs.yml/badge.svg)
 
 # How to use the MKDocs Materials Documentation Platform
-## MKDocs Materials Requirements
+## Requirements
 
-* just
+- [just](https://just.systems/man/en/packages.html)
     ``` bash
     cargo install just
-    conda install -c conda-forge just
     brew install just
-    npm install -g rust-just
-    pipx install rust-just
     ```
-* Python 3
-   * [Python](https://www.python.org/downloads/)
-   * [Anaconda](https://www.anaconda.com/distribution/)
-* Python Modules (can be installed with pipenv)
+- Python toolchain [uv](https://docs.astral.sh/uv/)
+    ```bash
+    curl -LsSf https://astral.sh/uv/install.sh | sh
+    ```
+- Create venv with `uv` and `just`
   ``` bash
   just venv-create
   ```
@@ -34,15 +32,29 @@ This is the static mkdocs documentation for myself
 ```bash
 just --list
 Available recipes:
-    build        # Build HTML static site
-    clean        # Delete build folder(s)
-    conda-create # Create the build environment
-    deploy       # Deploy on gh-pages
-    env-export   # Export the build environment
-    info         # Information about the environment
-    serve        # Build HTML static site and serve it locally
-    venv-create  # Create and source the python environment
+    build                                  # Build HTML static site
+    changelog                              # create the changelog of the project
+    changelog-release version=git-tag      # create a release version of the project
+    clean
+    clean-build                            # Delete build folder
+    clean-venv                             # Delete venv
+    deploy                                 # Deploy on gh-pages
+    info                                   # Information about the environment
+    serve                                  # Build HTML static site and serve it locally
+    uv-create requirements=env_export_file # Create new uv environment from old requirements.txt
+    venv-create                            # Create virtual environment
+    venv-export                            # Export the build environment to {{env_export_file}}
+    venv-lock
 ```
+
+## How to Build MKDocs locally
+incremental build of the documentation and watching for file changes.  Served locally
+
+```bash
+just serve
+```
+
+all the outputs will be in `site` folder. Open the webpage[http://localhost:8000](http://localhost:8000)
 
 ## How to Build MKDocs
 
@@ -51,14 +63,6 @@ just build
 ```
 
 all the outputs will be in `site` folder.
-
-## How to Build MKDocs incrementally
-
-```bash
-just serve
-```
-
-all the outputs will be in `site` folder. Open the webpage[http://127.0.0.1:8000/tschinz/znotes/](http://127.0.0.1:8000/tschinz/znotes/)
 
 ## Continuous Integration (CI)
 The CI is done with Github Actions with the file [action-mkdocs.yml](./.github/workflows/action-mkdocs.yml) will run on each master commit and create a `site/` folder which will be pushed onto the branch `gh-pages` and consequently be used by github to displayed static html pages.
