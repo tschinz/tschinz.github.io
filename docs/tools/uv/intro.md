@@ -28,7 +28,7 @@ uv init .
 
 # install the packages from requirements.txt
 # only installs in environemnt won't touch pyproject.toml
-uv pip install -r requirements.txt
+uv add -r requirements.txt
 ```
 
 ## Init venv on a freshly cloned repo
@@ -45,6 +45,14 @@ source .venv/bin/activate
 
 ## Install dependencies
 
+Install package from uv or pip into the current environment and `pyproject.toml`
 ```bash
 uv add [package_name]
+uv add -r requirements.txt
+```
+
+Install package into current environment only
+```bash
+uv pip install [package_name]
+uv pip install -r requirements.txt
 ```

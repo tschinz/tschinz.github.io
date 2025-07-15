@@ -62,26 +62,22 @@ uv-create requirements=env_export_file:
   rm ./main.py
   uv venv {{venv_dir}}
   # install the requirements does not update pyproject.toml
-  uv pip install -r {{requirements}}
-  # sync the environment
-  uv sync
+  uv pip add -r {{requirements}}
 
 # Create virtual environment
 @venv-create:
   if [ -d ".venv/bin" ]; then \
     echo "venv already exists"; \
   else \
-    uv venv {{venv_dir}}; \
-    uv sync; \
+    uv venv {{venv_dir}};
   fi
-  uv sync
 
 # Export the build environment to {{env_export_file}}
 @venv-export:
   uv export --format {{env_export_file}}
 
 @venv-lock:
-  uv pip compile pyproject.toml --output-file={{env_lock_file}} > {{env_lock_file}}
+  uv lock
 
 # create a release version of the project
 changelog-release version=git-tag:
