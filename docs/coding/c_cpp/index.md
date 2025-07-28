@@ -30,7 +30,7 @@ C++ ist eine von der ISO standardisierte höhere Programmiersprache. Sie wurde a
 - [Wikibooks C++ Programming](http://en.wikibooks.org/wiki/C++_Programming)
 - [Wikibooks C Programmierung](http://de.wikibooks.org/wiki/C-Programmierung)
 - [Wikibooks C++ Programmierung](http://de.wikibooks.org/wiki/C%2B%2B-Programmierung)
-- [C++ Reference/Guide/Tutorial](http://www.cplusplus.com)
+- [C++ Reference/Guide/Tutorial](https://cplusplus.com/)
 
 ## Contents
 

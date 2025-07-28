@@ -7,8 +7,7 @@ tags:
 ## Books summary
 ## Topics
 
-Basic topics such as workspace description, packages and nodes creation can be found in most of the book mentioned in this summary. They are not part of this summary since it focuses on more advanced topics. Tutorials to understand those topics are available in books or on the [ROS wiki](http://wiki.ros.org/ROS/Tutorials).
-
+Basic topics such as workspace description, packages and nodes creation can be found in most of the book mentioned in this summary. They are not part of this summary since it focuses on more advanced topics. Tutorials to understand those topics are available in books or on the [ROS](https://ros.org/).
 This summary lists all the books we have related to ROS, and some more specific PDF documents. Storage of the referenced documents :
 
 - books:

@@ -96,20 +96,20 @@ When starting anaconda-navigator produces the follwowing error.
 ``` bash linenums="1"
 $ anaconda-navigator.exe
 Traceback (most recent call last):
-  File "c:\Users\silvan.zahno\AppData\Local\Continuum\anaconda3\lib\site-packages\qtpy\__init__.py", line 202, in <module>
+  File "c:\Users\user-x\AppData\Local\Continuum\anaconda3\lib\site-packages\qtpy\__init__.py", line 202, in <module>
     from PySide import __version__ as PYSIDE_VERSION  # analysis:ignore
 ModuleNotFoundError: No module named 'PySide'
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "c:\Users\silvan.zahno\AppData\Local\Continuum\anaconda3\Scripts\anaconda-navigator-script.py", line 6, in <module>
+  File "c:\Users\user-x\AppData\Local\Continuum\anaconda3\Scripts\anaconda-navigator-script.py", line 6, in <module>
     from anaconda_navigator.app.main import main
-  File "c:\Users\silvan.zahno\AppData\Local\Continuum\anaconda3\lib\site-packages\anaconda_navigator\app\main.py", line 22, in <module>
+  File "c:\Users\user-x\AppData\Local\Continuum\anaconda3\lib\site-packages\anaconda_navigator\app\main.py", line 22, in <module>
     from anaconda_navigator.utils.conda import is_conda_available
-  File "c:\Users\silvan.zahno\AppData\Local\Continuum\anaconda3\lib\site-packages\anaconda_navigator\utils\__init__.py", line 15, in <module>
+  File "c:\Users\user-x\AppData\Local\Continuum\anaconda3\lib\site-packages\anaconda_navigator\utils\__init__.py", line 15, in <module>
     from qtpy.QtGui import QIcon
-  File "c:\Users\silvan.zahno\AppData\Local\Continuum\anaconda3\lib\site-packages\qtpy\__init__.py", line 208, in <module>
+  File "c:\Users\user-x\AppData\Local\Continuum\anaconda3\lib\site-packages\qtpy\__init__.py", line 208, in <module>
     raise PythonQtError('No Qt bindings could be found')
 qtpy.PythonQtError: No Qt bindings could be found
 ```
@@ -179,5 +179,4 @@ Once CA certificate is trusted on the device, all certificates signed with it wi
 jupyter notebook --certfile ~/.ssh/jupyter/certs/ssl.cert.pem --keyfile ~/.ssh/jupyter/private/ssl.key.pem
 ```
 
-Alternatively, you can specify paths to key and certificate in [Jupyter configuration file](http://jupyter-notebook.readthedocs.io/en/latest/public_server.html#running-a-public-notebook-server).
-
+Alternatively, you can specify paths to key and certificate in [Jupyter configuration file](https://docs.readthedocs.com/platform/stable/config-file/index.html).

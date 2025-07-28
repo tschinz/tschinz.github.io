@@ -18,7 +18,6 @@ tags:
 ### Some helppages
 
 - [Spinal HDL Documentation](https://spinalhdl.github.io/SpinalDoc-RTD)
-- [Spinal HDL Scaladoc](https://spinalhdl.github.io/SpinalHDL/)
 - [Cheatsheet Spinal HDL Core](docs/cheatSheet_core_oo.pdf)
 - [Cheatsheet Spinal HDL Lib](docs/cheatSheet_lib_oo.pdf)
 - [Cheatsheet Spinal HDL Symbolic](docs/cheatSheet_symbolic.pdf)

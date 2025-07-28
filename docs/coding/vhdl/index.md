@@ -34,8 +34,6 @@ As last remark I want to thank Corthay Francois for his VHDL Summary and HTML fi
 
 - [Wikibook VHDL Programmable Logic](http://en.wikibooks.org/wiki/Programmable_Logic/VHDL)
 - [Wikibook VHDL for FPGA Design](http://en.wikibooks.org/wiki/VHDL_for_FPGA_Design)
-- [Wikibook VHDL](http://de.wikibooks.org/wiki/VHDL)
-- [VHDL Guide](http://www.emba.uvm.edu/~jswift/uvm_class/index.html#Files)
 - [Compact Summary of VHDL](http://www.cs.umbc.edu/portal/help/VHDL/summary.html)
 - [Open cores - Free VHDL/Verilog IP's](http://opencores.org)
 - [VHDL Guru Blog](http://vhdlguru.blogspot.com)

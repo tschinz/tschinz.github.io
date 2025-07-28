@@ -225,7 +225,7 @@ resize(sig, length)   -- signed          return signed
 
 ## Procedure
 
-A procedure allows to reuse a piece of code. It has to be written in a package or between the process and it's beginning. A procedure can consume simulation time and can have as many in, out or inout signals/variables as wished. See also [Function](syntax.md#function)
+A procedure allows to reuse a piece of code. It has to be written in a package or between the process and it's beginning. A procedure can consume simulation time and can have as many in, out or inout signals/variables as wished. See also [Functions](syntax.md#functions)
 
 If in the parameter list is a parameter without signal in front, it means that it has to assigned to a direct value or a variable. Mostly signals are used if as the interface and variables are used to give input- or output data.
 

@@ -179,4 +179,4 @@ brew install openocd
 
 ### Hardware Debug Tools
 
-- Install [OpenOCD](http://www.freddiechopin.info/en/download/category/4-openocd) for JTAG debugging.
+- Install [OpenOCD](https://openocd.org/pages/getting-openocd.html) for JTAG debugging.

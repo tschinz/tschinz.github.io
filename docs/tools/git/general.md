@@ -10,11 +10,11 @@ tags:
 
 ## Links
 
-- [Bitbucket](https://bitbucket.org/dashboard)
-- [Github](https://github.com/tschinz)
-- [Gitlab](https://gitlab.com/dashboard)
+- [Bitbucket](https://bitbucket.org/)
+- [Github](https://github.com)
+- [Gitlab](https://gitlab.com)
 - [Official Git Webpage](http://git-scm.com/)
-- [Tutorial Git Branching](http://pcottle.github.com/learnGitBranching/?nodemo)
+- [Tutorial Git Branching](https://learngitbranching.js.org/)
 
 ## Global setup
 

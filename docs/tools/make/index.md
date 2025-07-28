@@ -20,9 +20,3 @@ Though its primary use is as described above, make is not restricted to just cre
 ### PDF
 
 - [Gnu Make Manual](docs/gnu_make_manual.pdf)
-
-### Links
-
-- [Gnu Make Official Webpage](http://www.gnu.org/software/make/)
-- [Gnu Make Manual](http://www.gnu.org/software/hello/manual/make/index.html)
-- [O'Reilly Freebook Section Makefile](http://www.oreilly.de/german/freebooks/rlinux3ger/ch133.html)

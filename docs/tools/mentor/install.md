@@ -12,7 +12,7 @@ Both tools are mostly installed at the same time. Download the latest Software o
 
 ## Modelsim
 
-Download Modelsim: [https://support.sw.siemens.com/de-DE/product/852852093/downloads](https://support.sw.siemens.com/de-DE/product/852852093/downloads)
+Download Modelsim: [https://customer.sw.siemens.com](https://customer.sw.siemens.com)
 
 **Install**
 
@@ -57,7 +57,7 @@ vsim &
 
 # HDL Designer
 
-Download HDL Designer: [https://support.sw.siemens.com/de-DE/product/862138546/downloads](https://support.sw.siemens.com/de-DE/product/862138546/downloads)
+Download HDL Designer: [https://customer.sw.siemens.com/en-US](https://customer.sw.siemens.com/en-US)
 
 **Prerequisies**
 

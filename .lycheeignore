@@ -1,0 +1,13 @@
+/// local files and servers
+file:///.*
+.*local.*
+
+/// private github repository
+https://github.com/tschinz/pynq_notebooks
+https://github.com/tschinz/hevs-time
+https://github.com/tschinz/pIcon
+
+
+/// Links who cannot parsed
+https://x.com/gdb/status/1878489681702310392
+https://thepiratebay.org/

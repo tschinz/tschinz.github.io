@@ -9,8 +9,8 @@ tags:
 ## Links
 
 - [Riverbank PyQt4 Download](http://www.riverbankcomputing.co.uk/software/pyqt/download)
-- [PyQt4 Reference Guide](http://www.riverbankcomputing.co.uk/static/Docs/PyQt4/html/index.html)
-- [PyQt4 Class Reference](http://www.riverbankcomputing.co.uk/static/Docs/PyQt4/html/classes.html)
+- [PyQt4 Reference Guide](https://www.riverbankcomputing.com/static/Docs/PyQt6/index.html)
+- [PyQt4 Class Reference](https://www.riverbankcomputing.com/static/Docs/PyQt6/sip-classes.html)
 - [PyQT4 CustomSerialProgramm CSP Example](https://github.com/tschinz/customSerialProgram)
 
 ## Import PyQt4 module

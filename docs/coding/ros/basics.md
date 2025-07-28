@@ -109,15 +109,10 @@ After building the executables in the `devel/` folder, this executables can be i
 catkin_make install
 ```
 
-See also:
-
-- <http://wiki.ros.org/catkin/workspaces#Catkin_Workspaces>
-
 # Messages
 
 - Serialization format for structured data
 - Defined in a `.msg` file
 - Compiled to C++/Python classes before using them
-- more info <https://wiki.ros.org/Messages>
 
 ![](img/ros-messages-1.svg){.center}

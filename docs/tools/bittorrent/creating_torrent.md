@@ -23,7 +23,7 @@ Listening Port Settings and qBitTorrent Embedded Tracker Settings
 
 ## Creating a Public Torrent
 
-Public Torrents can be find by anyone and be downloaded by anyone. Depending on your tracker selection they cn be find on popular torrent sites such as [ThePirateBay](https://thepirate-bay.org).
+Public Torrents can be find by anyone and be downloaded by anyone. Depending on your tracker selection they cn be find on popular torrent sites such as [ThePirateBay](https://thepiratebay.org/).
 
 !!! warning
     Be careful what you offer to be downloaded.
@@ -32,7 +32,7 @@ Create a new Torrent file with the following settings.
 
 ![](img/qbittorrent_public_torrent.png){.center width="70.0%"}
 
-Add public trackers to your tracker list. To find the latest active public trackers goto [tinytorrent.net](https://tinytorrent.net/best-torrent-tracker-list-updated/). You can also add your personal tracker if you like.
+Add public trackers to your tracker list. To find the latest active public trackers goto [torrentfreak.com](https://torrentfreak.com/top-torrent-sites/). You can also add your personal tracker if you like.
 
 ## Creating a Private Torrent
 

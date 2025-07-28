@@ -27,7 +27,7 @@ Quick unfinished List of useful tools
 ## Commandline
 
 - [Warp](https://warp.dev/)
-- [Yakuake](http://yakuake.kde.org/)
+- [Yakuake](https://apps.kde.org/yakuake/)
 - [Total Terminal](http://totalterminal.binaryage.com/)
 - [Cmder](https://cmder.net/)
 - [nmap page](../../tools/nmap/index.md)

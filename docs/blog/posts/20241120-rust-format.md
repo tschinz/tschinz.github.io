@@ -97,7 +97,7 @@ Check out the official [std::fmt](https://doc.rust-lang.org/std/fmt/) Rust Libra
 
 With this cheatsheet, you’ll master Rust’s string formatting macros in no time. 💪 Share this post to help others level up their Rust game!
 
-For the full article see [Rust String Formatting - A ASCII-Art Cheatsheet!](https://tschinz.github.io/znotes/blog/2024/11/20/rust-string-formatting---a-ascii-art-cheatsheet.html) and more examples [here](./../../coding/rust/syntax.md#format-printlnand-print-macros)
+For the full article see [Rust String Formatting - A ASCII-Art Cheatsheet!](./20241120-rust-format) and more examples [here](./../../coding/rust/syntax.md#format-printlnand-print-macros)
 
 <!-- https://tschinz.github.io/znotes/coding/rust/syntax.html#format-printlnand-print-macros -->
 

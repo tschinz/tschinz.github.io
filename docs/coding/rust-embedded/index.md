@@ -22,7 +22,7 @@ This section covers my learning of Rust on embedded devices. The main device thi
 ## References
 
 - [esp-rs github](https://github.com/esp-rs) - ESP Rust github page
-- [esp-rs book](https://esp-rs.github.io/book/) - ESP Rust Book
+- [esp-rs book](https://docs.espressif.com/projects/rust/book/) - ESP Rust Book
 - [esp-rust-board](https://github.com/esp-rs/esp-rust-board) - Open Source Rust ESP Development Board
 
 # Other Resources

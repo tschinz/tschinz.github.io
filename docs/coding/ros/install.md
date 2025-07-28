@@ -41,8 +41,7 @@ sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main
 
 #### Keys
 
-- [ROS Kinetic](https://wiki.ros.org/kinetic/Installation/Ubuntu)
-- [ROS Melodic](https://wiki.ros.org/melodic/Installation/Ubuntu)
+- [ROS Jazzy Jalisco](https://docs.ros.org/en/jazzy/Installation.html)
 
 ``` bash
 echo "Add ROS Package Key"

@@ -15,7 +15,7 @@ tags:
 - [PYNQ ReadtheDocs](https://pynq.readthedocs.io)
 - [PYNQ Github Source Code](https://github.com/xilinx/pynq)
 - [FINN Deep Neural Network Webpage](https://xilinx.github.io/finn/)
-- [My Pynq repo](https://github.com/tschinz/pynq_notebooks.git)
+- [My Pynq repo](https://github.com/tschinz/pynq_notebooks)
 
 ## Contents
 
@@ -46,7 +46,7 @@ The core of a PYNQ Board is a Xilinx ZYNQ-7000 SoC.
 
 ### Start
 
-Program the [SDCard image](http://www.pynq.io/board.html) with
+Program the [SDCard image](https://www.pynq.io/boards.html) with
 [Rufus](https://rufus.ie/)
 
 - **JP5** Power Selection Set to USB

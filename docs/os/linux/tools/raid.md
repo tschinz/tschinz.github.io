@@ -81,4 +81,3 @@ vim /etc/mdadm/mdadm.conf    # delete any rows related to deleted array
 ## Links
 
 - [MDADM Wikipedia article](http://en.wikipedia.org/wiki/Mdadm)
-- [Official mdadm webpage](http://neil.brown.name/blog/mdadm)

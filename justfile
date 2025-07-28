@@ -132,3 +132,7 @@ changelog:
   del {{venv_dir}}
 
 @clean: clean-build clean-venv
+
+# check all links
+@lychee:
+  lychee --exclude-all-private README.md docs/* --accept 100..=103,200..=299,403

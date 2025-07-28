@@ -8,7 +8,7 @@ tags:
 
 ![](img/quote.svg){.center width="20%"}
 
-!!! note "Silvan Zahno"
+!!! note "Silvan"
     To see your own footstep, one needs to take a step back.
 
 !!! note "Pablo Picasso"

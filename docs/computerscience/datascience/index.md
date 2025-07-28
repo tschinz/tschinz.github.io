@@ -19,11 +19,11 @@ tags:
 | ------------------------------------------------------------ | ---------------------------------------------- | -------- |
 | [OpenData.swiss](https://opendata.swiss)                     | ![](img/opendata-swiss.svg){width="100px"}     | Swiss    |
 | [SBB Data](https://data.sbb.ch)                              | ![](img/sbb.svg){width="100px"}                | Swiss    |
-| [Post Data](https://swisspost.opendatasoft.com)              | ![](img/post.svg){width="100px"}               | Swiss    |
 | [EU Data Portal](https://www.europeandataportal.eu)          | ![](img/europeandataportal.svg){width="100px"} | European |
 | [EU Open Data Portal](https://data.europa.eu/euodp/en/data/) | ![](img/euodp.png){width="100px"}              | European |
 | [Kaggle](https://www.kaggle.com/)                            | ![](img/kaggle.svg){width="100px"}             | World    |
 | [Statista](https://www.statista.com)                         | ![](img/statista.svg){width="100px"}           | World    |
+| [OpenDataSoft](https://data.opendatasoft.com/pages/home/)  | ![](img/opendatasoft.png){width="100px"}        | World    |
 
 ## Contents
 
