@@ -7375,7 +7375,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../ros/lidar-driver.html" class="md-nav__link">
+      <a href="../ros/lidar-driver.md" class="md-nav__link">
         
   
   
@@ -7398,7 +7398,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../ros/commands.html" class="md-nav__link">
+      <a href="../ros/commands.md" class="md-nav__link">
         
   
   
@@ -7444,7 +7444,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../ros/packages-ext.html" class="md-nav__link">
+      <a href="../ros/packages-ext.md" class="md-nav__link">
         
   
   
@@ -7490,7 +7490,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../ros/launch.html" class="md-nav__link">
+      <a href="../ros/launch.md" class="md-nav__link">
         
   
   
@@ -7513,7 +7513,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../ros/catkin_tools.html" class="md-nav__link">
+      <a href="../ros/catkin_tools.md" class="md-nav__link">
         
   
   
@@ -7536,7 +7536,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../ros/rviz.html" class="md-nav__link">
+      <a href="../ros/rviz.md" class="md-nav__link">
         
   
   
@@ -7559,7 +7559,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../ros/tf2.html" class="md-nav__link">
+      <a href="../ros/tf2.md" class="md-nav__link">
         
   
   
@@ -14118,7 +14118,7 @@ const registerKeyboardEventHandler = () => {
 <span class="n">resize</span><span class="p">(</span><span class="n">sig</span><span class="p">,</span><span class="w"> </span><span class="n">length</span><span class="p">)</span><span class="w">   </span><span class="c1">-- signed          return signed</span>
 </code></pre></div>
 <h2 id="procedure">Procedure</h2>
-<p>A procedure allows to reuse a piece of code. It has to be written in a package or between the process and it's beginning. A procedure can consume simulation time and can have as many in, out or inout signals/variables as wished. See also <a href="syntax.html#function">Function</a></p>
+<p>A procedure allows to reuse a piece of code. It has to be written in a package or between the process and it's beginning. A procedure can consume simulation time and can have as many in, out or inout signals/variables as wished. See also <a href="syntax.html#functions">Functions</a></p>
 <p>If in the parameter list is a parameter without signal in front, it means that it has to assigned to a direct value or a variable. Mostly signals are used if as the interface and variables are used to give input- or output data.</p>
 <div class="highlight"><span class="filename">parity generator</span><pre><span></span><code><span class="k">procedure</span><span class="w"> </span><span class="n">parity_generator</span><span class="p">(</span><span class="w"> </span><span class="k">signal</span><span class="w"> </span><span class="n">din</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">in</span><span class="w">  </span><span class="kt">std_ulogic_vector</span><span class="p">;</span>
 <span class="w">                            </span><span class="k">signal</span><span class="w"> </span><span class="n">par</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">out</span><span class="w"> </span><span class="kt">std_ulogic</span><span class="p">;</span>
