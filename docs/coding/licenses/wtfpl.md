@@ -2,6 +2,7 @@
 tags:
 - coding
 - licenses
+- WTFPL
 ---
 # WTFPL
 

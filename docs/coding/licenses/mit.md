@@ -2,6 +2,7 @@
 tags:
 - coding
 - licenses
+- MIT
 ---
 # MIT
 
