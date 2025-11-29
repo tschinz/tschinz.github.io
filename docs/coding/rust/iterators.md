@@ -1,14 +1,15 @@
 ---
 tags:
-- coding
-- rust
-- iterators
+  - coding
+  - rust
+  - iterators
 ---
+
 # Iterators
 
 Allows to iterate over a sequence of elements, independently how they are stored. All iterators implement the iterator trait.
 
-``` rust
+```rust
 fn main() {
 
   let v1 = vec![1, 2, 3];
@@ -25,7 +26,7 @@ fn main() {
 
 Two categories of Iterator methods. The adaptors (takes an iterator and returns an iterator) and consumers (takes iterators and returns another type)
 
-``` rust
+```rust
 // example of consumer method
 #[test]
 fn iterator_sum() {
@@ -47,7 +48,7 @@ fn main()
 
 ## Iterators and Closures
 
-``` rust
+```rust
 #[derive(PartialEq, Debug)]
 struct Shoe {
   size: u32,
@@ -104,7 +105,7 @@ mod tests {
 
 Example of a Iterator implementation
 
-``` rust
+```rust
 pub trait Iterator {
   type Item;   // associated type, defined in later
 
@@ -141,7 +142,7 @@ fn iterator_demo() {
 
 Another example of a Iterator implementation
 
-``` rust
+```rust
 struct Counter {
   count: u32,       // memory for the iterator, private
 }

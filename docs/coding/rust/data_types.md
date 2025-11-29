@@ -1,10 +1,12 @@
 ---
 tags:
-- coding
-- rust
-- datatypes
+  - coding
+  - rust
+  - datatypes
 ---
+
 # Data Types
+
 ## Scalar Types
 
 Represents a single value
@@ -16,41 +18,41 @@ Represents a single value
 
 By default `i32` is used
 
-| Type      | Description                                   | Range |
-| --------- | --------------------------------------------- | ----------------------------------- |
-| `i8`      | Integer `8 bit` signed value                  | `-128` to `127` |
-| `i16`     | Integer `16 bit` signed value                 | `-32'768` to `32'767` |
-| `i32`     | Integer `32 bit` signed value                 | `-2'147'483'648` to `2'147'483'647` |
-| `i64`     | Integer `64 bit` signed value                 | `-9'223'372'036'854'775'808` to `9'223'372'036'854'775'807` |
-| `i128`    | Integer `128 bit` signed value                | `-170'141'183'460'469'231'731'687'303'715'884'105'728` to `170'141'183'460'469'231'731'687'303'715'884'105'727` |
-| `isize`   | Integer architecture dependend signed value   | depends on architecture |
-| `u8`      | Integer `8 bit` unsigned value                | `0` to `255` |
-| `u16`     | Integer `16 bit` unsigned value               | `0` to `65'535` |
-| `u32`     | Integer `32 bit` unsigned value               | `0` to `4'294'967'295` |
-| `u64`     | Integer `64 bit` unsigned value               | `0` to `18'446'744'073'709'551'615` |
-| `u128`    | Integer `128 bit` unsigned value              | `0` to `340.282'366'920'938'463e36` |
-| `usize`   | Integer architecture dependend unsigned value | depends on architecture |
+| Type    | Description                                   | Range                                                                                                           |
+| ------- | --------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `i8`    | Integer `8 bit` signed value                  | `-128` to `127`                                                                                                 |
+| `i16`   | Integer `16 bit` signed value                 | `-32'768` to `32'767`                                                                                           |
+| `i32`   | Integer `32 bit` signed value                 | `-2'147'483'648` to `2'147'483'647`                                                                             |
+| `i64`   | Integer `64 bit` signed value                 | `-9'223'372'036'854'775'808` to `9'223'372'036'854'775'807`                                                     |
+| `i128`  | Integer `128 bit` signed value                | `-170'141'183'460'469'231'731'687'303'715'884'105'728` to `170'141'183'460'469'231'731'687'303'715'884'105'727` |
+| `isize` | Integer architecture dependent signed value   | depends on architecture                                                                                         |
+| `u8`    | Integer `8 bit` unsigned value                | `0` to `255`                                                                                                    |
+| `u16`   | Integer `16 bit` unsigned value               | `0` to `65'535`                                                                                                 |
+| `u32`   | Integer `32 bit` unsigned value               | `0` to `4'294'967'295`                                                                                          |
+| `u64`   | Integer `64 bit` unsigned value               | `0` to `18'446'744'073'709'551'615`                                                                             |
+| `u128`  | Integer `128 bit` unsigned value              | `0` to `340.282'366'920'938'463e36`                                                                             |
+| `usize` | Integer architecture dependent unsigned value | depends on architecture                                                                                         |
 
 ### Literals
 
 Can be separated by an `_` for easier read.
 
-| Number literal       | Example |
-| -------------------- | ---------------- |
-| Decimal              | `98_222` |
-| Hex                  | `0xff` |
-| Octal                | `0o77` |
-| Binary               | `0b1111_0000` |
-| Byte (`u8` only)     | `b'A'` |
+| Number literal   | Example       |
+| ---------------- | ------------- |
+| Decimal          | `98_222`      |
+| Hex              | `0xff`        |
+| Octal            | `0o77`        |
+| Binary           | `0b1111_0000` |
+| Byte (`u8` only) | `b'A'`        |
 
 ### Floating-Point Types
 
-| Type  | Description                    | Range Approximation | Precision |
-| ----- | ------------------------------ | ------------------- | --------- |
-| `f32` | 32-bit IEEE 754 floating point | $\pm 1.4 × 10^{-45}$ to $\pm3.4 × 10^{38}$ | $\approx 6-7$ decimal digits |
+| Type  | Description                    | Range Approximation                         | Precision                      |
+| ----- | ------------------------------ | ------------------------------------------- | ------------------------------ |
+| `f32` | 32-bit IEEE 754 floating point | $\pm 1.4 × 10^{-45}$ to $\pm3.4 × 10^{38}$  | $\approx 6-7$ decimal digits   |
 | `f64` | 64-bit IEEE 754 floating point | $\pm5.0 × 10^{-324}$ to $\pm1.7 × 10^{308}$ | $\approx 15-16$ decimal digits |
 
-``` rust
+```rust
 let x = 2.0;      // f64 double precision
 let y: f32 = 3.0; // f32 single precision
 ```
@@ -59,25 +61,26 @@ let y: f32 = 3.0; // f32 single precision
 
 Used in conditionals. One bytes sized.
 
-``` rust
+```rust
 let t = true;        // type inferred
 let f: bool = false; // with explicit type annotation
 ```
 
 ### `char` Character Type
 
-``` rust
+```rust
 let c = 'z';               // type inferred
 let z: char = 'Z';         // with explicit type annotation
 let heart_eyed_cat = '😻'; // utf-8 support
 ```
 
 ## Compound Types
+
 ### Type Tuple
 
 Grouping together different values of different types.
 
-``` rust
+```rust
 // create a tuple
 let tup: (i32, f64, u8) = (50, 6.4, 1);
 
@@ -98,14 +101,14 @@ Arrays are fixed size and live in the stack
 
 Declaring arrays
 
-``` rust
+```rust
 // declare an array
 let arr = [1, 2, 3, 4, 5];
-let arr = ["Monday", "Thuesday", "Wednesday", "Thursday", "Friday"];
+let arr = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
 
 // declare an array with its type
-les arr : [<type>;<nbrElements>] = [1, 2, 3, 4, 5];
-les arr : [i32;5] = [1, 2, 3, 4, 5];
+let arr : [<type>;<nbrElements>] = [1, 2, 3, 4, 5];
+let arr : [i32;5] = [1, 2, 3, 4, 5];
 
 // initialise array with same values
 let arr = [<initvalue>; <nbrElements>]
@@ -114,7 +117,7 @@ let arr = [3; 5];  // equal to let arr = [3, 3, 3, 3, 3];
 
 Accessing arrays
 
-``` rust
+```rust
 // unmutable array
 let arr = [1, 2, 3, 4, 5];
 let first = arr[0];            // 1
@@ -132,7 +135,7 @@ slice[0] = 6                   // [6, 3, 4]
 
 Array functions
 
-``` rust
+```rust
 let size = arr.len()     // get length of an array
 println!("{:?}", arr);   // print array with Debug trait
 ```
@@ -143,14 +146,14 @@ String is a dynamic datatype which can grow and shrink over time. It hold multip
 
 #### String Literal
 
-``` rust
+```rust
 let s = String::from("hello");
 s.push_str(", world!");
 ```
 
 ### Slice Types
 
-``` rust
+```rust
 let a = [1, 2, 3, 4, 5];
 let slice = &a[1..3];
 assert_eq!(slice, &[2, 3])
@@ -160,7 +163,7 @@ assert_eq!(slice, &[2, 3])
 
 Reference to part of a string- It contains a pointer to that start of the data and a length.
 
-``` rust
+```rust
 let s = String::from("hello world");
 
 let hello = &s[0..5];   // referencing word hello
@@ -169,7 +172,7 @@ let world = &s[6..11];  // referencing word world
 
 ![String slice reference](img/string_slice.svg){.center}
 
-``` rust
+```rust
 let s = String::from("hello");
 let len = s.len();
 
@@ -186,7 +189,7 @@ let slice = &s[..];
 
 `enum` creates a type which can hold one of different variants.
 
-``` rust
+```rust
 enum SimpleEnum {
   FirstVariant,
   SecondVariant,
@@ -205,7 +208,7 @@ enum ComplexEnum {
 
 `enum` also can hold values
 
-``` rust
+```rust
 enum IpAddrKind {
   V4(u8, u8, u8, u8), // enum variants with list u8 data
   V6(String),         // enum variants with string data
@@ -230,7 +233,7 @@ fn main() {
 
 `match` goes well with `enums` because all variants need to be matched.
 
-``` rust
+```rust
 enum Coin {
   Rappen,
   Franken,
@@ -252,7 +255,7 @@ fn value in rappen(coin: Coin) -> u8 {
 
 `Option` is also an `enum`of a generic types. It contains `None` or `Some()`. It is included by default in the scope.
 
-``` rust
+```rust
 enum Option<T> {
   None,            // no value
   Some(T),         // some value
@@ -261,15 +264,15 @@ enum Option<T> {
 
 Examples of `Optional` types.
 
-``` rust
-les some_number = Some(5);             // type Option<i32> inferred
-les some_string = Some("a string");    // type Option<&str> inferred
-les absent_number: Option<i32> = None; // type can't be inferred
+```rust
+let some_number = Some(5);             // type Option<i32> inferred
+let some_string = Some("a string");    // type Option<&str> inferred
+let absent_number: Option<i32> = None; // type can't be inferred
 ```
 
 To extract a value from an `Optional` all possible variants needs to be covered .
 
-``` rust
+```rust
 let x: i8 = 5;
 let y: Option<i8> = Some(5);
 
@@ -277,7 +280,7 @@ let y: Option<i8> = Some(5);
 let sum = x + y.unwrap_or(0);
 ```
 
-``` rust
+```rust
 fn plus_one(x: Option<i32>) -> Option<i32> {
   match x {
     None => None,
@@ -290,7 +293,7 @@ fn plus_one(x: Option<i32>) -> Option<i32> {
 
 `Result` is also an `enum` of generic types. It contains a `Ok` value or an `Err`.
 
-``` rust
+```rust
 enum Result<T, E> {
   Ok(T),
   Err(E),
@@ -301,7 +304,7 @@ enum Result<T, E> {
 
 Block of data grouped together. Can derive traits and implement methods or associated methods
 
-``` rust
+```rust
 #[derive(Debug)] // basic debug trait implementation
 struct Rectangle {
   width: u32,
@@ -367,7 +370,7 @@ Dynamic datatypes (partly shown above) stored in the heap and can shrink and gro
 
 Creating vector
 
-``` rust
+```rust
 let v:Vec<i32> = Vec::new(); // type can't be inferred and needs to be explicitaly mentioned
 v.push(1);
 v.push(2);
@@ -378,7 +381,7 @@ let v2 = vec![1,2,3];        // type can be inferred. the vec! macro allows init
 
 Accessing vector elements
 
-``` rust
+```rust
 let v = vec![1,2,3,4,5];
 
 // accessing an existing element
@@ -408,7 +411,7 @@ for i in &mut v {
 For a vector to represent multiple types at the same time a enum can be
 used
 
-``` rust
+```rust
 enum SpreadsheetCell {
   Int(i32),
   Float(f64),
@@ -417,7 +420,7 @@ enum SpreadsheetCell {
 
 let row = vec![
   SpreadsheetCell::Int(3),
-  SpreadsheetCell:Text(String::from("blue")),
+  SpreadsheetCell::Text(String::from("blue")),
   SpreadsheetCell::Float(10.12),
 ];
 
@@ -431,7 +434,7 @@ match &row[1] {
 
 Are encoded at UTF-8 encoded bytes. Each character can have between 1-3 bytes.
 
-``` rust
+```rust
 // creating a string
 let s1 = String::new();                    // String type
 let s2 = "initial content";                // &str type
@@ -450,8 +453,8 @@ let s3 = format!("{}{}", s1, s2);
 
 Indexing into a String
 
-``` rust
-let namaste: String = Strong::from(“नमस्ते”);
+```rust
+let namaste: String = String::from(“नमस्ते”);
 
 // bytes representation
 // [224, 164, 168, 224, 164, 174, 224, 164, 184, 224, 165, 141, 224, 164, 164, 224, 165, 135]
@@ -478,13 +481,13 @@ for g in “नमस्ते”.graphemes(true) {
 
 Allows to store key-value pairs
 
-``` rust
-use std:collection::HashMap
+```rust
+use std::collections::HashMap
 
 let blue = String::from("Blue");
 let yellow = String::from("Yellow");
 
-let mut scores = HasMap::new();
+let mut scores = HashMap::new();
 
 scores.insert(blue, 10); // ownership of Strings are moved into the HashMap
 scores.insert(yellow, 50);
@@ -501,7 +504,7 @@ for (key, value) in &scores {
 
 Updating the HashMap
 
-``` rust
+```rust
 let mut scores = HashMap::new();
 
 scores.insert(String::from("Blue"), 10);
@@ -514,7 +517,7 @@ scores.entry(String::from("Yellow")).or_insert(40);
 
 Example word count
 
-``` rust
+```rust
 let text = "Hello world wonderful world";
 
 let mut map = HashMap::new();
@@ -527,108 +530,9 @@ for word in text.split_whitespace() {
 println!("{:?}", map);
 ```
 
-## Smart Pointers
-
-![](docs/rust-memory-container-cs.png){.center width="100.0%"}
-
-Smart Pointers are datastructure that act like a pointer but have added functionalities added on. Smart Pointers own the data which they point to.
-
-Strings and Vectors are Smart Pointers. All Smart Pointers implement the two [traits](traits.md):
-
-- `deref` - Allows instances of Smart Pointer struct accessed as references
-- `drop` - used if an instance of a Smart Pointer gets out of scope
-
-### `Box` Smart Pointer
-
-On the stack a pointer is stored and pointing to some arbitary sized data on the heap. Box don't have many overhead.
-
-To be used for:
-
-- Type were the exact type size can't be know at compile time
-- Large amount of data and transfering the owernership without copying it.
-- Own a value and want to implement a specific trait (this is a trait object)
-
-``` rust
-fn main () {
-  let b = Box::new(5);
-  println!("b = {}", b)
-} // Box b goes here out of scope and will be deallocated
-```
-
-Example application, recursive enum
-
-``` rust
-// recursive enum
-enum List {
-  Cons(i32, Box<List>),
-  Nil,
-}
-
-use List::{Cons, Nil}
-
-fn main() {
-  let list = Cons(1, Box::new(Cons(2, Box::new(Cons(3, Box::new(Nil))))));
-}
-```
-
-### Reference Counting `Rc` Smart Pointer
-
-For single value which has multiple owners. Keeps track the number of references to a value. Once zero the variable will get cleaned up. This example works only for single threaded programs:
-
-``` rust
-use std::rc:Rc;
-
-enum List {
-  Cons(i32, Rc<List>),
-  Nil,
-}
-
-use crate::List::{Cons, Nil};
-
-fn main() {
-  lat a = Rc::new(Cons(5, Rc::new(Cons(10, Rc::new(Nil)))));
-  println!("count after creating a = {}", Rc::strong_count(&a));
-  // two variants of cloning resp. increasing the reference counter
-  lat b = Cons(3, Rc::clone(&a)); // add to refrerence counter
-  println!("count after creating b = {}", Rc::strong_count(&a));
-  {
-    lat c = Cons(4, a.clone());     // add to reference counter
-    println!("count after creating c = {}", Rc::strong_count(&a));
-  }
-  println!("count after c goes out of scope = {}", Rc::strong_count(&a));
-}
-```
-
-``` text
-count after creating a = 1
-count after creating b = 2
-count after creating c = 3
-count after c goes out of scope = 2
-```
-
-### `RefCell` Smart Pointer
-
-Allows checking of the borrowing rules at runtime. Only possible to used in single threaded application. It allows multiple onwership to a data structure.
-
-It is important to note that using a RefCell can introduce a race condition if the vector is modified by another thread while you are trying to modify it. To avoid this, you should only use a RefCell in a safe context, such as a single-threaded application or a thread-safe function.
-
-``` rust
-use std::cell::RefCell;
-
-fn main() {
-  let mut strings = vec![String::from("Hello"), String::from("World")];
-
-  let ref_cell = RefCell::new(&mut strings);
-
-  *ref_cell.borrow_mut()[0] = String::from("Goodbye");
-
-  println!("{:?}", strings);
-}
-```
-
 ## Operations
 
-``` rust
+```rust
 fn main() {
   // addition
   let sum = 5 + 10;
@@ -646,4 +550,102 @@ fn main() {
   // remainder
   let remainder = 43 % 5;
 }
+```
+
+## Type Convertions
+
+### Using `as` for type casting
+
+The `as` keyword is used for basic type casting between primitive types. It's a simple way to convert, but it can be unsafe because it might truncate values if the destination type is smaller than the source type. For example, converting a `u16` to a `u8` will silently drop the upper 8 bits.
+
+```rust
+let a: u16 = 511;
+let b: u8 = a as u8; // b is now 255, the lower 8 bits of 511 (0b11111111)
+
+let f: f32 = 3.14;
+let i: i32 = f as i32; // i is now 3, the fractional part is truncated
+```
+
+### Traits `From` and `Into`
+
+The `From` and `Into` traits provide a more robust and idiomatic way to handle type conversions. If you implement the `From` trait for your type, the `Into` trait is automatically implemented for the other type. This is used for infallible conversions.
+
+`From` is used to define how to create your type from another type.
+`Into` is used to convert your type into another type.
+
+```rust
+// String implements From<&str>
+let my_str = "hello";
+let my_string = String::from(my_str);
+
+// Thanks to Into, we can also do this:
+let other_string: String = my_str.into();
+
+// Example of implementing From
+#[derive(Debug)]
+struct MyNumber(i32);
+
+impl From<i32> for MyNumber {
+    fn from(item: i32) -> Self {
+        MyNumber(item)
+    }
+}
+
+let num = MyNumber::from(30);
+let int_num: MyNumber = 30.into();
+println!("MyNumber: {:?}", num); // MyNumber(30)
+println!("MyNumber from into: {:?}", int_num); // MyNumber(30)
+```
+
+### Traits `TryFrom` and `TryInto`
+
+These traits are used for fallible conversions, where a conversion might fail. They return a `Result` type, which is `Ok(value)` on success and `Err(error)` on failure. This is safer than `as` because it forces you to handle the possibility of a conversion error.
+
+```rust
+use std::convert::TryFrom;
+
+#[derive(Debug, PartialEq)]
+struct EvenNumber(i32);
+
+impl TryFrom<i32> for EvenNumber {
+    type Error = ();
+
+    fn try_from(value: i32) -> Result<Self, Self::Error> {
+        if value % 2 == 0 {
+            Ok(EvenNumber(value))
+        } else {
+            Err(())
+        }
+    }
+}
+
+// Successful conversion
+assert_eq!(EvenNumber::try_from(8), Ok(EvenNumber(8)));
+
+// Failed conversion
+assert_eq!(EvenNumber::try_from(5), Err(()));
+```
+
+### Traits `AsRef` and `AsMut`
+
+The `AsRef` and `AsMut` traits are used for cheap, reference-to-reference conversions. They are not about converting one type to another, but rather about getting a reference to a type from another type. This is often used in functions to accept a wider range of types (e.g., both `String` and `&str`) without taking ownership.
+
+`AsRef<T>` provides a method `.as_ref()` to get a `&T`.
+`AsMut<T>` provides a method `.as_mut()` to get a `&mut T`.
+
+```rust
+fn print_str<S: AsRef<str>>(s: S) {
+    println!("{}", s.as_ref());
+}
+
+let my_string = String::from("hello");
+let my_str = "world";
+
+print_str(&my_string); // prints "hello"
+print_str(my_str);     // prints "world"
+
+let mut s = String::from("foo");
+let mut_ref: &mut str = s.as_mut();
+mut_ref.make_ascii_uppercase();
+println!("{}", s); // prints "FOO"
 ```
