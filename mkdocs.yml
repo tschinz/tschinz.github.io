@@ -291,7 +291,8 @@ nav:
   - Coding:
       - coding/index.md
       - General:
-          - coding/general/index.md
+          - Data Sizes: coding/general/index.md
+          - Performance Benchmark: coding/general/performance.md
       - Licenses:
           - coding/licenses/index.md
           - All Rights Reserved: coding/licenses/all_rights_reserved.md
@@ -313,6 +314,9 @@ nav:
           - RustDoc: coding/rust/rustdoc.md
           - Data-Types: coding/rust/data_types.md
           - Syntax: coding/rust/syntax.md
+          - Format Mini Language: coding/rust/format_mini_lang.md
+          - Concurrency: coding/rust/concurrency.md
+          - Smart-Pointers: coding/rust/smart_pointers.md
           - Iterators: coding/rust/iterators.md
           - Traits: coding/rust/traits.md
           - Lifetimes: coding/rust/lifetimes.md
@@ -616,6 +620,7 @@ nav:
       - Learning: psychology/learning.md
   - Security:
       - security/index.md
+      - Cybersecurity: security/cybersecurity.md
       - GnuPG: security/gnupg.md
       - Password: security/password.md
       - Tor: security/tor.md
