@@ -12,27 +12,31 @@
         <meta name="author" content="tschinz">
       
       
-        <link rel="canonical" href="https://tschinz.github.com/coding/rust/format-mini-lang.html">
+        <link rel="canonical" href="https://tschinz.github.com/psychology/softskills.html">
       
       
+        <link rel="prev" href="learning.html">
       
       
-        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../../feed_rss_created.xml">
-        <link rel="alternate" type="application/rss+xml" title="RSS feed of updated content" href="../../feed_rss_updated.xml">
+        <link rel="next" href="../security/index.html">
       
-      <link rel="icon" href="../../img/favicon.svg">
+      
+        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../feed_rss_created.xml">
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of updated content" href="../feed_rss_updated.xml">
+      
+      <link rel="icon" href="../img/favicon.svg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
     
     
       
-        <title>format!(), println!()and print!() Macros - Zentauri</title>
+        <title>Soft Skills - Zentauri</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -53,13 +57,13 @@
       
     
     
-      <link rel="stylesheet" href="../../_extra/css/extra.css">
+      <link rel="stylesheet" href="../_extra/css/extra.css">
     
-      <link rel="stylesheet" href="../../assets/mkdocs_puml/puml.css">
+      <link rel="stylesheet" href="../assets/mkdocs_puml/puml.css">
     
-      <link rel="stylesheet" href="../../assets/mkdocs_puml/interaction.css">
+      <link rel="stylesheet" href="../assets/mkdocs_puml/interaction.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -79,7 +83,7 @@
     
     
     
-   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
@@ -88,7 +92,7 @@
     .gdesc-inner { font-size: 0.75rem; }
     body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
     body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script><script>(function() {
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script><script>(function() {
     const customDynamicStyle = document.createElement("style");
     // We must put it outside of the head and body, since they are replaced by the instant navigation feature in the Material theme
     document.documentElement.appendChild(customDynamicStyle);
@@ -309,7 +313,7 @@ const registerKeyboardEventHandler = () => {
     <div data-md-component="skip">
       
         
-        <a href="#format-printlnand-print-macros" class="md-skip">
+        <a href="#soft-skills" class="md-skip">
           Skip to content
         </a>
       
@@ -323,9 +327,9 @@ const registerKeyboardEventHandler = () => {
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Zentauri" class="md-header__button md-logo" aria-label="Zentauri" data-md-component="logo">
+    <a href=".." title="Zentauri" class="md-header__button md-logo" aria-label="Zentauri" data-md-component="logo">
       
-  <img src="../../img/logo.svg" alt="logo">
+  <img src="../img/logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -342,7 +346,7 @@ const registerKeyboardEventHandler = () => {
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              format!(), println!()and print!() Macros
+              Soft Skills
             
           </span>
         </div>
@@ -472,7 +476,7 @@ const registerKeyboardEventHandler = () => {
     
     
       <li class="md-tabs__item">
-        <a href="../../index.html" class="md-tabs__link">
+        <a href="../index.html" class="md-tabs__link">
           
   
   
@@ -494,7 +498,7 @@ const registerKeyboardEventHandler = () => {
     
     
       <li class="md-tabs__item">
-        <a href="../../os/index.html" class="md-tabs__link">
+        <a href="../os/index.html" class="md-tabs__link">
           
   
   
@@ -516,7 +520,7 @@ const registerKeyboardEventHandler = () => {
     
     
       <li class="md-tabs__item">
-        <a href="../../computerscience/index.html" class="md-tabs__link">
+        <a href="../computerscience/index.html" class="md-tabs__link">
           
   
   
@@ -538,7 +542,7 @@ const registerKeyboardEventHandler = () => {
     
     
       <li class="md-tabs__item">
-        <a href="../index.html" class="md-tabs__link">
+        <a href="../coding/index.html" class="md-tabs__link">
           
   
   
@@ -560,7 +564,7 @@ const registerKeyboardEventHandler = () => {
     
     
       <li class="md-tabs__item">
-        <a href="../../tools/index.html" class="md-tabs__link">
+        <a href="../tools/index.html" class="md-tabs__link">
           
   
   
@@ -582,7 +586,7 @@ const registerKeyboardEventHandler = () => {
     
     
       <li class="md-tabs__item">
-        <a href="../../hw/index.html" class="md-tabs__link">
+        <a href="../hw/index.html" class="md-tabs__link">
           
   
   
@@ -604,7 +608,7 @@ const registerKeyboardEventHandler = () => {
     
     
       <li class="md-tabs__item">
-        <a href="../../multimedia/index.html" class="md-tabs__link">
+        <a href="../multimedia/index.html" class="md-tabs__link">
           
   
   
@@ -622,11 +626,13 @@ const registerKeyboardEventHandler = () => {
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../psychology/index.html" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="index.html" class="md-tabs__link">
           
   
   
@@ -648,7 +654,7 @@ const registerKeyboardEventHandler = () => {
     
     
       <li class="md-tabs__item">
-        <a href="../../security/index.html" class="md-tabs__link">
+        <a href="../security/index.html" class="md-tabs__link">
           
   
   
@@ -670,7 +676,7 @@ const registerKeyboardEventHandler = () => {
     
     
       <li class="md-tabs__item">
-        <a href="../../about/index.html" class="md-tabs__link">
+        <a href="../about/index.html" class="md-tabs__link">
           
   
   
@@ -690,7 +696,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-tabs__item">
-      <a href="../../blog/index.html" class="md-tabs__link">
+      <a href="../blog/index.html" class="md-tabs__link">
         
   
   
@@ -725,9 +731,9 @@ const registerKeyboardEventHandler = () => {
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Zentauri" class="md-nav__button md-logo" aria-label="Zentauri" data-md-component="logo">
+    <a href=".." title="Zentauri" class="md-nav__button md-logo" aria-label="Zentauri" data-md-component="logo">
       
-  <img src="../../img/logo.svg" alt="logo">
+  <img src="../img/logo.svg" alt="logo">
 
     </a>
     Zentauri
@@ -791,7 +797,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../index.html" class="md-nav__link ">
+            <a href="../index.html" class="md-nav__link ">
               
   
   
@@ -826,7 +832,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../os/index.html" class="md-nav__link">
+      <a href="../os/index.html" class="md-nav__link">
         
   
   
@@ -849,7 +855,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../computerscience/index.html" class="md-nav__link">
+      <a href="../computerscience/index.html" class="md-nav__link">
         
   
   
@@ -872,7 +878,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../index.html" class="md-nav__link">
+      <a href="../coding/index.html" class="md-nav__link">
         
   
   
@@ -895,7 +901,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../tools/index.html" class="md-nav__link">
+      <a href="../tools/index.html" class="md-nav__link">
         
   
   
@@ -918,7 +924,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../hw/index.html" class="md-nav__link">
+      <a href="../hw/index.html" class="md-nav__link">
         
   
   
@@ -941,7 +947,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../multimedia/index.html" class="md-nav__link">
+      <a href="../multimedia/index.html" class="md-nav__link">
         
   
   
@@ -964,7 +970,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../security/index.html" class="md-nav__link">
+      <a href="../security/index.html" class="md-nav__link">
         
   
   
@@ -987,7 +993,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../about/index.html" class="md-nav__link">
+      <a href="../about/index.html" class="md-nav__link">
         
   
   
@@ -1046,7 +1052,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../os/index.html" class="md-nav__link ">
+            <a href="../os/index.html" class="md-nav__link ">
               
   
   
@@ -1114,7 +1120,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../os/linux/index.html" class="md-nav__link ">
+            <a href="../os/linux/index.html" class="md-nav__link ">
               
   
   
@@ -1188,7 +1194,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../os/linux/commandline/index.html" class="md-nav__link ">
+            <a href="../os/linux/commandline/index.html" class="md-nav__link ">
               
   
   
@@ -1223,7 +1229,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../os/linux/commandline/cheatsheet.html" class="md-nav__link">
+      <a href="../os/linux/commandline/cheatsheet.html" class="md-nav__link">
         
   
   
@@ -1246,7 +1252,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../os/linux/commandline/nicetoknow.html" class="md-nav__link">
+      <a href="../os/linux/commandline/nicetoknow.html" class="md-nav__link">
         
   
   
@@ -1269,7 +1275,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../os/linux/commandline/general.html" class="md-nav__link">
+      <a href="../os/linux/commandline/general.html" class="md-nav__link">
         
   
   
@@ -1292,7 +1298,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../os/linux/commandline/crontab.html" class="md-nav__link">
+      <a href="../os/linux/commandline/crontab.html" class="md-nav__link">
         
   
   
@@ -1315,7 +1321,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../os/linux/commandline/dd.html" class="md-nav__link">
+      <a href="../os/linux/commandline/dd.html" class="md-nav__link">
         
   
   
@@ -1338,7 +1344,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../os/linux/commandline/ssh.html" class="md-nav__link">
+      <a href="../os/linux/commandline/ssh.html" class="md-nav__link">
         
   
   
@@ -1361,7 +1367,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../os/linux/commandline/network.html" class="md-nav__link">
+      <a href="../os/linux/commandline/network.html" class="md-nav__link">
         
   
   
@@ -1384,7 +1390,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../os/linux/commandline/rsync.html" class="md-nav__link">
+      <a href="../os/linux/commandline/rsync.html" class="md-nav__link">
         
   
   
@@ -1407,7 +1413,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../os/linux/commandline/rclone.html" class="md-nav__link">
+      <a href="../os/linux/commandline/rclone.html" class="md-nav__link">
         
   
   
@@ -1481,7 +1487,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../os/linux/tools/index.html" class="md-nav__link ">
+            <a href="../os/linux/tools/index.html" class="md-nav__link ">
               
   
   
@@ -1516,7 +1522,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../os/linux/tools/apache.html" class="md-nav__link">
+      <a href="../os/linux/tools/apache.html" class="md-nav__link">
         
   
   
@@ -1539,7 +1545,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../os/linux/tools/hw_sensors.html" class="md-nav__link">
+      <a href="../os/linux/tools/hw_sensors.html" class="md-nav__link">
         
   
   
@@ -1562,7 +1568,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../os/linux/tools/lets_encrypt.html" class="md-nav__link">
+      <a href="../os/linux/tools/lets_encrypt.html" class="md-nav__link">
         
   
   
@@ -1585,7 +1591,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../os/linux/tools/mosquitto.html" class="md-nav__link">
+      <a href="../os/linux/tools/mosquitto.html" class="md-nav__link">
         
   
   
@@ -1608,7 +1614,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../os/linux/tools/raid.html" class="md-nav__link">
+      <a href="../os/linux/tools/raid.html" class="md-nav__link">
         
   
   
@@ -1631,7 +1637,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../os/linux/tools/samba.html" class="md-nav__link">
+      <a href="../os/linux/tools/samba.html" class="md-nav__link">
         
   
   
@@ -1654,7 +1660,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../os/linux/tools/shairport.html" class="md-nav__link">
+      <a href="../os/linux/tools/shairport.html" class="md-nav__link">
         
   
   
@@ -1677,7 +1683,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../os/linux/tools/systemd.html" class="md-nav__link">
+      <a href="../os/linux/tools/systemd.html" class="md-nav__link">
         
   
   
@@ -1700,7 +1706,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../os/linux/tools/vim.html" class="md-nav__link">
+      <a href="../os/linux/tools/vim.html" class="md-nav__link">
         
   
   
@@ -1723,7 +1729,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../os/linux/tools/vnc.html" class="md-nav__link">
+      <a href="../os/linux/tools/vnc.html" class="md-nav__link">
         
   
   
@@ -1746,7 +1752,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../os/linux/tools/vpn.html" class="md-nav__link">
+      <a href="../os/linux/tools/vpn.html" class="md-nav__link">
         
   
   
@@ -1802,7 +1808,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../os/linux/scripts/index.html" class="md-nav__link ">
+            <a href="../os/linux/scripts/index.html" class="md-nav__link ">
               
   
   
@@ -1837,7 +1843,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../os/linux/scripts/general.html" class="md-nav__link">
+      <a href="../os/linux/scripts/general.html" class="md-nav__link">
         
   
   
@@ -1860,7 +1866,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../os/linux/scripts/config_files.html" class="md-nav__link">
+      <a href="../os/linux/scripts/config_files.html" class="md-nav__link">
         
   
   
@@ -1916,7 +1922,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../os/linux/filesystem/index.html" class="md-nav__link ">
+            <a href="../os/linux/filesystem/index.html" class="md-nav__link ">
               
   
   
@@ -1951,7 +1957,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../os/linux/filesystem/folders.html" class="md-nav__link">
+      <a href="../os/linux/filesystem/folders.html" class="md-nav__link">
         
   
   
@@ -1974,7 +1980,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../os/linux/filesystem/files.html" class="md-nav__link">
+      <a href="../os/linux/filesystem/files.html" class="md-nav__link">
         
   
   
@@ -2028,7 +2034,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../os/linux/rpi/index.html" class="md-nav__link ">
+            <a href="../os/linux/rpi/index.html" class="md-nav__link ">
               
   
   
@@ -2063,7 +2069,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../os/linux/rpi/setup.html" class="md-nav__link">
+      <a href="../os/linux/rpi/setup.html" class="md-nav__link">
         
   
   
@@ -2119,7 +2125,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../os/linux/ubuntu/index.html" class="md-nav__link ">
+            <a href="../os/linux/ubuntu/index.html" class="md-nav__link ">
               
   
   
@@ -2154,7 +2160,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../os/linux/ubuntu/install.html" class="md-nav__link">
+      <a href="../os/linux/ubuntu/install.html" class="md-nav__link">
         
   
   
@@ -2177,7 +2183,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../os/linux/ubuntu/problems.html" class="md-nav__link">
+      <a href="../os/linux/ubuntu/problems.html" class="md-nav__link">
         
   
   
@@ -2216,7 +2222,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../os/unraid/index.html" class="md-nav__link">
+      <a href="../os/unraid/index.html" class="md-nav__link">
         
   
   
@@ -2268,7 +2274,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../os/mac/index.html" class="md-nav__link ">
+            <a href="../os/mac/index.html" class="md-nav__link ">
               
   
   
@@ -2326,7 +2332,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../os/mac/commandline/index.html" class="md-nav__link ">
+            <a href="../os/mac/commandline/index.html" class="md-nav__link ">
               
   
   
@@ -2361,7 +2367,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../os/mac/commandline/cheatsheet.html" class="md-nav__link">
+      <a href="../os/mac/commandline/cheatsheet.html" class="md-nav__link">
         
   
   
@@ -2392,7 +2398,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../os/mac/homebrew.html" class="md-nav__link">
+      <a href="../os/mac/homebrew.html" class="md-nav__link">
         
   
   
@@ -2415,7 +2421,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../os/mac/keyboard.html" class="md-nav__link">
+      <a href="../os/mac/keyboard.html" class="md-nav__link">
         
   
   
@@ -2438,7 +2444,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../os/mac/geektool.html" class="md-nav__link">
+      <a href="../os/mac/geektool.html" class="md-nav__link">
         
   
   
@@ -2502,7 +2508,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../os/win/index.html" class="md-nav__link ">
+            <a href="../os/win/index.html" class="md-nav__link ">
               
   
   
@@ -2537,7 +2543,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../os/win/cmdline.html" class="md-nav__link">
+      <a href="../os/win/cmdline.html" class="md-nav__link">
         
   
   
@@ -2560,7 +2566,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../os/win/firewall.html" class="md-nav__link">
+      <a href="../os/win/firewall.html" class="md-nav__link">
         
   
   
@@ -2583,7 +2589,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../os/win/group_policies.html" class="md-nav__link">
+      <a href="../os/win/group_policies.html" class="md-nav__link">
         
   
   
@@ -2606,7 +2612,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../os/win/power.html" class="md-nav__link">
+      <a href="../os/win/power.html" class="md-nav__link">
         
   
   
@@ -2629,7 +2635,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../os/win/registry_location.html" class="md-nav__link">
+      <a href="../os/win/registry_location.html" class="md-nav__link">
         
   
   
@@ -2652,7 +2658,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../os/win/wsl.html" class="md-nav__link">
+      <a href="../os/win/wsl.html" class="md-nav__link">
         
   
   
@@ -2719,7 +2725,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../computerscience/index.html" class="md-nav__link ">
+            <a href="../computerscience/index.html" class="md-nav__link ">
               
   
   
@@ -2783,7 +2789,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../computerscience/codes/index.html" class="md-nav__link ">
+            <a href="../computerscience/codes/index.html" class="md-nav__link ">
               
   
   
@@ -2818,7 +2824,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../computerscience/codes/number-system.html" class="md-nav__link">
+      <a href="../computerscience/codes/number-system.html" class="md-nav__link">
         
   
   
@@ -2841,7 +2847,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../computerscience/codes/ascii.html" class="md-nav__link">
+      <a href="../computerscience/codes/ascii.html" class="md-nav__link">
         
   
   
@@ -2864,7 +2870,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../computerscience/codes/braille.html" class="md-nav__link">
+      <a href="../computerscience/codes/braille.html" class="md-nav__link">
         
   
   
@@ -2887,7 +2893,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../computerscience/codes/morse.html" class="md-nav__link">
+      <a href="../computerscience/codes/morse.html" class="md-nav__link">
         
   
   
@@ -2941,7 +2947,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../computerscience/datascience/index.html" class="md-nav__link ">
+            <a href="../computerscience/datascience/index.html" class="md-nav__link ">
               
   
   
@@ -2976,7 +2982,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../computerscience/datascience/statistic.html" class="md-nav__link">
+      <a href="../computerscience/datascience/statistic.html" class="md-nav__link">
         
   
   
@@ -3038,7 +3044,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../computerscience/algorithms/index.html" class="md-nav__link ">
+            <a href="../computerscience/algorithms/index.html" class="md-nav__link ">
               
   
   
@@ -3073,7 +3079,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../computerscience/algorithms/types.html" class="md-nav__link">
+      <a href="../computerscience/algorithms/types.html" class="md-nav__link">
         
   
   
@@ -3096,7 +3102,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../computerscience/algorithms/bigO.html" class="md-nav__link">
+      <a href="../computerscience/algorithms/bigO.html" class="md-nav__link">
         
   
   
@@ -3119,7 +3125,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../computerscience/algorithms/memory-types.html" class="md-nav__link">
+      <a href="../computerscience/algorithms/memory-types.html" class="md-nav__link">
         
   
   
@@ -3142,7 +3148,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../computerscience/algorithms/sorting.html" class="md-nav__link">
+      <a href="../computerscience/algorithms/sorting.html" class="md-nav__link">
         
   
   
@@ -3216,7 +3222,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../computerscience/algorithms/daysofalgo/index.html" class="md-nav__link ">
+            <a href="../computerscience/algorithms/daysofalgo/index.html" class="md-nav__link ">
               
   
   
@@ -3251,7 +3257,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../computerscience/algorithms/daysofalgo/000-hanoi-tower.ipynb" class="md-nav__link">
+      <a href="../computerscience/algorithms/daysofalgo/000-hanoi-tower.ipynb" class="md-nav__link">
         
   
   
@@ -3274,7 +3280,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../computerscience/algorithms/daysofalgo/001-matrix-chain-multiplication.ipynb" class="md-nav__link">
+      <a href="../computerscience/algorithms/daysofalgo/001-matrix-chain-multiplication.ipynb" class="md-nav__link">
         
   
   
@@ -3297,7 +3303,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../computerscience/algorithms/daysofalgo/002-permutations.ipynb" class="md-nav__link">
+      <a href="../computerscience/algorithms/daysofalgo/002-permutations.ipynb" class="md-nav__link">
         
   
   
@@ -3320,7 +3326,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../computerscience/algorithms/daysofalgo/003-counting-1bits.ipynb" class="md-nav__link">
+      <a href="../computerscience/algorithms/daysofalgo/003-counting-1bits.ipynb" class="md-nav__link">
         
   
   
@@ -3343,7 +3349,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../computerscience/algorithms/daysofalgo/004-eratosthenes-sieve.ipynb" class="md-nav__link">
+      <a href="../computerscience/algorithms/daysofalgo/004-eratosthenes-sieve.ipynb" class="md-nav__link">
         
   
   
@@ -3366,7 +3372,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../computerscience/algorithms/daysofalgo/005-binary-addition-fsm.ipynb" class="md-nav__link">
+      <a href="../computerscience/algorithms/daysofalgo/005-binary-addition-fsm.ipynb" class="md-nav__link">
         
   
   
@@ -3389,7 +3395,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../computerscience/algorithms/daysofalgo/006-binary-search.ipynb" class="md-nav__link">
+      <a href="../computerscience/algorithms/daysofalgo/006-binary-search.ipynb" class="md-nav__link">
         
   
   
@@ -3412,7 +3418,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../computerscience/algorithms/daysofalgo/007-union-find.ipynb" class="md-nav__link">
+      <a href="../computerscience/algorithms/daysofalgo/007-union-find.ipynb" class="md-nav__link">
         
   
   
@@ -3435,7 +3441,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../computerscience/algorithms/daysofalgo/008-maze-generation-kruskal.ipynb" class="md-nav__link">
+      <a href="../computerscience/algorithms/daysofalgo/008-maze-generation-kruskal.ipynb" class="md-nav__link">
         
   
   
@@ -3458,7 +3464,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../computerscience/algorithms/daysofalgo/009-maze-solver-lee.ipynb" class="md-nav__link">
+      <a href="../computerscience/algorithms/daysofalgo/009-maze-solver-lee.ipynb" class="md-nav__link">
         
   
   
@@ -3481,7 +3487,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../computerscience/algorithms/daysofalgo/010-maze-solver-dijkstra.ipynb" class="md-nav__link">
+      <a href="../computerscience/algorithms/daysofalgo/010-maze-solver-dijkstra.ipynb" class="md-nav__link">
         
   
   
@@ -3504,7 +3510,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../computerscience/algorithms/daysofalgo/011-maze-solver-astar.ipynb" class="md-nav__link">
+      <a href="../computerscience/algorithms/daysofalgo/011-maze-solver-astar.ipynb" class="md-nav__link">
         
   
   
@@ -3527,7 +3533,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../computerscience/algorithms/daysofalgo/012-diffie-hellman-key-exchange.ipynb" class="md-nav__link">
+      <a href="../computerscience/algorithms/daysofalgo/012-diffie-hellman-key-exchange.ipynb" class="md-nav__link">
         
   
   
@@ -3550,7 +3556,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../computerscience/algorithms/daysofalgo/013-enigma-machine.ipynb" class="md-nav__link">
+      <a href="../computerscience/algorithms/daysofalgo/013-enigma-machine.ipynb" class="md-nav__link">
         
   
   
@@ -3573,7 +3579,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../computerscience/algorithms/daysofalgo/014-sorting-algorithms.ipynb" class="md-nav__link">
+      <a href="../computerscience/algorithms/daysofalgo/014-sorting-algorithms.ipynb" class="md-nav__link">
         
   
   
@@ -3612,7 +3618,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../computerscience/sdr/index.html" class="md-nav__link">
+      <a href="../computerscience/sdr/index.html" class="md-nav__link">
         
   
   
@@ -3691,7 +3697,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../index.html" class="md-nav__link ">
+            <a href="../coding/index.html" class="md-nav__link ">
               
   
   
@@ -3749,7 +3755,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../general/index.html" class="md-nav__link ">
+            <a href="../coding/general/index.html" class="md-nav__link ">
               
   
   
@@ -3784,7 +3790,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../general/performance.html" class="md-nav__link">
+      <a href="../coding/general/performance.html" class="md-nav__link">
         
   
   
@@ -3827,6 +3833,8 @@ const registerKeyboardEventHandler = () => {
       
         
       
+        
+      
     
     
     
@@ -3842,7 +3850,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../licenses/index.html" class="md-nav__link ">
+            <a href="../coding/licenses/index.html" class="md-nav__link ">
               
   
   
@@ -3877,7 +3885,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../licenses/all_rights_reserved.html" class="md-nav__link">
+      <a href="../coding/licenses/all_rights_reserved.html" class="md-nav__link">
         
   
   
@@ -3900,7 +3908,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../licenses/mit.html" class="md-nav__link">
+      <a href="../coding/licenses/mit.html" class="md-nav__link">
         
   
   
@@ -3923,12 +3931,35 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../licenses/wtfpl.html" class="md-nav__link">
+      <a href="../coding/licenses/wtfpl.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     WTFPL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../coding/licenses/glwts.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GLWTS
     
   </span>
   
@@ -4025,7 +4056,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="index.html" class="md-nav__link ">
+            <a href="../coding/rust/index.html" class="md-nav__link ">
               
   
   
@@ -4060,7 +4091,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="install.html" class="md-nav__link">
+      <a href="../coding/rust/install.html" class="md-nav__link">
         
   
   
@@ -4083,7 +4114,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="toolchain.html" class="md-nav__link">
+      <a href="../coding/rust/toolchain.html" class="md-nav__link">
         
   
   
@@ -4106,7 +4137,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="basic.html" class="md-nav__link">
+      <a href="../coding/rust/basic.html" class="md-nav__link">
         
   
   
@@ -4129,7 +4160,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="rustfmt.html" class="md-nav__link">
+      <a href="../coding/rust/rustfmt.html" class="md-nav__link">
         
   
   
@@ -4152,7 +4183,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="workspaces.html" class="md-nav__link">
+      <a href="../coding/rust/workspaces.html" class="md-nav__link">
         
   
   
@@ -4175,7 +4206,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="package.html" class="md-nav__link">
+      <a href="../coding/rust/package.html" class="md-nav__link">
         
   
   
@@ -4198,7 +4229,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="modules.html" class="md-nav__link">
+      <a href="../coding/rust/modules.html" class="md-nav__link">
         
   
   
@@ -4221,7 +4252,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="testing.html" class="md-nav__link">
+      <a href="../coding/rust/testing.html" class="md-nav__link">
         
   
   
@@ -4244,7 +4275,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="concepts.html" class="md-nav__link">
+      <a href="../coding/rust/concepts.html" class="md-nav__link">
         
   
   
@@ -4267,7 +4298,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="memory_regions.html" class="md-nav__link">
+      <a href="../coding/rust/memory_regions.html" class="md-nav__link">
         
   
   
@@ -4290,7 +4321,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="naming-convention.html" class="md-nav__link">
+      <a href="../coding/rust/naming-convention.html" class="md-nav__link">
         
   
   
@@ -4313,7 +4344,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="rustdoc.html" class="md-nav__link">
+      <a href="../coding/rust/rustdoc.html" class="md-nav__link">
         
   
   
@@ -4336,7 +4367,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="data_types.html" class="md-nav__link">
+      <a href="../coding/rust/data_types.html" class="md-nav__link">
         
   
   
@@ -4359,7 +4390,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="syntax.html" class="md-nav__link">
+      <a href="../coding/rust/syntax.html" class="md-nav__link">
         
   
   
@@ -4382,7 +4413,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="format_mini_lang.md" class="md-nav__link">
+      <a href="../coding/rust/format_mini_lang.html" class="md-nav__link">
         
   
   
@@ -4405,7 +4436,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="concurrency.html" class="md-nav__link">
+      <a href="../coding/rust/concurrency.html" class="md-nav__link">
         
   
   
@@ -4428,7 +4459,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="smart_pointers.html" class="md-nav__link">
+      <a href="../coding/rust/smart_pointers.html" class="md-nav__link">
         
   
   
@@ -4451,7 +4482,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="iterators.html" class="md-nav__link">
+      <a href="../coding/rust/iterators.html" class="md-nav__link">
         
   
   
@@ -4474,7 +4505,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="traits.html" class="md-nav__link">
+      <a href="../coding/rust/traits.html" class="md-nav__link">
         
   
   
@@ -4497,7 +4528,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="lifetimes.html" class="md-nav__link">
+      <a href="../coding/rust/lifetimes.html" class="md-nav__link">
         
   
   
@@ -4520,7 +4551,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="generics.html" class="md-nav__link">
+      <a href="../coding/rust/generics.html" class="md-nav__link">
         
   
   
@@ -4543,7 +4574,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="error_handling.html" class="md-nav__link">
+      <a href="../coding/rust/error_handling.html" class="md-nav__link">
         
   
   
@@ -4566,7 +4597,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="design_patterns.html" class="md-nav__link">
+      <a href="../coding/rust/design_patterns.html" class="md-nav__link">
         
   
   
@@ -4589,7 +4620,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="rust2python.html" class="md-nav__link">
+      <a href="../coding/rust/rust2python.html" class="md-nav__link">
         
   
   
@@ -4612,7 +4643,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="libraries.html" class="md-nav__link">
+      <a href="../coding/rust/libraries.html" class="md-nav__link">
         
   
   
@@ -4668,7 +4699,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../rust-embedded/index.html" class="md-nav__link ">
+            <a href="../coding/rust-embedded/index.html" class="md-nav__link ">
               
   
   
@@ -4703,7 +4734,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../rust-embedded/install.html" class="md-nav__link">
+      <a href="../coding/rust-embedded/install.html" class="md-nav__link">
         
   
   
@@ -4726,7 +4757,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../rust-embedded/riscv.html" class="md-nav__link">
+      <a href="../coding/rust-embedded/riscv.html" class="md-nav__link">
         
   
   
@@ -4786,7 +4817,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../scala/index.html" class="md-nav__link ">
+            <a href="../coding/scala/index.html" class="md-nav__link ">
               
   
   
@@ -4821,7 +4852,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../scala/basic.html" class="md-nav__link">
+      <a href="../coding/scala/basic.html" class="md-nav__link">
         
   
   
@@ -4844,7 +4875,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../scala/syntax.html" class="md-nav__link">
+      <a href="../coding/scala/syntax.html" class="md-nav__link">
         
   
   
@@ -4867,7 +4898,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../scala/libraries.html" class="md-nav__link">
+      <a href="../coding/scala/libraries.html" class="md-nav__link">
         
   
   
@@ -4890,7 +4921,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../scala/coding_convention_spinalhdl.html" class="md-nav__link">
+      <a href="../coding/scala/coding_convention_spinalhdl.html" class="md-nav__link">
         
   
   
@@ -4950,7 +4981,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../spinal/index.html" class="md-nav__link ">
+            <a href="../coding/spinal/index.html" class="md-nav__link ">
               
   
   
@@ -4985,7 +5016,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../spinal/install.html" class="md-nav__link">
+      <a href="../coding/spinal/install.html" class="md-nav__link">
         
   
   
@@ -5008,7 +5039,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../spinal/project.html" class="md-nav__link">
+      <a href="../coding/spinal/project.html" class="md-nav__link">
         
   
   
@@ -5031,7 +5062,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../spinal/types.html" class="md-nav__link">
+      <a href="../coding/spinal/types.html" class="md-nav__link">
         
   
   
@@ -5079,7 +5110,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../spinal/tools/index.html" class="md-nav__link ">
+            <a href="../coding/spinal/tools/index.html" class="md-nav__link ">
               
   
   
@@ -5114,7 +5145,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../spinal/tools/gtkwave.html" class="md-nav__link">
+      <a href="../coding/spinal/tools/gtkwave.html" class="md-nav__link">
         
   
   
@@ -5137,7 +5168,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../spinal/tools/intellij_idea.html" class="md-nav__link">
+      <a href="../coding/spinal/tools/intellij_idea.html" class="md-nav__link">
         
   
   
@@ -5225,7 +5256,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../vhdl/index.html" class="md-nav__link ">
+            <a href="../coding/vhdl/index.html" class="md-nav__link ">
               
   
   
@@ -5260,7 +5291,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../vhdl/guidelines.html" class="md-nav__link">
+      <a href="../coding/vhdl/guidelines.html" class="md-nav__link">
         
   
   
@@ -5283,7 +5314,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../vhdl/syntax.html" class="md-nav__link">
+      <a href="../coding/vhdl/syntax.html" class="md-nav__link">
         
   
   
@@ -5306,7 +5337,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../vhdl/attributes.html" class="md-nav__link">
+      <a href="../coding/vhdl/attributes.html" class="md-nav__link">
         
   
   
@@ -5329,7 +5360,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../vhdl/conversion.html" class="md-nav__link">
+      <a href="../coding/vhdl/conversion.html" class="md-nav__link">
         
   
   
@@ -5352,7 +5383,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../vhdl/file.html" class="md-nav__link">
+      <a href="../coding/vhdl/file.html" class="md-nav__link">
         
   
   
@@ -5375,7 +5406,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../vhdl/libraries.html" class="md-nav__link">
+      <a href="../coding/vhdl/libraries.html" class="md-nav__link">
         
   
   
@@ -5398,7 +5429,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../vhdl/examples.html" class="md-nav__link">
+      <a href="../coding/vhdl/examples.html" class="md-nav__link">
         
   
   
@@ -5421,7 +5452,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../vhdl/testbench.html" class="md-nav__link">
+      <a href="../coding/vhdl/testbench.html" class="md-nav__link">
         
   
   
@@ -5444,7 +5475,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../vhdl/time.html" class="md-nav__link">
+      <a href="../coding/vhdl/time.html" class="md-nav__link">
         
   
   
@@ -5467,7 +5498,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../vhdl/osvvm.html" class="md-nav__link">
+      <a href="../coding/vhdl/osvvm.html" class="md-nav__link">
         
   
   
@@ -5490,7 +5521,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../vhdl/simulation.html" class="md-nav__link">
+      <a href="../coding/vhdl/simulation.html" class="md-nav__link">
         
   
   
@@ -5513,7 +5544,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../vhdl/synthesis.html" class="md-nav__link">
+      <a href="../coding/vhdl/synthesis.html" class="md-nav__link">
         
   
   
@@ -5585,7 +5616,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../vhdl/intel_sdc.html" class="md-nav__link">
+      <a href="../coding/vhdl/intel_sdc.html" class="md-nav__link">
         
   
   
@@ -5608,7 +5639,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../vhdl/intel_sdc_theory.html" class="md-nav__link">
+      <a href="../coding/vhdl/intel_sdc_theory.html" class="md-nav__link">
         
   
   
@@ -5631,7 +5662,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../vhdl/intel_sdc_usage.html" class="md-nav__link">
+      <a href="../coding/vhdl/intel_sdc_usage.html" class="md-nav__link">
         
   
   
@@ -5662,7 +5693,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../vhdl/xilinx_ucf.html" class="md-nav__link">
+      <a href="../coding/vhdl/xilinx_ucf.html" class="md-nav__link">
         
   
   
@@ -5720,7 +5751,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../tcl_tk_do/index.html" class="md-nav__link ">
+            <a href="../coding/tcl_tk_do/index.html" class="md-nav__link ">
               
   
   
@@ -5755,7 +5786,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../tcl_tk_do/syntax.html" class="md-nav__link">
+      <a href="../coding/tcl_tk_do/syntax.html" class="md-nav__link">
         
   
   
@@ -5778,7 +5809,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../tcl_tk_do/fpga_scripting.html" class="md-nav__link">
+      <a href="../coding/tcl_tk_do/fpga_scripting.html" class="md-nav__link">
         
   
   
@@ -5801,7 +5832,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../tcl_tk_do/examples.html" class="md-nav__link">
+      <a href="../coding/tcl_tk_do/examples.html" class="md-nav__link">
         
   
   
@@ -5883,7 +5914,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../python/index.html" class="md-nav__link ">
+            <a href="../coding/python/index.html" class="md-nav__link ">
               
   
   
@@ -5918,7 +5949,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../python/syntax.html" class="md-nav__link">
+      <a href="../coding/python/syntax.html" class="md-nav__link">
         
   
   
@@ -5941,7 +5972,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../python/methods.html" class="md-nav__link">
+      <a href="../coding/python/methods.html" class="md-nav__link">
         
   
   
@@ -5964,7 +5995,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../python/stdlib.html" class="md-nav__link">
+      <a href="../coding/python/stdlib.html" class="md-nav__link">
         
   
   
@@ -5987,7 +6018,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../python/print.html" class="md-nav__link">
+      <a href="../coding/python/print.html" class="md-nav__link">
         
   
   
@@ -6010,7 +6041,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../python/datetime.html" class="md-nav__link">
+      <a href="../coding/python/datetime.html" class="md-nav__link">
         
   
   
@@ -6033,7 +6064,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../python/docstring.html" class="md-nav__link">
+      <a href="../coding/python/docstring.html" class="md-nav__link">
         
   
   
@@ -6056,7 +6087,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../python/flake8.html" class="md-nav__link">
+      <a href="../coding/python/flake8.html" class="md-nav__link">
         
   
   
@@ -6079,7 +6110,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../python/pip_general.html" class="md-nav__link">
+      <a href="../coding/python/pip_general.html" class="md-nav__link">
         
   
   
@@ -6102,7 +6133,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../python/pipenv.html" class="md-nav__link">
+      <a href="../coding/python/pipenv.html" class="md-nav__link">
         
   
   
@@ -6125,7 +6156,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../python/virutalenv.html" class="md-nav__link">
+      <a href="../coding/python/virutalenv.html" class="md-nav__link">
         
   
   
@@ -6148,7 +6179,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../python/pandas.html" class="md-nav__link">
+      <a href="../coding/python/pandas.html" class="md-nav__link">
         
   
   
@@ -6171,7 +6202,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../python/plotly_dash.html" class="md-nav__link">
+      <a href="../coding/python/plotly_dash.html" class="md-nav__link">
         
   
   
@@ -6194,7 +6225,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../python/pyqt.html" class="md-nav__link">
+      <a href="../coding/python/pyqt.html" class="md-nav__link">
         
   
   
@@ -6280,7 +6311,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../python/awesome_packages.html" class="md-nav__link">
+      <a href="../coding/python/awesome_packages.html" class="md-nav__link">
         
   
   
@@ -6303,7 +6334,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../python/packages/fuzzywuzzy.html" class="md-nav__link">
+      <a href="../coding/python/packages/fuzzywuzzy.html" class="md-nav__link">
         
   
   
@@ -6326,7 +6357,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../python/packages/tqdm.html" class="md-nav__link">
+      <a href="../coding/python/packages/tqdm.html" class="md-nav__link">
         
   
   
@@ -6349,7 +6380,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../python/packages/pillow.html" class="md-nav__link">
+      <a href="../coding/python/packages/pillow.html" class="md-nav__link">
         
   
   
@@ -6372,7 +6403,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../python/packages/colorama.html" class="md-nav__link">
+      <a href="../coding/python/packages/colorama.html" class="md-nav__link">
         
   
   
@@ -6395,7 +6426,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../python/packages/requests.html" class="md-nav__link">
+      <a href="../coding/python/packages/requests.html" class="md-nav__link">
         
   
   
@@ -6418,7 +6449,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../python/packages/flask.html" class="md-nav__link">
+      <a href="../coding/python/packages/flask.html" class="md-nav__link">
         
   
   
@@ -6441,7 +6472,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../python/packages/plotly.html" class="md-nav__link">
+      <a href="../coding/python/packages/plotly.html" class="md-nav__link">
         
   
   
@@ -6464,7 +6495,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../python/packages/plotly_dash.html" class="md-nav__link">
+      <a href="../coding/python/packages/plotly_dash.html" class="md-nav__link">
         
   
   
@@ -6487,7 +6518,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../python/packages/streamlit.html" class="md-nav__link">
+      <a href="../coding/python/packages/streamlit.html" class="md-nav__link">
         
   
   
@@ -6518,7 +6549,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../python/examples.html" class="md-nav__link">
+      <a href="../coding/python/examples.html" class="md-nav__link">
         
   
   
@@ -6549,7 +6580,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../regex/index.html" class="md-nav__link">
+      <a href="../coding/regex/index.html" class="md-nav__link">
         
   
   
@@ -6613,7 +6644,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../swift/index.html" class="md-nav__link ">
+            <a href="../coding/swift/index.html" class="md-nav__link ">
               
   
   
@@ -6648,7 +6679,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../swift/01_basics.html" class="md-nav__link">
+      <a href="../coding/swift/01_basics.html" class="md-nav__link">
         
   
   
@@ -6671,7 +6702,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../swift/02_mvc.html" class="md-nav__link">
+      <a href="../coding/swift/02_mvc.html" class="md-nav__link">
         
   
   
@@ -6694,7 +6725,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../swift/03_properties.html" class="md-nav__link">
+      <a href="../coding/swift/03_properties.html" class="md-nav__link">
         
   
   
@@ -6717,7 +6748,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../swift/04_datastructures_methods.html" class="md-nav__link">
+      <a href="../coding/swift/04_datastructures_methods.html" class="md-nav__link">
         
   
   
@@ -6740,7 +6771,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../swift/05_controlflow.html" class="md-nav__link">
+      <a href="../coding/swift/05_controlflow.html" class="md-nav__link">
         
   
   
@@ -6763,7 +6794,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../swift/06_multithreading.html" class="md-nav__link">
+      <a href="../coding/swift/06_multithreading.html" class="md-nav__link">
         
   
   
@@ -6786,7 +6817,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../swift/07_nsclasses.html" class="md-nav__link">
+      <a href="../coding/swift/07_nsclasses.html" class="md-nav__link">
         
   
   
@@ -6809,7 +6840,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../swift/08_views.html" class="md-nav__link">
+      <a href="../coding/swift/08_views.html" class="md-nav__link">
         
   
   
@@ -6832,7 +6863,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../swift/081_uielements.html" class="md-nav__link">
+      <a href="../coding/swift/081_uielements.html" class="md-nav__link">
         
   
   
@@ -6855,7 +6886,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../swift/09_other.html" class="md-nav__link">
+      <a href="../coding/swift/09_other.html" class="md-nav__link">
         
   
   
@@ -6913,7 +6944,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../c_cpp/index.html" class="md-nav__link ">
+            <a href="../coding/c_cpp/index.html" class="md-nav__link ">
               
   
   
@@ -6948,7 +6979,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../c_cpp/syntax.html" class="md-nav__link">
+      <a href="../coding/c_cpp/syntax.html" class="md-nav__link">
         
   
   
@@ -6971,7 +7002,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../c_cpp/linkerscript.html" class="md-nav__link">
+      <a href="../coding/c_cpp/linkerscript.html" class="md-nav__link">
         
   
   
@@ -6994,7 +7025,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../c_cpp/executionframework.html" class="md-nav__link">
+      <a href="../coding/c_cpp/executionframework.html" class="md-nav__link">
         
   
   
@@ -7039,20 +7070,6 @@ const registerKeyboardEventHandler = () => {
       
         
       
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
     
     
     
@@ -7068,7 +7085,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../ros/index.html" class="md-nav__link ">
+            <a href="../coding/ros/index.html" class="md-nav__link ">
               
   
   
@@ -7103,7 +7120,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../ros/books-summary.html" class="md-nav__link">
+      <a href="../coding/ros/books-summary.html" class="md-nav__link">
         
   
   
@@ -7126,7 +7143,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../ros/install.html" class="md-nav__link">
+      <a href="../coding/ros/install.html" class="md-nav__link">
         
   
   
@@ -7149,53 +7166,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../ros/lidar-driver.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Lidar Driver
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ros/commands.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Commands
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ros/packages.html" class="md-nav__link">
+      <a href="../coding/ros/packages.html" class="md-nav__link">
         
   
   
@@ -7218,127 +7189,12 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../ros/packages-ext.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    External Packages
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ros/basics.html" class="md-nav__link">
+      <a href="../coding/ros/basics.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     Basics
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ros/launch.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Launch
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ros/catkin_tools.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Catkin Tools
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ros/rviz.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    RViz
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ros/tf2.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    TF2
     
   </span>
   
@@ -7389,7 +7245,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../ahk/index.html" class="md-nav__link ">
+            <a href="../coding/ahk/index.html" class="md-nav__link ">
               
   
   
@@ -7424,7 +7280,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../ahk/key_definitions.html" class="md-nav__link">
+      <a href="../coding/ahk/key_definitions.html" class="md-nav__link">
         
   
   
@@ -7447,7 +7303,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../ahk/tips_tricks.html" class="md-nav__link">
+      <a href="../coding/ahk/tips_tricks.html" class="md-nav__link">
         
   
   
@@ -7560,7 +7416,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../tools/index.html" class="md-nav__link ">
+            <a href="../tools/index.html" class="md-nav__link ">
               
   
   
@@ -7616,7 +7472,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../tools/starship/index.html" class="md-nav__link ">
+            <a href="../tools/starship/index.html" class="md-nav__link ">
               
   
   
@@ -7681,7 +7537,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../tools/just/index.html" class="md-nav__link ">
+            <a href="../tools/just/index.html" class="md-nav__link ">
               
   
   
@@ -7716,7 +7572,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../tools/just/intro.html" class="md-nav__link">
+      <a href="../tools/just/intro.html" class="md-nav__link">
         
   
   
@@ -7739,7 +7595,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../tools/just/install.html" class="md-nav__link">
+      <a href="../tools/just/install.html" class="md-nav__link">
         
   
   
@@ -7762,7 +7618,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../tools/just/examples.html" class="md-nav__link">
+      <a href="../tools/just/examples.html" class="md-nav__link">
         
   
   
@@ -7818,7 +7674,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../tools/make/index.html" class="md-nav__link ">
+            <a href="../tools/make/index.html" class="md-nav__link ">
               
   
   
@@ -7853,7 +7709,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../tools/make/syntax.html" class="md-nav__link">
+      <a href="../tools/make/syntax.html" class="md-nav__link">
         
   
   
@@ -7876,7 +7732,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../tools/make/examples.html" class="md-nav__link">
+      <a href="../tools/make/examples.html" class="md-nav__link">
         
   
   
@@ -7932,7 +7788,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../tools/numbat/index.html" class="md-nav__link ">
+            <a href="../tools/numbat/index.html" class="md-nav__link ">
               
   
   
@@ -7967,7 +7823,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../tools/numbat/basics.html" class="md-nav__link">
+      <a href="../tools/numbat/basics.html" class="md-nav__link">
         
   
   
@@ -7990,7 +7846,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../tools/numbat/cheatsheet.html" class="md-nav__link">
+      <a href="../tools/numbat/cheatsheet.html" class="md-nav__link">
         
   
   
@@ -8048,7 +7904,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../tools/ollama/index.html" class="md-nav__link ">
+            <a href="../tools/ollama/index.html" class="md-nav__link ">
               
   
   
@@ -8083,7 +7939,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../tools/ollama/getting-started.html" class="md-nav__link">
+      <a href="../tools/ollama/getting-started.html" class="md-nav__link">
         
   
   
@@ -8106,7 +7962,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../tools/ollama/modelfile.html" class="md-nav__link">
+      <a href="../tools/ollama/modelfile.html" class="md-nav__link">
         
   
   
@@ -8129,7 +7985,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../tools/ollama/openwebui.html" class="md-nav__link">
+      <a href="../tools/ollama/openwebui.html" class="md-nav__link">
         
   
   
@@ -8195,7 +8051,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../tools/git/index.html" class="md-nav__link ">
+            <a href="../tools/git/index.html" class="md-nav__link ">
               
   
   
@@ -8230,7 +8086,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../tools/git/general.html" class="md-nav__link">
+      <a href="../tools/git/general.html" class="md-nav__link">
         
   
   
@@ -8253,7 +8109,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../tools/git/commands.html" class="md-nav__link">
+      <a href="../tools/git/commands.html" class="md-nav__link">
         
   
   
@@ -8276,7 +8132,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../tools/git/submodules.html" class="md-nav__link">
+      <a href="../tools/git/submodules.html" class="md-nav__link">
         
   
   
@@ -8299,7 +8155,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../tools/git/gitignore.html" class="md-nav__link">
+      <a href="../tools/git/gitignore.html" class="md-nav__link">
         
   
   
@@ -8322,7 +8178,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../tools/git/git-cliff.html" class="md-nav__link">
+      <a href="../tools/git/git-cliff.html" class="md-nav__link">
         
   
   
@@ -8345,7 +8201,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../tools/git/flow.html" class="md-nav__link">
+      <a href="../tools/git/flow.html" class="md-nav__link">
         
   
   
@@ -8368,7 +8224,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../tools/git/github.html" class="md-nav__link">
+      <a href="../tools/git/github.html" class="md-nav__link">
         
   
   
@@ -8428,7 +8284,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../tools/docker/index.html" class="md-nav__link ">
+            <a href="../tools/docker/index.html" class="md-nav__link ">
               
   
   
@@ -8463,7 +8319,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../tools/docker/basics.html" class="md-nav__link">
+      <a href="../tools/docker/basics.html" class="md-nav__link">
         
   
   
@@ -8486,7 +8342,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../tools/docker/docker_cmd.html" class="md-nav__link">
+      <a href="../tools/docker/docker_cmd.html" class="md-nav__link">
         
   
   
@@ -8509,7 +8365,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../tools/docker/dockerfile.html" class="md-nav__link">
+      <a href="../tools/docker/dockerfile.html" class="md-nav__link">
         
   
   
@@ -8532,7 +8388,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../tools/docker/common_fixes.html" class="md-nav__link">
+      <a href="../tools/docker/common_fixes.html" class="md-nav__link">
         
   
   
@@ -8563,7 +8419,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../tools/pandoc/index.html" class="md-nav__link">
+      <a href="../tools/pandoc/index.html" class="md-nav__link">
         
   
   
@@ -8586,7 +8442,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../tools/cmder/index.html" class="md-nav__link">
+      <a href="../tools/cmder/index.html" class="md-nav__link">
         
   
   
@@ -8609,7 +8465,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../tools/google/index.html" class="md-nav__link">
+      <a href="../tools/google/index.html" class="md-nav__link">
         
   
   
@@ -8657,7 +8513,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../tools/anaconda/index.html" class="md-nav__link ">
+            <a href="../tools/anaconda/index.html" class="md-nav__link ">
               
   
   
@@ -8692,7 +8548,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../tools/anaconda/install.html" class="md-nav__link">
+      <a href="../tools/anaconda/install.html" class="md-nav__link">
         
   
   
@@ -8715,7 +8571,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../tools/anaconda/conda.html" class="md-nav__link">
+      <a href="../tools/anaconda/conda.html" class="md-nav__link">
         
   
   
@@ -8769,7 +8625,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../tools/uv/index.html" class="md-nav__link ">
+            <a href="../tools/uv/index.html" class="md-nav__link ">
               
   
   
@@ -8804,7 +8660,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../tools/uv/intro.html" class="md-nav__link">
+      <a href="../tools/uv/intro.html" class="md-nav__link">
         
   
   
@@ -8835,7 +8691,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../tools/chromium/index.html" class="md-nav__link">
+      <a href="../tools/chromium/index.html" class="md-nav__link">
         
   
   
@@ -8889,7 +8745,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../tools/jupyter/index.html" class="md-nav__link ">
+            <a href="../tools/jupyter/index.html" class="md-nav__link ">
               
   
   
@@ -8924,7 +8780,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../tools/jupyter/general.html" class="md-nav__link">
+      <a href="../tools/jupyter/general.html" class="md-nav__link">
         
   
   
@@ -8947,7 +8803,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../tools/jupyter/common_functions.html" class="md-nav__link">
+      <a href="../tools/jupyter/common_functions.html" class="md-nav__link">
         
   
   
@@ -8970,7 +8826,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../tools/jupyter/convert.html" class="md-nav__link">
+      <a href="../tools/jupyter/convert.html" class="md-nav__link">
         
   
   
@@ -8993,7 +8849,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../tools/jupyter/installation.html" class="md-nav__link">
+      <a href="../tools/jupyter/installation.html" class="md-nav__link">
         
   
   
@@ -9016,7 +8872,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../tools/jupyter/install_plotly_dash.html" class="md-nav__link">
+      <a href="../tools/jupyter/install_plotly_dash.html" class="md-nav__link">
         
   
   
@@ -9074,7 +8930,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../tools/cloudflare/index.html" class="md-nav__link ">
+            <a href="../tools/cloudflare/index.html" class="md-nav__link ">
               
   
   
@@ -9109,7 +8965,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../tools/cloudflare/gh-pages.html" class="md-nav__link">
+      <a href="../tools/cloudflare/gh-pages.html" class="md-nav__link">
         
   
   
@@ -9132,7 +8988,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../tools/cloudflare/redirect-subdomains.html" class="md-nav__link">
+      <a href="../tools/cloudflare/redirect-subdomains.html" class="md-nav__link">
         
   
   
@@ -9155,7 +9011,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../tools/cloudflare/server-subdomains.html" class="md-nav__link">
+      <a href="../tools/cloudflare/server-subdomains.html" class="md-nav__link">
         
   
   
@@ -9186,7 +9042,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../tools/heroku/index.html" class="md-nav__link">
+      <a href="../tools/heroku/index.html" class="md-nav__link">
         
   
   
@@ -9209,7 +9065,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../tools/pihole/index.html" class="md-nav__link">
+      <a href="../tools/pihole/index.html" class="md-nav__link">
         
   
   
@@ -9255,7 +9111,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../tools/sphinx/index.html" class="md-nav__link ">
+            <a href="../tools/sphinx/index.html" class="md-nav__link ">
               
   
   
@@ -9290,7 +9146,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../tools/sphinx/syntax.html" class="md-nav__link">
+      <a href="../tools/sphinx/syntax.html" class="md-nav__link">
         
   
   
@@ -9346,7 +9202,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../tools/jetbrains/index.html" class="md-nav__link ">
+            <a href="../tools/jetbrains/index.html" class="md-nav__link ">
               
   
   
@@ -9381,7 +9237,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../tools/jetbrains/intellij_idea.html" class="md-nav__link">
+      <a href="../tools/jetbrains/intellij_idea.html" class="md-nav__link">
         
   
   
@@ -9404,7 +9260,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../tools/jetbrains/pycharm.html" class="md-nav__link">
+      <a href="../tools/jetbrains/pycharm.html" class="md-nav__link">
         
   
   
@@ -9460,7 +9316,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../tools/sublimetext/index.html" class="md-nav__link ">
+            <a href="../tools/sublimetext/index.html" class="md-nav__link ">
               
   
   
@@ -9495,7 +9351,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../tools/sublimetext/settings.html" class="md-nav__link">
+      <a href="../tools/sublimetext/settings.html" class="md-nav__link">
         
   
   
@@ -9518,7 +9374,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../tools/sublimetext/plugins.html" class="md-nav__link">
+      <a href="../tools/sublimetext/plugins.html" class="md-nav__link">
         
   
   
@@ -9572,7 +9428,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../tools/virtualbox/index.html" class="md-nav__link ">
+            <a href="../tools/virtualbox/index.html" class="md-nav__link ">
               
   
   
@@ -9607,7 +9463,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../tools/virtualbox/intro.html" class="md-nav__link">
+      <a href="../tools/virtualbox/intro.html" class="md-nav__link">
         
   
   
@@ -9661,7 +9517,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../tools/mentor/index.html" class="md-nav__link ">
+            <a href="../tools/mentor/index.html" class="md-nav__link ">
               
   
   
@@ -9696,7 +9552,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../tools/mentor/install.html" class="md-nav__link">
+      <a href="../tools/mentor/install.html" class="md-nav__link">
         
   
   
@@ -9750,7 +9606,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../tools/bittorrent/index.html" class="md-nav__link ">
+            <a href="../tools/bittorrent/index.html" class="md-nav__link ">
               
   
   
@@ -9785,7 +9641,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../tools/bittorrent/creating_torrent.html" class="md-nav__link">
+      <a href="../tools/bittorrent/creating_torrent.html" class="md-nav__link">
         
   
   
@@ -9816,7 +9672,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../tools/nmap/index.html" class="md-nav__link">
+      <a href="../tools/nmap/index.html" class="md-nav__link">
         
   
   
@@ -9839,7 +9695,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../tools/sdr%2B%2B/index.html" class="md-nav__link">
+      <a href="../tools/sdr%2B%2B/index.html" class="md-nav__link">
         
   
   
@@ -9862,7 +9718,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../tools/tianji/index.html" class="md-nav__link">
+      <a href="../tools/tianji/index.html" class="md-nav__link">
         
   
   
@@ -9885,7 +9741,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../tools/useful_tools/useful_tools.html" class="md-nav__link">
+      <a href="../tools/useful_tools/useful_tools.html" class="md-nav__link">
         
   
   
@@ -9948,7 +9804,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../hw/index.html" class="md-nav__link ">
+            <a href="../hw/index.html" class="md-nav__link ">
               
   
   
@@ -10012,7 +9868,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../hw/communication/index.html" class="md-nav__link ">
+            <a href="../hw/communication/index.html" class="md-nav__link ">
               
   
   
@@ -10047,7 +9903,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../hw/communication/i2c/index.html" class="md-nav__link">
+      <a href="../hw/communication/i2c/index.html" class="md-nav__link">
         
   
   
@@ -10070,7 +9926,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../hw/communication/spi/index.html" class="md-nav__link">
+      <a href="../hw/communication/spi/index.html" class="md-nav__link">
         
   
   
@@ -10093,7 +9949,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../hw/communication/uart/index.html" class="md-nav__link">
+      <a href="../hw/communication/uart/index.html" class="md-nav__link">
         
   
   
@@ -10116,7 +9972,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../hw/communication/modbus/index.html" class="md-nav__link">
+      <a href="../hw/communication/modbus/index.html" class="md-nav__link">
         
   
   
@@ -10168,7 +10024,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../hw/rtl-sdr/index.html" class="md-nav__link ">
+            <a href="../hw/rtl-sdr/index.html" class="md-nav__link ">
               
   
   
@@ -10227,7 +10083,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../hw/esp32-c3/index.html" class="md-nav__link ">
+            <a href="../hw/esp32-c3/index.html" class="md-nav__link ">
               
   
   
@@ -10294,7 +10150,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../hw/raspberry/index.html" class="md-nav__link ">
+            <a href="../hw/raspberry/index.html" class="md-nav__link ">
               
   
   
@@ -10329,7 +10185,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../hw/raspberry/boards.html" class="md-nav__link">
+      <a href="../hw/raspberry/boards.html" class="md-nav__link">
         
   
   
@@ -10352,7 +10208,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../hw/raspberry/general.html" class="md-nav__link">
+      <a href="../hw/raspberry/general.html" class="md-nav__link">
         
   
   
@@ -10375,7 +10231,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../hw/raspberry/pico.html" class="md-nav__link">
+      <a href="../hw/raspberry/pico.html" class="md-nav__link">
         
   
   
@@ -10445,7 +10301,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../hw/raspberry/retropie.html" class="md-nav__link">
+      <a href="../hw/raspberry/retropie.html" class="md-nav__link">
         
   
   
@@ -10468,7 +10324,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../hw/raspberry/picase.html" class="md-nav__link">
+      <a href="../hw/raspberry/picase.html" class="md-nav__link">
         
   
   
@@ -10534,7 +10390,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../hw/pynq-z1/index.html" class="md-nav__link ">
+            <a href="../hw/pynq-z1/index.html" class="md-nav__link ">
               
   
   
@@ -10569,7 +10425,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../hw/pynq-z1/general.html" class="md-nav__link">
+      <a href="../hw/pynq-z1/general.html" class="md-nav__link">
         
   
   
@@ -10592,7 +10448,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../hw/pynq-z1/overlays.html" class="md-nav__link">
+      <a href="../hw/pynq-z1/overlays.html" class="md-nav__link">
         
   
   
@@ -10615,7 +10471,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../hw/pynq-z1/pynq-package.html" class="md-nav__link">
+      <a href="../hw/pynq-z1/pynq-package.html" class="md-nav__link">
         
   
   
@@ -10675,7 +10531,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../hw/3d-printing/index.html" class="md-nav__link ">
+            <a href="../hw/3d-printing/index.html" class="md-nav__link ">
               
   
   
@@ -10710,7 +10566,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../hw/3d-printing/filaments.html" class="md-nav__link">
+      <a href="../hw/3d-printing/filaments.html" class="md-nav__link">
         
   
   
@@ -10733,7 +10589,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../hw/3d-printing/joins-tolerances.html" class="md-nav__link">
+      <a href="../hw/3d-printing/joins-tolerances.html" class="md-nav__link">
         
   
   
@@ -10756,7 +10612,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../hw/3d-printing/filling.html" class="md-nav__link">
+      <a href="../hw/3d-printing/filling.html" class="md-nav__link">
         
   
   
@@ -10779,7 +10635,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../hw/3d-printing/slicing.html" class="md-nav__link">
+      <a href="../hw/3d-printing/slicing.html" class="md-nav__link">
         
   
   
@@ -10852,7 +10708,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../multimedia/index.html" class="md-nav__link ">
+            <a href="../multimedia/index.html" class="md-nav__link ">
               
   
   
@@ -10922,7 +10778,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../multimedia/writing/index.html" class="md-nav__link ">
+            <a href="../multimedia/writing/index.html" class="md-nav__link ">
               
   
   
@@ -10984,7 +10840,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../multimedia/writing/typst/index.html" class="md-nav__link ">
+            <a href="../multimedia/writing/typst/index.html" class="md-nav__link ">
               
   
   
@@ -11019,7 +10875,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../multimedia/writing/typst/install.html" class="md-nav__link">
+      <a href="../multimedia/writing/typst/install.html" class="md-nav__link">
         
   
   
@@ -11042,7 +10898,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../multimedia/writing/typst/intro.html" class="md-nav__link">
+      <a href="../multimedia/writing/typst/intro.html" class="md-nav__link">
         
   
   
@@ -11065,7 +10921,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../multimedia/writing/typst/templates.html" class="md-nav__link">
+      <a href="../multimedia/writing/typst/templates.html" class="md-nav__link">
         
   
   
@@ -11121,7 +10977,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../multimedia/writing/md/index.html" class="md-nav__link ">
+            <a href="../multimedia/writing/md/index.html" class="md-nav__link ">
               
   
   
@@ -11156,7 +11012,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../multimedia/writing/md/md_github.html" class="md-nav__link">
+      <a href="../multimedia/writing/md/md_github.html" class="md-nav__link">
         
   
   
@@ -11202,7 +11058,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../multimedia/writing/md/mkdocs/index.html" class="md-nav__link ">
+            <a href="../multimedia/writing/md/mkdocs/index.html" class="md-nav__link ">
               
   
   
@@ -11237,7 +11093,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../multimedia/writing/md/mkdocs/cheatsheet.html" class="md-nav__link">
+      <a href="../multimedia/writing/md/mkdocs/cheatsheet.html" class="md-nav__link">
         
   
   
@@ -11305,7 +11161,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../multimedia/writing/llm/index.html" class="md-nav__link ">
+            <a href="../multimedia/writing/llm/index.html" class="md-nav__link ">
               
   
   
@@ -11340,7 +11196,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../multimedia/writing/llm/reasoning_prompt.html" class="md-nav__link">
+      <a href="../multimedia/writing/llm/reasoning_prompt.html" class="md-nav__link">
         
   
   
@@ -11363,7 +11219,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../multimedia/writing/llm/rtf.html" class="md-nav__link">
+      <a href="../multimedia/writing/llm/rtf.html" class="md-nav__link">
         
   
   
@@ -11386,7 +11242,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../multimedia/writing/llm/risen.html" class="md-nav__link">
+      <a href="../multimedia/writing/llm/risen.html" class="md-nav__link">
         
   
   
@@ -11409,7 +11265,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../multimedia/writing/llm/rodes.html" class="md-nav__link">
+      <a href="../multimedia/writing/llm/rodes.html" class="md-nav__link">
         
   
   
@@ -11461,7 +11317,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../multimedia/writing/latin/index.html" class="md-nav__link ">
+            <a href="../multimedia/writing/latin/index.html" class="md-nav__link ">
               
   
   
@@ -11520,7 +11376,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../multimedia/writing/gitbook/index.html" class="md-nav__link ">
+            <a href="../multimedia/writing/gitbook/index.html" class="md-nav__link ">
               
   
   
@@ -11581,7 +11437,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../multimedia/writing/latex/index.html" class="md-nav__link ">
+            <a href="../multimedia/writing/latex/index.html" class="md-nav__link ">
               
   
   
@@ -11616,7 +11472,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../multimedia/writing/latex/install.html" class="md-nav__link">
+      <a href="../multimedia/writing/latex/install.html" class="md-nav__link">
         
   
   
@@ -11672,7 +11528,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../multimedia/writing/rst/index.html" class="md-nav__link ">
+            <a href="../multimedia/writing/rst/index.html" class="md-nav__link ">
               
   
   
@@ -11707,7 +11563,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../multimedia/writing/rst/cheatsheet.html" class="md-nav__link">
+      <a href="../multimedia/writing/rst/cheatsheet.html" class="md-nav__link">
         
   
   
@@ -11730,7 +11586,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../multimedia/writing/rst/pygment_lexer.html" class="md-nav__link">
+      <a href="../multimedia/writing/rst/pygment_lexer.html" class="md-nav__link">
         
   
   
@@ -11769,7 +11625,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../multimedia/books/index.html" class="md-nav__link">
+      <a href="../multimedia/books/index.html" class="md-nav__link">
         
   
   
@@ -11823,7 +11679,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../multimedia/text/index.html" class="md-nav__link ">
+            <a href="../multimedia/text/index.html" class="md-nav__link ">
               
   
   
@@ -11858,7 +11714,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../multimedia/text/email_replies.html" class="md-nav__link">
+      <a href="../multimedia/text/email_replies.html" class="md-nav__link">
         
   
   
@@ -11881,7 +11737,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../multimedia/text/fileheaders.html" class="md-nav__link">
+      <a href="../multimedia/text/fileheaders.html" class="md-nav__link">
         
   
   
@@ -11904,7 +11760,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../multimedia/text/programmer_jokes.html" class="md-nav__link">
+      <a href="../multimedia/text/programmer_jokes.html" class="md-nav__link">
         
   
   
@@ -11927,7 +11783,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../multimedia/text/quotes.html" class="md-nav__link">
+      <a href="../multimedia/text/quotes.html" class="md-nav__link">
         
   
   
@@ -11950,7 +11806,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../multimedia/text/fonts.html" class="md-nav__link">
+      <a href="../multimedia/text/fonts.html" class="md-nav__link">
         
   
   
@@ -12018,7 +11874,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../multimedia/pictures/index.html" class="md-nav__link ">
+            <a href="../multimedia/pictures/index.html" class="md-nav__link ">
               
   
   
@@ -12053,7 +11909,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../multimedia/pictures/color-palette.html" class="md-nav__link">
+      <a href="../multimedia/pictures/color-palette.html" class="md-nav__link">
         
   
   
@@ -12076,7 +11932,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../multimedia/pictures/ascii_art.html" class="md-nav__link">
+      <a href="../multimedia/pictures/ascii_art.html" class="md-nav__link">
         
   
   
@@ -12099,7 +11955,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../multimedia/pictures/wavedrom.html" class="md-nav__link">
+      <a href="../multimedia/pictures/wavedrom.html" class="md-nav__link">
         
   
   
@@ -12122,7 +11978,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../multimedia/pictures/mermaid.html" class="md-nav__link">
+      <a href="../multimedia/pictures/mermaid.html" class="md-nav__link">
         
   
   
@@ -12145,7 +12001,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../multimedia/pictures/plantuml.html" class="md-nav__link">
+      <a href="../multimedia/pictures/plantuml.html" class="md-nav__link">
         
   
   
@@ -12168,7 +12024,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../multimedia/pictures/graphviz.html" class="md-nav__link">
+      <a href="../multimedia/pictures/graphviz.html" class="md-nav__link">
         
   
   
@@ -12191,7 +12047,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../multimedia/pictures/icons.html" class="md-nav__link">
+      <a href="../multimedia/pictures/icons.html" class="md-nav__link">
         
   
   
@@ -12239,7 +12095,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../multimedia/pictures/emoji/index.html" class="md-nav__link ">
+            <a href="../multimedia/pictures/emoji/index.html" class="md-nav__link ">
               
   
   
@@ -12274,7 +12130,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../multimedia/pictures/emoji/all.html" class="md-nav__link">
+      <a href="../multimedia/pictures/emoji/all.html" class="md-nav__link">
         
   
   
@@ -12297,7 +12153,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../multimedia/pictures/emoji/curated.html" class="md-nav__link">
+      <a href="../multimedia/pictures/emoji/curated.html" class="md-nav__link">
         
   
   
@@ -12359,7 +12215,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../multimedia/videos/index.html" class="md-nav__link ">
+            <a href="../multimedia/videos/index.html" class="md-nav__link ">
               
   
   
@@ -12394,7 +12250,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../multimedia/videos/resolutions.html" class="md-nav__link">
+      <a href="../multimedia/videos/resolutions.html" class="md-nav__link">
         
   
   
@@ -12446,7 +12302,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../multimedia/audio/index.html" class="md-nav__link ">
+            <a href="../multimedia/audio/index.html" class="md-nav__link ">
               
   
   
@@ -12509,7 +12365,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../multimedia/games/index.html" class="md-nav__link ">
+            <a href="../multimedia/games/index.html" class="md-nav__link ">
               
   
   
@@ -12544,7 +12400,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../multimedia/games/terminal.html" class="md-nav__link">
+      <a href="../multimedia/games/terminal.html" class="md-nav__link">
         
   
   
@@ -12567,7 +12423,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../multimedia/games/a-dark-room.html" class="md-nav__link">
+      <a href="../multimedia/games/a-dark-room.html" class="md-nav__link">
         
   
   
@@ -12602,6 +12458,8 @@ const registerKeyboardEventHandler = () => {
       
   
   
+    
+  
   
   
     
@@ -12625,22 +12483,27 @@ const registerKeyboardEventHandler = () => {
       
         
       
-    
-    
-    
-      
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../psychology/index.html" class="md-nav__link ">
+            <a href="index.html" class="md-nav__link ">
               
   
   
@@ -12653,13 +12516,13 @@ const registerKeyboardEventHandler = () => {
             </a>
             
               
-              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             Psychology
@@ -12675,7 +12538,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../psychology/communication.html" class="md-nav__link">
+      <a href="communication.html" class="md-nav__link">
         
   
   
@@ -12698,7 +12561,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../psychology/public-speaking.html" class="md-nav__link">
+      <a href="public-speaking.html" class="md-nav__link">
         
   
   
@@ -12721,7 +12584,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../psychology/leadership.html" class="md-nav__link">
+      <a href="leadership.html" class="md-nav__link">
         
   
   
@@ -12744,7 +12607,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../psychology/habits.html" class="md-nav__link">
+      <a href="habits.html" class="md-nav__link">
         
   
   
@@ -12767,7 +12630,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../psychology/fastfriendprocedure.html" class="md-nav__link">
+      <a href="fastfriendprocedure.html" class="md-nav__link">
         
   
   
@@ -12790,7 +12653,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../psychology/happiness.html" class="md-nav__link">
+      <a href="happiness.html" class="md-nav__link">
         
   
   
@@ -12813,7 +12676,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../psychology/learning.html" class="md-nav__link">
+      <a href="learning.html" class="md-nav__link">
         
   
   
@@ -12824,6 +12687,170 @@ const registerKeyboardEventHandler = () => {
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Soft Skills
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="softskills.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Soft Skills
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#treat-your-career-like-a-business" class="md-nav__link">
+    <span class="md-ellipsis">
+      Treat Your Career Like a Business
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-clear-long-term-goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set Clear, Long-Term Goals
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#improve-people-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      Improve People Skills
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#market-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      Market Yourself
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learn-how-to-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learn How to Learn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#boost-productivity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Boost Productivity
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prevent-recover-from-burnout" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prevent / Recover From Burnout
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-wealth-early" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build Wealth Early
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-a-winning-mindset" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build a Winning Mindset
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#strengthen-relationships" class="md-nav__link">
+    <span class="md-ellipsis">
+      Strengthen Relationships
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference-cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick Reference Cheat Sheet
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -12872,7 +12899,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../security/index.html" class="md-nav__link ">
+            <a href="../security/index.html" class="md-nav__link ">
               
   
   
@@ -12907,7 +12934,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../security/cybersecurity.html" class="md-nav__link">
+      <a href="../security/cybersecurity.html" class="md-nav__link">
         
   
   
@@ -12930,7 +12957,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../security/gnupg.html" class="md-nav__link">
+      <a href="../security/gnupg.html" class="md-nav__link">
         
   
   
@@ -12953,7 +12980,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../security/password.html" class="md-nav__link">
+      <a href="../security/password.html" class="md-nav__link">
         
   
   
@@ -12976,7 +13003,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../security/tor.html" class="md-nav__link">
+      <a href="../security/tor.html" class="md-nav__link">
         
   
   
@@ -13037,7 +13064,7 @@ const registerKeyboardEventHandler = () => {
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../about/index.html" class="md-nav__link ">
+            <a href="../about/index.html" class="md-nav__link ">
               
   
   
@@ -13072,7 +13099,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../about/credits.html" class="md-nav__link">
+      <a href="../about/credits.html" class="md-nav__link">
         
   
   
@@ -13095,7 +13122,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../about/getting_started.html" class="md-nav__link">
+      <a href="../about/getting_started.html" class="md-nav__link">
         
   
   
@@ -13118,7 +13145,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../about/howtodocument.html" class="md-nav__link">
+      <a href="../about/howtodocument.html" class="md-nav__link">
         
   
   
@@ -13141,7 +13168,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../about/license.html" class="md-nav__link">
+      <a href="../about/license.html" class="md-nav__link">
         
   
   
@@ -13164,7 +13191,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../about/tags.html" class="md-nav__link">
+      <a href="../about/tags.html" class="md-nav__link">
         
   
   
@@ -13196,7 +13223,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../../blog/index.html" class="md-nav__link">
+      <a href="../blog/index.html" class="md-nav__link">
         
   
   
@@ -13238,72 +13265,99 @@ const registerKeyboardEventHandler = () => {
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#formatting" class="md-nav__link">
+  <a href="#treat-your-career-like-a-business" class="md-nav__link">
     <span class="md-ellipsis">
-      Formatting
+      Treat Your Career Like a Business
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#arguments" class="md-nav__link">
+  <a href="#set-clear-long-term-goals" class="md-nav__link">
     <span class="md-ellipsis">
-      Arguments
+      Set Clear, Long-Term Goals
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#align" class="md-nav__link">
+  <a href="#improve-people-skills" class="md-nav__link">
     <span class="md-ellipsis">
-      Align
+      Improve People Skills
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#padding" class="md-nav__link">
+  <a href="#market-yourself" class="md-nav__link">
     <span class="md-ellipsis">
-      Padding
+      Market Yourself
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#sign" class="md-nav__link">
+  <a href="#learn-how-to-learn" class="md-nav__link">
     <span class="md-ellipsis">
-      Sign
+      Learn How to Learn
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#precision" class="md-nav__link">
+  <a href="#boost-productivity" class="md-nav__link">
     <span class="md-ellipsis">
-      Precision
+      Boost Productivity
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#type" class="md-nav__link">
+  <a href="#prevent-recover-from-burnout" class="md-nav__link">
     <span class="md-ellipsis">
-      Type
+      Prevent / Recover From Burnout
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#examples" class="md-nav__link">
+  <a href="#build-wealth-early" class="md-nav__link">
     <span class="md-ellipsis">
-      Examples
+      Build Wealth Early
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-a-winning-mindset" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build a Winning Mindset
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#strengthen-relationships" class="md-nav__link">
+    <span class="md-ellipsis">
+      Strengthen Relationships
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference-cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick Reference Cheat Sheet
     </span>
   </a>
   
@@ -13328,50 +13382,20 @@ const registerKeyboardEventHandler = () => {
       
       
       
-        <a href="../../about/tags.html#tag:coding" class="md-tag">coding</a>
+        <a href="../about/tags.html#tag:psychology" class="md-tag">psychology</a>
       
     
       
       
       
-        <a href="../../about/tags.html#tag:format-mini-language" class="md-tag">format mini language</a>
-      
-    
-      
-      
-      
-        <a href="../../about/tags.html#tag:format" class="md-tag">format!()</a>
-      
-    
-      
-      
-      
-        <a href="../../about/tags.html#tag:print" class="md-tag">print!()</a>
-      
-    
-      
-      
-      
-        <a href="../../about/tags.html#tag:println" class="md-tag">println!()</a>
-      
-    
-      
-      
-      
-        <a href="../../about/tags.html#tag:rust" class="md-tag">rust</a>
-      
-    
-      
-      
-      
-        <a href="../../about/tags.html#tag:syntax" class="md-tag">syntax</a>
+        <a href="../about/tags.html#tag:soft-skills" class="md-tag">soft skills</a>
       
     
   </nav>
 
 
   
-    <a href="https://github.com/tschinz/tschinz/edit/main/docs/coding/rust/format-mini-lang.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/tschinz/tschinz/edit/main/docs/psychology/softskills.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -13379,114 +13403,148 @@ const registerKeyboardEventHandler = () => {
   
 
 
-<h1 id="format-printlnand-print-macros"><code>format!()</code>, <code>println!()</code>and <code>print!()</code> Macros</h1>
-<p>These marcos are a very powerful tool to format strings. <code>format!()</code> formats a string and returns it, <code>println!()</code> prints the formatted string to the console and <code>print!()</code> does the same but without a newline.</p>
-<p>The Rust documentation provides a good overview of the formatting syntax: <a href="https://doc.rust-lang.org/std/fmt/">std::fmt</a>.</p>
-<div class="highlight"><pre><span></span><code><span class="fm">format!</span><span class="p">(</span><span class="n">format_string</span><span class="p">,</span><span class="w"> </span><span class="n">arguments</span><span class="o">..</span><span class="p">.)</span>
-</code></pre></div>
-<h3 id="formatting">Formatting</h3>
-<div class="highlight"><pre><span></span><code>formatting = [argument][:][[fill]align][sign][#][0][width][.precision][type]
-argument   = integer | identifier
-fill       = &lt;any character&gt;
-align      = "&lt;" | "&gt;" | "^"
-sign       = "+"
-"#"        = alternate formatting
-"0"        = zero-padding
-width      = integer
-precision  = integer
-type       = "b" | "o" | "x" | "X" | "e" | "E" | "p" | "?"
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>"{" [argument][":"][[fill]align][sign]["#"]["0"][width][.precision][type] "}"
-        /             /    /      /    /    /                \        \
-       /             /    /      /    /    |                  \        \
-      /             /    /      /    /     |- padding "0"      \        |
-     /             /    /      /    |                           \       |
-    /             /    /      |     |- alternate formatting      \      |
-   /             /    /       |     |- (human-reable)             \     |
-  /             /    /        |                                    |    |
- |             /    /         |- "" - default                      |    |
- |            /    /          |- + - + prefix        by tschinz    |    |
- |           /    |                                                |    |
- |          /     |                  nbr of descendants - integer -|    |
- |         |      |                                                     |
- |         |      |- &lt; - left (default)      "" - default follows type -|
- |         |      |- &gt; - right              "b" - binary ---------------|
- |         |      |- ^ - center             "o" - octal ----------------|
- |         |                                "x" - hex ------------------|
- |         |- any character for padding     "X" - Hex ------------------|
- |                                          "e" - scientific -----------|
- |- "" - follows arg sequence (default)     "E" - Scientific -----------|
- |- integer - selects arg by position       "p" - pointer addr ---------|
- |- identifier - selects arg by name        "?" - debug (trait req) ----|
-</code></pre></div>
-<h3 id="arguments">Arguments</h3>
-<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="fm">format!</span><span class="p">(</span><span class="s">"Hello, {}, the answer is {}"</span><span class="p">,</span><span class="w"> </span><span class="s">"Alice"</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="p">);</span><span class="w">                  </span><span class="c1">// Positional Arguments</span>
-<span class="kd">let</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="fm">format!</span><span class="p">(</span><span class="s">"Hello, {name}, the answer is {age}"</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Bob"</span><span class="p">,</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">);</span><span class="w"> </span><span class="c1">// Named Arguments</span>
-<span class="kd">let</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="fm">format!</span><span class="p">(</span><span class="s">"{0} is {1} years old. {0} loves Rust!"</span><span class="p">,</span><span class="w"> </span><span class="s">"Carol"</span><span class="p">,</span><span class="w"> </span><span class="mi">25</span><span class="p">);</span><span class="w">      </span><span class="c1">// Reusing Arguments</span>
-</code></pre></div>
-<h3 id="align">Align</h3>
-<p>Align a text on a given width</p>
-<div class="highlight"><pre><span></span><code><span class="fm">format!</span><span class="p">(</span><span class="s">"{:&lt;8}"</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w">  </span><span class="c1">// 1....... - left   aligned</span>
-<span class="fm">format!</span><span class="p">(</span><span class="s">"{:&gt;8}"</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w">  </span><span class="c1">// .......1 -  right aligned</span>
-<span class="fm">format!</span><span class="p">(</span><span class="s">"{:^8}"</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w">  </span><span class="c1">// ...1.... - center aligned</span>
-</code></pre></div>
-<h3 id="padding">Padding</h3>
-<p>For <code>0</code> there are tow padding possibilities. The <code>0</code> and <code>0+</code>. The <code>0</code> padding is only allowed for numeric types and the <code>0+</code> padding is only allowed for signed numeric types.</p>
-<div class="highlight"><pre><span></span><code><span class="fm">format!</span><span class="p">(</span><span class="s">"{:*&lt;8}"</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// 1******* - left  align, padding "*"</span>
-<span class="fm">format!</span><span class="p">(</span><span class="s">"{:0&gt;8}"</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// 00000001 - right align, padding "0"</span>
-<span class="fm">format!</span><span class="p">(</span><span class="s">"{:&gt;08}"</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// 00000001 - right align, padding leading "0"</span>
-<span class="fm">format!</span><span class="p">(</span><span class="s">"{: &gt;8}"</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c1">//        1 - right align, padding " "</span>
-<span class="fm">format!</span><span class="p">(</span><span class="s">"{:#^8}"</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// ###1#### - right align, padding "#"</span>
-</code></pre></div>
-<h3 id="sign">Sign</h3>
-<p>Only the "+" sign is allowed for the sign. For the "-" sign simply use a negative value</p>
-<div class="highlight"><pre><span></span><code><span class="fm">format!</span><span class="p">(</span><span class="s">"{:&gt;+8}"</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w">   </span><span class="c1">//       +1 - right align, sign +</span>
-<span class="fm">format!</span><span class="p">(</span><span class="s">"{:&gt;8}"</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">);</span><span class="w">   </span><span class="c1">//       -1 - right align, sign -</span>
-<span class="fm">format!</span><span class="p">(</span><span class="s">"{:&gt;+#08}"</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// +0000001 - right align, sign +, padding leading "0"</span>
-<span class="fm">format!</span><span class="p">(</span><span class="s">"{:0&gt;+#8}"</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// 000000+1 - right align, padding "0", sign +</span>
-</code></pre></div>
-<h3 id="precision">Precision</h3>
-<p>Number of digits of floating point numbers</p>
-<div class="highlight"><pre><span></span><code><span class="fm">format!</span><span class="p">(</span><span class="s">"{:&gt;8.0}"</span><span class="p">,</span><span class="w"> </span><span class="n">E</span><span class="p">);</span><span class="w"> </span><span class="c1">//        3  - right align, 0 digit precision</span>
-<span class="fm">format!</span><span class="p">(</span><span class="s">"{:&gt;8.1}"</span><span class="p">,</span><span class="w"> </span><span class="n">E</span><span class="p">);</span><span class="w"> </span><span class="c1">//      2.7  - right align, 1 digit precision</span>
-<span class="fm">format!</span><span class="p">(</span><span class="s">"{:&gt;8.2}"</span><span class="p">,</span><span class="w"> </span><span class="n">E</span><span class="p">);</span><span class="w"> </span><span class="c1">//     2.72  - right align, 2 digit precision</span>
-<span class="fm">format!</span><span class="p">(</span><span class="s">"{:&gt;8.3}"</span><span class="p">,</span><span class="w"> </span><span class="n">E</span><span class="p">);</span><span class="w"> </span><span class="c1">//    2.718  - right align, 3 digit precision</span>
-<span class="fm">format!</span><span class="p">(</span><span class="s">"{:&gt;8.4}"</span><span class="p">,</span><span class="w"> </span><span class="n">E</span><span class="p">);</span><span class="w"> </span><span class="c1">//   2.7183  - right align, 4 digit precision</span>
-<span class="fm">format!</span><span class="p">(</span><span class="s">"{:&gt;8.5}"</span><span class="p">,</span><span class="w"> </span><span class="n">E</span><span class="p">);</span><span class="w"> </span><span class="c1">//  2.71828  - right align, 5 digit precision</span>
-<span class="fm">format!</span><span class="p">(</span><span class="s">"{:&gt;8.6}"</span><span class="p">,</span><span class="w"> </span><span class="n">E</span><span class="p">);</span><span class="w"> </span><span class="c1">// 2.718282  - right align, 6 digit precision</span>
-<span class="fm">format!</span><span class="p">(</span><span class="s">"{:&gt;8.7}"</span><span class="p">,</span><span class="w"> </span><span class="n">E</span><span class="p">);</span><span class="w"> </span><span class="c1">// 2.7182818 - right align, 7 digit precision</span>
-</code></pre></div>
-<h3 id="type">Type</h3>
-<p>Display a value in a specific format</p>
-<div class="highlight"><pre><span></span><code><span class="fm">format!</span><span class="p">(</span><span class="s">"{:}"</span><span class="p">,</span><span class="w"> </span><span class="n">E</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">u32</span><span class="p">);</span><span class="w">        </span><span class="c1">// 2                     - Integer (follows type)</span>
-<span class="fm">format!</span><span class="p">(</span><span class="s">"{:}"</span><span class="p">,</span><span class="w"> </span><span class="n">E</span><span class="p">);</span><span class="w">               </span><span class="c1">// 2.718281828459045     - Float (follows type)</span>
-<span class="fm">format!</span><span class="p">(</span><span class="s">"{:b}"</span><span class="p">,</span><span class="w"> </span><span class="mi">49374</span><span class="p">);</span><span class="w">          </span><span class="c1">// 1100000011011110      - Binary</span>
-<span class="fm">format!</span><span class="p">(</span><span class="s">"{:#b}"</span><span class="p">,</span><span class="w"> </span><span class="mi">49374</span><span class="p">);</span><span class="w">         </span><span class="c1">// 0b1100000011011110    - Binary alternative (adds "0b")</span>
-<span class="fm">format!</span><span class="p">(</span><span class="s">"{:#034b}"</span><span class="p">,</span><span class="w"> </span><span class="mi">49374</span><span class="p">);</span><span class="w">      </span><span class="c1">// 0b00000000000000001100000011011110 - Binary 32bit (adds "0b" and 32 digits)</span>
-<span class="fm">format!</span><span class="p">(</span><span class="s">"{:o}"</span><span class="p">,</span><span class="w"> </span><span class="mi">49374</span><span class="p">);</span><span class="w">          </span><span class="c1">// 140336                - Octal</span>
-<span class="fm">format!</span><span class="p">(</span><span class="s">"{:#o}"</span><span class="p">,</span><span class="w"> </span><span class="mi">49374</span><span class="p">);</span><span class="w">         </span><span class="c1">// 0o140336              - Octal alternative (adds "0o")</span>
-<span class="fm">format!</span><span class="p">(</span><span class="s">"{:#018o}"</span><span class="p">,</span><span class="w"> </span><span class="mi">49374</span><span class="p">);</span><span class="w">      </span><span class="c1">// 0o0000000000140336    - Octal 16 digits (adds "0o" and 16 digits)</span>
-<span class="fm">format!</span><span class="p">(</span><span class="s">"{:x}"</span><span class="p">,</span><span class="w"> </span><span class="mi">49374</span><span class="p">);</span><span class="w">          </span><span class="c1">// c0de                  - Hex lower case</span>
-<span class="fm">format!</span><span class="p">(</span><span class="s">"{:#x}"</span><span class="p">,</span><span class="w"> </span><span class="mi">49374</span><span class="p">);</span><span class="w">         </span><span class="c1">// 0xc0de                - Hex lower case alternative (adds "0x")</span>
-<span class="fm">format!</span><span class="p">(</span><span class="s">"{:#010x}"</span><span class="p">,</span><span class="w"> </span><span class="mi">49374</span><span class="p">);</span><span class="w">      </span><span class="c1">// 0x0000c0de            - Hex 8 digits (adds "0x" and 8 digits)</span>
-<span class="fm">format!</span><span class="p">(</span><span class="s">"{:X}"</span><span class="p">,</span><span class="w"> </span><span class="mi">49374</span><span class="p">);</span><span class="w">          </span><span class="c1">// C0DE                  - Hex upper case</span>
-<span class="fm">format!</span><span class="p">(</span><span class="s">"{:#X}"</span><span class="p">,</span><span class="w"> </span><span class="mi">49374</span><span class="p">);</span><span class="w">         </span><span class="c1">// 0xC0DE                - Hex upper case alternative (adds "0X")</span>
-<span class="fm">format!</span><span class="p">(</span><span class="s">"{:#010X}"</span><span class="p">,</span><span class="w"> </span><span class="mi">49374</span><span class="p">);</span><span class="w">      </span><span class="c1">// 0x0000C0DE            - Hex 8 digits (adds "0X" and 8 digits)</span>
-<span class="fm">format!</span><span class="p">(</span><span class="s">"{:e}"</span><span class="p">,</span><span class="w"> </span><span class="n">E</span><span class="p">.</span><span class="n">powf</span><span class="p">(</span><span class="mf">123.0</span><span class="p">));</span><span class="w">  </span><span class="c1">// 2.6195173187490456e53 - Scientific notation lower case (adds "e")</span>
-<span class="fm">format!</span><span class="p">(</span><span class="s">"{:E}"</span><span class="p">,</span><span class="w"> </span><span class="n">E</span><span class="p">.</span><span class="n">powf</span><span class="p">(</span><span class="mf">123.0</span><span class="p">));</span><span class="w">  </span><span class="c1">// 2.6195173187490456E53 - Scientific notation upper case (adds "E")</span>
-<span class="fm">format!</span><span class="p">(</span><span class="s">"{:p}"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="mi">1</span><span class="p">);</span><span class="w">             </span><span class="c1">// 0x1021872c0           - Pointer address</span>
-<span class="c1">// ? requires the Debug trait to be implemented for the type</span>
-<span class="fm">format!</span><span class="p">(</span><span class="s">"{:?}"</span><span class="p">,</span><span class="w"> </span><span class="fm">vec!</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]);</span><span class="w">  </span><span class="c1">// [1, 2, 3]             - Compact Debug Format (single line)</span>
-<span class="fm">format!</span><span class="p">(</span><span class="s">"{:#?}"</span><span class="p">,</span><span class="w"> </span><span class="fm">vec!</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]);</span><span class="w"> </span><span class="c1">// [                     - Pretty Debug Format (human-readable)</span>
-<span class="w">                                 </span><span class="c1">//     1,</span>
-<span class="w">                                 </span><span class="c1">//     2,</span>
-<span class="w">                                 </span><span class="c1">//     3,</span>
-<span class="w">                                 </span><span class="c1">// ]</span>
-</code></pre></div>
-<h3 id="examples">Examples</h3>
-<div class="highlight"><pre><span></span><code><span class="fm">format!</span><span class="p">(</span><span class="s">"{0:.&gt;+10.3e}"</span><span class="p">,</span><span class="n">E</span><span class="p">);</span><span class="w">   </span><span class="c1">// ..+2.718e0 - right align, padding ".", sign "+", 10 width, 3 digit precision, scientific notation</span>
-<span class="fm">format!</span><span class="p">(</span><span class="s">"{0:#010x}"</span><span class="p">,</span><span class="w"> </span><span class="mi">49374</span><span class="p">);</span><span class="w"> </span><span class="c1">// 0x0000c0de - padding leading "0", 8 digits, Hex lower case alternative (adds "0x")</span>
-</code></pre></div>
+<h1 id="soft-skills">Soft skills</h1>
+<p><a class="glightbox" href="img/softskills.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="center" src="img/softskills.svg" width="20%"></a></p>
+<p>My short summary on how to apply the key elements from the book <a href="https://www.google.de/books/edition/Soft_Skills/UXNaAQAACAAJ">Soft Skills - The Software Developer's Life Manual</a> by John Sonmez.</p>
+<p><a class="glightbox" href="img/books/soft_skills-the-software-developer-life-manual.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="center" src="img/books/soft_skills-the-software-developer-life-manual.jpg" width="20%"></a></p>
+<h2 id="treat-your-career-like-a-business">Treat <strong>Your Career</strong> Like a <strong>Business</strong></h2>
+<ul>
+<li>Write a "business statement" for yourself: "I provide X value to Y type of clients/companies."</li>
+<li>Example: "I provide scalable web applications and mentoring to fast-growing startups."</li>
+<li><strong>Update your CV</strong>, LinkedIn, and webpage to reflect your value.</li>
+<li>Evaluate yearly whether you need new “products” (skills).</li>
+<li>Keep a <strong>list of clients</strong> (employers/partners) and nurture those relationships.</li>
+</ul>
+<h2 id="set-clear-long-term-goals">Set Clear, Long-Term Goals</h2>
+<ul>
+<li>Define your <strong>10-year target</strong> (one sentence).</li>
+<li>Format: "By [date], I will be [specific role] at [type of company] earning [amount] because I'm known for [expertise]."</li>
+<li><strong>Break it down</strong>:</li>
+<li>3-year goal</li>
+<li>1-year goal</li>
+<li>Quarterly goals</li>
+<li>Weekly actions</li>
+<li>Review goals every Sunday for 10 minutes.</li>
+<li>Track progress in a simple tool (Notion, Obsidian, OneNote).</li>
+</ul>
+<h2 id="improve-people-skills">Improve People Skills</h2>
+<ul>
+<li>In every meeting:</li>
+<li>Let the <strong>other person speak first</strong>.</li>
+<li>Ask <strong>clarifying questions</strong>: "Can you help me understand..." "What would success look like for you..."</li>
+<li><strong>Mirror their priorities</strong> ("What matters most to them?").</li>
+<li>Practice <strong>zero criticism</strong>: when you want to correct, ask a question instead.</li>
+<li>Instead of: "That won't work because..."</li>
+<li>Try: "What challenges do you foresee with that approach?"</li>
+<li>Read (and apply) How to Win Friends and Influence People.</li>
+<li>Once per week, do one <strong>positive interaction</strong> email/message.</li>
+</ul>
+<h2 id="market-yourself">Market Yourself</h2>
+<ul>
+<li>Pick one channel:</li>
+<li>Blog, LinkedIn, YouTube, conference talks.</li>
+<li>Produce <strong>one piece of content per week</strong> (short and simple).</li>
+<li>Examples: 300-word blog post about a problem you solved, LinkedIn post sharing a lesson learned, 5-minute video explaining a concept.</li>
+<li><strong>Share your work publicly</strong>: projects, insights, slides.</li>
+<li>Build an “expert sphere”: <strong>choose your niche</strong> and talk about it repeatedly.</li>
+</ul>
+<h2 id="learn-how-to-learn">Learn How to Learn</h2>
+<p>Follow the 10-step learning loop:</p>
+<ul>
+<li><strong>Define</strong> exactly what you want to learn</li>
+<li>Research and <strong>gather materials</strong></li>
+<li>Create a <strong>learning plan</strong> (timeline: 2-4 weeks for most skills)</li>
+<li><strong>Learn basics</strong> quickly (20% of time)</li>
+<li>Build a <strong>small project</strong> (practical application)</li>
+<li><strong>Deep dive</strong> into missing topics</li>
+<li>Practice deliberately</li>
+<li><strong>Teach</strong> what you learned (blog, a colleague)</li>
+<li>Repeat</li>
+<li>Measure progress</li>
+</ul>
+<h2 id="boost-productivity">Boost Productivity</h2>
+<ul>
+<li>Use <strong>Pomodoro</strong> (25 min focus =&gt; 5 min break).</li>
+<li>Tools: Forest app, Toggl, simple timer</li>
+<li>Break activities: stretch, walk, hydrate (avoid social media)</li>
+<li>Create a <strong>fixed daily routine</strong>:</li>
+<li>Morning = creative work</li>
+<li>Afternoon = meetings</li>
+<li><strong>Avoid multitasking</strong>: close all tabs except the project you’re doing.</li>
+<li>Start the day with a <strong>top 3 list</strong>:</li>
+<li>“If I only finish these three tasks, today is a success.”</li>
+<li>Every Friday: weekly review.</li>
+</ul>
+<h2 id="prevent-recover-from-burnout">Prevent / Recover From Burnout</h2>
+<p><strong>Warning signs to watch for:</strong></p>
+<ul>
+<li>Dreading work, constant fatigue, irritability, decreased productivity</li>
+</ul>
+<p><strong>Prevention &amp; Recovery:</strong></p>
+<ul>
+<li><strong>Reduce cognitive load</strong> - choose fewer goals.</li>
+<li>Introduce <strong>minimal fitness</strong> (walking, stretching).</li>
+<li>Create <strong>hard barriers</strong>:</li>
+<li>No work after 19:00</li>
+<li>No email on weekends</li>
+<li><strong>Find purpose</strong>: reconnect your work to what matters to you.</li>
+<li>Take <strong>one full day off per week with no obligations</strong>.</li>
+<li><strong>Rate your energy levels 1-10 weekly</strong> - track patterns</li>
+<li>If symptoms persist &gt; 2 weeks, consider professional help</li>
+</ul>
+<h2 id="build-wealth-early">Build Wealth Early</h2>
+<ul>
+<li><strong>Negotiate salary</strong> with each job change.</li>
+<li>Research market rates on Glassdoor, Levels.fyi</li>
+<li>Ask for 15-20% more than current salary when switching</li>
+<li><strong>Avoid all debt</strong> except mortgage.</li>
+<li><strong>Pay yourself</strong> first: automatic savings/investment (10–20%).</li>
+<li><strong>Invest long-term</strong> (real estate or index funds).</li>
+<li><strong>Track your net worth</strong> every month.</li>
+<li>Tools: Mint, YNAB, or simple spreadsheet</li>
+</ul>
+<h2 id="build-a-winning-mindset">Build a Winning Mindset</h2>
+<ul>
+<li><strong>Practice Stoicism</strong>:</li>
+<li>Control what you can</li>
+<li>Accept what you cannot</li>
+<li>Train discomfort</li>
+<li>Reprogram your <strong>self-image</strong>:</li>
+<li>Daily affirmations</li>
+<li>Act “as if” you already are the person you want to be</li>
+<li>Do <strong>one uncomfortable thing per day</strong>.</li>
+<li>Reflect daily (journaling).</li>
+</ul>
+<h2 id="strengthen-relationships">Strengthen Relationships</h2>
+<ul>
+<li>Schedule weekly time for partner/family.</li>
+<li>Give <strong>appreciation regularly</strong> (verbal or written).</li>
+<li>Use the <strong>assume positive intent</strong> rule.</li>
+<li>When in conflict: listen =&gt; repeat back =&gt; respond calmly.</li>
+</ul>
+<hr>
+<h2 id="quick-reference-cheat-sheet">Quick Reference Cheat Sheet</h2>
+<p><strong>Weekly Habits to Start:</strong></p>
+<ol>
+<li>Week 1-2: Daily top 3 list + Pomodoro technique</li>
+<li>Week 3-4: Practice people skills (ask questions first)</li>
+<li>Week 5-6: Create one piece of content weekly</li>
+<li>Week 7-8: 10-minute Sunday goal review</li>
+</ol>
+<p><strong>Monthly Tracking:</strong></p>
+<ul>
+<li>Net worth calculation</li>
+<li>Energy levels (burnout check)</li>
+<li>Goal progress review</li>
+<li>Content creation streak</li>
+</ul>
+<p><strong>Essential Tools:</strong></p>
+<ul>
+<li>Pomodoro: Forest app, Toggl</li>
+<li>Finance: Mint, YNAB</li>
+<li>Learning: Notion, Obsidian</li>
+<li>Networking: LinkedIn, Twitter</li>
+</ul>
 
 
 
@@ -13593,10 +13651,10 @@ type       = "b" | "o" | "x" | "X" | "e" | "E" | "p" | "?"
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.path", "navigation.indexes", "navigation.top", "navigation.tracking", "toc.follow", "search.suggest", "search.highlight", "search.share", "announce.dismiss", "header.autohide", "content.code.copy", "content.action.edit"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.path", "navigation.indexes", "navigation.top", "navigation.tracking", "toc.follow", "search.suggest", "search.highlight", "search.share", "announce.dismiss", "header.autohide", "content.code.copy", "content.action.edit"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      <script src="../assets/javascripts/bundle.56ea9cef.min.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
@@ -13606,11 +13664,11 @@ type       = "b" | "o" | "x" | "X" | "e" | "E" | "p" | "?"
       
         <script src="https://wavedrom.com/skins/default.js"></script>
       
-        <script src="../../assets/mkdocs_puml/puml.js"></script>
+        <script src="../assets/mkdocs_puml/puml.js"></script>
       
         <script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
       
-        <script src="../../assets/mkdocs_puml/interaction.js"></script>
+        <script src="../assets/mkdocs_puml/interaction.js"></script>
       
     
   <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
