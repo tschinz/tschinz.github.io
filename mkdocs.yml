@@ -110,7 +110,7 @@ plugins:
   - search
   - awesome-pages
   - tags:
-      tags_file: about/tags.md
+      #tags_file: about/tags.md
   - macros
   - blog:
       blog_toc: true
@@ -298,6 +298,7 @@ nav:
           - All Rights Reserved: coding/licenses/all_rights_reserved.md
           - MIT: coding/licenses/mit.md
           - WTFPL: coding/licenses/wtfpl.md
+          - GLWTS: coding/licenses/glwts.md
       - Rust:
           - coding/rust/index.md
           - Install: coding/rust/install.md
@@ -417,15 +418,15 @@ nav:
           - coding/ros/index.md
           - Book Summary: coding/ros/books-summary.md
           - Install: coding/ros/install.md
-          - Lidar Driver: coding/ros/lidar-driver.md
-          - Commands: coding/ros/commands.md
+          #- Lidar Driver: coding/ros/lidar-driver.md
+          #- Commands: coding/ros/commands.md
           - Packages: coding/ros/packages.md
-          - External Packages: coding/ros/packages-ext.md
+          #- External Packages: coding/ros/packages-ext.md
           - Basics: coding/ros/basics.md
-          - Launch: coding/ros/launch.md
-          - Catkin Tools: coding/ros/catkin_tools.md
-          - RViz: coding/ros/rviz.md
-          - TF2: coding/ros/tf2.md
+          #- Launch: coding/ros/launch.md
+          #- Catkin Tools: coding/ros/catkin_tools.md
+          #- RViz: coding/ros/rviz.md
+          #- TF2: coding/ros/tf2.md
       - AHK:
           - coding/ahk/index.md
           - Key Definitions: coding/ahk/key_definitions.md
@@ -618,6 +619,7 @@ nav:
       - Fast Friend Procedure: psychology/fastfriendprocedure.md
       - Happiness: psychology/happiness.md
       - Learning: psychology/learning.md
+      - Soft Skills: psychology/softskills.md
   - Security:
       - security/index.md
       - Cybersecurity: security/cybersecurity.md

@@ -51,6 +51,7 @@ Whether you’re formatting strings for logging, debugging, or crafting a polish
 ```
 
 ## Core formatting options
+
 ```
 formatting = [argument][:][[fill]align][sign][#][0][width][.precision][type]
 argument   = integer | identifier
@@ -67,6 +68,7 @@ type       = "b" | "o" | "x" | "X" | "e" | "E" | "p" | "?"
 ## Quick Examples
 
 ### Align and Padding
+
 ```rust
 format!("{:<8}", 1);  // "1       " - Left-align
 format!("{:>08}", 1); // "00000001" - Right-align with zero-padding
@@ -74,11 +76,13 @@ format!("{:^8}", 1);  // "   1    " - Center-align
 ```
 
 ### Precision
+
 ```rust
 format!("{:.3}", 2.71828); // "2.718" - 3 decimal places
 ```
 
 ### Types
+
 ```rust
 format!("{:b}", 42);       // "101010" - Binary
 format!("{:#x}", 255);     // "0xff" - Hexadecimal with prefix
@@ -97,7 +101,7 @@ Check out the official [std::fmt](https://doc.rust-lang.org/std/fmt/) Rust Libra
 
 With this cheatsheet, you’ll master Rust’s string formatting macros in no time. 💪 Share this post to help others level up their Rust game!
 
-For the full article see [Rust String Formatting - A ASCII-Art Cheatsheet!](./20241120-rust-format) and more examples [here](./../../coding/rust/syntax.md#format-printlnand-print-macros)
+For the full article see [Rust String Formatting - A ASCII-Art Cheatsheet!](./20241120-rust-format.md) and more examples [here](./../../coding/rust/format_mini_lang.md)
 
 <!-- https://tschinz.github.io/znotes/coding/rust/syntax.html#format-printlnand-print-macros -->
 

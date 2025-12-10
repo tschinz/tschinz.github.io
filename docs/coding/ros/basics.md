@@ -1,43 +1,48 @@
 ---
 tags:
-- coding
-- ros
+  - coding
+  - ros
 ---
+
 # Basics
+
 ## Coding Rules
 
 The following rules apply when writing code with ROS.
 
-| Type             | Naming Rule    | Example |
-| ---------------- | -------------- | ------------------------------------------- |
-| Package          | under_scored   | `first_ros_package` |
-| Topic, Service   | under_scored   | `raw_image` |
-| File             | under_scored   | `turtlebot3_fake.cpp` |
-| Namespace        | under_scored   | `ros_awesome_package` |
-| Variable         | under_scored   | `string table_name;` |
-| Type             | camelCased     | `typedef int32_t PropertiesNumber;` |
-| Class            | camelCased     | `class UrlTable` |
-| Structure        | camelCased     | `struct UrlTableProperties` |
-| Enumeration Type | camelCased     | `enum ChoiceNumber` |
-| Function         | camelCased     | `addTableEntry()` |
-| Method           | camelCased     | `void setNumEntries(int32_t_num_entries)` |
-| Constant         | ALL_CAPITALS   | `const uint8_t DAYS_IN_A_WEEK = T;` |
-| Marco            | ALL_CAPITALS   | `#define PI_ROUNDED 3.0` |
+| Type             | Naming Rule  | Example                                   |
+| ---------------- | ------------ | ----------------------------------------- |
+| Package          | under_scored | `first_ros_package`                       |
+| Topic, Service   | under_scored | `raw_image`                               |
+| File             | under_scored | `turtlebot3_fake.cpp`                     |
+| Namespace        | under_scored | `ros_awesome_package`                     |
+| Variable         | under_scored | `string table_name;`                      |
+| Type             | camelCased   | `typedef int32_t PropertiesNumber;`       |
+| Class            | camelCased   | `class UrlTable`                          |
+| Structure        | camelCased   | `struct UrlTableProperties`               |
+| Enumeration Type | camelCased   | `enum ChoiceNumber`                       |
+| Function         | camelCased   | `addTableEntry()`                         |
+| Method           | camelCased   | `void setNumEntries(int32_t_num_entries)` |
+| Constant         | ALL_CAPITALS | `const uint8_t DAYS_IN_A_WEEK = T;`       |
+| Marco            | ALL_CAPITALS | `#define PI_ROUNDED 3.0`                  |
+
 _ROS Robot Programming by TurtleBot3 Developers, section 7.1.3_
+
 ## Standard Unit in ROS
 
-| Quantity      | Unit |
-| ------------- | ---------- |
-| Length        | Meter |
-| Mass          | Kilogram |
-| Time          | Second |
-| Current       | Ampere |
-| Angle         | Radian |
-| Frequency     | Hertz |
-| Force         | Newton |
-| Power         | Watt |
-| Voltage       | Volt |
-| Temperature   | Celsius |
+| Quantity    | Unit     |
+| ----------- | -------- |
+| Length      | Meter    |
+| Mass        | Kilogram |
+| Time        | Second   |
+| Current     | Ampere   |
+| Angle       | Radian   |
+| Frequency   | Hertz    |
+| Force       | Newton   |
+| Power       | Watt     |
+| Voltage     | Volt     |
+| Temperature | Celsius  |
+
 _ROS Robot Programming by TurtleBot3 Developers, section 7.1.1_
 
 ## Master
@@ -46,7 +51,7 @@ ROS `master` is a Server tracking all network addresses of all nodes. In additio
 
 A `master` can be started with the `roscore` command or a `roslaunch` will also start a `master` if it doesn't exists already.
 
-``` bash
+```bash
 roscore
 ```
 
@@ -75,7 +80,7 @@ The command `catkin_make` searches only in the `src/` folder for packages and bu
 
 It is a good practice to clone the ros packages into a different folder e.g. `~/git/<package_name>` and create a symlink into you catkin workspace
 
-``` bash
+```bash
 ls -s ~/git/<package_name>/ ~/catkin_ws/src/
 ```
 
@@ -87,7 +92,7 @@ ls -s ~/git/<package_name>/ ~/catkin_ws/src/
 
 `catkin_make` builds each package, if successful, the target executable le is created. Executables are stored inside the `devel/` folder. Current workspace packages can be access by the command line if the following command is used:
 
-``` bash
+```bash
 # for bash
 source ~/<workspace_name>/devel/setup.bash
 
@@ -99,13 +104,11 @@ It is beneficial to add this the the `~/.bashrc` or `~/.zshrc` file.
 
 In addtion there is the `catkin_tools` program which simplifies the use.
 
-See dedicated page: [catkin_tools](./catkin_tools.md)
-
 ### `install/` Folder
 
 After building the executables in the `devel/` folder, this executables can be install by:
 
-``` bash
+```bash
 catkin_make install
 ```
 
