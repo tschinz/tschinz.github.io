@@ -187,7 +187,9 @@ let slice = &s[..];
 
 ### `enum`
 
-`enum` creates a type which can hold one of different variants.
+`enum` creates a type which can hold one of different variants. Enums are particularly powerful in Rust and are the idiomatic way to represent state and handle various data patterns.
+
+#### Basic Enum Usage
 
 ```rust
 enum SimpleEnum {
@@ -206,7 +208,7 @@ enum ComplexEnum {
 }
 ```
 
-`enum` also can hold values
+`enum` variants can hold different types of data:
 
 ```rust
 enum IpAddrKind {
@@ -231,7 +233,7 @@ fn main() {
 }
 ```
 
-`match` goes well with `enums` because all variants need to be matched.
+`match` goes well with `enums` because all variants need to be matched:
 
 ```rust
 enum Coin {
@@ -241,13 +243,98 @@ enum Coin {
   Fünfliber,
 }
 
-fn value in rappen(coin: Coin) -> u8 {
+fn value_in_rappen(coin: Coin) -> u8 {
   match coin {
     Coin::Rappen => 5,
     Coin::Franken => 100,
     Coin::Zweifränkler => 200,
     Coin::Fünfliber => 500,
   }
+}
+```
+
+#### Enums for State Management
+
+Enums are the idiomatic way to represent state in Rust applications. Instead of using `bool` or integer constants, use enums to make your code more expressive and type-safe.
+
+**❌ Avoid using bool for state:**
+
+```rust
+struct User {
+    name: String,
+    active: bool, // What does false mean? Inactive? Suspended? Deleted?
+}
+```
+
+**✅ Use enums instead:**
+
+```rust
+use chrono::{DateTime, Utc};
+
+#[derive(Debug, Clone)]
+enum UserStatus {
+    /// The user is active and has full access
+    Active,
+    /// The user's account is inactive but can be reactivated
+    Inactive,
+    /// The user's account has been temporarily suspended
+    Suspended { until: DateTime<Utc> },
+    /// The user's account has been permanently deleted
+    Deleted { deleted_at: DateTime<Utc> },
+}
+
+struct User {
+    name: String,
+    status: UserStatus,
+}
+```
+
+#### State Transitions with Methods
+
+You can implement methods on enums to handle state transitions safely:
+
+```rust
+impl UserStatus {
+    /// Suspend the user until the given date
+    fn suspend(&mut self, until: DateTime<Utc>) {
+        match self {
+            UserStatus::Active => *self = UserStatus::Suspended { until },
+            // For all non-active states, do nothing
+            _ => {}
+        }
+    }
+
+    /// Activate the user
+    fn activate(&mut self) -> Result<(), &'static str> {
+        match self {
+            // A deleted user can't be activated!
+            UserStatus::Deleted { .. } => Err("can't activate a deleted user"),
+            _ => {
+                *self = UserStatus::Active;
+                Ok(())
+            }
+        }
+    }
+
+    /// Delete the user permanently
+    fn delete(&mut self) {
+        if let UserStatus::Deleted { .. } = self {
+            // Already deleted, don't update timestamp
+            return;
+        }
+        *self = UserStatus::Deleted {
+            deleted_at: Utc::now(),
+        }
+    }
+
+    // Helper methods for checking state
+    fn is_active(&self) -> bool {
+        matches!(self, UserStatus::Active)
+    }
+
+    fn is_suspended(&self) -> bool {
+        matches!(self, UserStatus::Suspended { .. })
+    }
 }
 ```
 
