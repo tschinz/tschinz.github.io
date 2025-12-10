@@ -3838,6 +3838,8 @@ const registerKeyboardEventHandler = () => {
       
         
       
+        
+      
     
     
     
@@ -3940,6 +3942,29 @@ const registerKeyboardEventHandler = () => {
   
   <span class="md-ellipsis">
     WTFPL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../licenses/glwts.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GLWTS
     
   </span>
   
@@ -4395,7 +4420,7 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="format_mini_lang.md" class="md-nav__link">
+      <a href="format_mini_lang.html" class="md-nav__link">
         
   
   
@@ -4666,6 +4691,57 @@ const registerKeyboardEventHandler = () => {
 </li>
         
           <li class="md-nav__item">
+  <a href="#avoid-unwrap-on-options-use-safe-alternatives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Avoid unwrap() on Options - Use Safe Alternatives
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Avoid unwrap() on Options - Use Safe Alternatives">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-1-let-else-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option 1: let-else (Recommended)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-2-ok_or-and-ok_or_else" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option 2: ok_or and ok_or_else
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-3-explicit-match" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option 3: Explicit match
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-fallback-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to use fallback values
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#borrowed-types-for-arguments" class="md-nav__link">
     <span class="md-ellipsis">
       Borrowed Types for Arguments
@@ -4711,9 +4787,114 @@ const registerKeyboardEventHandler = () => {
 </li>
         
           <li class="md-nav__item">
-  <a href="#use-enums-rather-than-bool" class="md-nav__link">
+  <a href="#use-enums-for-state-management" class="md-nav__link">
     <span class="md-ellipsis">
-      Use enums rather than bool
+      Use enums for State Management
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#defensive-programming" class="md-nav__link">
+    <span class="md-ellipsis">
+      Defensive Programming
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Defensive Programming">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#avoid-vector-indexing-use-pattern-matching" class="md-nav__link">
+    <span class="md-ellipsis">
+      Avoid Vector Indexing - Use Pattern Matching
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#avoid-lazy-default-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Avoid Lazy Default Usage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-exhaustive-pattern-matching" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Exhaustive Pattern Matching
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-descriptive-names-instead-of-_" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Descriptive Names Instead of _
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prefer-tryfrom-over-fallible-from" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prefer TryFrom Over Fallible From
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#force-constructor-usage-with-private-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Force Constructor Usage with Private Fields
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-enums-instead-of-boolean-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Enums Instead of Boolean Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-must_use-for-important-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use #[must_use] for Important Types
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#temporary-mutability-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      Temporary Mutability Pattern
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defensive-clippy-lints" class="md-nav__link">
+    <span class="md-ellipsis">
+      Defensive Clippy Lints
     </span>
   </a>
   
@@ -7190,20 +7371,6 @@ const registerKeyboardEventHandler = () => {
       
         
       
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
     
     
     
@@ -7300,52 +7467,6 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../ros/lidar-driver.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Lidar Driver
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ros/commands.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Commands
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../ros/packages.html" class="md-nav__link">
         
   
@@ -7369,127 +7490,12 @@ const registerKeyboardEventHandler = () => {
   
   
     <li class="md-nav__item">
-      <a href="../ros/packages-ext.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    External Packages
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../ros/basics.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     Basics
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ros/launch.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Launch
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ros/catkin_tools.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Catkin Tools
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ros/rviz.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    RViz
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ros/tf2.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    TF2
     
   </span>
   
@@ -12776,6 +12782,8 @@ const registerKeyboardEventHandler = () => {
       
         
       
+        
+      
     
     
     
@@ -12970,6 +12978,29 @@ const registerKeyboardEventHandler = () => {
   
   <span class="md-ellipsis">
     Learning
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../psychology/softskills.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Soft Skills
     
   </span>
   
@@ -13426,6 +13457,57 @@ const registerKeyboardEventHandler = () => {
 </li>
         
           <li class="md-nav__item">
+  <a href="#avoid-unwrap-on-options-use-safe-alternatives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Avoid unwrap() on Options - Use Safe Alternatives
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Avoid unwrap() on Options - Use Safe Alternatives">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-1-let-else-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option 1: let-else (Recommended)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-2-ok_or-and-ok_or_else" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option 2: ok_or and ok_or_else
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-3-explicit-match" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option 3: Explicit match
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-fallback-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to use fallback values
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#borrowed-types-for-arguments" class="md-nav__link">
     <span class="md-ellipsis">
       Borrowed Types for Arguments
@@ -13471,9 +13553,114 @@ const registerKeyboardEventHandler = () => {
 </li>
         
           <li class="md-nav__item">
-  <a href="#use-enums-rather-than-bool" class="md-nav__link">
+  <a href="#use-enums-for-state-management" class="md-nav__link">
     <span class="md-ellipsis">
-      Use enums rather than bool
+      Use enums for State Management
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#defensive-programming" class="md-nav__link">
+    <span class="md-ellipsis">
+      Defensive Programming
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Defensive Programming">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#avoid-vector-indexing-use-pattern-matching" class="md-nav__link">
+    <span class="md-ellipsis">
+      Avoid Vector Indexing - Use Pattern Matching
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#avoid-lazy-default-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Avoid Lazy Default Usage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-exhaustive-pattern-matching" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Exhaustive Pattern Matching
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-descriptive-names-instead-of-_" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Descriptive Names Instead of _
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prefer-tryfrom-over-fallible-from" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prefer TryFrom Over Fallible From
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#force-constructor-usage-with-private-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Force Constructor Usage with Private Fields
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-enums-instead-of-boolean-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Enums Instead of Boolean Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-must_use-for-important-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use #[must_use] for Important Types
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#temporary-mutability-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      Temporary Mutability Pattern
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defensive-clippy-lints" class="md-nav__link">
+    <span class="md-ellipsis">
+      Defensive Clippy Lints
     </span>
   </a>
   
@@ -13569,6 +13756,70 @@ const registerKeyboardEventHandler = () => {
 <span class="w">    </span><span class="nb">None</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="fm">assert!</span><span class="p">(</span><span class="kc">true</span><span class="p">),</span>
 <span class="p">}</span>
 </code></pre></div>
+<h3 id="avoid-unwrap-on-options-use-safe-alternatives">Avoid <code>unwrap()</code> on Options - Use Safe Alternatives</h3>
+<p>Instead of using <code>unwrap()</code> which can panic, use safer alternatives to handle <code>Option</code> values. This is especially important when you need to return a <code>Result</code> from your function.</p>
+<p><strong>❌ Avoid this - panic on <code>None</code>:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">fn</span><span class="w"> </span><span class="nf">get_user</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Option</span><span class="o">&lt;</span><span class="nb">String</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nb">None</span><span class="w"> </span><span class="c1">// Simulating no user found</span>
+<span class="p">}</span>
+
+<span class="k">fn</span><span class="w"> </span><span class="nf">get_user_name</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Result</span><span class="o">&lt;</span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="nb">String</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_user</span><span class="p">().</span><span class="n">unwrap</span><span class="p">();</span><span class="w"> </span><span class="c1">// Panics if None!</span>
+<span class="w">    </span><span class="nb">Ok</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>✅ Use these safer alternatives:</strong></p>
+<h4 id="option-1-let-else-recommended">Option 1: <code>let-else</code> (Recommended)</h4>
+<p>The most idiomatic and readable approach since Rust 1.65:</p>
+<div class="highlight"><pre><span></span><code><span class="k">fn</span><span class="w"> </span><span class="nf">get_user_name</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Result</span><span class="o">&lt;</span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="nb">String</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="n">user</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_user</span><span class="p">()</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">Err</span><span class="p">(</span><span class="s">"User not found"</span><span class="p">.</span><span class="n">to_string</span><span class="p">());</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="w">    </span><span class="c1">// Continue with user</span>
+<span class="w">    </span><span class="nb">Ok</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="option-2-ok_or-and-ok_or_else">Option 2: <code>ok_or</code> and <code>ok_or_else</code></h4>
+<p>Convert <code>Option</code> to <code>Result</code> with custom error messages:</p>
+<div class="highlight"><pre><span></span><code><span class="k">fn</span><span class="w"> </span><span class="nf">get_user_name</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Result</span><span class="o">&lt;</span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="nb">String</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// ok_or: provide error value directly</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_user</span><span class="p">().</span><span class="n">ok_or</span><span class="p">(</span><span class="s">"User not found"</span><span class="p">.</span><span class="n">to_string</span><span class="p">())</span><span class="o">?</span><span class="p">;</span>
+<span class="w">    </span><span class="nb">Ok</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">fn</span><span class="w"> </span><span class="nf">get_user_with_context</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Result</span><span class="o">&lt;</span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="nb">String</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// ok_or_else: use closure for expensive operations</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_user</span><span class="p">().</span><span class="n">ok_or_else</span><span class="p">(</span><span class="o">||</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">log_error</span><span class="p">(</span><span class="s">"User lookup failed"</span><span class="p">);</span>
+<span class="w">        </span><span class="fm">format!</span><span class="p">(</span><span class="s">"User not found at {}"</span><span class="p">,</span><span class="w"> </span><span class="n">current_time</span><span class="p">())</span>
+<span class="w">    </span><span class="p">})</span><span class="o">?</span><span class="p">;</span>
+<span class="w">    </span><span class="nb">Ok</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="option-3-explicit-match">Option 3: Explicit <code>match</code></h4>
+<p>More verbose but very clear for complex error handling:</p>
+<div class="highlight"><pre><span></span><code><span class="k">fn</span><span class="w"> </span><span class="nf">get_user_name</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Result</span><span class="o">&lt;</span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="nb">String</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">match</span><span class="w"> </span><span class="n">get_user</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nb">Some</span><span class="p">(</span><span class="n">user</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">user</span><span class="p">,</span>
+<span class="w">        </span><span class="nb">None</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">Err</span><span class="p">(</span><span class="s">"User not found"</span><span class="p">.</span><span class="n">to_string</span><span class="p">()),</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="w">    </span><span class="nb">Ok</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="when-to-use-fallback-values">When to use fallback values</h4>
+<p>Use <code>unwrap_or</code> and <code>unwrap_or_else</code> when you want fallback values instead of errors:</p>
+<div class="highlight"><pre><span></span><code><span class="k">fn</span><span class="w"> </span><span class="nf">get_user_display_name</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Provide fallback value</span>
+<span class="w">    </span><span class="n">get_user</span><span class="p">().</span><span class="n">unwrap_or_else</span><span class="p">(</span><span class="o">||</span><span class="w"> </span><span class="s">"Anonymous"</span><span class="p">.</span><span class="n">to_string</span><span class="p">())</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>Why avoid <code>unwrap()</code>?</strong></p>
+<ol>
+<li><strong>Runtime panics</strong> - Your program crashes instead of handling errors gracefully</li>
+<li><strong>Poor error messages</strong> - Users get generic panic messages instead of helpful context</li>
+<li><strong>Cascading failures</strong> - One <code>unwrap()</code> encourages more, making code fragile</li>
+<li><strong>Library unfriendly</strong> - Library users can't handle errors from your functions</li>
+</ol>
 <h3 id="borrowed-types-for-arguments">Borrowed Types for Arguments</h3>
 <p>Preferr borrowed type over borrowing the owned type.</p>
 <ul>
@@ -13661,17 +13912,18 @@ const registerKeyboardEventHandler = () => {
 </code></pre></div>
 <h3 id="use-iterators-rather-then-loops">Use Iterators rather then loops</h3>
 <p>Iterators in Rust are lazy and can prevent unnecessary memory allocations.</p>
-<p>Indead of:
-</p><div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">squares</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Vec</span><span class="p">::</span><span class="n">new</span><span class="p">();</span>
+<p>Indead of:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">squares</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Vec</span><span class="p">::</span><span class="n">new</span><span class="p">();</span>
 <span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="o">..</span><span class="mi">1_000_000</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">squares</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Do this:
-</p><div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="n">squares</span><span class="p">:</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="n">_</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1_000_000</span><span class="p">).</span><span class="n">map</span><span class="p">(</span><span class="o">|</span><span class="n">i</span><span class="o">|</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="p">).</span><span class="n">collect</span><span class="p">();</span>
+<p>Do this:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="n">squares</span><span class="p">:</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="n">_</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">1_000_000</span><span class="p">).</span><span class="n">map</span><span class="p">(</span><span class="o">|</span><span class="n">i</span><span class="o">|</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="p">).</span><span class="n">collect</span><span class="p">();</span>
 </code></pre></div>
-<h3 id="use-enums-rather-than-bool">Use <code>enum</code>s rather than <code>bool</code></h3>
-<p>It’s often considered good practice to use custom types (such as enum) instead of raw bool values. This makes the code more expressive, self-documenting, and type-safe.</p>
+<h3 id="use-enums-for-state-management">Use <code>enum</code>s for State Management</h3>
+<p>It's often considered good practice to use custom types (such as enum) instead of raw bool values or integers. This makes the code more expressive, self-documenting, and type-safe.</p>
+<p><strong>❌ Avoid using bool for complex state:</strong></p>
 <div class="highlight"><pre><span></span><code><span class="k">fn</span><span class="w"> </span><span class="nf">set_user_status</span><span class="p">(</span><span class="n">active</span><span class="p">:</span><span class="w"> </span><span class="kt">bool</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">active</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="fm">println!</span><span class="p">(</span><span class="s">"User is active"</span><span class="p">);</span>
@@ -13684,15 +13936,26 @@ const registerKeyboardEventHandler = () => {
 <span class="w">    </span><span class="n">set_user_status</span><span class="p">(</span><span class="n">status</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
-<p></p><div class="highlight"><pre><span></span><code><span class="k">enum</span><span class="w"> </span><span class="nc">UserStatus</span><span class="w"> </span><span class="p">{</span>
+<p><strong>✅ Use enums instead:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">use</span><span class="w"> </span><span class="n">chrono</span><span class="p">::{</span><span class="n">DateTime</span><span class="p">,</span><span class="w"> </span><span class="n">Utc</span><span class="p">};</span>
+
+<span class="cp">#[derive(Debug, Clone)]</span>
+<span class="k">enum</span><span class="w"> </span><span class="nc">UserStatus</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">Active</span><span class="p">,</span>
 <span class="w">    </span><span class="n">Inactive</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Suspended</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">reason</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="n">Banned</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">until</span><span class="p">:</span><span class="w"> </span><span class="nb">Option</span><span class="o">&lt;</span><span class="n">DateTime</span><span class="o">&lt;</span><span class="n">Utc</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">},</span>
 <span class="p">}</span>
 
 <span class="k">fn</span><span class="w"> </span><span class="nf">set_user_status</span><span class="p">(</span><span class="n">status</span><span class="p">:</span><span class="w"> </span><span class="nc">UserStatus</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">match</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="n">UserStatus</span><span class="p">::</span><span class="n">Active</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="fm">println!</span><span class="p">(</span><span class="s">"User is active"</span><span class="p">),</span>
 <span class="w">        </span><span class="n">UserStatus</span><span class="p">::</span><span class="n">Inactive</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="fm">println!</span><span class="p">(</span><span class="s">"User is inactive"</span><span class="p">),</span>
+<span class="w">        </span><span class="n">UserStatus</span><span class="p">::</span><span class="n">Suspended</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">reason</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="fm">println!</span><span class="p">(</span><span class="s">"User suspended: {}"</span><span class="p">,</span><span class="w"> </span><span class="n">reason</span><span class="p">),</span>
+<span class="w">        </span><span class="n">UserStatus</span><span class="p">::</span><span class="n">Banned</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">until</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">match</span><span class="w"> </span><span class="n">until</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nb">Some</span><span class="p">(</span><span class="n">date</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="fm">println!</span><span class="p">(</span><span class="s">"User banned until: {}"</span><span class="p">,</span><span class="w"> </span><span class="n">date</span><span class="p">),</span>
+<span class="w">            </span><span class="nb">None</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="fm">println!</span><span class="p">(</span><span class="s">"User permanently banned"</span><span class="p">),</span>
+<span class="w">        </span><span class="p">},</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 
@@ -13701,13 +13964,290 @@ const registerKeyboardEventHandler = () => {
 <span class="w">    </span><span class="n">set_user_status</span><span class="p">(</span><span class="n">status</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
-Benefits of Using an <code>enum</code> Instead of <code>bool</code>
 <ol>
 <li><em>Better Readability</em> – UserStatus::Active is more meaningful than true.</li>
 <li><em>Prevents Misuse</em> – You cannot accidentally pass a bool that has an unclear meaning.</li>
 <li><em>Extensibility</em> – You can easily add more states, like Banned, PendingApproval, etc.</li>
 <li><em>Stronger Type Safety</em> – The compiler prevents incorrect values from being passed.</li>
 </ol>
+<h2 id="defensive-programming">Defensive Programming</h2>
+<p>From the blogpost of corrode.dev <a href="https://corrode.dev/blog/defensive-programming/">Patterns for defensive Programming in Rust</a>
+Defensive programming patterns help prevent bugs by leveraging Rust's type system and compiler to catch errors before they happen. These patterns make implicit invariants explicit and compiler-enforced.</p>
+<h3 id="avoid-vector-indexing-use-pattern-matching">Avoid Vector Indexing - Use Pattern Matching</h3>
+<p>Direct indexing can panic at runtime if assumptions about the vector's length are wrong.</p>
+<p><strong>❌ Fragile indexing:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="o">!</span><span class="n">matching_users</span><span class="p">.</span><span class="n">is_empty</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">existing_user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">matching_users</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span><span class="w"> </span><span class="c1">// Can panic if refactored carelessly</span>
+<span class="w">    </span><span class="c1">// ...</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>✅ Use slice pattern matching:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">match</span><span class="w"> </span><span class="n">matching_users</span><span class="p">.</span><span class="n">as_slice</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">[]</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">Err</span><span class="p">(</span><span class="s">"No users found"</span><span class="p">.</span><span class="n">to_string</span><span class="p">()),</span>
+<span class="w">    </span><span class="p">[</span><span class="n">existing_user</span><span class="p">]</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Safe! Compiler guarantees exactly one element</span>
+<span class="w">        </span><span class="c1">// Use existing_user directly</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="p">[</span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="o">..</span><span class="p">]</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Handle multiple users case</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">existing_user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">first</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>Benefits:</strong></p>
+<ul>
+<li>Compiler enforces all cases are handled</li>
+<li>No risk of index out of bounds</li>
+<li>Forces you to consider edge cases (empty, single, multiple items)</li>
+</ul>
+<h3 id="avoid-lazy-default-usage">Avoid Lazy <code>Default</code> Usage</h3>
+<p>Using <code>..Default::default()</code> can hide bugs when new fields are added to structs.</p>
+<p><strong>❌ Hidden field initialization:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Config</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">host</span><span class="p">:</span><span class="w"> </span><span class="s">"localhost"</span><span class="p">.</span><span class="n">to_string</span><span class="p">(),</span>
+<span class="w">    </span><span class="n">port</span><span class="p">:</span><span class="w"> </span><span class="mi">8080</span><span class="p">,</span>
+<span class="w">    </span><span class="o">..</span><span class="nb">Default</span><span class="p">::</span><span class="n">default</span><span class="p">()</span><span class="w"> </span><span class="c1">// What fields are being set?</span>
+<span class="p">};</span>
+</code></pre></div>
+<p><strong>✅ Explicit field initialization:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Config</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">host</span><span class="p">:</span><span class="w"> </span><span class="s">"localhost"</span><span class="p">.</span><span class="n">to_string</span><span class="p">(),</span>
+<span class="w">    </span><span class="n">port</span><span class="p">:</span><span class="w"> </span><span class="mi">8080</span><span class="p">,</span>
+<span class="w">    </span><span class="n">timeout</span><span class="p">:</span><span class="w"> </span><span class="nc">Duration</span><span class="p">::</span><span class="n">from_secs</span><span class="p">(</span><span class="mi">30</span><span class="p">),</span>
+<span class="w">    </span><span class="n">max_connections</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
+<span class="w">    </span><span class="n">tls_enabled</span><span class="p">:</span><span class="w"> </span><span class="nc">false</span><span class="p">,</span>
+<span class="p">};</span>
+</code></pre></div>
+<p><strong>Alternative - Destructure defaults:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="n">Config</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">host</span><span class="p">:</span><span class="w"> </span><span class="nc">_</span><span class="p">,</span>
+<span class="w">    </span><span class="n">port</span><span class="p">:</span><span class="w"> </span><span class="nc">_</span><span class="p">,</span>
+<span class="w">    </span><span class="n">timeout</span><span class="p">,</span>
+<span class="w">    </span><span class="n">max_connections</span><span class="p">,</span>
+<span class="w">    </span><span class="n">tls_enabled</span><span class="p">,</span>
+<span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Config</span><span class="p">::</span><span class="n">default</span><span class="p">();</span>
+
+<span class="kd">let</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Config</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">host</span><span class="p">:</span><span class="w"> </span><span class="s">"localhost"</span><span class="p">.</span><span class="n">to_string</span><span class="p">(),</span>
+<span class="w">    </span><span class="n">port</span><span class="p">:</span><span class="w"> </span><span class="mi">8080</span><span class="p">,</span>
+<span class="w">    </span><span class="n">timeout</span><span class="p">,</span><span class="w">      </span><span class="c1">// Use default</span>
+<span class="w">    </span><span class="n">max_connections</span><span class="p">,</span><span class="w"> </span><span class="c1">// Use default</span>
+<span class="w">    </span><span class="n">tls_enabled</span><span class="p">,</span><span class="w">  </span><span class="c1">// Use default</span>
+<span class="p">};</span>
+</code></pre></div>
+<h3 id="use-exhaustive-pattern-matching">Use Exhaustive Pattern Matching</h3>
+<p>Avoid catch-all patterns to ensure new enum variants are handled explicitly.</p>
+<p><strong>❌ Fragile catch-all:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">match</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Status</span><span class="p">::</span><span class="n">Active</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">handle_active</span><span class="p">(),</span>
+<span class="w">    </span><span class="n">Status</span><span class="p">::</span><span class="n">Inactive</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">handle_inactive</span><span class="p">(),</span>
+<span class="w">    </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="c1">// New variants might be ignored silently</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>✅ Exhaustive matching:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">match</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Status</span><span class="p">::</span><span class="n">Active</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">handle_active</span><span class="p">(),</span>
+<span class="w">    </span><span class="n">Status</span><span class="p">::</span><span class="n">Inactive</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">handle_inactive</span><span class="p">(),</span>
+<span class="w">    </span><span class="n">Status</span><span class="p">::</span><span class="n">Suspended</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">handle_suspended</span><span class="p">(),</span>
+<span class="w">    </span><span class="n">Status</span><span class="p">::</span><span class="n">Banned</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">handle_banned</span><span class="p">(),</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>For grouped handling:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">match</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Status</span><span class="p">::</span><span class="n">Active</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">handle_active</span><span class="p">(),</span>
+<span class="w">    </span><span class="n">Status</span><span class="p">::</span><span class="n">Inactive</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Status</span><span class="p">::</span><span class="n">Suspended</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">handle_limited_access</span><span class="p">(),</span>
+<span class="w">    </span><span class="n">Status</span><span class="p">::</span><span class="n">Banned</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">handle_banned</span><span class="p">(),</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="use-descriptive-names-instead-of-_">Use Descriptive Names Instead of <code>_</code></h3>
+<p>Make pattern matching self-documenting by using descriptive names even for unused variables.</p>
+<p><strong>❌ Unclear placeholders:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">match</span><span class="w"> </span><span class="n">rocket</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Rocket</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">payload</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">launch_with_payload</span><span class="p">(</span><span class="n">payload</span><span class="p">),</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>✅ Self-documenting patterns:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">match</span><span class="w"> </span><span class="n">rocket</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Rocket</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">has_fuel</span><span class="p">:</span><span class="w"> </span><span class="nc">_</span><span class="p">,</span>
+<span class="w">        </span><span class="n">crew_count</span><span class="p">:</span><span class="w"> </span><span class="nc">_</span><span class="p">,</span>
+<span class="w">        </span><span class="n">payload</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">launch_with_payload</span><span class="p">(</span><span class="n">payload</span><span class="p">),</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="prefer-tryfrom-over-fallible-from">Prefer <code>TryFrom</code> Over Fallible <code>From</code></h3>
+<p>If conversion can fail, make it explicit with <code>TryFrom</code> instead of hiding failures in <code>From</code>.</p>
+<p><strong>❌ Hidden failure in <code>From</code>:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">impl</span><span class="w"> </span><span class="nb">From</span><span class="o">&lt;</span><span class="nb">String</span><span class="o">&gt;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">UserId</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="nf">from</span><span class="p">(</span><span class="n">s</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nc">Self</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">parse</span><span class="p">().</span><span class="n">unwrap_or</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="c1">// Hidden failure!</span>
+<span class="w">        </span><span class="n">UserId</span><span class="p">(</span><span class="n">id</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>✅ Explicit failure with <code>TryFrom</code>:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">impl</span><span class="w"> </span><span class="n">TryFrom</span><span class="o">&lt;</span><span class="nb">String</span><span class="o">&gt;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">UserId</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">type</span><span class="w"> </span><span class="nc">Error</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ParseError</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="nf">try_from</span><span class="p">(</span><span class="n">s</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Result</span><span class="o">&lt;</span><span class="bp">Self</span><span class="p">,</span><span class="w"> </span><span class="bp">Self</span><span class="p">::</span><span class="n">Error</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">parse</span><span class="p">().</span><span class="n">map_err</span><span class="p">(</span><span class="n">ParseError</span><span class="p">::</span><span class="n">InvalidFormat</span><span class="p">)</span><span class="o">?</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nb">Err</span><span class="p">(</span><span class="n">ParseError</span><span class="p">::</span><span class="n">InvalidId</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="nb">Ok</span><span class="p">(</span><span class="n">UserId</span><span class="p">(</span><span class="n">id</span><span class="p">))</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="force-constructor-usage-with-private-fields">Force Constructor Usage with Private Fields</h3>
+<p>Prevent bypassing validation by making direct struct construction impossible.</p>
+<p><strong>❌ Bypassable validation:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">User</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">age</span><span class="p">:</span><span class="w"> </span><span class="kt">u32</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="k">impl</span><span class="w"> </span><span class="n">User</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="nf">new</span><span class="p">(</span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="n">age</span><span class="p">:</span><span class="w"> </span><span class="kt">u32</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Result</span><span class="o">&lt;</span><span class="bp">Self</span><span class="p">,</span><span class="w"> </span><span class="nb">String</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">name</span><span class="p">.</span><span class="n">is_empty</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nb">Err</span><span class="p">(</span><span class="s">"Name cannot be empty"</span><span class="p">.</span><span class="n">to_string</span><span class="p">());</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="nb">Ok</span><span class="p">(</span><span class="bp">Self</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="p">})</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Validation can be bypassed!</span>
+<span class="kd">let</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">User</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="s">""</span><span class="p">.</span><span class="n">to_string</span><span class="p">(),</span><span class="w"> </span><span class="n">age</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">};</span>
+</code></pre></div>
+<p><strong>✅ Enforced validation with private field:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">User</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">age</span><span class="p">:</span><span class="w"> </span><span class="kt">u32</span><span class="p">,</span>
+<span class="w">    </span><span class="n">_private</span><span class="p">:</span><span class="w"> </span><span class="p">(),</span><span class="w"> </span><span class="c1">// Prevents external construction</span>
+<span class="p">}</span>
+
+<span class="k">impl</span><span class="w"> </span><span class="n">User</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="nf">new</span><span class="p">(</span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="n">age</span><span class="p">:</span><span class="w"> </span><span class="kt">u32</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Result</span><span class="o">&lt;</span><span class="bp">Self</span><span class="p">,</span><span class="w"> </span><span class="nb">String</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">name</span><span class="p">.</span><span class="n">is_empty</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nb">Err</span><span class="p">(</span><span class="s">"Name cannot be empty"</span><span class="p">.</span><span class="n">to_string</span><span class="p">());</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="nb">Ok</span><span class="p">(</span><span class="bp">Self</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">age</span><span class="p">,</span><span class="w"> </span><span class="n">_private</span><span class="p">:</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">})</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>Alternative with <code>#[non_exhaustive]</code>:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="cp">#[non_exhaustive]</span>
+<span class="k">pub</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">User</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">age</span><span class="p">:</span><span class="w"> </span><span class="kt">u32</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="use-enums-instead-of-boolean-parameters">Use Enums Instead of Boolean Parameters</h3>
+<p>Boolean parameters make code unreadable and error-prone at call sites.</p>
+<p><strong>❌ Unclear boolean parameters:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">process_data</span><span class="p">(</span><span class="o">&amp;</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span><span class="w"> </span><span class="c1">// What do these mean?</span>
+</code></pre></div>
+<p><strong>✅ Self-documenting enums:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">enum</span><span class="w"> </span><span class="nc">Compression</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Enabled</span><span class="p">,</span><span class="w"> </span><span class="n">Disabled</span><span class="w"> </span><span class="p">}</span>
+<span class="k">enum</span><span class="w"> </span><span class="nc">Encryption</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Enabled</span><span class="p">,</span><span class="w"> </span><span class="n">Disabled</span><span class="w"> </span><span class="p">}</span>
+<span class="k">enum</span><span class="w"> </span><span class="nc">Validation</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Enabled</span><span class="p">,</span><span class="w"> </span><span class="n">Disabled</span><span class="w"> </span><span class="p">}</span>
+
+<span class="n">process_data</span><span class="p">(</span>
+<span class="w">    </span><span class="o">&amp;</span><span class="n">data</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Compression</span><span class="p">::</span><span class="n">Enabled</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Encryption</span><span class="p">::</span><span class="n">Disabled</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Validation</span><span class="p">::</span><span class="n">Enabled</span>
+<span class="p">);</span>
+</code></pre></div>
+<p><strong>For complex configurations, use parameter structs:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">ProcessOptions</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">compression</span><span class="p">:</span><span class="w"> </span><span class="nc">Compression</span><span class="p">,</span>
+<span class="w">    </span><span class="n">encryption</span><span class="p">:</span><span class="w"> </span><span class="nc">Encryption</span><span class="p">,</span>
+<span class="w">    </span><span class="n">validation</span><span class="p">:</span><span class="w"> </span><span class="nc">Validation</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="k">impl</span><span class="w"> </span><span class="n">ProcessOptions</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="nf">development</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nc">Self</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="bp">Self</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">compression</span><span class="p">:</span><span class="w"> </span><span class="nc">Compression</span><span class="p">::</span><span class="n">Disabled</span><span class="p">,</span>
+<span class="w">            </span><span class="n">encryption</span><span class="p">:</span><span class="w"> </span><span class="nc">Encryption</span><span class="p">::</span><span class="n">Disabled</span><span class="p">,</span>
+<span class="w">            </span><span class="n">validation</span><span class="p">:</span><span class="w"> </span><span class="nc">Validation</span><span class="p">::</span><span class="n">Enabled</span><span class="p">,</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="nf">production</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nc">Self</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="bp">Self</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">compression</span><span class="p">:</span><span class="w"> </span><span class="nc">Compression</span><span class="p">::</span><span class="n">Enabled</span><span class="p">,</span>
+<span class="w">            </span><span class="n">encryption</span><span class="p">:</span><span class="w"> </span><span class="nc">Encryption</span><span class="p">::</span><span class="n">Enabled</span><span class="p">,</span>
+<span class="w">            </span><span class="n">validation</span><span class="p">:</span><span class="w"> </span><span class="nc">Validation</span><span class="p">::</span><span class="n">Enabled</span><span class="p">,</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Usage</span>
+<span class="n">process_data</span><span class="p">(</span><span class="o">&amp;</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">ProcessOptions</span><span class="p">::</span><span class="n">production</span><span class="p">());</span>
+</code></pre></div>
+<h3 id="use-must_use-for-important-types">Use <code>#[must_use]</code> for Important Types</h3>
+<p>Prevent callers from accidentally ignoring important return values.</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#[must_use = </span><span class="s">"Configuration must be applied to take effect"</span><span class="cp">]</span>
+<span class="k">pub</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">Config</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">timeout</span><span class="p">:</span><span class="w"> </span><span class="nc">Duration</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="k">impl</span><span class="w"> </span><span class="n">Config</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="nf">new</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nc">Self</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="bp">Self</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">timeout</span><span class="p">:</span><span class="w"> </span><span class="nc">Duration</span><span class="p">::</span><span class="n">from_secs</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="nf">with_timeout</span><span class="p">(</span><span class="k">mut</span><span class="w"> </span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">timeout</span><span class="p">:</span><span class="w"> </span><span class="nc">Duration</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nc">Self</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="bp">self</span><span class="p">.</span><span class="n">timeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">timeout</span><span class="p">;</span>
+<span class="w">        </span><span class="bp">self</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Compiler warns if Config is created but not used</span>
+<span class="kd">let</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Config</span><span class="p">::</span><span class="n">new</span><span class="p">();</span><span class="w"> </span><span class="c1">// Warning: Configuration must be applied to take effect</span>
+
+<span class="c1">// Correct usage</span>
+<span class="kd">let</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Config</span><span class="p">::</span><span class="n">new</span><span class="p">().</span><span class="n">with_timeout</span><span class="p">(</span><span class="n">Duration</span><span class="p">::</span><span class="n">from_secs</span><span class="p">(</span><span class="mi">60</span><span class="p">));</span>
+<span class="n">apply_config</span><span class="p">(</span><span class="n">config</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="temporary-mutability-pattern">Temporary Mutability Pattern</h3>
+<p>Make mutability explicit and limited in scope.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Simple shadowing</span>
+<span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_initial_data</span><span class="p">();</span>
+<span class="n">data</span><span class="p">.</span><span class="n">sort</span><span class="p">();</span>
+<span class="n">data</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="kd">let</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">;</span><span class="w"> </span><span class="c1">// Now immutable</span>
+
+<span class="c1">// Or use scope block for complex initialization</span>
+<span class="kd">let</span><span class="w"> </span><span class="n">processed_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_initial_data</span><span class="p">();</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">temp_results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">compute_intermediate</span><span class="p">();</span>
+<span class="w">    </span><span class="n">data</span><span class="p">.</span><span class="n">extend</span><span class="p">(</span><span class="n">temp_results</span><span class="p">);</span>
+<span class="w">    </span><span class="n">data</span><span class="p">.</span><span class="n">sort</span><span class="p">();</span>
+<span class="w">    </span><span class="n">data</span><span class="w"> </span><span class="c1">// Return final immutable value</span>
+<span class="p">};</span>
+<span class="c1">// temp_results not accessible here</span>
+</code></pre></div>
+<h3 id="defensive-clippy-lints">Defensive Clippy Lints</h3>
+<p>Enable these Clippy lints to automatically enforce defensive programming:</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#![deny(clippy::indexing_slicing)]</span>
+<span class="cp">#![deny(clippy::fallible_impl_from)]</span>
+<span class="cp">#![deny(clippy::wildcard_enum_match_arm)]</span>
+<span class="cp">#![deny(clippy::unneeded_field_pattern)]</span>
+<span class="cp">#![deny(clippy::fn_params_excessive_bools)]</span>
+<span class="cp">#![deny(clippy::must_use_candidate)]</span>
+</code></pre></div>
+<p>Or in <code>Cargo.toml</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">[lints.clippy]</span>
+<span class="n">indexing_slicing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"deny"</span>
+<span class="n">fallible_impl_from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"deny"</span>
+<span class="n">wildcard_enum_match_arm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"deny"</span>
+<span class="n">unneeded_field_pattern</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"deny"</span>
+<span class="n">fn_params_excessive_bools</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"deny"</span>
+<span class="n">must_use_candidate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"deny"</span>
+</code></pre></div>
+<p><strong>Key Principle:</strong> Make implicit invariants explicit and compiler-enforced. The best bug is the one that never compiles in the first place.</p>
 
 
 
