@@ -1,9 +1,10 @@
 ---
 tags:
-- coding
-- rust
-- toolchain
+    - coding
+    - rust
+    - toolchain
 ---
+
 # Toolchain
 
 ## `rustup`
@@ -33,7 +34,7 @@ SUBCOMMANDS:
 
 ### Common `rustup` commands
 
-``` bash
+```bash
 rustup show                                     # shows installed toolchain
 rustup target add riscv32imac-unknown-none-elf  # adds riscv target
 rustup update                                   # updates the toolschain
@@ -45,7 +46,7 @@ rustup doc                                      # opens the local documentation
 
 `rustc` is the compiler for Rust.
 
-``` bash
+```bash
 # Compile rust file
 rustc <ifname>.rs -o <ofname> -v
 
@@ -62,22 +63,22 @@ rustc --target target_arch <ifname>.rs
 rustc --document <ifname>.rs
 ```
 
-| Target                           | Explanation |
-| -------------------------------- | --------------------------------- |
-| `x86_64-unknown-linux-gnu`       | x86 64bit Linux |
-| `x86_64-apple-darwin`            | x86 64bit MacOS |
-| `x86_64-pc-windows-gnu`          | x86 64bit MinGW on Windows |
-| `aarch64-unknown-linux-gnu`      | Arm 64bit Linux |
-| `aarch64-apple-darwin`           | Arm 64bit MacOS (Apple Silicon) |
-| `riscv32imac-unknown-none-elf`   | RISC-V rv32i |
+| Target                         | Explanation                     |
+| ------------------------------ | ------------------------------- |
+| `x86_64-unknown-linux-gnu`     | x86 64bit Linux                 |
+| `x86_64-apple-darwin`          | x86 64bit MacOS                 |
+| `x86_64-pc-windows-gnu`        | x86 64bit MinGW on Windows      |
+| `aarch64-unknown-linux-gnu`    | Arm 64bit Linux                 |
+| `aarch64-apple-darwin`         | Arm 64bit MacOS (Apple Silicon) |
+| `riscv32imac-unknown-none-elf` | RISC-V rv32i                    |
 
 ### Example
 
-``` bash
+```bash
 rustc hello.rs
 ```
 
-``` bash
+```bash
 rustc --target riscv32imac-unknown-none-elf -o hello main.rs
 ```
 
@@ -107,17 +108,17 @@ Some common cargo commands are (see all commands with --list):
 
 ### Install a package
 
-``` bash
+```bash
 cargo search <searchstring>
 ```
 
-``` bash
+```bash
 cargo install <packagename>
 ```
 
 ### Create project
 
-``` bash
+```bash
 cargo new <projectname>       # creates package folder and initialises it
 cargo new --lib <projectname> # creates library package folder and initialises it
 cargo init                    # creates project in current folder
@@ -125,7 +126,7 @@ cargo init                    # creates project in current folder
 
 #### Hello World project
 
-``` bash
+```bash
 cargo new hello         # create new hello world project in folder hello
 cd hello                # move into folder
 cargo run               # build and run project
@@ -133,7 +134,7 @@ cargo run               # build and run project
 
 ## Compile
 
-``` bash
+```bash
 # Build debug verions of the project with its dependencies
 cargo build
 
@@ -150,7 +151,7 @@ cargo rustc --target riscv32i-unknown-none-elf -- --emit asm
 
 ### Common cargo commands
 
-``` bash
+```bash
 # Build debug verions of the project with its dependencies
 cargo build
 
@@ -164,7 +165,12 @@ cargo run
 cargo check
 
 # Updates dependencies of a project with the latest version (patch version)
+# Updates Cargo.lock
 cargo update
+
+# Upgrade dependencies of a project with the latest version
+# Updates Cargo.toml
+cargo upgrade
 
 # Cleans build artifacts
 cargo clean
@@ -184,14 +190,14 @@ Release Profiles configure the code compilation for `cargo`.
 
 Two main profiles are available ba default: `dev` and `release`
 
-``` bash
+```bash
 cargo build           # dev build
 cargo build --release # release build
 ```
 
 ### Customise
 
-``` toml title="Cargo.toml"
+```toml title="Cargo.toml"
 # ...
 
 [profile.dev]
@@ -201,40 +207,4 @@ opt-level = 0  # default
 opt-level = 3  # default
 
 # ...
-```
-
-## Publishing Crate at crates.io
-
-Unter [crates.io](https://crates.io) generate a accesstoken for your
-device and enter it via the command line
-
-``` bash
-cargo login <api token>
-```
-
-Verify crates metadata:
-
-``` bash title="Cargo.toml"
-[package]
-name = "crates_name" # must be unique within crates.io
-version = "1.0.0"
-authors = ["tschinz"]
-edition = "2023"
-description = "library description"
-license = "MIT"
-
-# ...
-```
-
-Publish the crate to [crates.io](https://crates.io)
-
-``` bash
-cargo publish
-```
-
-Disallow the download of a specific crate version in
-[crates.io](https://crates.io)
-
-``` bash
-cargo yank --vers 1.0.0
 ```

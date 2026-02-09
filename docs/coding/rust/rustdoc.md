@@ -1,19 +1,23 @@
 ---
 tags:
-- coding
-- rust
-- rustdoc
+    - coding
+    - rust
+    - rustdoc
 ---
+
 # RustDoc
 
 Documentation comment uses markdown for formatting. Documentation comment examples with be run as a test.
 
-``` rust
-//! indicate module-level or crate-level documentation
-/// rustdoc documentation supporting markdown
-```
+- Module-level docs `//!` - Describe what your crate does
+- Function docs `///` - Document every public item
+- Examples in docs - These run as tests!
+- Use proper markdown - Headers, lists, code blocks
+- Document panics - If a function can panic, document when
 
-``` rust
+## Example 1
+
+````rust
 //! Fast and easy queue abstraction.
 //!
 //! Provides an abstraction over a queue.  When the abstraction is used
@@ -43,9 +47,9 @@ pub mod easy {
     x + 1
   }
 }
-```
+````
 
-## Example
+## Example 2
 
 ```rust
 //! # hello-world-lib
@@ -127,8 +131,22 @@ mod tests {
 }
 ```
 
-Build and open the documentation
+## Build the documentation
 
-``` bash
+Build and open the documentation in the browser
+
+```bash
 cargo doc --open
+```
+
+Build the documentation with private items included and without external dependencies
+
+```bash
+cargo doc --no-deps --document-private-items
+```
+
+Build and open the documentation with all features enabled and without external dependencies
+
+```bash
+cargo doc --all-features --no-deps --open
 ```

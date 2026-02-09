@@ -1,29 +1,33 @@
 ---
 tags:
-- coding
-- rust
-- install
+  - coding
+  - rust
+  - install
 ---
+
 # Install and Setup
+
 ## Install
 
 See [Rustup](https://rustup.rs)
 
-``` bash
+```bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
 ## Additional Install
 
-``` bash
+```bash
 cargo install racer        # Rust completion utility
 cargo install rustfmt      # Rust formatting tool according to guidelines
 
 xcode-select --install     # for macos install c compiler
 
-cargo install cargo-edit   # allows adding packages with the command cargo add
+cargo install cargo-edit   # allows adding packages with the command cargo add, remove upgrade
 
 cargo install cargo-bundle # allows creating a bundeled app for linux, macos and windows plattform
+
+rustup component add clippy # Add clippy the rust linting tool
 ```
 
 ## Editors
@@ -43,19 +47,19 @@ Zed come with everything you need to start coding in Rust.
 
 ## Update
 
-``` bash
+```bash
 rustup update
 ```
 
 ## Uninstall
 
-``` bash
+```bash
 rustup self uninstall
 ```
 
 ## Jupyter Notebook
 
-``` bash
+```bash
 # install evcxr
 cargo install evcxr_repl
 
