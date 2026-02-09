@@ -1,8 +1,6 @@
 ---
 tags:
-- computer science
-- algorithms
-- coding
+  ≈
 - memory types
 - array
 - linked lists
@@ -13,11 +11,13 @@ tags:
 # Memory Types
 
 ## Array
+
 An array is a linear data structure consisting of a collection of similar data type elements, each identified by at least one index or key. The size of the array must be specified at the time of its declaration. It is fixed and cannot be resized during runtime. In the array, elements are organized sequentially, one after another within a single block of memory.
 
 ![](img/memory-types/array.svg){.center width=20%}
 
 ### Operations
+
 - **Access** – It supports **efficient random acces**s, which means that its elements can be accessed directly using their index.
 - **Insertion** – If the insertion site is located at the beginning or in the middle of the array, all the elements located on the right are moved one index forward. **If the array is full, a new larger array is created**. Inserting is very efficient at the end of the array.
 - **Deletion** – If the deleted element is located at the beginning or in the middle of the array, all the elements located on the left are moved one index backwards to avoid leaving an empty space in memory. This guarantees that the elements are stored in contiguous space in memory. Removal is very efficient at the end of the array because only the last element is deleted.
@@ -25,19 +25,22 @@ An array is a linear data structure consisting of a collection of similar data t
 
 ![](img/memory-types/array-insert.svg){.center width=40%}
 
-
 ### Advantages
-- **Random access** -  Elements can be accessed randomly using the index.
+
+- **Random access** - Elements can be accessed randomly using the index.
 - **Cache friendly** - Since elements are stored in contiguous memory locations, it is cache friendly.
 - **Easy to implement** and use.
 
 ### Disadvantages
+
 - Fixed size: The size of the array is fixed and cannot be changed during runtime.
 - Memory wastage: If the array size is larger than the number of elements, memory is wasted.
 - Insertion and deletion: Insertion and deletion of elements are difficult and time-consuming.
 
 ### Example
+
 Static arrays in Rust are fixed-size arrays that are allocated on the stack. The size of the array must be known at compile time.
+
 ```rust
 fn main() {
     let arr: [i32; 5] = [1, 2, 3, 4, 5];
@@ -46,6 +49,7 @@ fn main() {
 ```
 
 Dynamic arrays in Rust are allocated on the heap and can grow or shrink in size. The `Vec` type is used to create dynamic arrays.
+
 ```rust
 fn main() {
     // Initialize a vector
@@ -79,11 +83,13 @@ fn main() {
 ```
 
 ## Linked Lists
+
 A linked list is a linear data structure consisting of a collection of elements called nodes. Each node contains two fields: a data field to store the element and a reference field to link the node to the next node in the sequence. The first node is called the **head**. The last node points to `null` or `None` to indicate the end of the list also called the **tail**.
 
 ![](img/memory-types/linked-list.svg){.center width=40%}
 
 ### Operations
+
 - **Access** – It does not support random access. To access an element, the list must be traversed sequentially from the beginning.
 - **Insertion** – Insertion is very efficient because it only requires changing the references of the nodes.
 - **Deletion** – Deletion is very efficient because it only requires changing the references of the nodes.
@@ -92,15 +98,18 @@ A linked list is a linear data structure consisting of a collection of elements 
 ![](img/memory-types/linked-list-insert.svg){.center width=80%}
 
 ### Advantages
+
 - **Dynamic size** - The size of the linked list can be changed during runtime.
 - **Memory utilization** - Memory is utilized efficiently.
 
 ### Disadvantages
+
 - **Random access** - Elements cannot be accessed randomly using the index.
 - **Cache unfriendly** - Since elements are stored in non-contiguous memory locations, it is cache unfriendly.
 - **Complexity** - It is complex to implement and use.
 
 ### Example
+
 ```rust
 use std::collections::LinkedList;
 
@@ -162,26 +171,31 @@ fn main() {
 ```
 
 ## HashTable or Hashmap
-A hash table is a data structure that stores key-value pairs, also called an *unordered* collection. It uses a hash function to compute an index into an array of buckets or slots, from which the desired value can be found. The hash function maps keys to indices in the array, allowing for efficient lookup, insertion, and deletion of key-value pairs. A good hash function is essential for hash table performance.
+
+A hash table is a data structure that stores key-value pairs, also called an _unordered_ collection. It uses a hash function to compute an index into an array of buckets or slots, from which the desired value can be found. The hash function maps keys to indices in the array, allowing for efficient lookup, insertion, and deletion of key-value pairs. A good hash function is essential for hash table performance.
 
 ![](img/memory-types/hashtable.svg){.center width=80%}
 
 ### Operations
+
 - **Insertion** – Insertion is efficient because it only requires computing the hash value and inserting the key-value pair into the correct bucket.
 - **Deletion** – Deletion is efficient because it only requires computing the hash value and removing the key-value pair from the correct bucket.
 - **Search** – Searching for a key is efficient because the hash function allows direct access to the bucket containing the key-value pair.
 
 ### Advantages
+
 - **Fast access** - Hash tables provide fast access to key-value pairs.
 - **Dynamic size** - The size of the hash table can be changed during runtime.
 - **Memory utilization** - Memory is utilized efficiently.
 
 ### Disadvantages
+
 - **Ordering** - Hash tables do not maintain the order of key-value pairs.
 - **Complexity** - Hash functions can be complex to design and implement.
 - **Collisions** - Collisions can occur when two keys map to the same index, requiring additional handling.
 
 ### Example
+
 ```rust
 use std::collections::HashMap;
 
@@ -228,22 +242,25 @@ fn main() {
 ## Conclusion
 
 ### Time Complexity Average
+
 | Data Structure | Access | Search | Insertion | Deletion |
-|----------------|--------|--------|-----------|----------|
-| Array          | $O(1)$ | $O(n)$ | $O(n)$    | $O(n)$ |
-| Linked List    | $O(n)$ | $O(n)$ | $O(1)$    | $O(1)$ |
-| Hash Table     | -      | $O(1)$ | $O(1)$    | $O(1)$ |
+| -------------- | ------ | ------ | --------- | -------- |
+| Array          | $O(1)$ | $O(n)$ | $O(n)$    | $O(n)$   |
+| Linked List    | $O(n)$ | $O(n)$ | $O(1)$    | $O(1)$   |
+| Hash Table     | -      | $O(1)$ | $O(1)$    | $O(1)$   |
 
 ### Time Complexity Worst
+
 | Data Structure | Access | Search | Insertion | Deletion |
-|----------------|--------|--------|-----------|----------|
-| Array          | $O(1)$ | $O(n)$ | $O(n)$    | $O(n)$ |
-| Linked List    | $O(n)$ | $O(n)$ | $O(1)$    | $O(1)$ |
-| Hash Table     | -      | $O(n)$ | $O(n)$    | $O(n)$ |
+| -------------- | ------ | ------ | --------- | -------- |
+| Array          | $O(1)$ | $O(n)$ | $O(n)$    | $O(n)$   |
+| Linked List    | $O(n)$ | $O(n)$ | $O(1)$    | $O(1)$   |
+| Hash Table     | -      | $O(n)$ | $O(n)$    | $O(n)$   |
 
 ### Space Complexity
+
 | Data Structure | Space Complexity |
-|----------------|------------------|
-| Array          | $O(n)$ |
-| Linked List    | $O(n)$ |
-| Hash Table     | $O(n)$ |
+| -------------- | ---------------- |
+| Array          | $O(n)$           |
+| Linked List    | $O(n)$           |
+| Hash Table     | $O(n)$           |
