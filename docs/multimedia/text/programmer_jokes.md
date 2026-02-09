@@ -1,10 +1,12 @@
 ---
 tags:
-- multimedia
-- text
-- joke
+  - multimedia
+  - text
+  - joke
 ---
+
 # Programmer Jokes and Funny Facts
+
 ![](img/joke.svg){.center width="20%"}
 
 ## Funy Facts
@@ -21,14 +23,18 @@ tags:
 
 > **Answer** Punchcard in the past had only space for a 80 characters. So it was a very hard limit historically and has sticked.
 
+## Engineers
+
+Engineers (n.) Someone who does precision guesswork based on unreliable data provided by those of questionable knowledge. (i.e. wizard, magician)
+
 ## Christmas and Halloween
 
 **Question** Why do programmers always mix up Halloween and Christmas?
 
 > **Answer**
 >
->  - 31 Dec Christmas
->  - 25 Okt Halloween
+> - 31 Dec Christmas
+> - 25 Okt Halloween
 
 ## 10 Kind of People
 
@@ -75,7 +81,7 @@ tags:
 ![Teacher Punishement](img/teacher_punishement.jpg)
 
 > **Answer** In this joke, his teacher probably gave him the punishment
->   "Write 'I will not throw paper airplanes in class.' on the board 500 times."
+> "Write 'I will not throw paper airplanes in class.' on the board 500 times."
 
 ```
 #include <stdio.h>
