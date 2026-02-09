@@ -45,6 +45,88 @@ pub mod easy {
 }
 ```
 
+## Example
+
+```rust
+//! # hello-world-lib
+//!
+//! A simple library for greeting people.
+//!
+//! ## Example
+//!
+//! Use the greet function like this:
+//!
+//!     use hello_world_lib::greet;
+//!
+//!     let message = greet("World");
+//!     assert_eq!(message, "Hello, World!");
+
+/// Greets a person by name.
+///
+/// # Arguments
+///
+/// * `name` - The name of the person to greet
+///
+/// # Examples
+///
+/// Basic usage:
+///
+///     use hello_world_lib::greet;
+///
+///     let message = greet("Alice");
+///     assert_eq!(message, "Hello, Alice!");
+///
+pub fn greet(name: &str) -> String {
+    format!("Hello, {}!", name)
+}
+
+/// A more advanced greeting with customization.
+///
+/// # Arguments
+///
+/// * `name` - The name of the person to greet
+/// * `enthusiastic` - If true, adds exclamation marks
+///
+/// # Examples
+///
+/// With enthusiasm:
+///
+///     use hello_world_lib::greet_custom;
+///
+///     let message = greet_custom("Bob", true);
+///     assert_eq!(message, "Hello, Bob!!!");
+///
+pub fn greet_custom(name: &str, enthusiastic: bool) -> String {
+    if enthusiastic {
+        format!("Hello, {}!!!", name)
+    } else {
+        format!("Hello, {}.", name)
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_greet() {
+        assert_eq!(greet("World"), "Hello, World!");
+        assert_eq!(greet("Rust"), "Hello, Rust!");
+    }
+
+    #[test]
+    fn test_greet_custom() {
+        assert_eq!(greet_custom("Alice", false), "Hello, Alice.");
+        assert_eq!(greet_custom("Bob", true), "Hello, Bob!!!");
+    }
+
+    #[test]
+    fn test_empty_name() {
+        assert_eq!(greet(""), "Hello, !");
+    }
+}
+```
+
 Build and open the documentation
 
 ``` bash
