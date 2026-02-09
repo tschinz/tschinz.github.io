@@ -3029,6 +3029,8 @@ const registerKeyboardEventHandler = () => {
       
         
       
+        
+      
     
     
     
@@ -3170,6 +3172,29 @@ const registerKeyboardEventHandler = () => {
   
   
   
+    <li class="md-nav__item">
+      <a href="../../computerscience/algorithms/levenshtein-distance.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Levenshtein Distance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
     
     
       
@@ -3218,7 +3243,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_7" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -3235,14 +3260,14 @@ const registerKeyboardEventHandler = () => {
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3_4_6" id="__nav_3_4_6_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3_4_7" id="__nav_3_4_7_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_4_6">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_7">
             <span class="md-nav__icon md-icon"></span>
             Days of Algo
           </label>
@@ -4048,6 +4073,8 @@ const registerKeyboardEventHandler = () => {
       
         
       
+        
+      
     
     
     
@@ -4127,6 +4154,29 @@ const registerKeyboardEventHandler = () => {
   
   <span class="md-ellipsis">
     Toolchain
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="crates_io.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Crates.io
     
   </span>
   
@@ -4360,6 +4410,19 @@ const registerKeyboardEventHandler = () => {
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    RustDoc
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="rustdoc.html" class="md-nav__link md-nav__link--active">
         
   
@@ -4371,6 +4434,52 @@ const registerKeyboardEventHandler = () => {
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#example-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-the-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build the documentation
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -13129,6 +13238,41 @@ const registerKeyboardEventHandler = () => {
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#example-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-the-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build the documentation
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -13175,9 +13319,14 @@ const registerKeyboardEventHandler = () => {
 
 <h1 id="rustdoc">RustDoc</h1>
 <p>Documentation comment uses markdown for formatting. Documentation comment examples with be run as a test.</p>
-<div class="highlight"><pre><span></span><code><span class="sd">//! indicate module-level or crate-level documentation</span>
-<span class="sd">/// rustdoc documentation supporting markdown</span>
-</code></pre></div>
+<ul>
+<li>Module-level docs <code>//!</code> - Describe what your crate does</li>
+<li>Function docs <code>///</code> - Document every public item</li>
+<li>Examples in docs - These run as tests!</li>
+<li>Use proper markdown - Headers, lists, code blocks</li>
+<li>Document panics - If a function can panic, document when</li>
+</ul>
+<h2 id="example-1">Example 1</h2>
 <div class="highlight"><pre><span></span><code><span class="sd">//! Fast and easy queue abstraction.</span>
 <span class="sd">//!</span>
 <span class="sd">//! Provides an abstraction over a queue.  When the abstraction is used</span>
@@ -13208,8 +13357,94 @@ const registerKeyboardEventHandler = () => {
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Build and open the documentation</p>
+<h2 id="example-2">Example 2</h2>
+<div class="highlight"><pre><span></span><code><span class="sd">//! # hello-world-lib</span>
+<span class="sd">//!</span>
+<span class="sd">//! A simple library for greeting people.</span>
+<span class="sd">//!</span>
+<span class="sd">//! ## Example</span>
+<span class="sd">//!</span>
+<span class="sd">//! Use the greet function like this:</span>
+<span class="sd">//!</span>
+<span class="sd">//!     use hello_world_lib::greet;</span>
+<span class="sd">//!</span>
+<span class="sd">//!     let message = greet("World");</span>
+<span class="sd">//!     assert_eq!(message, "Hello, World!");</span>
+
+<span class="sd">/// Greets a person by name.</span>
+<span class="sd">///</span>
+<span class="sd">/// # Arguments</span>
+<span class="sd">///</span>
+<span class="sd">/// * `name` - The name of the person to greet</span>
+<span class="sd">///</span>
+<span class="sd">/// # Examples</span>
+<span class="sd">///</span>
+<span class="sd">/// Basic usage:</span>
+<span class="sd">///</span>
+<span class="sd">///     use hello_world_lib::greet;</span>
+<span class="sd">///</span>
+<span class="sd">///     let message = greet("Alice");</span>
+<span class="sd">///     assert_eq!(message, "Hello, Alice!");</span>
+<span class="sd">///</span>
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="kt">str</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="fm">format!</span><span class="p">(</span><span class="s">"Hello, {}!"</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="sd">/// A more advanced greeting with customization.</span>
+<span class="sd">///</span>
+<span class="sd">/// # Arguments</span>
+<span class="sd">///</span>
+<span class="sd">/// * `name` - The name of the person to greet</span>
+<span class="sd">/// * `enthusiastic` - If true, adds exclamation marks</span>
+<span class="sd">///</span>
+<span class="sd">/// # Examples</span>
+<span class="sd">///</span>
+<span class="sd">/// With enthusiasm:</span>
+<span class="sd">///</span>
+<span class="sd">///     use hello_world_lib::greet_custom;</span>
+<span class="sd">///</span>
+<span class="sd">///     let message = greet_custom("Bob", true);</span>
+<span class="sd">///     assert_eq!(message, "Hello, Bob!!!");</span>
+<span class="sd">///</span>
+<span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="nf">greet_custom</span><span class="p">(</span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="kt">str</span><span class="p">,</span><span class="w"> </span><span class="n">enthusiastic</span><span class="p">:</span><span class="w"> </span><span class="kt">bool</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">enthusiastic</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="fm">format!</span><span class="p">(</span><span class="s">"Hello, {}!!!"</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="fm">format!</span><span class="p">(</span><span class="s">"Hello, {}."</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="cp">#[cfg(test)]</span>
+<span class="k">mod</span><span class="w"> </span><span class="nn">tests</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="k">super</span><span class="p">::</span><span class="o">*</span><span class="p">;</span>
+
+<span class="w">    </span><span class="cp">#[test]</span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="nf">test_greet</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="fm">assert_eq!</span><span class="p">(</span><span class="n">greet</span><span class="p">(</span><span class="s">"World"</span><span class="p">),</span><span class="w"> </span><span class="s">"Hello, World!"</span><span class="p">);</span>
+<span class="w">        </span><span class="fm">assert_eq!</span><span class="p">(</span><span class="n">greet</span><span class="p">(</span><span class="s">"Rust"</span><span class="p">),</span><span class="w"> </span><span class="s">"Hello, Rust!"</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="cp">#[test]</span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="nf">test_greet_custom</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="fm">assert_eq!</span><span class="p">(</span><span class="n">greet_custom</span><span class="p">(</span><span class="s">"Alice"</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">),</span><span class="w"> </span><span class="s">"Hello, Alice."</span><span class="p">);</span>
+<span class="w">        </span><span class="fm">assert_eq!</span><span class="p">(</span><span class="n">greet_custom</span><span class="p">(</span><span class="s">"Bob"</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">),</span><span class="w"> </span><span class="s">"Hello, Bob!!!"</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="cp">#[test]</span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="nf">test_empty_name</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="fm">assert_eq!</span><span class="p">(</span><span class="n">greet</span><span class="p">(</span><span class="s">""</span><span class="p">),</span><span class="w"> </span><span class="s">"Hello, !"</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="build-the-documentation">Build the documentation</h2>
+<p>Build and open the documentation in the browser</p>
 <div class="highlight"><pre><span></span><code>cargo<span class="w"> </span>doc<span class="w"> </span>--open
+</code></pre></div>
+<p>Build the documentation with private items included and without external dependencies</p>
+<div class="highlight"><pre><span></span><code>cargo<span class="w"> </span>doc<span class="w"> </span>--no-deps<span class="w"> </span>--document-private-items
+</code></pre></div>
+<p>Build and open the documentation with all features enabled and without external dependencies</p>
+<div class="highlight"><pre><span></span><code>cargo<span class="w"> </span>doc<span class="w"> </span>--all-features<span class="w"> </span>--no-deps<span class="w"> </span>--open
 </code></pre></div>
 
 
@@ -13251,7 +13486,7 @@ const registerKeyboardEventHandler = () => {
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2004 - 2024 tschinz
+      Copyright &copy; 2004 - 2026 tschinz
     </div>
   
   
