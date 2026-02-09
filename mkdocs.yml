@@ -12,9 +12,9 @@ edit_uri: edit/main/docs/
 
 # Copyright
 #copyright: >
-#  Copyright &copy; 2004 - 2024 tschinz –
+#  Copyright &copy; 2004 - 2026 tschinz –
 #  <a href="#__consent">Change cookie settings</a>
-copyright: Copyright &copy; 2004 - 2024 tschinz
+copyright: Copyright &copy; 2004 - 2026 tschinz
 
 # Configuration
 theme:
@@ -270,6 +270,7 @@ nav:
           - Big O Notation: computerscience/algorithms/bigO.md
           - Memory Types: computerscience/algorithms/memory-types.md
           - Sorting: computerscience/algorithms/sorting.md
+          - Levenshtein Distance: computerscience/algorithms/levenshtein-distance.md
           - Days of Algo:
               - computerscience/algorithms/daysofalgo/index.md
               - computerscience/algorithms/daysofalgo/000-hanoi-tower.ipynb
@@ -303,6 +304,7 @@ nav:
           - coding/rust/index.md
           - Install: coding/rust/install.md
           - Toolchain: coding/rust/toolchain.md
+          - Crates.io: coding/rust/crates_io.md
           - Basic: coding/rust/basic.md
           - rustfmt: coding/rust/rustfmt.md
           - Workspaces: coding/rust/workspaces.md
