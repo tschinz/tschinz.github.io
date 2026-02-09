@@ -18,7 +18,7 @@
         <link rel="prev" href="install.html">
       
       
-        <link rel="next" href="basic.html">
+        <link rel="next" href="crates_io.html">
       
       
         <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../../feed_rss_created.xml">
@@ -3029,6 +3029,8 @@ const registerKeyboardEventHandler = () => {
       
         
       
+        
+      
     
     
     
@@ -3170,6 +3172,29 @@ const registerKeyboardEventHandler = () => {
   
   
   
+    <li class="md-nav__item">
+      <a href="../../computerscience/algorithms/levenshtein-distance.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Levenshtein Distance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
     
     
       
@@ -3218,7 +3243,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_7" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -3235,14 +3260,14 @@ const registerKeyboardEventHandler = () => {
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3_4_6" id="__nav_3_4_6_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3_4_7" id="__nav_3_4_7_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_4_6">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_7">
             <span class="md-nav__icon md-icon"></span>
             Days of Algo
           </label>
@@ -4048,6 +4073,8 @@ const registerKeyboardEventHandler = () => {
       
         
       
+        
+      
     
     
     
@@ -4332,19 +4359,33 @@ const registerKeyboardEventHandler = () => {
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#publishing-crate-at-cratesio" class="md-nav__link">
-    <span class="md-ellipsis">
-      Publishing Crate at crates.io
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="crates_io.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Crates.io
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -13500,15 +13541,6 @@ const registerKeyboardEventHandler = () => {
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#publishing-crate-at-cratesio" class="md-nav__link">
-    <span class="md-ellipsis">
-      Publishing Crate at crates.io
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -13702,7 +13734,12 @@ cargo<span class="w"> </span>run
 cargo<span class="w"> </span>check
 
 <span class="c1"># Updates dependencies of a project with the latest version (patch version)</span>
+<span class="c1"># Updates Cargo.lock</span>
 cargo<span class="w"> </span>update
+
+<span class="c1"># Upgrade dependencies of a project with the latest version</span>
+<span class="c1"># Updates Cargo.toml</span>
+cargo<span class="w"> </span>upgrade
 
 <span class="c1"># Cleans build artifacts</span>
 cargo<span class="w"> </span>clean
@@ -13731,29 +13768,6 @@ cargo<span class="w"> </span>build<span class="w"> </span>--release<span class="
 <span class="n">opt-level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="w">  </span><span class="c1"># default</span>
 
 <span class="c1"># ...</span>
-</code></pre></div>
-<h2 id="publishing-crate-at-cratesio">Publishing Crate at crates.io</h2>
-<p>Unter <a href="https://crates.io">crates.io</a> generate a accesstoken for your
-device and enter it via the command line</p>
-<div class="highlight"><pre><span></span><code>cargo<span class="w"> </span>login<span class="w"> </span>&lt;api<span class="w"> </span>token&gt;
-</code></pre></div>
-<p>Verify crates metadata:</p>
-<div class="highlight"><span class="filename">Cargo.toml</span><pre><span></span><code><span class="o">[</span>package<span class="o">]</span>
-<span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"crates_name"</span><span class="w"> </span><span class="c1"># must be unique within crates.io</span>
-<span class="nv">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"1.0.0"</span>
-<span class="nv">authors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="s2">"tschinz"</span><span class="o">]</span>
-<span class="nv">edition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"2023"</span>
-<span class="nv">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"library description"</span>
-<span class="nv">license</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"MIT"</span>
-
-<span class="c1"># ...</span>
-</code></pre></div>
-<p>Publish the crate to <a href="https://crates.io">crates.io</a></p>
-<div class="highlight"><pre><span></span><code>cargo<span class="w"> </span>publish
-</code></pre></div>
-<p>Disallow the download of a specific crate version in
-<a href="https://crates.io">crates.io</a></p>
-<div class="highlight"><pre><span></span><code>cargo<span class="w"> </span>yank<span class="w"> </span>--vers<span class="w"> </span><span class="m">1</span>.0.0
 </code></pre></div>
 
 
@@ -13795,7 +13809,7 @@ device and enter it via the command line</p>
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2004 - 2024 tschinz
+      Copyright &copy; 2004 - 2026 tschinz
     </div>
   
   

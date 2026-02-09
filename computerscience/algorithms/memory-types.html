@@ -3036,6 +3036,8 @@ const registerKeyboardEventHandler = () => {
       
         
       
+        
+      
     
     
     
@@ -3414,6 +3416,29 @@ const registerKeyboardEventHandler = () => {
   
   
   
+    <li class="md-nav__item">
+      <a href="levenshtein-distance.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Levenshtein Distance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
     
     
       
@@ -3462,7 +3487,7 @@ const registerKeyboardEventHandler = () => {
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_7" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -3479,14 +3504,14 @@ const registerKeyboardEventHandler = () => {
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3_4_6" id="__nav_3_4_6_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3_4_7" id="__nav_3_4_7_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_4_6">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_7">
             <span class="md-nav__icon md-icon"></span>
             Days of Algo
           </label>
@@ -4285,6 +4310,8 @@ const registerKeyboardEventHandler = () => {
       
         
       
+        
+      
     
     
     
@@ -4364,6 +4391,29 @@ const registerKeyboardEventHandler = () => {
   
   <span class="md-ellipsis">
     Toolchain
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../coding/rust/crates_io.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Crates.io
     
   </span>
   
@@ -13571,58 +13621,6 @@ const registerKeyboardEventHandler = () => {
                 
                   
 
-  <nav class="md-tags" >
-    
-      
-      
-      
-        <a href="../../about/tags.html#tag:algorithms" class="md-tag">algorithms</a>
-      
-    
-      
-      
-      
-        <a href="../../about/tags.html#tag:array" class="md-tag">array</a>
-      
-    
-      
-      
-      
-        <a href="../../about/tags.html#tag:coding" class="md-tag">coding</a>
-      
-    
-      
-      
-      
-        <a href="../../about/tags.html#tag:computer-science" class="md-tag">computer science</a>
-      
-    
-      
-      
-      
-        <a href="../../about/tags.html#tag:hashmap" class="md-tag">hashmap</a>
-      
-    
-      
-      
-      
-        <a href="../../about/tags.html#tag:hashtable" class="md-tag">hashtable</a>
-      
-    
-      
-      
-      
-        <a href="../../about/tags.html#tag:linked-lists" class="md-tag">linked lists</a>
-      
-    
-      
-      
-      
-        <a href="../../about/tags.html#tag:memory-types" class="md-tag">memory types</a>
-      
-    
-  </nav>
-
 
   
     <a href="https://github.com/tschinz/tschinz/edit/main/docs/computerscience/algorithms/memory-types.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
@@ -13633,6 +13631,15 @@ const registerKeyboardEventHandler = () => {
   
 
 
+<hr>
+<p>tags:
+  ≈
+- memory types
+- array
+- linked lists
+- hashtable
+- hashmap</p>
+<hr>
 <h1 id="memory-types">Memory Types</h1>
 <h2 id="array">Array</h2>
 <p>An array is a linear data structure consisting of a collection of similar data type elements, each identified by at least one index or key. The size of the array must be specified at the time of its declaration. It is fixed and cannot be resized during runtime. In the array, elements are organized sequentially, one after another within a single block of memory.</p>
@@ -13647,7 +13654,7 @@ const registerKeyboardEventHandler = () => {
 <p><a class="glightbox" href="img/memory-types/array-insert.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="center" src="img/memory-types/array-insert.svg" width="40%"></a></p>
 <h3 id="advantages">Advantages</h3>
 <ul>
-<li><strong>Random access</strong> -  Elements can be accessed randomly using the index.</li>
+<li><strong>Random access</strong> - Elements can be accessed randomly using the index.</li>
 <li><strong>Cache friendly</strong> - Since elements are stored in contiguous memory locations, it is cache friendly.</li>
 <li><strong>Easy to implement</strong> and use.</li>
 </ul>
@@ -13658,14 +13665,14 @@ const registerKeyboardEventHandler = () => {
 <li>Insertion and deletion: Insertion and deletion of elements are difficult and time-consuming.</li>
 </ul>
 <h3 id="example">Example</h3>
-<p>Static arrays in Rust are fixed-size arrays that are allocated on the stack. The size of the array must be known at compile time.
-</p><div class="highlight"><pre><span></span><code><span class="k">fn</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<p>Static arrays in Rust are fixed-size arrays that are allocated on the stack. The size of the array must be known at compile time.</p>
+<div class="highlight"><pre><span></span><code><span class="k">fn</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">arr</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="kt">i32</span><span class="p">;</span><span class="w"> </span><span class="mi">5</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">];</span>
 <span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">"Array: {:?}"</span><span class="p">,</span><span class="w"> </span><span class="n">arr</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Dynamic arrays in Rust are allocated on the heap and can grow or shrink in size. The <code>Vec</code> type is used to create dynamic arrays.
-</p><div class="highlight"><pre><span></span><code><span class="k">fn</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<p>Dynamic arrays in Rust are allocated on the heap and can grow or shrink in size. The <code>Vec</code> type is used to create dynamic arrays.</p>
+<div class="highlight"><pre><span></span><code><span class="k">fn</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="c1">// Initialize a vector</span>
 <span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">numbers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="fm">vec!</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">];</span><span class="w"> </span><span class="c1">// [1, 2, 4, 5]</span>
 
@@ -13940,9 +13947,6 @@ const registerKeyboardEventHandler = () => {
 
 
 
-  
-  
-
 
 
   
@@ -13973,7 +13977,7 @@ const registerKeyboardEventHandler = () => {
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2004 - 2024 tschinz
+      Copyright &copy; 2004 - 2026 tschinz
     </div>
   
   
