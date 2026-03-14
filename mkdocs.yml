@@ -15,7 +15,6 @@ edit_uri: edit/main/docs/
 #  Copyright &copy; 2004 - 2026 tschinz –
 #  <a href="#__consent">Change cookie settings</a>
 copyright: Copyright &copy; 2004 - 2026 tschinz
-
 # Configuration
 theme:
   name: material
@@ -531,6 +530,10 @@ nav:
           - hw/rtl-sdr/index.md
       - ESP32-C3:
           - hw/esp32-c3/index.md
+      - Badgerware:
+          - hw/badgerware/index.md
+          - Boards: hw/badgerware/boards.md
+          - Accessories: hw/badgerware/accessories.md
       - Raspberry Pi:
           - hw/raspberry/index.md
           - Boards: hw/raspberry/boards.md
