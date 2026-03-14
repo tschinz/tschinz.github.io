@@ -54,3 +54,131 @@ td {
 :root {
   --md-text-font-family: "Fira Sans";
 }
+
+/* ========================================
+   Privacy Notice - Minimalist Triangle Style
+   ======================================== */
+
+/* Yellow Triangle Trigger Button */
+.te-privacy-trigger {
+  position: fixed;
+  bottom: 6px;
+  right: 20px;
+  z-index: 9998;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+}
+
+.te-privacy-trigger:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
+}
+
+.te-privacy-trigger:active {
+  transform: scale(0.95);
+}
+
+.te-privacy-trigger svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Privacy Popup */
+.te-privacy-popup {
+  position: fixed;
+  bottom: 70px;
+  right: 20px;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 1.25rem;
+  max-width: 280px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.te-privacy-popup-show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.te-privacy-popup-content {
+  position: relative;
+}
+
+/* Close Button */
+.te-privacy-close {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 1.5rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  transition: color 0.2s ease;
+}
+
+.te-privacy-close:hover {
+  color: #fff;
+}
+
+/* Privacy Text */
+.te-privacy-text {
+  color: #ffffff;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  margin: 0 0 1rem 0;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.te-privacy-text strong {
+  color: #f5c518;
+}
+
+/* Privacy Link */
+.te-privacy-link {
+  display: inline-block;
+  color: #f5c518;
+  font-size: 0.8rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.te-privacy-link:hover {
+  color: #ffd633;
+  text-decoration: underline;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 480px) {
+  .te-privacy-trigger {
+    width: 40px;
+    height: 40px;
+    bottom: 4px;
+    right: 15px;
+  }
+
+  .te-privacy-popup {
+    bottom: 58px;
+    left: 15px;
+    right: 15px;
+    max-width: none;
+  }
+
+  .te-privacy-text {
+    font-size: 0.75rem;
+  }
+}
