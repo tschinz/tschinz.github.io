@@ -1,0 +1,194 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+  .te-404-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    text-align: center;
+    padding: 0;
+  }
+
+  .te-404-image {
+    max-width: none;
+    width: 100vw;
+    margin-bottom: 2rem;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+  }
+
+  .te-404-code {
+    font-size: 8rem;
+    font-weight: 700;
+    line-height: 1;
+    margin: 0;
+    background: linear-gradient(135deg, #7c4dff 0%, #f5c518 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .te-404-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 1rem 0 0.5rem 0;
+    color: var(--md-typeset-color);
+  }
+
+  .te-404-subtitle {
+    font-size: 1rem;
+    color: var(--md-default-fg-color--light);
+    margin-bottom: 2rem;
+    max-width: 400px;
+  }
+
+  .te-404-messages {
+    font-family: var(--md-code-font-family, monospace);
+    font-size: 0.85rem;
+    color: var(--md-default-fg-color--light);
+    margin: 0 2rem 2rem 2rem;
+    padding: 1rem;
+    border-radius: 8px;
+    background: var(--md-code-bg-color);
+    text-align: left;
+    max-width: 450px;
+    width: 100%;
+  }
+
+  .te-404-messages code {
+    color: #f5c518;
+  }
+
+  .te-404-messages .error {
+    color: #ff5252;
+  }
+
+  .te-404-messages .comment {
+    color: var(--md-default-fg-color--lighter);
+  }
+
+  .te-404-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 2rem;
+  }
+
+  .te-404-btn {
+    padding: 0.75rem 2rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .te-404-btn-primary {
+    background: transparent;
+    color: var(--md-default-fg-color--light);
+    border: 2px solid var(--md-default-fg-color--lightest);
+  }
+
+  .te-404-btn-primary:hover {
+    background: var(--md-code-bg-color);
+    border-color: var(--md-default-fg-color--lighter);
+    color: var(--md-default-fg-color--light);
+    transform: translateY(-2px);
+  }
+
+  .te-404-btn-secondary {
+    background: transparent;
+    color: var(--md-default-fg-color--light);
+    border: 2px solid var(--md-default-fg-color--lightest);
+  }
+
+  .te-404-btn-secondary:hover {
+    border-color: var(--md-default-fg-color--lighter);
+    color: var(--md-default-fg-color--light);
+    background: var(--md-code-bg-color);
+    transform: translateY(-2px);
+  }
+
+  .te-404-search {
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .te-404-search input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    border: 2px solid var(--md-default-fg-color--lightest);
+    border-radius: 50px;
+    background: var(--md-default-bg-color);
+    color: var(--md-typeset-color);
+    transition: border-color 0.2s ease;
+  }
+
+  .te-404-search input:focus {
+    outline: none;
+    border-color: #7c4dff;
+  }
+
+  .te-404-search input::placeholder {
+    color: var(--md-default-fg-color--lighter);
+  }
+
+  @media (max-width: 480px) {
+    .te-404-code {
+      font-size: 5rem;
+    }
+
+    .te-404-title {
+      font-size: 1.4rem;
+    }
+
+    .te-404-image {
+      max-width: 200px;
+    }
+
+    .te-404-messages {
+      font-size: 0.75rem;
+    }
+  }
+</style>
+
+<div class="te-404-container">
+  <img src="{{ config.site_url }}img/404.svg" alt="404 Constellation" class="te-404-image">
+
+  <div class="te-404-messages">
+      Looks like the link you used isn't connected to anything in this universe. <br>
+      It might have been moved, deleted, or never existed in this dimension. <br><br>
+    &nbsp;&nbsp;→ return to <code>(0,0,0)</code> and try again
+  </div>
+
+  <div class="te-404-buttons">
+    <a href="{{ config.site_url }}" class="te-404-btn te-404-btn-primary">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+      Go Home
+    </a>
+    <a href="javascript:history.back()" class="te-404-btn te-404-btn-secondary">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="19" y1="12" x2="5" y2="12"></line>
+        <polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+      Go Back
+    </a>
+  </div>
+</div>
+{% endblock %}
