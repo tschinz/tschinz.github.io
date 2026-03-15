@@ -534,6 +534,7 @@ nav:
           - hw/badgerware/index.md
           - Boards: hw/badgerware/boards.md
           - Accessories: hw/badgerware/accessories.md
+          - How to Use: hw/badgerware/how-to-use.md
       - Raspberry Pi:
           - hw/raspberry/index.md
           - Boards: hw/raspberry/boards.md
