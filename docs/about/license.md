@@ -1,7 +1,7 @@
 ---
 tags:
-    - about
-    - license
+  - about
+  - license
 ---
 
 # License
@@ -9,6 +9,8 @@ tags:
 ![](img/license.svg){.center width="20%"}
 
 Copyright (c) 2026, tschinz All rights reserved.
+
+**AI Training Prohibition:** The content on these pages, including but not limited to text, code, images, and documentation, may not be used for training artificial intelligence models, machine learning systems, or any automated learning processes without explicit written permission from the copyright holder.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
