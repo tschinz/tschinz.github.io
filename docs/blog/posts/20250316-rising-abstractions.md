@@ -15,6 +15,8 @@ The history of software engineering can be understood as a sequence of **abstrac
 This topic was discussed in the Podcast [Software Engineering Past, Present, and Future with Grady Booch
 ](https://podcasts.apple.com/ch/podcast/software-engineering-past-present-and-future-with/id1625932222?i=1000748671715).
 
+![](resources/20250316-rising-abstractions/rising-abstractions.png){.center width="80.0%"}
+
 <!-- more -->
 
 # The Golden Ages of Software Engineering
