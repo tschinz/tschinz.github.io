@@ -60,7 +60,7 @@ The built-in rechargeable lithium polymer battery keeps the Badger running for e
 | Component      | Specification                                                                                            |
 | :------------- | :------------------------------------------------------------------------------------------------------- |
 | **Battery**    | 1000 mAh LiPo                                                                                            |
-| **Charger IC** | [MCP73831](resources/datasheets/badger/MCP73831%20MCP73832%20Data%20Sheet.pdf) (455 mA charging current) |
+| **Charger IC** | [MCP73831](docs/badger/MCP73831_MCP73832_datasheet.pdf) (455 mA charging current) |
 | **Protector**  | XB6096I2S (over-charge / over-discharge protection)                                                      |
 | **Charging**   | Via USB-C                                                                                                |
 

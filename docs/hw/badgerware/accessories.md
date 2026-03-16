@@ -88,7 +88,7 @@ The LTR-559 is an integrated low-voltage ambient light and proximity sensor with
 | Property              | Value                                          |
 |-----------------------|------------------------------------------------|
 | Manufacturer          | STMicroelectronics                             |
-| Part                  | [LSM6DS3TR-C](resources/datasheets/multi-sensor-stick/iNEMO%20Inertial%20Module.pdf) |
+| Part                  | [LSM6DS3TR-C](docs/multi-sensor-stick/iNEMO_Inertial_Module.pdf) |
 | I²C Address           | `0x6a`                                         |
 | Accelerometer Range   | ±2 / ±4 / ±8 / ±16 g full scale               |
 | Gyroscope Range       | ±125 / ±250 / ±500 / ±1000 / ±2000 dps full scale |

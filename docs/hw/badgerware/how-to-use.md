@@ -13,12 +13,12 @@ tags:
 
 ## Updating/Reflashing Firmware
 
-!!! warning
-   Our firmware comes in two flavours:
+!!! warning Firmware
+    The firmware comes in two flavours:
 
-   1. `badger-vX.X.X-micropython-with-filesystem` which will replace all the apps and software on your device with the defaults, and
+    1. `badger-vX.X.X-micropython-with-filesystem` which will replace all the apps and software on your device with the defaults, and
 
-   2. `badger-vX.X.X-micropython.uf2` which will replace only the firmware.
+    2. `badger-vX.X.X-micropython.uf2` which will replace only the firmware.
 
 Pick your desired firmware image from the latest release for each hardware:
 
