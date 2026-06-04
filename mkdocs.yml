@@ -175,7 +175,6 @@ extra_javascript:
   #- _extra/js/tex-mml-chtml.js # mathjax
   #- _extra/js/polyfill.min.js # polyfill for mathjax
   # from the internet
-  - https://polyfill.io/v3/polyfill.min.js?features=es6 # polyfill for mathjax
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js # mathjax
   - https://cdn.jsdelivr.net/npm/wavedrom@2.1.2/wavedrom.unpkg.js
   - https://wavedrom.com/skins/default.js
