@@ -16,7 +16,7 @@ tags:
 
 | Logo | Abbrev. | License | Ecosystem | Category | Commercial Use | Proprietary Use Allowed | Must Share Modifications | Modifications Allowed | Attribution Required | Notes |
 |:---:|---|---|---|---|---|---|---|---|---|---|
-| ![](img/glwts.svg) | GLWTS | Good Luck With That Public License | Software | Public Domain | Yes | Yes | No | Yes | No | Extreme “no support/no warranty” attitude |
+| ![](img/glwts.gif) | GLWTS | Good Luck With That Public License | Software | Public Domain | Yes | Yes | No | Yes | No | Extreme “no support/no warranty” attitude |
 | ![](img/wtfpl.svg) | WTFPL | Do What The Fuck You Want To Public License | Software | Public Domain | Yes | Yes | No | Yes | No | “Do anything” philosophy |
 | ![](img/cc0.svg) | CC0 | Creative Commons Zero | Content | Public Domain | Yes | Yes | No | Yes | No | Public-domain style |
 | ![](img/mit.svg) | MIT | MIT License | Software | Permissive | Yes | Yes | No | Yes | Yes | Most common simple OSS license |

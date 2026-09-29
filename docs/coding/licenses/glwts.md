@@ -6,6 +6,8 @@ tags:
 ---
 # GLWTS
 
+![](img/glwts.gif){.center width="70%"}
+
 ```
 GLWTS(Good Luck With That Shit) Public License
 Copyright (c) Every-fucking-one, except the Author
