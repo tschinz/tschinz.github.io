@@ -9,6 +9,7 @@
 This is the static mkdocs documentation for myself
 
 ![Github Pages Deploy](https://github.com/tschinz/znotes/actions/workflows/action-mkdocs.yml/badge.svg)
+[![GitHub Sponsors](https://img.shields.io/github/sponsors/tschinz?logo=githubsponsors&label=Sponsor&color=ea4aaa)](https://github.com/sponsors/tschinz)
 
 # How to use the MKDocs Materials Documentation Platform
 ## Requirements
@@ -66,3 +67,7 @@ all the outputs will be in `site` folder.
 
 ## Continuous Integration (CI)
 The CI is done with Github Actions with the file [action-mkdocs.yml](./.github/workflows/action-mkdocs.yml) will run on each master commit and create a `site/` folder which will be pushed onto the branch `gh-pages` and consequently be used by github to displayed static html pages.
+
+## Support
+
+If you find this knowledge base useful, consider supporting it via [GitHub Sponsors](https://github.com/sponsors/tschinz). :heart:

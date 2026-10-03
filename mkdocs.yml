@@ -103,6 +103,9 @@ extra:
       link: https://gitlab.hevs.ch/silvan.zahno
     - icon: fontawesome/brands/github
       link: https://github.com/tschinz
+    - icon: octicons/heart-fill-16
+      link: https://github.com/sponsors/tschinz
+      name: Sponsor on GitHub
   generator: false
 plugins:
   #- meta

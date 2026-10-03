@@ -21,6 +21,10 @@ The journey began on paper in 1999 and transitioned to a webpage in 2004. Over t
 
 Feel free to explore the content. If it proves helpful to others, that’s an added bonus. Thank you for visiting my evolving archive of understanding.
 
+If you like the content, you can support it via GitHub Sponsors:
+
+<iframe src="https://github.com/sponsors/tschinz/button" title="Sponsor tschinz" height="32" width="114" style="border: 0; border-radius: 6px;"></iframe>
+
 ## :heart: Favorites
 
 ![](img/avatar/purple-tentacle-2.svg){align=right}
