@@ -70,7 +70,7 @@ A list of my favorite books
 | ![](img/steve-jobs.jpeg){width="100px"}                      | [Steve Jobs](https://www.google.ch/books/edition/Steve_Jobs/ZgrDRPlNNfQC?hl=de&gbpv=0)                                                                     | 2011 | [Walter Isaacson](https://en.wikipedia.org/wiki/Walter_Isaacson)  | :star::star::star::star: |
 | ![](img/hit-refresh.webp){width="100px"}                     | [Hit Refesh](https://www.google.ch/books/edition/Hit_Refresh/y8JwDwAAQBAJ?hl=de&gbpv=0)                                                                    | 2018 | [Satya Nadella](https://en.wikipedia.org/wiki/Satya_Nadella)      | :star::star:             |
 | ![](img/permanent-record.webp){width="100px"}                | [Edward Snowden - Permanent Record](https://www.google.ch/books/edition/Permanent_Record/0XCcDwAAQBAJ?hl=de&gbpv=0)                                        | 2019 | [Edward Snowden](https://en.wikipedia.org/wiki/Edward_Snowden)    | :star::star::star::star: |
-| ![](img/the-making-of-pop.jpg){width="100px"}                | [The Making of Prince of Persia](https://books.google.ch/books/about/The_Making_of_Prince_of_Persia.html?id=HLLMzAEACAAJ)                                  | 2020 | [Tobias Rüther](https://en.wikipedia.org/wiki/Tobias_R%C3%BCther) | :star::star::star::star: |
+| ![](img/the-making-of-pop.jpg){width="100px"}                | [The Making of Prince of Persia](https://books.google.ch/books/about/The_Making_of_Prince_of_Persia.html?id=HLLMzAEACAAJ)                                  | 2020 | [Tobias Rüther](https://de.wikipedia.org/wiki/Tobias_R%C3%BCther) | :star::star::star::star: |
 
 ## Science
 

@@ -70,4 +70,4 @@ gpg --verify filename or gpg -v filename
 
 - [Official GnuPG Webpage](http://www.gnupg.org)
 - [Key Server](http://www.keys.pgp.net)
-- [HowTo GnuPG](https://help.ubuntu.com/community/GnuPrivacyGuardHowto)
+- [HowTo GnuPG](https://web.archive.org/web/20241225085922/https://help.ubuntu.com/community/GnuPrivacyGuardHowto)

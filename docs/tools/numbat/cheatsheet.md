@@ -99,7 +99,7 @@ x || y               # Logical OR
 ```
 
 ## Units
-[Full list](https://numbat.dev/doc/list-units.html)
+[Full list](https://numbat.dev/docs/prelude/list-units/)
 
 ### Most common units
 ```numbat
@@ -355,7 +355,7 @@ unit tod        : Mass   = stone*2
 ```
 
 ## Dimensions
-[List of all Dimensions](https://numbat.dev/doc/list-units.html)
+[List of all Dimensions](https://numbat.dev/docs/prelude/list-units/)
 ```numbat
 unit second : Time
 unit bit : DigitalInformation

@@ -23,4 +23,4 @@ Tcl is also used for CGI scripting. Tcl is popularly used today in many automate
 ## Links
 
 - [Wikibook Tcl Programming](http://en.wikibooks.org/wiki/Programming:Tcl)
-- [Tcl Developper eXchange - Documentation](http://www.tcl.tk/doc/)
+- [Tcl Developper eXchange - Documentation](https://www.tcl-lang.org/doc/)

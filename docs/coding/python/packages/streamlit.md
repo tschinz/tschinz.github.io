@@ -14,10 +14,6 @@ tags:
 - [Documentation](https://docs.streamlit.io/en/stable/)
 - [Sample gallery](https://www.streamlit.io/gallery)
 
-## Cheatsheet
-
-Instead of listing its funcitionalities here you can find an exhaustive example as standalone repo: [Streamlit Cheastsheet](https://github.com/tschinz/streamlit_cheatsheet)
-
 ## Install
 
 ``` bash

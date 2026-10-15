@@ -26,13 +26,13 @@ On the frequency band exploidable by common SDR are mentioned. See [Radio Spectr
 | MF     | Medium Frequency          | $300KHz - 3MHz$   | $1000m - 100m$ | AM broadcasts, [amateur radio or ham radio](https://en.wikipedia.org/wiki/Amateur_radio), [avalanche beacons](https://en.wikipedia.org/wiki/Avalanche_transceiver), [MRI](https://en.wikipedia.org/wiki/Magnetic_resonance_imaging), [PET-Scan](https://en.wikipedia.org/wiki/Positron_emission_tomography) |
 | HF     | High Frequency            | $3MHz - 30MHz$    | $100m - 10m$   | [Shortwave broadcasts](https://en.wikipedia.org/wiki/Shortwave_radio), [CB-Radio](https://en.wikipedia.org/wiki/Citizens_band_radio), [amateur radio or ham radio](https://en.wikipedia.org/wiki/Amateur_radio), [OTH Radar](https://en.wikipedia.org/wiki/Over-the-horizon_radar), RFID, [ALE](https://en.wikipedia.org/wiki/Automatic_link_establishment). [NVIS](https://en.wikipedia.org/wiki/Near_vertical_incidence_skywave), [CT scan](https://en.wikipedia.org/wiki/CT_scan), [MRI](https://en.wikipedia.org/wiki/Magnetic_resonance_imaging), [PET-Scan](https://en.wikipedia.org/wiki/Positron_emission_tomography), [ultrasound](https://en.wikipedia.org/wiki/Medical_ultrasound) |
 | VHF    | Very High Frequency       | $30MHz - 300MHz$  | $10m - 1m$     | [FM broadcasts](https://en.wikipedia.org/wiki/FM_broadcasting), [TV-broadcasts](https://en.wikipedia.org/wiki/Television), [ATC](https://en.wikipedia.org/wiki/Air_traffic_control) [ground-to-aircraft and aircraft-to-aircraft](https://en.wikipedia.org/wiki/Aviation_communication), [amateur radio or ham radio](https://en.wikipedia.org/wiki/Amateur_radio), [CT scan](https://en.wikipedia.org/wiki/CT_scan), [MRI](https://en.wikipedia.org/wiki/Magnetic_resonance_imaging), [PET-Scan](https://en.wikipedia.org/wiki/Positron_emission_tomography), [ultrasound](https://en.wikipedia.org/wiki/Medical_ultrasound) |
-| UHF    | Ultra High Frequency      | $300MHz - 3GHz$   | $100cm - 10cm$ | [Microwave Oven](https://en.wikipedia.org/wiki/Microwave_oven), [Radio Astronomy](https://en.wikipedia.org/wiki/Radio_astronomy), [Mobile Phones](https://en.wikipedia.org/wiki/Mobile_phone), [WLAN](), [Bluethoot](), [Zigbee](), [GPS](), [FRS Radio](), [GMRS Radio](), [Sattelite Phone L and S-Band]() |
+| UHF    | Ultra High Frequency      | $300MHz - 3GHz$   | $100cm - 10cm$ | [Microwave Oven](https://en.wikipedia.org/wiki/Microwave_oven), [Radio Astronomy](https://en.wikipedia.org/wiki/Radio_astronomy), [Mobile Phones](https://en.wikipedia.org/wiki/Mobile_phone), WLAN, Bluetooth, Zigbee, GPS, FRS Radio, GMRS Radio, Satellite Phone L and S-Band |
 
 ![](img/radio-frequency-bands.png){.center width="100%"}
 
 ## Swiss Frequency Allocation Plan
 
-[National Frequency Allocation Plan](https://www.bakom.admin.ch/bakom/en/homepage/frequencies-and-antennas/national-frequency-allocation-plan.html) or get the [PDF](docs/NaFZ_2024_Allocations_Image_2024-01.pdf) directly
+[National Frequency Allocation Plan](https://www.bakom.admin.ch/en/national-frequency-allocation-plan) or get the [PDF](docs/NaFZ_2024_Allocations_Image_2024-01.pdf) directly
 
 ## Observable
 

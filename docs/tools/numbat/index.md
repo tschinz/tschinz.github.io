@@ -15,8 +15,8 @@ with first class support for physical dimensions and units.
 ## Additional Information
 - [Numbat Online](https://numbat.dev/)
 - [Github](https://github.com/sharkdp/numbat)
-- [Documentation](https://numbat.dev/doc/)
-- [Syntax](https://numbat.dev/doc/example-numbat_syntax.html)
+- [Documentation](https://numbat.dev/docs/)
+- [Syntax](https://numbat.dev/docs/examples/example-numbat_syntax/)
 
 ## Install
 With cargo

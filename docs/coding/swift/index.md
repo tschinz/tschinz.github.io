@@ -27,5 +27,5 @@ Swift is:
 - [Tschinz Swift Cheatsheet Repo](https://github.com/tschinz/swift_cheat_sheet)
 - [Raywenderlich Swift Cheatsheet](https://www.raywenderlich.com/2381-swift-4-cheat-sheet-and-quick-reference)
 - iwasrobbed [Cheat Sheet](https://github.com/iwasrobbed/Swift-CheatSheet)
-- Mohammad Hossein Mojtahedi [Gitbook Cheat Sheet](https://www.gitbook.com/book/mhm5000/swift-cheat-sheet/)
+- Mohammad Hossein Mojtahedi [Gitbook Cheat Sheet](https://web.archive.org/web/20160401132219/https://www.gitbook.com/book/mhm5000/swift-cheat-sheet)
 - Wayland Bishopo [Swift Algorithms and Data Structures](http://waynewbishop.com/swift)

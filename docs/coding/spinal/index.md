@@ -35,6 +35,6 @@ tags:
 
 ## Community
 
-- [Gitter Channel](https://gitter.im/SpinalHDL/SpinalHDL)
+- [Gitter Channel](https://app.gitter.im/#/room/#SpinalHDL_SpinalHDL:gitter.im)
 - [Issues](https://github.com/SpinalHDL/SpinalHDL/issues)
 - [Email](mailto:spinalhdl@gmail.com)

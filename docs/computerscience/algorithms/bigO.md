@@ -7,7 +7,7 @@ tags:
 ---
 
 # Big O Notation
-The Big O notation indicates how fast an algorithms is. It is the worst case evaluation of the given algorithms. In short, how many iterations are needed in the worst case. A list of algorithms with theirs Big O notation can be found at [https://big-o.io](https://big-o.io).
+The Big O notation indicates how fast an algorithms is. It is the worst case evaluation of the given algorithms. In short, how many iterations are needed in the worst case. A list of algorithms with theirs Big O notation can be found at [https://big-o.io](https://web.archive.org/web/20250130101107/https://big-o.io/).
 
 ```
 O(n)
@@ -16,7 +16,7 @@ O(n)
  +---- Big O
 ```
 
-![BigO Runtimes Source: [https://big-o.io](https://big-o.io)](img/bigO-graph.svg){width="700px"}
+![BigO Runtimes Source: [https://big-o.io](https://web.archive.org/web/20250130101107/https://big-o.io/)](img/bigO-graph.svg){width="700px"}
 
 ## Some common runtimes
 

@@ -9,7 +9,7 @@ tags:
 # Modelfile
 An Ollama Modelfile is a configuration file that defines and manages models on the Ollama platform. Create new models or modify and adjust existing models through model files to cope with some special application scenarios. Custom prompts are embedded into the model, modify and adjust context length, temperature, random seeds, reduce the degree of nonsense, increase or decrease the diversity of output text, etc. (Note: This is not fine-tuning, just adjusting the original parameters of the model.)
 
-More infos at: [Ollama Docs Modelfiles](https://github.com/ollama/ollama/blob/main/docs/modelfile.md)
+More infos at: [Ollama Docs Modelfiles](https://docs.ollama.com/modelfile)
 
 Herafter is an example of a Modelfile:
 

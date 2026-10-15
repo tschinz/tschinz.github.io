@@ -48,5 +48,5 @@ The address and data are transmitted on the signal *SDA* as big endian (MSb firs
 
 ## References
 - [I2C Bus Specification](img/nxp-i2c-userguide-UM10204.pdf)
-- [I2C Bus Specification (Online)](https://www.nxp.com/docs/en/user-guide/UM10204.pdf)
+- [I2C Bus Specification (Online)](https://web.archive.org/web/20241231054059/https://www.nxp.com/docs/en/user-guide/UM10204.pdf)
 - [I2C Wikipedia](https://en.wikipedia.org/wiki/I%C2%B2C)
