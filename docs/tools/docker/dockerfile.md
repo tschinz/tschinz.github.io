@@ -34,7 +34,7 @@ A typical Dockerfile contains the following instructions.
 ``` dockerfile
 FROM ubuntu:18.04
 
-LABEL ENV="DEVELOPEMENT"
+LABEL ENV="DEVELOPMENT"
 
 MAINTAINER maintainer@email.com
 

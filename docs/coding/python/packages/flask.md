@@ -8,7 +8,7 @@ tags:
 # Flask
 ![](img/flask.svg){.center width="60.0%"}
 
-[Flask Webpage](https://flask.palletsprojects.com) is a micro web developement framework. By default, Flask does not include a database abstraction layer, form validation or anything else where different libraries already exist that can handle that. Instead, Flask supports extensions to add such functionality to your application as if it was implemented in Flask itself. Numerous extensions provide database integration, form validation, upload handling, various open authentication technologies, and more. Flask may be "micro", but it's ready for production use on a variety of needs.
+[Flask Webpage](https://flask.palletsprojects.com) is a micro web development framework. By default, Flask does not include a database abstraction layer, form validation or anything else where different libraries already exist that can handle that. Instead, Flask supports extensions to add such functionality to your application as if it was implemented in Flask itself. Numerous extensions provide database integration, form validation, upload handling, various open authentication technologies, and more. Flask may be "micro", but it's ready for production use on a variety of needs.
 
 ## Install
 

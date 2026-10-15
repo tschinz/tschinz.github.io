@@ -4,7 +4,7 @@ date: 2025-03-16
 authors:
   - tschinz
 categories:
-  - Software Developement
+  - Software Development
   - LLM
 ---
 

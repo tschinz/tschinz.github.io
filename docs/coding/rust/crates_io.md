@@ -83,7 +83,7 @@ exclude = [
         - Use proper markdown - Headers, lists, code blocks
         - Document panics - If a function can panic, document when
 
-## Local Developement
+## Local Development
 
 ```bash
 # Run all tests
