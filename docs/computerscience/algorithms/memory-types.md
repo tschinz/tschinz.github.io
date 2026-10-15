@@ -1,6 +1,5 @@
 ---
 tags:
-  ≈
 - memory types
 - array
 - linked lists
