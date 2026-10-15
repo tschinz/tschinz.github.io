@@ -4,7 +4,7 @@ date: 2024-11-20
 authors:
   - tschinz
 categories:
-  - rust
+  - Rust
   - macros
   - format!()
   - println!()
