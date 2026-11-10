@@ -82,13 +82,31 @@ See the print screens to how to setup the VPN incoming connection on Windows 7.
     If VPN is setup by default to relay all traffic through the VPN connection. To avoid this you need to uncheck.
 
 ![Start VPN setup](img/vpn_1.png){.center}
+/// figure-caption
+Start VPN setup
+///
 
 ![Configure machine to connect to](img/vpn_2.png){.center}
+/// figure-caption
+Configure machine to connect to
+///
 
 ![Configure user credentials](img/vpn_3.png){.center}
+/// figure-caption
+Configure user credentials
+///
 
 ![Change IPv4 and ipv6 properties](img/vpn_4.png){.center}
+/// figure-caption
+Change IPv4 and ipv6 properties
+///
 
 ![Goto advanced properties](img/vpn_5.png){.center}
+/// figure-caption
+Goto advanced properties
+///
 
 ![Uncheck user default gateway](img/vpn_6.png){.center}
+/// figure-caption
+Uncheck user default gateway
+///

@@ -17,6 +17,9 @@ O(n)
 ```
 
 ![BigO Runtimes Source: [https://big-o.io](https://web.archive.org/web/20250130101107/https://big-o.io/)](img/bigO-graph.svg){width="700px"}
+/// figure-caption
+BigO Runtimes Source: [https://big-o.io](https://web.archive.org/web/20250130101107/https://big-o.io/)
+///
 
 ## Some common runtimes
 
@@ -32,8 +35,14 @@ O(n)
     - traveling salesperson
 
 ![BigO Complexity Source: [https://www.bigocheatsheet.com/](https://www.bigocheatsheet.com/)](img/bigO-complexity.png)
+/// figure-caption
+BigO Complexity Source: [https://www.bigocheatsheet.com/](https://www.bigocheatsheet.com/)
+///
 
 ![BigO Comparison Source: [https://medium.com/@cparusso/what-the-hell-is-big-o-notation-9b90d9f9cd14](https://medium.com/@cparusso/what-the-hell-is-big-o-notation-9b90d9f9cd14)](img/bigO-comparison.png)
+/// figure-caption
+BigO Comparison Source: [https://medium.com/@cparusso/what-the-hell-is-big-o-notation-9b90d9f9cd14](https://medium.com/@cparusso/what-the-hell-is-big-o-notation-9b90d9f9cd14)
+///
 
 ## Ranking Worst to Best
 

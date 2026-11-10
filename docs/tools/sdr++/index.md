@@ -25,10 +25,16 @@ The official [SDR++ Userguide](docs/sdr++-userguide.pdf) or the [latest online v
 - The right menu contains the controls for the waterfall and FFT.
 
 ![Main UI](img/sdrpp-ui_parts.png){.center width="100%"}
+/// figure-caption
+Main UI
+///
 
 The top bar contains the most important controls:
 
 ![Top Bar](img/sdrpp-top_bar.png){.center width="100%"}
+/// figure-caption
+Top Bar
+///
 
 - The menu button allows to show or hide the side menu.
 - The play/stop button is used to start/stop the source.

@@ -13,4 +13,4 @@ The informations here are related to the Bambu Lab P1S with AMS Pro 2.
 
 ## Contents
 
-{nav}
+{{ subnav() }}

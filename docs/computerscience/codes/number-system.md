@@ -109,6 +109,9 @@ $$ CM = 1000-100 = 900 $$
 $$ 2014 = MMXIV = 1000+1000+10+5-1 $$
 
 ![Roman numerals on a sunclock](img/roman-numerals.jpg)
+/// figure-caption
+Roman numerals on a sunclock
+///
 
 ## Binary
 
@@ -126,10 +129,19 @@ The are certain important terms:
 - **Byte** - Pack of 8 bits = 1 byte
 
 ![binary representation](img/binary_representation_2.svg)
+/// figure-caption
+binary representation
+///
 
 ![binary representation](img/binary_representation_1.svg)
+/// figure-caption
+binary representation
+///
 
 ![binary representation](img/binary_representation_1.svg)
+/// figure-caption
+binary representation
+///
 
 $$ A_{2}=\sum_{i=0}^{n-1}a_i*2^i \qquad \qquad 0 \leq a_i\leq 2-1 $$
 

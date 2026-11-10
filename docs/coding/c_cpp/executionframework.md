@@ -19,6 +19,9 @@ Provided services of an XF are:
 ## Overview
 
 ![Execution Framework](img/xf.svg){.center width="700px"}
+/// figure-caption
+Execution Framework
+///
 
 ### ISR
 

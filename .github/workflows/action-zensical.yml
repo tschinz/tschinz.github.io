@@ -1,4 +1,4 @@
-name: Build mkdocs material to Github Pages
+name: Build zensical site to Github Pages
 
 # Controls when the action will run.
 on:
@@ -33,11 +33,10 @@ jobs:
           sudo apt-get install -y build-essential
           echo "Install git"
           sudo apt-get install -y git
-          sudo apt install plantuml
           echo "Install uv"
           curl -LsSf https://astral.sh/uv/install.sh | sh
           just venv-create
-      - name: Build mkdocs material 🔧
+      - name: Build zensical site 🔧
         shell: bash
         run: |
           just build

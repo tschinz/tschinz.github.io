@@ -18,6 +18,9 @@ Everything starts from the root directory, represented by `/`, and then expands 
 As we all know Linux file system starts with `/`, the root directory. All other directories are 'children' of this directory. The partition which the root file system resides on is mounted first during boot and the system will not boot if it doesn't find it. On our reference system, the root directory contains the following sub-directories:
 
 ![[https://www.blackmoreops.com/](https://www.blackmoreops.com/)](img/linux_filesystem.png)
+/// figure-caption
+[https://www.blackmoreops.com/](https://www.blackmoreops.com/)
+///
 
 | Folder        | Description                                            |
 |---------------|------------------------------------------------------- |

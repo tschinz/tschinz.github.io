@@ -232,10 +232,16 @@ Supported file types are `.svg` `.png` `.jpg` `.webp`
 ![](img/magic-wand.svg){align=left width="100px"}
 ![](img/magic-wand.svg){align=right width="100px"}
 ![Caption text](img/magic-wand.svg){.center width="100px"}
+/// figure-caption
+Caption text
+///
 ```
 ![](img/magic-wand.svg){align=left width="100px"}
 ![](img/magic-wand.svg){align=right width="100px"}
 ![Caption text](img/magic-wand.svg){.center width="100px"}
+/// figure-caption
+Caption text
+///
 
 ### Side-by-Side Images
 ```md
@@ -914,7 +920,7 @@ This documentation makes use of the [plantuml-markdown plugin](https://github.co
 For a small Cheatsheet for PlantUML see <https://ogom.github.io/draw_uml/plantuml/>
 
 ```md
-```plantuml
+```text
 @startmindmap
 * **Pillars of OOP**
 **: **Inheritance**
@@ -929,7 +935,7 @@ For a small Cheatsheet for PlantUML see <https://ogom.github.io/draw_uml/plantum
  ```
 ```
 
-```puml
+```plantuml
 @startmindmap
 * **Pillars of OOP**
 **: **Inheritance**
@@ -944,7 +950,7 @@ For a small Cheatsheet for PlantUML see <https://ogom.github.io/draw_uml/plantum
 ```
 
 ```md
-```plantuml
+```text
 @startuml
 class Pokemon {
   .. Attributes ..
@@ -964,7 +970,7 @@ class Pokemon {
  ```
 ```
 
-```puml
+```plantuml
 @startuml
 class Pokemon {
   .. Attributes ..
@@ -984,7 +990,7 @@ class Pokemon {
 ```
 
 ```md
-```plantuml
+```text
 @startuml
 class Pokemon {
   .. Attributes ..
@@ -1033,7 +1039,7 @@ Pokemon <|-- WaterPokemon
  ```
 ```
 
-```puml
+```plantuml
 @startuml
 class Pokemon {
   .. Attributes ..
@@ -1082,7 +1088,7 @@ Pokemon <|-- WaterPokemon
 ```
 
 ```md
-```plantuml
+```text
 @startuml
 title Authentication Sequence
     Alice->Bob: Authentication Request
@@ -1092,7 +1098,7 @@ title Authentication Sequence
  ```
 ```
 
-```puml
+```plantuml
 @startuml
 title Authentication Sequence
     Alice->Bob: Authentication Request

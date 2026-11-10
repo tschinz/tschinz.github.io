@@ -171,6 +171,9 @@ let world = &s[6..11];  // referencing word world
 ```
 
 ![String slice reference](img/string_slice.svg){.center}
+/// figure-caption
+String slice reference
+///
 
 ```rust
 let s = String::from("hello");

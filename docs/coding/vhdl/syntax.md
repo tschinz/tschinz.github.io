@@ -159,6 +159,9 @@ signed_sig   <= signed_sig + signed_sig;
 | `&`                               | Concatenation           | `y = x & z` |
 
 ![Operator usage](img/operator_usage.svg){.center}
+/// figure-caption
+Operator usage
+///
 
 ### Resulting size
 

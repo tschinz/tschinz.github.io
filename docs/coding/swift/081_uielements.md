@@ -117,6 +117,9 @@ There are two styles of TableView's. **Plain**
 ### Cell Types
 
 ![image2](img/uitablecell_types.png)
+/// figure-caption
+image2
+///
 
 - Subtitle `UITableViewCellStyle.Subtitle`
 - Basic `.Default`

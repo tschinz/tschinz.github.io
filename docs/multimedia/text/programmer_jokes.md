@@ -71,6 +71,9 @@ Engineers (n.) Someone who does precision guesswork based on unreliable data pro
 **Question**
 
 ![Q: How to you annoy a web developer?](img/html_tags.png)
+/// figure-caption
+Q: How to you annoy a web developer?
+///
 
 > **Answer** HTML Tags are wrong `DIV` and `SPAN` means the same. Above code is wrong.
 
@@ -79,6 +82,9 @@ Engineers (n.) Someone who does precision guesswork based on unreliable data pro
 **Question**
 
 ![Teacher Punishement](img/teacher_punishement.jpg)
+/// figure-caption
+Teacher Punishement
+///
 
 > **Answer** In this joke, his teacher probably gave him the punishment
 > "Write 'I will not throw paper airplanes in class.' on the board 500 times."
@@ -104,20 +110,32 @@ int main(void)
 
 **Question**
 ![SQL Name](img/sql_name.png)
+/// figure-caption
+SQL Name
+///
 
 > **Answer** This joke has to do with SQL, which are commands used to control databases as well as a common hack used against insecure sites, called SQL Injection.
 
 ## Scripts Automation
 
 ![Automation 1](img/automation-win.png)
+/// figure-caption
+Automation 1
+///
 
 ![Automation 2](img/automation.png)
+/// figure-caption
+Automation 2
+///
 
 ## Are you feeling ill?
 
 **Question**
 
 ![feeling a bit off](img/one_bit_off.png)
+/// figure-caption
+feeling a bit off
+///
 
 > **Answer** One bit is the smallest dataunit. Plays on the double meaning of "a bit" (a bit or one bit (data)).
 

@@ -10,7 +10,7 @@ tags:
 
 ## Contents
 
-{nav}
+{{ subnav() }}
 
 ## Introduction
 
@@ -32,6 +32,9 @@ ROS aka Robotic Operating System is not a OS itself but a framework and middlewa
 ROS Tutorial #1 - [https://www.youtube.com/watch?v=9U6GDonGFHw&t=1s](https://www.youtube.com/watch?v=9U6GDonGFHw&t=1s)
 
 ![ROS Equation](img/ros-equation.png)
+/// figure-caption
+ROS Equation
+///
 
 | Plumbing                    | Tools                    | Capabilities | Ecosystem             |
 | --------------------------- | ------------------------ | ------------ | --------------------- |

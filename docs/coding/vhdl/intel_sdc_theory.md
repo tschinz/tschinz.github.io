@@ -24,6 +24,9 @@ tags:
 - Asynchronous : clock & async paths
 
 ![Paths](img/sdc_paths.svg){.center width="700px"}
+/// figure-caption
+Paths
+///
 
 ## Timing Analysis
 ### Launch edge & Latch edge
@@ -32,6 +35,9 @@ tags:
 - Latch Edge = edge which latches the data from the destination register
 
 ![Launch and Latch Edge](img/sdc_launch_latch.svg){.center width="700px"}
+/// figure-caption
+Launch and Latch Edge
+///
 
 ### Setup & Hold
 
@@ -39,6 +45,9 @@ tags:
 - Hold $T_{h}$ = Minimum time data signal must be stable **AFTER** clock edge
 
 ![Setup and Hold](img/sdc_launch_latch_setup_hold.svg){.center width="700px"}
+/// figure-caption
+Setup and Hold
+///
 
 ### Data Arrival Time
 
@@ -77,6 +86,9 @@ $$Hold\_Slack = Data\_Arrival\_Time_{min} - Maximum\_Hold\_Time_{max}$$
 **Must always be positive**
 
 ![Setup and Hold Time](img/sdc_times_slack.svg){.center width="700px"}
+/// figure-caption
+Setup and Hold Time
+///
 
 ### Recovery & Removal
 

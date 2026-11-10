@@ -41,4 +41,4 @@ As last remark I want to thank Corthay Francois for his VHDL Summary and HTML fi
 
 ## Contents
 
-{nav}
+{{ subnav() }}

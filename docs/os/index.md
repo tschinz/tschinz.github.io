@@ -10,4 +10,4 @@ tags:
 
 ## Contents
 
-{nav}
+{{ subnav() }}

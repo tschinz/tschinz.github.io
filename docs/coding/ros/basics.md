@@ -56,12 +56,18 @@ roscore
 ```
 
 ![ROS Master Publisher Slave](img/ros-master_publisher_subscriber.svg){.center}
+/// figure-caption
+ROS Master Publisher Slave
+///
 
 ## Publisher and Subscribers
 
 With help of the `master`, `publisher` and `subscriber` establish a peer-to-peer connection. All `nodes` must know the network address of the master on startup `ROS_MASTER_URI`.
 
 ![ROS Publisher Slave](img/ros-publisher_subscriber.svg){.center}
+/// figure-caption
+ROS Publisher Slave
+///
 
 - Any node can publish a message to any topic
 - Any node can subscribe to any topic

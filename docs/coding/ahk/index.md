@@ -23,4 +23,4 @@ My ahk scripts can be found in the [config_repo]({{config_repo}}/tree/master/scr
 
 ## Contents
 
-{nav}
+{{ subnav() }}

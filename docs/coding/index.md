@@ -29,4 +29,4 @@ tags:
 
 ## Content
 
-{nav}
+{{ subnav() }}

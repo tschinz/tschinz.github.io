@@ -16,6 +16,9 @@ Vim is a text editor written by Bram Moolenaar and first released publicly in 19
 The Vim Cheat Sheet was done by [http://michael.peopleofhonoronly.com/vim/](http://michael.peopleofhonoronly.com/vim/).
 
 ![Vim Cheatsheet](img/vim_cheat_sheet.svg)
+/// figure-caption
+Vim Cheatsheet
+///
 
 ## SWP Files
 

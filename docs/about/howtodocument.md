@@ -2,20 +2,23 @@
 tags:
 - about
   - how to
-  - mkdocs
+  - zensical
 ---
 # HACK this doc
 ![](img/hack.svg){.center width="20%"}
 If you want to add your page to this documentation you need to add your source file `*.md` in the appropriate section. Every main section has its own folder structure and its own `img/` folder containing all images for this section.
 
-This documentation uses a a main `yml`-file [mkdocs.yml]({{base_repo_file}}/mkdocs.yml) that tell mkdocs which file, and in what order put it in the documentation tree.
+This documentation uses a main config file [zensical.toml]({{base_repo_file}}/zensical.toml) whose `nav` tells Zensical which files to include and in what order.
 
-```yaml
-- Home: index.md
-  - About:
-      - about/index.md
-      - Credits: about/credits.md
-  - Blog: blog/index.md
+```toml
+nav = [
+  { "Home" = ["index.md"] },
+  { "About" = [
+    "about/index.md",
+    { "Credits" = "about/credits.md" },
+  ] },
+  { "Blog" = "blog/index.md" },
+]
 ```
 
 If you don't have enough knowledge about Markdown then you can also use the [pandoc translator](https://pandoc.org/try/) or use the internal [Cheatsheet](../multimedia/writing/md/mkdocs/cheatsheet.md)

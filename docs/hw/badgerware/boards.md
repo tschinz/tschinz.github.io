@@ -93,6 +93,9 @@ The Badger 2350 provides a total of **seven physical buttons**:
 ## Badger 2350
 
 ![Badger 2350](img/badger.png){.center width="60.0%"}
+/// figure-caption
+Badger 2350
+///
 
 The Badger 2350 uses a 2.7-inch electronic paper (E-Paper / E-Ink) display capable of rendering **four levels of greyscale**. E-Paper is reflective, meaning it looks great in direct sunlight and consumes zero power to maintain an image on screen.
 
@@ -105,6 +108,9 @@ Perfect for low-power information displays, pixel art, and slow-paced games. Pro
 ## Tufty 2350
 
 ![Tufty 2350](img/tufty.png){.center width="60.0%"}
+/// figure-caption
+Tufty 2350
+///
 
 The **Tufty 2350** is a smart, interactive badge featuring a vibrant **2.8" full-colour TFT IPS LCD display**.
 
@@ -118,6 +124,9 @@ Perfect for mini dashboards, fast-paced games, and eye-catching widgets — prog
 ## Blinky 2350
 
 ![Blinky 2350](img/blinky.png){.center width="60.0%"}
+/// figure-caption
+Blinky 2350
+///
 
 The **Blinky 2350** is a smart interactive badge featuring a bright white LED matrix display.s
 

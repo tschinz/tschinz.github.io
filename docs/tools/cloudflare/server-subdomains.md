@@ -12,12 +12,24 @@ tags:
 If you want that your server services use your custom subdomain such as `subdomain.example.com`, you will use tool like:
 
 ![Dynamic DNS with [DuckDns](https://www.duckdns.org/)](img/duckdns.png){.center width="150px"}
+/// figure-caption
+Dynamic DNS with [DuckDns](https://www.duckdns.org/)
+///
 
 ![Nginx Reverse Proxy with [Nginx Proxy Manager](https://nginxproxymanager.com/)](img/nginx-proxy-manager.svg){.center width="130px"}
+/// figure-caption
+Nginx Reverse Proxy with [Nginx Proxy Manager](https://nginxproxymanager.com/)
+///
 
 ![[Let's Encrypt](https://letsencrypt.org/) for free ssl certificates](img/lets-encrypt.svg){.center  width="200px"}
+/// figure-caption
+[Let's Encrypt](https://letsencrypt.org/) for free ssl certificates
+///
 
 ![Cloudflare with your custom domain](img/logo.svg){.center  width="200px"}
+/// figure-caption
+Cloudflare with your custom domain
+///
 
 ## Steps
 

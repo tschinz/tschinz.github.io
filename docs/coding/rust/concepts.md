@@ -46,6 +46,9 @@ let s2 = s1;
 This is represented in the picture below:
 
 ![Ownership on String types](img/ownership_string.svg){.center}
+/// figure-caption
+Ownership on String types
+///
 
 ### Ownership and Functions
 
@@ -139,6 +142,9 @@ fn calculate_length(s: &String) -> usize {
 ```
 
 ![Reference on a string](img/reference_string.svg){.center}
+/// figure-caption
+Reference on a string
+///
 
 !!! note
     `&` is referencing and `*` is dereferencing. The action of creating a *reference* is called *borrowing*.

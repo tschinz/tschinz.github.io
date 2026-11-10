@@ -7,6 +7,9 @@ tags:
 #  Git Commands
 
 ![Git Cheatsheet](img/git-cheatsheet.svg){.center}
+/// figure-caption
+Git Cheatsheet
+///
 
 # Start a working area
 

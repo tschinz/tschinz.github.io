@@ -91,6 +91,9 @@ TIMESPEC "TS_SYS_CLK" = PERIOD "SYS_CLK" 25.000 ns HIGH 50.00%;
 ```
 
 ![Duty Cycle](img/ucf_period_duty_cycle.svg){.center}
+/// figure-caption
+Duty Cycle
+///
 
 ### Time Group
 
@@ -114,6 +117,9 @@ INST "inst_name" TNM = qualifier "tnm_name";
 **OFFSET** constraint is used to specify external setup time for input pads or necessary hold time for output pads.
 
 ![Offset Example](img/ucf_offset_example.svg){.center}
+/// figure-caption
+Offset Example
+///
 
 For input pads, OFFSET specifies a time before the (external) clock edge when the related data signals are set.
 
@@ -123,6 +129,9 @@ OFFSET = IN 5 ns BEFORE "CLK";
 ```
 
 ![Offset in](img/ucf_offset_in.svg){.center width="700px"}
+/// figure-caption
+Offset in
+///
 
 For output pads, OFFSET specifies a minimum time after the clock edge when the related data signals can be deasserted.
 
@@ -132,6 +141,9 @@ OFFSET = OUT 2 ns BEFORE "CLK";
 ```
 
 ![Offset Out](img/ucf_offset_out.svg){.center width="700px"}
+/// figure-caption
+Offset Out
+///
 
 #### OFFSET with TimeGroup
 
@@ -152,6 +164,9 @@ TIMEGRP DATA_IN OFFSET IN = 2ns VALID 3ns BEFORE CLK RISING;
 ```
 
 ![Offset Valid](img/ucf_offset_valid.svg){.center}
+/// figure-caption
+Offset Valid
+///
 
 ### False paths
 
@@ -178,6 +193,9 @@ TIMESPEC TS_Example = FROM "GRP_1" TO "GRP_2" TIG;
 ```
 
 ![False Path](img/ucf_false_path.svg){.center}
+/// figure-caption
+False Path
+///
 
 ### Multicycle paths
 
@@ -202,3 +220,6 @@ TIMESPEC TS_Example = FROM "MC_GRP" TO "MC_GRP" TS_CLK1*2;
 ```
 
 ![Multi-Cycle Path](img/ucf_multi_cycle_path.svg){.center}
+/// figure-caption
+Multi-Cycle Path
+///

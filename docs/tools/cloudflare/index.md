@@ -22,4 +22,4 @@ I use it mainly to manage and buy custom domains, and to manage the DNS records 
 
 ## Contents
 
-{nav}
+{{ subnav() }}

@@ -51,11 +51,14 @@ This board is based on the ESP32-C3, and includes sensors, LEDs, buttons, a batt
 - [Espressif ESP32-C3](https://www.espressif.com/en/products/socs/esp32-c3) - Product page
 - [Espressive ESP32-C3-DevKit-Rust](https://github.com/esp-rs/esp-rust-board)
 
-## Board
+## Board
 ## Peripherals
 ### Pin Layout
 
 ![Pin Layout](img/Esp Rust Board Pins.png)
+/// figure-caption
+Pin Layout
+///
 
   | Left <br>Description | Left <br>SoC   | Pin <br> Number | Right <br>Description | Right <br>SoC |
   | -------------------: | -------------: | :-------------: | --------------------- | ------------- |

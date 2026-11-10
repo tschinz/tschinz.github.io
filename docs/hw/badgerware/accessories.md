@@ -10,6 +10,9 @@ tags:
 ## Qw/ST Pad
 
 ![Qw/ST Pad](img/qwst-pad.png){.center width="50.0%"}
+/// figure-caption
+Qw/ST Pad
+///
 
 ## Overview
 
@@ -50,6 +53,9 @@ Up to **4 Qw/ST Pads** can be connected simultaneously by daisy-chaining them to
 ## Multi-Sensor Stick (BME280 + LTR559 + LSM6DS3)
 
 ![Multi-Sensor Stick](img/multi-sensor-stick.png){.center width="50.0%"}
+/// figure-caption
+Multi-Sensor Stick
+///
 
 The [**Multi-Sensor Stick**](https://shop.pimoroni.com/products/multi-sensor-stick?variant=42169525633107) is a 3-in-1 super sensor suite for environmental, light, and movement sensing, with Qw/ST (Qwiic/STEMMA QT) connectors for easy solderless connectivity.
 

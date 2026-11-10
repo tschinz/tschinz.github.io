@@ -9,7 +9,7 @@ tags:
 
 ## Contents
 
-{nav}
+{{ subnav() }}
 
 # Useful Links
 

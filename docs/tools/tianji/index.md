@@ -87,6 +87,9 @@ extra:
 ```
 
 ![Website Analytics](img/tianji-websiteanalytics.png)
+/// figure-caption
+Website Analytics
+///
 
 ### Monitor
 
@@ -100,6 +103,9 @@ The url monitor allows to check if a IP address or a URL is live and gather stat
 - `custom`
 
 ![URL Monitor](img/tianji-monitor.png)
+/// figure-caption
+URL Monitor
+///
 
 ### Server
 
@@ -116,6 +122,9 @@ If your server distribution is not supported (for example for Unraid Slackware) 
 ```
 
 ![Server Monitor](img/tianji-server.png)
+/// figure-caption
+Server Monitor
+///
 
 ### Telemetry
 
@@ -128,6 +137,9 @@ Here is some way to use telemetry:
 For an example see the Zentauri main page ![](https://app-tianji.msgbyte.com/telemetry/cm64lizd7hzwj12yac9ppg3tv/cm66b3c1ho5ve12yakx1ko70b/badge.svg)
 
 ![Telemetry Monitor](img/tianji-telemetry.png)
+/// figure-caption
+Telemetry Monitor
+///
 
 ### Notifications via Telegram
 

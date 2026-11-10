@@ -18,13 +18,13 @@ With the `skinparam` you can change the feel and design of the whole Diagram
 
 ### Shadows
 
-```plantuml
+```text
 skinparam shadowing false
 ```
 
 ### Colors
 
-```plantuml
+```text
 @startuml
 colors
 @enduml
@@ -33,11 +33,11 @@ colors
 
 #### Black and White
 
-```plantuml
+```text
 skinparam monochrome true
 ```
 
-```plantuml
+```text
 @startuml
 
 skinparam monochrome true
@@ -68,7 +68,7 @@ deactivate A
 @enduml
 ```
 
-```puml
+```plantuml
 @startuml
 
 skinparam monochrome true
@@ -101,11 +101,11 @@ deactivate A
 
 #### White and Black
 
-```plantuml
+```text
 skinparam monochrome reverse
 ```
 
-```plantuml
+```text
 @startuml
 
 skinparam monochrome reverse
@@ -136,7 +136,7 @@ deactivate A
 @enduml
 ```
 
-```puml
+```plantuml
 @startuml
 
 skinparam monochrome reverse
@@ -169,7 +169,7 @@ deactivate A
 
 ## Sequence Diagram
 
-```plantuml
+```text
 participant Alice
 participant "The **Famous** Bob" as Bob
 
@@ -199,7 +199,7 @@ note over Alice, Bob
 end note
 ```
 
-```puml
+```plantuml
 participant Alice
 participant "The **Famous** Bob" as Bob
 
@@ -231,7 +231,7 @@ end note
 
 ## Use Case Diagram
 
-```puml
+```plantuml
 :Main Admin: as Admin
 (Use the application) as (Use)
 
@@ -254,6 +254,13 @@ N2 .. (Use)
 
 ## Class Diagram
 
+```text
+Object <|-- ArrayList
+
+Object : equals()
+ArrayList : Object[] elementData
+ArrayList : size()
+```
 ```plantuml
 Object <|-- ArrayList
 
@@ -261,15 +268,8 @@ Object : equals()
 ArrayList : Object[] elementData
 ArrayList : size()
 ```
-```puml
-Object <|-- ArrayList
 
-Object : equals()
-ArrayList : Object[] elementData
-ArrayList : size()
-```
-
-```plantuml
+```text
 class Foo1 {
   You can use
   several lines
@@ -298,7 +298,7 @@ class User {
 }
 ```
 
-```puml
+```plantuml
 class Foo1 {
   You can use
   several lines
@@ -329,7 +329,7 @@ class User {
 
 ## Activity Diagram
 
-```plantuml
+```text
 (*) --> "Initialization"
 
 if "Some Test" then
@@ -343,7 +343,7 @@ endif
 ```
 
 
-```puml
+```plantuml
 (*) --> "Initialization"
 
 if "Some Test" then
@@ -356,7 +356,7 @@ else
 endif
 ```
 
-```plantuml
+```text
 title Servlet Container
 
 (*) --> "ClickServlet.handleRequest()"
@@ -407,7 +407,7 @@ endif
 --> "Page.onDestroy()"
 -->(*)
 ```
-```puml
+```plantuml
 title Servlet Container
 
 (*) --> "ClickServlet.handleRequest()"
@@ -464,7 +464,7 @@ endif
 
 ## MindMaps
 
-```plantuml
+```text
 @startmindmap
 + OS
 ++ Ubuntu
@@ -483,7 +483,7 @@ endif
 --- Windows 10
 @endmindmap
 ```
-```puml
+```plantuml
 @startmindmap
 + OS
 ++ Ubuntu
@@ -503,7 +503,7 @@ endif
 @endmindmap
 ```
 
-```plantuml
+```text
 @startmindmap
 
 <style>
@@ -565,7 +565,7 @@ left side
 ***_ Deterministic Applications
 @endmindmap
 ```
-```puml
+```plantuml
 @startmindmap
 
 <style>
@@ -630,7 +630,7 @@ left side
 
 ## WBS Work Breakdown Structure
 
-```plantuml
+```text
 @startwbs
 * Business Process Modelling WBS
 ** Launch the project
@@ -645,7 +645,7 @@ left side
 ** Complete innovate phase
 @endwbs
 ```
-```puml
+```plantuml
 @startwbs
 * Business Process Modelling WBS
 ** Launch the project
@@ -663,7 +663,7 @@ left side
 
 ## GANTT Chart
 
-```plantuml
+```text
 @startgantt
 Project starts 2020/05/01
 saturday are closed
@@ -675,7 +675,7 @@ Project starts the 1th of may 2020
 [Setup assembly line] starts at [Test prototype]'s end
 @endgantt
 ```
-```puml
+```plantuml
 @startgantt
 Project starts 2020/05/01
 saturday are closed
@@ -688,7 +688,7 @@ Project starts the 1th of may 2020
 @endgantt
 ```
 
-```plantuml
+```text
 @startgantt
 project starts 2021/06/01
 saturday are closed
@@ -741,7 +741,7 @@ printscale weekly
 @endgantt
 ```
 
-```puml
+```plantuml
 @startgantt
 project starts 2021/06/01
 saturday are closed
@@ -797,7 +797,7 @@ printscale weekly
 
 ## Timing Diagram
 
-```plantuml
+```text
 @startuml
 clock clk with period 1
 binary "Enable" as EN
@@ -812,7 +812,7 @@ EN is high
 EN is low
 @enduml
 ```
-```puml
+```plantuml
 @startuml
 clock clk with period 1
 binary "Enable" as EN

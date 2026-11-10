@@ -31,4 +31,4 @@ brew install numbat
 
 ## Contents
 
-{nav}
+{{ subnav() }}

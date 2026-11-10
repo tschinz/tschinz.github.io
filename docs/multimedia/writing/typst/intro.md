@@ -23,4 +23,4 @@ Typst is a good choice for writing any long-form text, such as essays, articles,
 
 ## Contents
 
-{nav}
+{{ subnav() }}

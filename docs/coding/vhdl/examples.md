@@ -55,6 +55,9 @@ Mode = 1 (reactive on falling edge)
     [config repo bram]({{config_repo_folder}}/scripts/vhdl/bram)
 
 ![BRAM](img/bram.svg){.center width="100%"}
+/// figure-caption
+BRAM
+///
 
 To generate RAM and ROM using the BRAM's available in the FPGA, several methods can be used.
 

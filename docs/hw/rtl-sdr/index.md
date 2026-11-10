@@ -34,6 +34,9 @@ The latest version of the dongle is the [RTL-SDR v4](https://www.rtl-sdr.com/V4/
 - [Rafael Micro R820T2 Tuner Register Description](docs/R820T2_Register_Description.pdf)
 
 ![Schematic R820T](./img/schematic-r820t.png)
+/// figure-caption
+Schematic R820T
+///
 
 ### Diplole Antenna Kit
 

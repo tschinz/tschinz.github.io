@@ -13,4 +13,4 @@ The information about psychology is based on my personal experiences, readings, 
 
 ## Contents
 
-{nav}
+{{ subnav() }}

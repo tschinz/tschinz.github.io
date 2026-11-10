@@ -1,26 +1,12 @@
 ##################################################
 # Variables
 #
-project_dir   := justfile_directory()
-project_name  := file_stem(justfile_directory())
-
-venv_dir        := ".venv"
-env_file        := "pyproject.toml"
-env_lock_file   := "uv.lock"
-env_export_file := "requirements.txt"
-source_dir      := "docs"
-output_dir      := "site"
-git-tag         := `git describe --tags --always`
-year            := `date +%Y`
-date            := `date +%Y-%m-%d`
-builder         := "mkdocs"
-builder_version := builder + " -V"
-
-sourceVenv := if os() == "windows" {
-  project_dir + "\\" + venv_dir + "\\Scripts\\activate.bat"
-} else{
-  "source " + project_dir + "/" + venv_dir + "/bin/activate"
-}
+project_dir := justfile_directory()
+venv_dir    := ".venv"
+source_dir  := "docs"
+output_dir  := "site"
+cache_dir   := ".cache"
+git-tag     := `git describe --tags --always`
 
 ##################################################
 # COMMANDS
@@ -31,108 +17,73 @@ _default:
 
 # Information about the environment
 @info:
-  #!/usr/bin/env bash
-  echo "========================"
-  echo "Environment Informations"
-  echo "========================"
   echo "OS          : {{os()}}({{arch()}})"
   echo "Projectdir  : {{project_dir}}"
-  echo "----------------------------"
-  echo "ENV tool    : uv"
-  echo "VENV DIR    : {{venv_dir}}"
-  echo "ENV file    : {{env_file}}"
-  echo "LOCK file   : {{env_lock_file}}"
-  echo "EXPORT file : {{env_export_file}}"
-  echo "----------------------------"
   echo "Source dir  : {{source_dir}}"
   echo "Output dir  : {{output_dir}}"
+  echo "Builder     : `uv run zensical --version`"
   echo "----------------------------"
-  echo "Builder     : `{{sourceVenv}} && {{builder_version}}`"
-  echo "----------------------------"
-  echo "Project Dependencies"
-  {{sourceVenv}} && uv tree
-  echo "========================"
-
+  uv tree --depth 1
 
 #-------------------------------------------------
 # ENV RELATED
 #
-# Create new uv environment from old requirements.txt
-uv-create requirements=env_export_file:
-  # could get requirements from current pip freeze
-  #pip freeze > {{requirements}}
-  # create a new uv environment
-  uv init .
-  rm ./main.py
-  uv venv {{venv_dir}}
-  # install the requirements does not update pyproject.toml
-  uv add -r {{requirements}}
-
-# Create virtual environment
+# Create or update the virtual environment from uv.lock
 @venv-create:
-  if [ -d ".venv/bin" ]; then \
-    echo "venv already exists"; \
-  else \
-    uv venv {{venv_dir}}; \
-  fi
   uv sync
 
-# Export the build environment to {{env_export_file}}
-@venv-export:
-  uv export --format {{env_export_file}}
+# Upgrade all dependencies to their latest allowed versions
+@venv-upgrade:
+  uv sync --upgrade
 
-@venv-lock:
-  uv lock
+# Add a dependency, e.g. `just add plantuml-markdown`
+@add package:
+  uv add {{package}}
 
+# Remove a dependency
+@remove package:
+  uv remove {{package}}
+
+#-------------------------------------------------
+# BUILD
+#
+# Build HTML static site
+@build: venv-create
+  uv run zensical build
+
+# Build HTML static site and serve it locally
+@serve: venv-create
+  uv run zensical serve
+
+#-------------------------------------------------
+# CHANGELOG
+#
 # create a release version of the project
 changelog-release version=git-tag:
   git cliff --tag {{version}}
-  git tag -a {{version}} -m "Release {{version}}"$
+  git tag -a {{version}} -m "Release {{version}}"
 
 # create the changelog of the project
 changelog:
   git cliff
 
-# Build HTML static site
-@build: venv-create
-  #!/usr/bin/env bash
-  {{sourceVenv}} && \
-  {{builder}} build
-
-# Build HTML static site and serve it locally
-@serve: venv-create
-  #!/usr/bin/env bash
-  {{sourceVenv}} && \
-  {{builder}} serve
-
-# Deploy on gh-pages
-@deploy: venv-create
-  #!/usr/bin/env bash
-  {{sourceVenv}} && \
-  {{builder}} gh-deploy
-
-# Delete build folder
-[linux]
-[macos]
-@clean-build:
-  rm -rf {{output_dir}}
-
-[windows]
-@clean-build:
-  del {{output_dir}}
-
-# Delete venv
-[linux]
-[macos]
-@clean-venv:
-  rm -rf {{venv_dir}}
-
-[windows]
-@clean-venv:
-  del {{venv_dir}}
-
-@clean: clean-build clean-venv
-
+#-------------------------------------------------
+# CHECKS
+#
 # check all links
 @lychee:
   lychee --exclude-all-private README.md docs/* --accept 100..=103,200..=299,403
+
+#-------------------------------------------------
+# CLEAN
+#
+# Delete build folder and build cache
+@clean-build:
+  rm -rf {{output_dir}} {{cache_dir}}
+
+# Delete venv
+@clean-venv:
+  rm -rf {{venv_dir}}
+
+# Delete build folder, build cache and venv
+@clean: clean-build clean-venv

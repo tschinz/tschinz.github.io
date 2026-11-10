@@ -34,4 +34,4 @@ C++ ist eine von der ISO standardisierte höhere Programmiersprache. Sie wurde a
 
 ## Contents
 
-{nav}
+{{ subnav() }}

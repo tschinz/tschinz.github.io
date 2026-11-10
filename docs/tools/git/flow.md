@@ -15,3 +15,6 @@ tags:
 - `hotfix` - quick and dirty hotfix directly into `develop` and `master` branch
 
 ![Git Flow](img/git-flow.svg){.center}
+/// figure-caption
+Git Flow
+///

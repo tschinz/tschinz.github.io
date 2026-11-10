@@ -14,4 +14,4 @@ In any case to enlarge the Jupyterbook just press `B` on your keyboard.
 
 ## Contents
 
-{nav}
+{{ subnav() }}

@@ -78,8 +78,14 @@ Heroku create new app and select app name
 After you can connect the github repo. It in the repo the plotly dash in configured correctly Heroku detect automatically the app.
 
 ![Heroku connect to github repo](img/plotly_dash/heroku_03_connect_to_github.png){.center width="80%"}
+/// figure-caption
+Heroku connect to github repo
+///
 
 Once the correct repo is selected define if the app should be deployed now manually or with each commit of a selected branch.
 
 ![Heroku select deploy method](img/plotly_dash/heroku_04_select_deploy.png){.center width="80%"}
+/// figure-caption
+Heroku select deploy method
+///
 

@@ -27,4 +27,4 @@ tags:
 
 ## Contents
 
-{nav}
+{{ subnav() }}

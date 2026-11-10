@@ -16,4 +16,4 @@ OpenWeb UI is a web-based user interface for Ollama, allowing you to interact wi
 
 ## Contents
 
-{nav}
+{{ subnav() }}

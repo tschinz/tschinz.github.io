@@ -6,12 +6,12 @@
   <br>
 </h1>
 
-This is the static mkdocs documentation for myself
+This is the static [Zensical](https://zensical.org) documentation for myself
 
-![Github Pages Deploy](https://github.com/tschinz/znotes/actions/workflows/action-mkdocs.yml/badge.svg)
+![Github Pages Deploy](https://github.com/tschinz/tschinz/actions/workflows/action-zensical.yml/badge.svg)
 [![GitHub Sponsors](https://img.shields.io/github/sponsors/tschinz?logo=githubsponsors&label=Sponsor&color=ea4aaa)](https://github.com/sponsors/tschinz)
 
-# How to use the MKDocs Materials Documentation Platform
+# How to use the Zensical Documentation Platform
 ## Requirements
 
 - [just](https://just.systems/man/en/packages.html)
@@ -33,22 +33,22 @@ This is the static mkdocs documentation for myself
 ```bash
 just --list
 Available recipes:
-    build                                  # Build HTML static site
-    changelog                              # create the changelog of the project
-    changelog-release version=git-tag      # create a release version of the project
-    clean
-    clean-build                            # Delete build folder
-    clean-venv                             # Delete venv
-    deploy                                 # Deploy on gh-pages
-    info                                   # Information about the environment
-    serve                                  # Build HTML static site and serve it locally
-    uv-create requirements=env_export_file # Create new uv environment from old requirements.txt
-    venv-create                            # Create virtual environment
-    venv-export                            # Export the build environment to {{env_export_file}}
-    venv-lock
+    add package                       # Add a dependency, e.g. `just add plantuml-markdown`
+    build                             # Build HTML static site
+    changelog                         # create the changelog of the project
+    changelog-release version=git-tag # create a release version of the project
+    clean                             # Delete build folder, build cache and venv
+    clean-build                       # Delete build folder and build cache
+    clean-venv                        # Delete venv
+    info                              # Information about the environment
+    lychee                            # check all links
+    remove package                    # Remove a dependency
+    serve                             # Build HTML static site and serve it locally
+    venv-create                       # Create or update the virtual environment from uv.lock
+    venv-upgrade                      # Upgrade all dependencies to their latest allowed versions
 ```
 
-## How to Build MKDocs locally
+## How to Build locally
 incremental build of the documentation and watching for file changes.  Served locally
 
 ```bash
@@ -57,7 +57,7 @@ just serve
 
 all the outputs will be in `site` folder. Open the webpage[http://localhost:8000](http://localhost:8000)
 
-## How to Build MKDocs
+## How to Build
 
 ```bash
 just build
@@ -66,7 +66,7 @@ just build
 all the outputs will be in `site` folder.
 
 ## Continuous Integration (CI)
-The CI is done with Github Actions with the file [action-mkdocs.yml](./.github/workflows/action-mkdocs.yml) will run on each master commit and create a `site/` folder which will be pushed onto the branch `gh-pages` and consequently be used by github to displayed static html pages.
+The CI is done with Github Actions with the file [action-zensical.yml](./.github/workflows/action-zensical.yml) will run on each master commit and create a `site/` folder which will be pushed onto the branch `gh-pages` and consequently be used by github to displayed static html pages.
 
 ## Support
 

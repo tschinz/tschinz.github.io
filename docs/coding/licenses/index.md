@@ -10,7 +10,7 @@ tags:
 
 ## Contents
 
-{nav}
+{{ subnav() }}
 
 ## Overview
 
